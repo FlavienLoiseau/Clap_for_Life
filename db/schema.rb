@@ -38,7 +38,6 @@ ActiveRecord::Schema.define(version: 2020_12_01_144751) do
 
   create_table "activities", force: :cascade do |t|
     t.string "code"
-    t.string "title"
     t.string "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -78,7 +77,7 @@ ActiveRecord::Schema.define(version: 2020_12_01_144751) do
     t.bigint "activity_id"
     t.string "name"
     t.string "registration_number"
-    t.date "registration_date"
+    t.string "registration_date"
     t.text "description"
     t.boolean "confirmed"
     t.bigint "tagable_id"
