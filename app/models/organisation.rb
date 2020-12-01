@@ -9,4 +9,8 @@ class Organisation < ApplicationRecord
 
   has_many :missions
 
+  has_one_attached :logo
+  has_one_attached :cover
+  has_many_attached :images
+
 end
