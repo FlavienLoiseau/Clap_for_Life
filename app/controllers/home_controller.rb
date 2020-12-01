@@ -5,6 +5,7 @@ class HomeController < ApplicationController
   def accueil
   end
 
-  def test
+  def pages
   end
+
 end
