@@ -91,6 +91,7 @@ ActiveRecord::Schema.define(version: 2020_12_01_103952) do
     t.string "last_name"
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
+    t.boolean "admin"
     t.string "phone_number"
     t.date "date_of_birth"
     t.boolean "organisation_admin"
