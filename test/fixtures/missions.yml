@@ -1,0 +1,21 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  contact_first_name: MyString
+  contact_last_name: MyString
+  contact_phone: MyString
+  description: MyText
+  start_date: 2020-12-01 11:27:55
+  end_date: 2020-12-01 11:27:55
+  volunteers_needed: 1
+
+two:
+  title: MyString
+  contact_first_name: MyString
+  contact_last_name: MyString
+  contact_phone: MyString
+  description: MyText
+  start_date: 2020-12-01 11:27:55
+  end_date: 2020-12-01 11:27:55
+  volunteers_needed: 1
