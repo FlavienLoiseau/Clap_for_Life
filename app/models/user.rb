@@ -6,10 +6,12 @@ class User < ApplicationRecord
          :confirmable
 
   has_one :address, as: :addressable
-  
+
   has_one :organisations
 
   has_many :participations
   has_many :missions, through: :participations
+
+  has_one_attached :avatar
 
 end
