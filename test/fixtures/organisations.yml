@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  registration_number: MyString
+  name: MyString
+  registration_date: MyString
+  description: MyText
+  confirmed: false
+
+two:
+  registration_number: MyString
+  name: MyString
+  registration_date: MyString
+  description: MyText
+  confirmed: false
