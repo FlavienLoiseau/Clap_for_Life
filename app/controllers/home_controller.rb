@@ -9,4 +9,11 @@ class HomeController < ApplicationController
   def pages
   end
 
+  def contact
+  end
+
+  def missions
+  end
+
+
 end
