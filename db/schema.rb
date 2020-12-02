@@ -111,6 +111,7 @@ ActiveRecord::Schema.define(version: 2020_12_01_144751) do
     t.bigint "address_id"
     t.string "first_name"
     t.string "last_name"
+    t.string "username", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.boolean "admin"
