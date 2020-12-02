@@ -10,6 +10,10 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+ 
+ *= require custom.css
  *= require style.pink.css
+ *= require nouislider.css
+ *= require magnific-popup.css
  *= require clap4life.css
  */

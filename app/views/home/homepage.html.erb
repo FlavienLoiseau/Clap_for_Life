@@ -1,136 +1,185 @@
-<%#Accueil%>
-<section class="d-flex align-items-center dark-overlay bg-cover" style="background-image: url(https://images.unsplash.com/photo-1461532257246-777de18cd58b?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1055&q=80);">
-  <div class="container py-6 py-lg-7 text-white overlay-content text-center">
-    <div class="row">
-      <div class="col-xl-10 mx-auto">
-        <h1 class="display-3 font-weight-bold text-shadow" style="font-family: 'Sansita Swashed', cursive; font-size: 5rem">Clap for Life</h1>
-        <p class="text-lg text-shadow">La plateforme qui relie les associations à des bénévoles ponctuels</p>
-      </div>
-    </div>
-  </div>
-</section>
-<div class="container">
-  <div class="search-bar rounded p-3 p-lg-4 position-relative mt-n5 z-index-20">
-    <form action="#">
+
+  <body>
+  <section class="d-flex align-items-center dark-overlay bg-cover" style="background-image: url(https://images.unsplash.com/photo-1461532257246-777de18cd58b?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1055&q=80);">
+    <div class="container py-6 py-lg-7 text-white overlay-content text-center">
       <div class="row">
-        <div class="col-lg-4 d-flex align-items-center form-group">
-          <input class="form-control border-0 shadow-0" type="search" name="search" placeholder="Recherche une association">
-        </div>
-        <div class="col-md-6 col-lg-3 d-flex align-items-center form-group">
-          <div class="input-label-absolute input-label-absolute-right w-100">
-            <label class="label-absolute" for="location"><i class="fa fa-crosshairs"></i>
-              <div class="sr-only">City</div>
-            </label>
-            <input class="form-control border-0 shadow-0" type="text" name="location" placeholder="Ville" id="location">
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-3 d-flex align-items-center form-group no-divider">
-          <select class="selectpicker" title="Categories" data-style="btn-form-control">
-            <option value="small">Restaurants</option>
-            <option value="medium">Hotels</option>
-            <option value="large">Cafes</option>
-            <option value="x-large">Garages</option>
-          </select>
-        </div>
-        <div class="col-lg-2 form-group mb-0">
-          <button class="btn btn-primary btn-block h-100" type="submit">Recherche </button>
-        </div>
-      </div>
-    </form>
-  </div>
-</div>
-<br><br>
-
-<%# Home - Theme sample %>
-<section>
-  <div class="container">
-    <div class="row mb-5">
-      <div class="col-md-8">
-        <h2>Thèmes associatifs</h2>
-      </div>
-      <div class="col-md-4 d-md-flex align-items-center justify-content-end"><a class="text-muted text-sm" href="category.html">
-            Voir tous les thèmes<i class="fas fa-angle-double-right ml-2"></i></a></div>
-    </div>
-    <div class="row">
-      <div class="d-flex align-items-lg-stretch mb-4 col-lg-8">
-        <div class="card shadow-lg border-0 w-100 border-0 hover-animate" style="background: center center url(https://images.unsplash.com/photo-1501633159663-1836f82ceaf0?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=967&q=80) no-repeat; background-size: cover;"><a class="tile-link" href="category.html"> </a>
-          <div class="d-flex align-items-center h-100 text-white justify-content-center py-6 py-lg-7">
-            <h3 class="text-shadow text-uppercase mb-0">Droit des femmes</h3>
-          </div>
-        </div>
-      </div>
-      <div class="d-flex align-items-lg-stretch mb-4 col-lg-4">
-        <div class="card shadow-lg border-0 w-100 border-0 hover-animate" style="background: center center url(https://images.unsplash.com/photo-1499257398700-43669759a540?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80) no-repeat; background-size: cover;"><a class="tile-link" href="category.html"> </a>
-          <div class="d-flex align-items-center h-100 text-white justify-content-center py-6 py-lg-7">
-            <h3 class="text-shadow text-uppercase mb-0">Clubs de lecture</h3>
-          </div>
+        <div class="col-xl-10 mx-auto">
+          <h1 class="display-3 font-weight-bold text-shadow" style="font-family: 'Sansita Swashed', cursive; font-size: 5rem">Clap for Life</h1>
+          <p class="text-lg text-shadow">La plateforme qui relie les associations à des bénévoles ponctuels</p>
         </div>
       </div>
     </div>
-    <div class="row">
-      <div class="d-flex align-items-lg-stretch mb-4 col-lg-4">
-        <div class="card shadow-lg border-0 w-100 border-0 hover-animate" style="background: center center url(https://images.unsplash.com/photo-1603651481343-0f71466bb14a?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80) no-repeat; background-size: cover;"><a class="tile-link" href="category.html"> </a>
-          <div class="d-flex align-items-center h-100 text-white justify-content-center py-6 py-lg-7">
-            <h3 class="text-shadow text-uppercase mb-0">Patrimoine</h3>
-          </div>
-        </div>
-      </div>
-      <div class="d-flex align-items-lg-stretch mb-4 col-lg-4">
-        <div class="card shadow-lg border-0 w-100 border-0 hover-animate" style="background: center center url(https://images.unsplash.com/photo-1520277739336-7bf67edfa768?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1189&q=80) no-repeat; background-size: cover;"><a class="tile-link" href="category.html"> </a>
-          <div class="d-flex align-items-center h-100 text-white justify-content-center py-6 py-lg-7">
-            <h3 class="text-shadow text-uppercase mb-0">Foyers</h3>
-          </div>
-        </div>
-      </div>
-      <div class="d-flex align-items-lg-stretch mb-4 col-lg-4">
-        <div class="card shadow-lg border-0 w-100 border-0 hover-animate" style="background: center center url(https://images.unsplash.com/photo-1527490087278-9c75be0b8052?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1047&q=80) no-repeat; background-size: cover;"><a class="tile-link" href="category.html"> </a>
-          <div class="d-flex align-items-center h-100 text-white justify-content-center py-6 py-lg-7">
-            <h3 class="text-shadow text-uppercase mb-0">Education</h3>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<%#Carte mission%>
-<hr>
-  <div class="container py-5">
-    <div class="row mb-5">
-      <div class="col-md-8">
-        <h2>Ces associations ont besoin de vous !</h2>
-      </div>
-    </div>
-    <div class="row">
-      <% @missions.each do |mission| %>
-        <!-- venue item-->
-        <div class="col-sm-6 col-lg-4 mb-5 hover-animate" data-marker-id="59c0c8e33b1527bfe2abaf92">
-          <div class="card h-100 border-0 shadow">
-            <div class="card-img-top overflow-hidden dark-overlay bg-cover" style="background-image: url(https://www.linfodurable.fr/sites/linfodurable/files/styles/landscape_w800/public/2018-06/NETTOYAGES%20DE%20PLAGE.jpg?h=a7a713b3&itok=D2cYNkDE); min-height: 200px;"><a class="tile-link" href="detail.html"></a>
-              <div class="card-img-overlay-bottom z-index-20">
-                <h4 class="text-white text-shadow"><%=mission.title%></h4>
+  </section>
+  <div class="container position-relative mt-n6 z-index-20">
+    <ul class="nav nav-tabs search-bar-nav-tabs" role="tablist">
+      <li class="nav-item mr-2"><a class="nav-link active" href="#buy" data-toggle="tab" role="tab">Chercher une association</a></li>
+      <li class="nav-item mr-2"><a class="nav-link" href="#rent" data-toggle="tab" role="tab">Chercher une mission</a></li>
+    </ul>
+    <div class="search-bar search-bar-with-tabs p-3 p-lg-4">
+      <div class="tab-content">
+        <div class="tab-pane fade show active" id="buy" role="tabpanel">
+              <form action="#">
+                <div class="row">
+                  <div class="col-md-6 col-lg-4 d-flex align-items-center form-group no-divider">
+                    <div class="input-label-absolute input-label-absolute-right w-100">
+                <label class="label-absolute" for="Ville"><i class="fa fa-crosshairs"></i>
+                  <div class="sr-only">Ville</div>
+                </label>
+                <input class="form-control border-0 shadow-0" type="text" name="location" placeholder="Ville" id="location">
               </div>
-              <div class="card-img-overlay-top d-flex justify-content-between align-items-center">
-                <div class="badge badge-transparent badge-pill px-3 py-2 mt-2"><%if mission.organisation.tags.present?%>
-                  <%=mission.organisation.tags.last.name%>
-                  <%end%>
                   </div>
+                  <div class="col-md-6 col-lg-3 d-flex align-items-center form-group no-divider">
+                    <select class="selectpicker" title="Domaine associatif" data-style="btn-form-control">
+                      <option value="small">Précarité</option>
+                      <option value="medium">Environnement</option>
+                      <option value="large">Education</option>
+                      <option value="x-large">Aide à la personne</option>
+                    </select>
+                  </div>
+                  <div class="col-md-6 col-lg-3 d-flex align-items-center form-group no-divider">
+                    <select class="selectpicker" title="Activité" data-style="btn-form-control">
+                      <option value="small">Restaurants</option>
+                      <option value="medium">Hotels</option>
+                      <option value="large">Cafes</option>
+                      <option value="x-large">Garages</option>
+                    </select>
+                  </div>
+                  <div class="col-lg-2 form-group mb-0">
+                    <button class="btn btn-primary btn-block h-100" type="submit">Rechercher </button>
+                  </div>
+                </div>
+              </form>
+        </div>
+        <div class="tab-pane fade" id="rent" role="tabpanel">
+              <form action="#">
+                <div class="row">
+                  <div class="col-md-6 col-lg-4 d-flex align-items-center form-group no-divider">
+                    <div class="input-label-absolute input-label-absolute-right w-100">
+                <label class="label-absolute" for="Ville"><i class="fa fa-crosshairs"></i>
+                  <div class="sr-only">Ville</div>
+                </label>
+                <input class="form-control border-0 shadow-0" type="text" name="location" placeholder="Ville" id="location">
               </div>
-            </div>
-            <div class="card-body">
-              <i class="fas fa-search-location" style="color:#808080"></i><small style="color:#808080"> <%=mission.address.city%>,  <%=mission.address.zipcode%></small><br>
-              <i class="fas fa-users" style="color:#808080"></i><small style="color:#808080"> Besoin de <%=mission.volunteers_needed%> volontaires</small><br>
-              <i class="fas fa-calendar-day" style="color:#808080"></i><small style="color:#808080"> Date: <%=mission.start_date%></small><br></p>
+                  </div>
+                  <div class="col-md-6 col-lg-3 d-flex align-items-center form-group no-divider">
+                    <select class="selectpicker" title="Domaine associatif" data-style="btn-form-control">
+                      <option value="small">Précarité</option>
+                      <option value="medium">Environnement</option>
+                      <option value="large">Education</option>
+                      <option value="x-large">Aide à la personne</option>
+                    </select>
+                  </div>
+                  <div class="col-md-6 col-lg-3 d-flex align-items-center form-group no-divider">
+                    <select class="selectpicker" title="Activité" data-style="btn-form-control">
+                      <option value="small">Manuel</option>
+                      <option value="medium">Organisation</option>
+                      <option value="large">Intellectuel</option>
+                      <option value="x-large">Ecoute</option>
+                    </select>
+                  </div>
+                  <div class="col-lg-2 form-group mb-0">
+                    <button class="btn btn-primary btn-block h-100" type="submit">Rechercher </button>
+                  </div>
+                </div>
+              </form>
+          </div>
+      </div>
+    </div>
+  </div>
 
-              <%= link_to "Voir la mission", organisation_mission_path(mission.organisation.id, mission.id), class: "btn btn-primary mb-2"%><br>
-              <%= link_to "#{mission.organisation.name}", organisation_path(mission.organisation.id), class: "btn btn-light mb-3"%>
-              <p class="mb-0"><i class="fas fa-tags" style="color:#808080"></i><small style="color:#808080"> <%mission.tags.each do |tag|%>
-              <%=tag.name%>
-              <%end%></small></p>
+  <br><br>
+
+  <%# Home - Theme sample %>
+  <section>
+    <div class="container">
+      <div class="row mb-5">
+        <div class="col-md-8">
+          <h2>Thèmes associatifs</h2>
+        </div>
+        <div class="col-md-4 d-md-flex align-items-center justify-content-end"><a class="text-muted text-sm" href="category.html">
+              Voir tous les thèmes<i class="fas fa-angle-double-right ml-2"></i></a></div>
+      </div>
+      <div class="row">
+        <div class="d-flex align-items-lg-stretch mb-4 col-lg-8">
+          <div class="card shadow-lg border-0 w-100 border-0 hover-animate" style="background: center center url(https://images.unsplash.com/photo-1501633159663-1836f82ceaf0?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=967&q=80) no-repeat; background-size: cover;"><a class="tile-link" href="category.html"> </a>
+            <div class="d-flex align-items-center h-100 text-white justify-content-center py-6 py-lg-7">
+              <h3 class="text-shadow text-uppercase mb-0">Droit des femmes</h3>
             </div>
           </div>
         </div>
-      <%end%>
+        <div class="d-flex align-items-lg-stretch mb-4 col-lg-4">
+          <div class="card shadow-lg border-0 w-100 border-0 hover-animate" style="background: center center url(https://images.unsplash.com/photo-1499257398700-43669759a540?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80) no-repeat; background-size: cover;"><a class="tile-link" href="category.html"> </a>
+            <div class="d-flex align-items-center h-100 text-white justify-content-center py-6 py-lg-7">
+              <h3 class="text-shadow text-uppercase mb-0">Clubs de lecture</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="d-flex align-items-lg-stretch mb-4 col-lg-4">
+          <div class="card shadow-lg border-0 w-100 border-0 hover-animate" style="background: center center url(https://images.unsplash.com/photo-1603651481343-0f71466bb14a?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80) no-repeat; background-size: cover;"><a class="tile-link" href="category.html"> </a>
+            <div class="d-flex align-items-center h-100 text-white justify-content-center py-6 py-lg-7">
+              <h3 class="text-shadow text-uppercase mb-0">Patrimoine</h3>
+            </div>
+          </div>
+        </div>
+        <div class="d-flex align-items-lg-stretch mb-4 col-lg-4">
+          <div class="card shadow-lg border-0 w-100 border-0 hover-animate" style="background: center center url(https://images.unsplash.com/photo-1520277739336-7bf67edfa768?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1189&q=80) no-repeat; background-size: cover;"><a class="tile-link" href="category.html"> </a>
+            <div class="d-flex align-items-center h-100 text-white justify-content-center py-6 py-lg-7">
+              <h3 class="text-shadow text-uppercase mb-0">Foyers</h3>
+            </div>
+          </div>
+        </div>
+        <div class="d-flex align-items-lg-stretch mb-4 col-lg-4">
+          <div class="card shadow-lg border-0 w-100 border-0 hover-animate" style="background: center center url(https://images.unsplash.com/photo-1527490087278-9c75be0b8052?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1047&q=80) no-repeat; background-size: cover;"><a class="tile-link" href="category.html"> </a>
+            <div class="d-flex align-items-center h-100 text-white justify-content-center py-6 py-lg-7">
+              <h3 class="text-shadow text-uppercase mb-0">Education</h3>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
+
+  <%#Carte mission%>
+  <hr>
+    <div class="container py-5">
+      <div class="row mb-5">
+        <div class="col-md-8">
+          <h2>Ces associations ont besoin de vous !</h2>
+        </div>
+      </div>
+      <div class="row">
+        <% @missions.each do |mission| %>
+          <!-- venue item-->
+          <div class="col-sm-6 col-lg-4 mb-5 hover-animate" data-marker-id="59c0c8e33b1527bfe2abaf92">
+            <div class="card h-100 border-0 shadow">
+              <div class="card-img-top overflow-hidden dark-overlay bg-cover" style="background-image: url(https://www.linfodurable.fr/sites/linfodurable/files/styles/landscape_w800/public/2018-06/NETTOYAGES%20DE%20PLAGE.jpg?h=a7a713b3&itok=D2cYNkDE); min-height: 200px;"><a class="tile-link" href="detail.html"></a>
+                <div class="card-img-overlay-bottom z-index-20">
+                  <h4 class="text-white text-shadow"><%=mission.title%></h4>
+                </div>
+                <div class="card-img-overlay-top d-flex justify-content-between align-items-center">
+                  <div class="badge badge-transparent badge-pill px-3 py-2 mt-2"><%if mission.organisation.tags.present?%>
+                    <%=mission.organisation.tags.last.name%>
+                    <%end%>
+                    </div>
+                </div>
+              </div>
+              <div class="card-body">
+                <i class="fas fa-search-location" style="color:#808080"></i><small style="color:#808080"> <%=mission.address.city%>,  <%=mission.address.zipcode%></small><br>
+                <i class="fas fa-users" style="color:#808080"></i><small style="color:#808080"> Besoin de <%=mission.volunteers_needed%> volontaires</small><br>
+                <i class="fas fa-calendar-day" style="color:#808080"></i><small style="color:#808080"> Date: <%=mission.start_date%></small><br></p>
+
+                <%= link_to "Voir la mission", organisation_mission_path(mission.organisation.id, mission.id), class: "btn btn-primary mb-2"%><br>
+                <%= link_to "#{mission.organisation.name}", organisation_path(mission.organisation.id), class: "btn btn-light mb-3"%>
+                <p class="mb-0"><i class="fas fa-tags" style="color:#808080"></i><small style="color:#808080"> <%mission.tags.each do |tag|%>
+                <%=tag.name%>
+                <%end%></small></p>
+              </div>
+            </div>
+          </div>
+        <%end%>
+      </div>
+    </div>
+  </body>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
