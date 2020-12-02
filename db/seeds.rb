@@ -7,9 +7,11 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'faker'
 
+i=1
 10.times do
-  user = User.create!(first_name: Faker::Name.first_name, email: Faker::Internet.email, admin: true, password: "foobar")
+  user = User.create!(first_name: Faker::Name.first_name, email: Faker::Internet.email, admin: true, password: "foobar", username: "user"+i.to_s)
   puts "User added"
+  i+=1
 end
 
 10.times do
