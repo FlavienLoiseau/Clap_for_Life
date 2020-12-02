@@ -13,7 +13,7 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+    <%= f.label :password, "Nouveau mot de passe" %> <i>(laisser vide si vous ne souhaitez pas le changer)</i><br />
     <%= f.password_field :password, autocomplete: "new-password" %>
     <% if @minimum_password_length %>
       <br />
@@ -22,22 +22,22 @@
   </div>
 
   <div class="field">
-    <%= f.label :password_confirmation %><br />
+    <%= f.label :password_confirmation, "Confirmation du nouveau mot de passe" %><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 
   <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+    <%= f.label :current_password %> <i>(nous avons besoin de votre mot de passe actuel pour confirmer vos modifications)</i><br />
     <%= f.password_field :current_password, autocomplete: "current-password" %>
   </div>
 
   <div class="actions">
-    <%= f.submit "Update" %>
+    <%= f.submit "Modifier" %>
   </div>
 <% end %>
 
 <h3>Cancel my account</h3>
 
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+<p>Pas satisfait? <%= button_to "Supprimer mon compte", registration_path(resource_name), data: { confirm: "Etes-vous sûr?" }, method: :delete %></p>
 
-<%= link_to "Back", :back %>
+<%= link_to "Retour", :back %>
