@@ -1,10 +1,13 @@
 Rails.application.routes.draw do
-  root 'home#pages'
-  get 'home/index'
-  get "home/accueil"
+  root 'home#homepage'
+  get 'index', to: 'home#index'
+  get 'pages', to: 'home#pages'
+  get 'contact', to: 'home#contact'
+  get 'vision', to: 'home#vision'
+  get 'operations', to: 'home#operations'
+
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users
 
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
