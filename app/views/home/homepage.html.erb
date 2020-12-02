@@ -121,10 +121,11 @@
               <i class="fas fa-search-location" style="color:#808080"></i><small style="color:#808080"> <%=mission.address.city%>,  <%=mission.address.zipcode%></small><br>
               <i class="fas fa-users" style="color:#808080"></i><small style="color:#808080"> Besoin de <%=mission.volunteers_needed%> volontaires</small><br>
               <i class="fas fa-calendar-day" style="color:#808080"></i><small style="color:#808080"> Date: <%=mission.start_date%></small><br></p>
-              <a href="#" class="btn btn-primary mb-2">Voir la mission</a></br>
-              <a href="#" class="btn btn-light mb-3"><%=mission.organisation.name%></a>
+
+              <%= link_to "Voir la mission", organisation_mission_path(mission.organisation.id, mission.id), class: "btn btn-primary mb-2"%><br>
+              <%= link_to "#{mission.organisation.name}", organisation_path(mission.organisation.id), class: "btn btn-light mb-3"%>
               <p class="mb-0"><i class="fas fa-tags" style="color:#808080"></i><small style="color:#808080"> <%mission.tags.each do |tag|%>
-              <%=tag.name%>             
+              <%=tag.name%>
               <%end%></small></p>
             </div>
           </div>
@@ -133,5 +134,3 @@
     </div>
   </div>
 </section>
-
-

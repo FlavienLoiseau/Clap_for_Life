@@ -6,8 +6,12 @@ Rails.application.routes.draw do
   get 'vision', to: 'home#vision'
   get 'operations', to: 'home#operations'
 
-
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users
+
+  resources :users, only: [:show]
+  resources :organisations, only: [:index, :show] do
+    resources :missions, only: [:show]
+  end
 
 end

@@ -1,0 +1,110 @@
+<h2 class="container py-5" style="color:#d24d57">Page profil asso</h2>
+  <section class="py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-3 mr-lg-auto">
+          <div class="card border-0 shadow mb-6 mb-lg-0">
+            <div class="card-header bg-gray-100 py-4 border-0 text-center"><a class="d-inline-block" href="#"><img class="d-block avatar avatar-xxl p-2 mb-2" src="https://cdn.1min30.com/wp-content/uploads/2018/07/Greenpeace-logo-1.jpg" alt=""></a>
+              <h5><%= @organisation.name %></h5>
+              <p class="text-muted text-sm mb-0"><%= @organisation.address.number %>, <%= @organisation.address.street %></p>
+              <p class="text-muted text-sm mb-0"><%= @organisation.address.zipcode %></p>
+              <p class="text-muted text-sm mb-0"><%= @organisation.address.country %></p>
+            </div>
+            <div class="card-body p-4">
+              <h5 class="text-center mb-4">Par le passé</h5>
+              <div class="media align-items-center mb-3">
+                <div class="icon-rounded icon-rounded-sm bg-primary-light mr-2">
+                  <i class="fas fa-user-plus pl-1 pb-1" style="color:#d24d57"></i>
+                </div>
+                <div class="media-body">
+                  <p class="mb-0">643 bénévoles</p>
+                </div>
+              </div>
+              <div class="media align-items-center mb-3">
+                <div class="icon-rounded icon-rounded-sm bg-primary-light mr-2">
+                  <i class="far fa-calendar-check pb-1" style="color:#d24d57"></i>
+                </div>
+                <div class="media-body">
+                  <p class="mb-0">17 missions</p>
+                </div>
+              </div>
+              <hr>
+                <h5 class="text-center mb-4 mt-4">Suis l'association</h5>
+                <a href="#" class="btn btn-muted mb-2"><i class="fas fa-rss"></i> S'abonner</a>
+                <a href="#" class="btn btn-light mb-2"><i class="fas fa-envelope-open-text"></i> Contacter</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-9 pl-lg-5">
+          <h1 class="hero-heading mb-0"><%= @organisation.name %></h1>
+          <div class="text-block">
+            <p> <span class="badge badge-secondary-light">Actif depuis 2020</span></p>
+            <p class="text-muted">Description de l'assocation: Samsa was a travelling salesman - and above it there hung a picture that he had recently cut out of an illustrated magazine and housed in a nice, gilded frame.  </p>
+            <p class="text-muted">He must have tried it a hundred times, shut his eyes so that he wouldn't have to look at the floundering legs, and only stopped when he began to feel a mild, dull pain there that he had never felt before.  </p>
+          </div>
+          <div class="text-block">
+            <h4 class="mb-5">Les missions proposées par Greenpeace</h4>
+            <div class="row">
+              <!-- place item-->
+              <div class="col-sm-6 col-lg-4 mb-30px hover-animate" data-marker-id="59c0c8e33b1527bfe2abaf92">
+                <div class="card h-100 border-0 shadow">
+                  <div class="card-img-top overflow-hidden gradient-overlay"> <img class="img-fluid" src="https://www.linfodurable.fr/sites/linfodurable/files/styles/landscape_w800/public/2018-06/NETTOYAGES%20DE%20PLAGE.jpg?h=a7a713b3&itok=D2cYNkDE" alt="Modern, Well-Appointed Room"/><a class="tile-link" href="detail-rooms.html"></a>
+                    <div class="card-img-overlay-top text-right">
+                    </div>
+                  </div>
+                  <div class="card-body d-flex align-items-center">
+                    <div class="w-100">
+                      <h6 class="card-title"><a class="text-decoration-none text-dark" href="detail-rooms.html">Collecte déchets sur la plage</a></h6>
+                      <i class="fas fa-search-location" style="color:#808080"></i><small style="color:#808080"> Saint-Brieuc, Bretagne</small><br>
+                      <i class="fas fa-users" style="color:#808080"></i><small style="color:#808080"> Besoin de 50 volontaires</small><br>
+                      <i class="fas fa-calendar-day" style="color:#808080"></i><small style="color:#808080"> Date: 12 Décembre à 15:30</small><br></p>
+                      <a href="#" class="btn btn-primary mb-2">Voir la mission</a>
+                      <p class="mb-0"><i class="fas fa-tags" style="color:#808080"></i><small style="color:#808080"> Tag1, tag2</small></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- place item-->
+              <div class="col-sm-6 col-lg-4 mb-30px hover-animate" data-marker-id="59c0c8e33b1527bfe2abaf92">
+                <div class="card h-100 border-0 shadow">
+                  <div class="card-img-top overflow-hidden gradient-overlay"> <img class="img-fluid" src="https://www.linfodurable.fr/sites/linfodurable/files/styles/landscape_w800/public/2018-06/NETTOYAGES%20DE%20PLAGE.jpg?h=a7a713b3&itok=D2cYNkDE" alt="Modern, Well-Appointed Room"/><a class="tile-link" href="detail-rooms.html"></a>
+                    <div class="card-img-overlay-top text-right">
+                    </div>
+                  </div>
+                  <div class="card-body d-flex align-items-center">
+                    <div class="w-100">
+                      <h6 class="card-title"><a class="text-decoration-none text-dark" href="detail-rooms.html">Collecte déchets sur la plage</a></h6>
+                      <i class="fas fa-search-location" style="color:#808080"></i><small style="color:#808080"> Pornic, Pays-de-la-Loire</small><br>
+                      <i class="fas fa-users" style="color:#808080"></i><small style="color:#808080"> Besoin de 50 volontaires</small><br>
+                      <i class="fas fa-calendar-day" style="color:#808080"></i><small style="color:#808080"> Date: 12 Décembre à 15:30</small><br></p>
+                      <a href="#" class="btn btn-primary mb-2">Voir la mission</a>
+                      <p class="mb-0"><i class="fas fa-tags" style="color:#808080"></i><small style="color:#808080"> Tag1, tag2</small></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- place item-->
+              <div class="col-sm-6 col-lg-4 mb-30px hover-animate" data-marker-id="59c0c8e33b1527bfe2abaf92">
+                <div class="card h-100 border-0 shadow">
+                  <div class="card-img-top overflow-hidden gradient-overlay"> <img class="img-fluid" src="https://www.linfodurable.fr/sites/linfodurable/files/styles/landscape_w800/public/2018-06/NETTOYAGES%20DE%20PLAGE.jpg?h=a7a713b3&itok=D2cYNkDE" alt="Modern, Well-Appointed Room"/><a class="tile-link" href="detail-rooms.html"></a>
+                    <div class="card-img-overlay-top text-right">
+                    </div>
+                  </div>
+                  <div class="card-body d-flex align-items-center">
+                    <div class="w-100">
+                      <h6 class="card-title"><a class="text-decoration-none text-dark" href="detail-rooms.html">Collecte déchets sur la plage</a></h6>
+                      <i class="fas fa-search-location" style="color:#808080"></i><small style="color:#808080"> Nice, Alpes-Maritime</small><br>
+                      <i class="fas fa-users" style="color:#808080"></i><small style="color:#808080"> Besoin de 50 volontaires</small><br>
+                      <i class="fas fa-calendar-day" style="color:#808080"></i><small style="color:#808080"> Date: 12 Décembre à 15:30</small><br></p>
+                      <a href="#" class="btn btn-primary mb-2">Voir la mission</a>
+                      <p class="mb-0"><i class="fas fa-tags" style="color:#808080"></i><small style="color:#808080"> Tag1, tag2</small></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
