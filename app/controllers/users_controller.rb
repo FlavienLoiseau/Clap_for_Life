@@ -1,9 +1,12 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_user, only: [:show, :is_current_user]
+  before_action :set_user, only: [:show, :edit, :is_current_user]
   before_action :is_current_user, only: [:show]
 
 
+  def edit
+    @address = Address.new
+  end
 
   def show
   end
@@ -11,7 +14,7 @@ class UsersController < ApplicationController
   private
 
   def set_user
-    @user = User.find(params[:id])
+    @user = User.friendly.find(params[:id])
   end
 
   def is_current_user
@@ -19,5 +22,4 @@ class UsersController < ApplicationController
       redirect_to user_path(current_user)
     end
   end
-
 end
