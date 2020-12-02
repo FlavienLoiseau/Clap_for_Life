@@ -12,8 +12,9 @@ class HomeController < ApplicationController
   def contact
   end
 
-  def missions
+  def vision
   end
 
-
+  def operations
+  end
 end

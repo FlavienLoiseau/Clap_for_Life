@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   get 'index', to: 'home#index'
   get 'pages', to: 'home#pages'
   get 'contact', to: 'home#contact'
-  get 'missions', to: 'home#missions'
+  get 'vision', to: 'home#vision'
+  get 'operations', to: 'home#operations'
 
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
