@@ -3,32 +3,38 @@
     <div class="col-md-8 col-lg-6 col-xl-5 d-flex align-items-center">
       <div class="w-100 py-5 px-md-5 px-xl-6 position-relative">
         <div class="mb-4">
-          <h2>Inscription</h2>
-        </div>
-        <form class="form-validate">
-          <div class="form-group">
+          <div class="form-signin container my-4">
+              <h1 class="header mb-4">Inscription</h1>
             <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-            <label class="form-label" for="loginUsername"> Adresse e-mail</label>
-              <%= f.email_field :email, autofocus: true, autocomplete: 'email', class: 'form-control', required: true %>
+
+              <div class="form-group">
+                <%= f.label :email %>
+                <%= f.email_field :email, autofocus: true, autocomplete: 'email', class: 'form-control', required: true %>
+              </div>
+
+              <div class="form-group">
+                <%= f.label :password %>
+                <%= f.password_field :password, autocomplete: 'current-password', class: 'form-control', required: true %>
+
+                <% if @minimum_password_length %>
+                  <small class="form-text text-muted"><%= t('devise.shared.minimum_password_length', count: @minimum_password_length) %></small>
+                <% end %>
+              </div>
+
+              <div class="form-group">
+                <%= f.label :password_confirmation %>
+                <%= f.password_field :password_confirmation, autocomplete: 'current-password', class: 'form-control', required: true %>
+              </div>
+
+              <div class="form-group">
+                <%= f.submit "Sign up", class: 'btn btn-primary my-4' %>
+              </div>
+            <% end %>
+          <hr class="my-4">
+
+            <%= render 'devise/shared/links' %>
           </div>
-          <div class="form-group">
-            <label class="form-label" for="loginPassword"> Mot de passe</label>
-            <%= f.password_field :password, autocomplete: 'current-password', class: 'form-control', required: true %>
-          </div>
-          <div class="form-group mb-4">
-            <label class="form-label" for="loginPassword2"> Confirmer le mot de passe</label>
-            <%= f.password_field :password_confirmation, autocomplete: 'current-password', class: 'form-control', required: true %>
-          </div>
-          <button class="btn btn-lg btn-block btn-primary" type="submit">M'inscrire</button>
-            <hr class="my-4">
-          <p class="text-sm text-muted">En m'inscrivant à Clap for Life, j'accepte les <a href="#">conditions d'inscription</a> et la <a href="#">politique de confidentialité</a>.</p>
-          <% end %>
-        </form>
-        <%= render 'devise/shared/links' %>
-        <a class="close-absolute mr-md-5 mr-xl-6 pt-5" href="index.html">
-        <svg class="svg-icon w-3rem h-3rem">
-          <use xlink:href="#close-1"> </use>
-        </svg></a>
+        </div>
       </div>
     </div>
     <div class="col-md-4 col-lg-6 col-xl-7 d-none d-md-block">

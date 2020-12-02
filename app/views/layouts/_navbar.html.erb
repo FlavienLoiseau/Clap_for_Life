@@ -16,11 +16,11 @@
 
   <%if user_signed_in?%>
     <div class="nav-item dropdown">
-      <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:black">
-        <%= current_user.first_name %> <%= current_user.last_name %>
+      <a class="btn btn-primary dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:black">
+        <%= current_user.email %>
       </a>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <a class="dropdown-item" <%= link_to "Mon profil", user_path(current_user) %></a>
+        <a class="dropdown-item" <%= link_to "Mon profil", "" %></a>
           <a class="dropdown-item" <%= link_to "Se déconnecter", destroy_user_session_path, method: :delete %></a>
         </div>
     </div>
