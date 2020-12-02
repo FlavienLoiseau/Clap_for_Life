@@ -2,7 +2,8 @@ class HomeController < ApplicationController
   def index
   end
 
-  def accueil
+  def homepage
+    @missions = Mission.all
   end
 
   def pages
