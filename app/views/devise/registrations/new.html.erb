@@ -12,9 +12,6 @@
               </div>
 
               <div class="form-group">
-<<<<<<< HEAD
-                <%= f.label :password, "Mot de passe" %>
-=======
                 <%= f.label :Pseudonyme %>
                 <%= f.text_field :username, autofocus: true, autocomplete: 'username', class: 'form-control', required: true %>
               </div>
@@ -23,19 +20,13 @@
                 <%= f.label :Mot_de_passe %>
                 <%= f.password_field :password, autocomplete: 'current-password', class: 'form-control', required: true %>
 
->>>>>>> development
                 <% if @minimum_password_length %>
                 <small>(<%= @minimum_password_length %> caractères minimum)</small>
                 <% end %><br />
-                <%= f.password_field :password, autocomplete: 'current-password', class: 'form-control', required: true %>
               </div>
 
               <div class="form-group">
-<<<<<<< HEAD
-                <%= f.label :password_confirmation, "Confirmer le mot de passe" %>
-=======
                 <%= f.label :Confirmation_du_mot_de_passe %>
->>>>>>> development
                 <%= f.password_field :password_confirmation, autocomplete: 'current-password', class: 'form-control', required: true %>
               </div>
 
