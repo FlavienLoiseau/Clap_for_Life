@@ -8,32 +8,25 @@
     <!-- Navbar Collapse -->
     <div class="collapse navbar-collapse" id="navbarCollapse">
       <ul class="navbar-nav ml-auto">
-        <li class="nav-item"><a class="nav-link" href="../contact.html">Mission & valeurs</a>
-        </li>
-        <li class="nav-item"><a class="nav-link" href="../contact.html">Contact</a>
-        </li>
+        <%if user_signed_in?%>
+          <div class="nav-item dropdown">
+            <a class="btn btn-primary dropdown-toggle pr-3" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:white">
+              <%= current_user.username %>
+            </a>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" <%= link_to "Mon profil", user_path(current_user) %></a>
+                <a class="dropdown-item" <%= link_to "Se déconnecter", destroy_user_session_path, method: :delete %></a>
+              </div>
+          </div>
 
-
-  <%if user_signed_in?%>
-    <div class="nav-item dropdown">
-      <a class="btn btn-primary dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:black">
-        <%= current_user.email %>
-      </a>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <a class="dropdown-item" <%= link_to "Mon profil", "" %></a>
-          <a class="dropdown-item" <%= link_to "Se déconnecter", destroy_user_session_path, method: :delete %></a>
-        </div>
-    </div>
-
-
-  <%else%>
-  <ul>
-    <li class="nav-item mt-3 mt-lg-0 ml-lg-3 d-lg-none d-xl-inline-block"><a class="btn btn-light" <%= link_to "CONNEXION", new_user_session_path %></a></li>
-    <li class="nav-item mt-3 mt-lg-0 ml-lg-3 d-lg-none d-xl-inline-block"><a class="btn btn-primary" <%= link_to "INSCRIPTION", new_user_registration_path %></a></li>
-  </ul>
-
-  <%end%>
+        <%else%>
+          <ul>
+            <li class="nav-item mt-3 mt-lg-0 ml-lg-3 d-lg-none d-xl-inline-block"><a class="nav-link" <%= link_to "Se connecter", new_user_session_path %></a></li>
+            <li class="nav-item mt-3 mt-lg-0 ml-lg-3 d-lg-none d-xl-inline-block"><a class="btn btn-primary" <%= link_to "S'inscrire", new_user_registration_path %></a></li>
           </ul>
+
+        <%end%>
+      </ul>
     </div>
   </div>
 </nav>
