@@ -9,21 +9,21 @@ require 'faker'
 Faker::Config.locale = :fr
 
 i=1
-10.times do
+15.times do
   user = User.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, admin: true, password: "foobar", username: "user"+i.to_s)
   puts "User added"
   i+=1
 end
 
-10.times do
+15.times do
   Activity.create(code: Faker::Code.npi, title: Faker::Lorem.sentence(word_count: 3), description: Faker::Lorem.paragraph)
   puts "Activity added !"
 end
 
-10.times do
+15.times do
   organisation = Organisation.create(
-    user_id: rand(1..10),
-    activity_id: rand(1..10),
+    user_id: rand(1..15),
+    activity_id: rand(1..15),
     name: Faker::Company.name,
     registration_number: Faker::Lorem.words(number: 2).join(""),
     registration_date: Faker::Date.between(from: '2014-09-23', to: '2019-09-25'),
@@ -61,7 +61,7 @@ end
 
 i=1
 10.times do
-  Tag.create(name: ["Environnement", "Précarité", "Handicap"].sample, tagable_type: "Organisation", tagable_id: i )
+  Tag.create(name: ["Environnement", "Précarité", "Handicap", "Lien intergenerationnel", "Aide a l emploi", "Education"].sample, tagable_type: "Organisation", tagable_id: i )
   puts "Organisation Tag created"
   i+=1
 end
