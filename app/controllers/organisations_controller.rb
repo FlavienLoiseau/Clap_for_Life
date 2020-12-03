@@ -5,6 +5,10 @@ class OrganisationsController < ApplicationController
     @organisations = Organisation.all
   end
 
+  def new
+    @organisation = Organisation.new
+  end
+
   def show
 
   end
