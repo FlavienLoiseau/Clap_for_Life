@@ -5,15 +5,18 @@ class UsersController < ApplicationController
 
 
   def edit
-    # @user.build_address
+    if @user.address.blank?
+      @user.build_address
+    end
   end
 
   def show
+
   end
 
   def update
     if @user.update(user_params)
-      redirect_to root_path, notice:"Votre profil a été mis à jour !"
+      redirect_to user_path, notice:"Votre profil a été mis à jour !"
     else
       render :edit
     end
