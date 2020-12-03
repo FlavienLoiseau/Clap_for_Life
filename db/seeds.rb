@@ -33,7 +33,7 @@ end
   puts "Organisation created !"
   mission = Mission.create(
     organisation_id: organisation.id, 
-    title: Faker::Company.bs,
+    title: ["Collecte de déchets sur la plage", "Campagne sacs réutilisables", "Aide organisation marche pour le climat", "Distribution alimentaire", "Maraude", "Soupe populaire", "Livraison chocolats de Noël", "Allô comment ça va?"].sample,
     contact_first_name: Faker::Name.first_name, 
     contact_last_name: Faker::Name.last_name,
     contact_phone: Faker::PhoneNumber.phone_number,
