@@ -45,12 +45,12 @@ ActiveRecord::Schema.define(version: 2020_12_01_144751) do
   end
 
   create_table "addresses", force: :cascade do |t|
-    t.string "number"
-    t.string "street"
-    t.string "additional"
-    t.string "city"
-    t.string "zipcode"
-    t.string "country"
+    t.string "number", default: ""
+    t.string "street", default: ""
+    t.string "additional", default: ""
+    t.string "city", default: ""
+    t.string "zipcode", default: ""
+    t.string "country", default: ""
     t.string "addressable_type"
     t.bigint "addressable_id"
     t.datetime "created_at", precision: 6, null: false
