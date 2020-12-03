@@ -3,7 +3,7 @@
         <%= f.input :first_name, class:"form-control m-3"  %>
         <%= f.input :last_name, class:"form-control m-3" %>
         <%= f.simple_fields_for :address do |a| %>
-          <%= a.input :number, class:"form-control m-3" %>
+          <%= a.input :number, class:"form-control m-3", placeholder: "4bis" %>
           <%= a.input :street, class:"form-control m-3" %>
           <%= a.input :city, class:"form-control m-3" %>
           <%= a.input :zipcode, class:"form-control m-3" %>
