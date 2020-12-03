@@ -3,7 +3,9 @@ class HomeController < ApplicationController
   end
 
   def homepage
-    @missions = Mission.all
+    
+      @missions = Mission.all.limit(10)
+    
   end
 
   def pages
