@@ -227,7 +227,7 @@
               <div class="row">
                 <label for="locationLabel" class="col-sm-3 col-form-label input-label">Numéro de la rue</label>
                 <div class="col-sm-9">
-                    <p><%= @user.address.number %></p>
+                    <p><%if @user.address != nil%><%= @user.address.number %> <%end%></p>
                 </div>
               </div>
               <!-- End Form Group -->
@@ -236,7 +236,7 @@
               <div class="row">
                 <label for="addressLine1Label" class="col-sm-3 col-form-label input-label">Rue</label>
                 <div class="col-sm-9">
-                <p><%= @user.address.street %></p>
+                <p><%if @user.address != nil%><%= @user.address.street %><%end%></p>
                 </div>
               </div>
               <!-- End Form Group -->
@@ -245,7 +245,7 @@
               <div class="row">
                 <label for="cityLabel" class="col-sm-3 col-form-label input-label">Ville</label>
                 <div class="col-sm-9">
-                  <p><%= @user.address.city %></p>
+                  <p><%if @user.address != nil%><%= @user.address.city %><%end%></p>
                 </div>
               </div>
               <!-- End Form Group -->
@@ -254,7 +254,7 @@
               <div class="row">
                 <label for="zipCodeLabel" class="col-sm-3 col-form-label input-label">Code postal </label>
                 <div class="col-sm-9">
-                  <p><%= @user.address.zipcode %></p>
+                  <p><%if @user.address != nil%><%= @user.address.zipcode %><%end%></p>
                 </div>
               </div>
               <!-- End Form Group -->
