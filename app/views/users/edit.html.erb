@@ -1,17 +1,7 @@
-<div class="container">
-  <div class="mt-3 col-6">
-    <div class="d-flex row">
-      <% if @user.avatar.attached? %>
-      <%= image_tag  @user.avatar, class:"img-avatar float-right mt-2" %>
-      <% else %>
-      <img src="https://highstylife.com/media/2017/04/aidan-meyer-150933-1140x760.jpg" alt="Avatar" class="img-avatar float-right mt-2" style="width:10%">
-      <% end %>
-      <h1 class="text-center mt-4 ml-5">Ma page profil</h1>
-    </div>
 
-      <%= simple_form_for @user do |f| %>
-      <%= f.input :first_name, label: 'Prénom' %>
-      <%= f.input :last_name, label: 'Nom' %>
+      <%= form_for @user do |f| %>
+      <%= f.text_field :first_name, class:"form-control m-3" %>
+      <%= f.text_field :last_name, class:"form-control m-3" %>
 
       <%= f.simple_fields_for @address do |a| %>
         <%= a.input :number, label: 'Numéro de la rue' %>
@@ -22,8 +12,14 @@
       <% end %>
 
 
-      <%= f.button :submit %>
-      <% end %>
 
-  </div>
-</div>
+      <%= f.fields_for :address do |a| %>
+
+        <%= a.text_field :number, class:"form-control m-3" %>
+        <%= a.text_field :street, class:"form-control m-3" %>
+        <%= a.text_field :city, class:"form-control m-3" %>
+        <%= a.text_field :zipcode, class:"form-control m-3" %>
+
+      <% end %>
+      <%= f.submit "envoyer" %>
+      <% end %>
