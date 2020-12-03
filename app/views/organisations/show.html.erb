@@ -16,7 +16,7 @@
                   <i class="fas fa-user-plus pl-1 pb-1" style="color:#d24d57"></i>
                 </div>
                 <div class="media-body">
-                  <p class="mb-0"><%= @organisation.missions.sum {|m| m.volunteers_needed} %> bénévoles</p>
+                  <p class="mb-0"><%= @organisation.missions.sum {|m| m.participations.count} %> bénévoles</p>
                 </div>
               </div>
               <div class="media align-items-center mb-3">

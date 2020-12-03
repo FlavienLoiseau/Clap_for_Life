@@ -117,7 +117,7 @@ ActiveRecord::Schema.define(version: 2020_12_01_144751) do
     t.boolean "admin"
     t.string "phone_number"
     t.date "date_of_birth"
-    t.boolean "organisation_admin"
+    t.boolean "organisation_admin", default: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"

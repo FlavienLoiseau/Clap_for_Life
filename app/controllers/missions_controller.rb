@@ -2,7 +2,7 @@ class MissionsController < ApplicationController
   before_action :set_mission, only: [:show]
 
   def show
-
+    @missions=Mission.all
   end
 
 

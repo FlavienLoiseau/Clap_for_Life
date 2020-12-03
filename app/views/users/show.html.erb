@@ -6,3 +6,414 @@
 <p><%= @user.email %></p>
 <p><%= @user.phone_number %></p>
 <p><%= @user.date_of_birth %></p>
+
+
+<!-- ========== MAIN ========== -->
+<main id="content" role="main" class="bg-light">
+  <!-- Breadcrumb Section -->
+  <div class="bg-navy" style="background-image: url(../../assets/svg/components/abstract-shapes-20.svg);">
+    <div class="container space-1 space-top-lg-2 space-bottom-lg-3">
+      <div class="row align-items-center">
+        <div class="col">
+          <div class="d-none d-lg-block">
+            <h1 class="my-5">Informations personnelles</h1>
+          </div>
+        </div>
+
+        <div class="col-auto">
+          <div class="d-none d-lg-block">
+            <a class="btn btn-sm btn-soft-light"><%= link_to "Se déconnecter", destroy_user_session_path, method: :delete %></a>
+          </div>
+
+          <!-- Responsive Toggle Button -->
+          <button type="button" class="navbar-toggler btn btn-icon btn-sm rounde-circle d-lg-none"
+                  aria-label="Toggle navigation"
+                  aria-expanded="false"
+                  aria-controls="sidebarNav"
+                  data-toggle="collapse"
+                  data-target="#sidebarNav">
+            <span class="navbar-toggler-default">
+              <svg width="14" height="14" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
+                <path fill="currentColor" d="M17.4,6.2H0.6C0.3,6.2,0,5.9,0,5.5V4.1c0-0.4,0.3-0.7,0.6-0.7h16.9c0.3,0,0.6,0.3,0.6,0.7v1.4C18,5.9,17.7,6.2,17.4,6.2z M17.4,14.1H0.6c-0.3,0-0.6-0.3-0.6-0.7V12c0-0.4,0.3-0.7,0.6-0.7h16.9c0.3,0,0.6,0.3,0.6,0.7v1.4C18,13.7,17.7,14.1,17.4,14.1z"/>
+              </svg>
+            </span>
+            <span class="navbar-toggler-toggled">
+              <svg width="14" height="14" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
+                <path fill="currentColor" d="M11.5,9.5l5-5c0.2-0.2,0.2-0.6-0.1-0.9l-1-1c-0.3-0.3-0.7-0.3-0.9-0.1l-5,5l-5-5C4.3,2.3,3.9,2.4,3.6,2.6l-1,1 C2.4,3.9,2.3,4.3,2.5,4.5l5,5l-5,5c-0.2,0.2-0.2,0.6,0.1,0.9l1,1c0.3,0.3,0.7,0.3,0.9,0.1l5-5l5,5c0.2,0.2,0.6,0.2,0.9-0.1l1-1 c0.3-0.3,0.3-0.7,0.1-0.9L11.5,9.5z"/>
+              </svg>
+            </span>
+          </button>
+          <!-- End Responsive Toggle Button -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End Breadcrumb Section -->
+
+  <!-- Content Section -->
+  <div class="container space-1 space-top-lg-0 mt-lg-n10">
+    <div class="row">
+      <div class="col-lg-3">
+        <!-- Navbar -->
+        <div class="navbar-expand-lg navbar-expand-lg-collapse-block navbar-light">
+          <div id="sidebarNav" class="collapse navbar-collapse navbar-vertical">
+            <!-- Card -->
+            <div class="card mb-5">
+              <div class="card-body">
+                <!-- Avatar -->
+                <div class="d-none d-lg-block text-center mb-5">
+                  <div class="avatar avatar-xxl avatar-circle mb-3">
+                    <!-- <img class="avatar-img" src="" alt="Image Description"> -->
+                  </div>
+
+                  <h4 class="card-title"><%= @user.username %></h4>
+                  <p class="card-text font-size-1"><p><%= @user.first_name %> <%= @user.last_name %></p>
+                </div>
+                <!-- End Avatar -->
+
+                <h6 class="text-muted" style="font-size:0.9em">INFORMATIONS UTILISATEUR</h6>
+
+                <!-- List -->
+                <ul class="nav nav-sub nav-sm nav-tabs nav-list-y-2 mb-4">
+                  <li class="nav-item">
+                    <a class="btn btn-unique active text-left" style="font-size:0.7em" href="index.html">
+                      <i class="fas fa-id-card nav-icon"></i>
+                      Infos perso
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="btn btn-unique text-left" style="font-size:0.7em" href="login-and-security.html">
+                      <i class="fas fa-shield-alt nav-icon"></i>
+                      Confidentialité
+                    </a>
+                  </li>
+                </ul>
+                <!-- End List -->
+
+                <h6 class="text-muted" style="font-size:0.9em">INFORMATIONS ASSOCIATION</h6>
+
+                <!-- List -->
+                <% if @user.organisation_admin == false %>
+                <ul class="nav nav-sub nav-sm nav-tabs nav-list-y-2 mb-4">
+                  <li class="nav-item">
+                    <a class="btn btn-unique text-left" style="font-size:0.7em" href="orders.html">
+                      <i class="fas fa-plus-circle"></i>
+                      Créer mon profil association
+                    </a>
+                  </li>
+                </ul>
+                <% else %>
+                <ul class="nav nav-sub nav-sm nav-tabs nav-list-y-2 mb-4">
+                  <li class="nav-item">
+                    <a class="btn btn-unique text-left" style="font-size:0.7em" href="orders.html">
+                      <i class="fas fa-id-card nav-icon"></i>
+                      Infos asso
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="btn btn-unique text-left" style="font-size:0.7em" href="orders.html">
+                      <i class="fas fa-plus-circle"></i>
+                      Créer une mission
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="btn btn-unique text-left" style="font-size:0.7em" href="wishlist.html">
+                      <i class="fas fa-heart nav-icon"></i>
+                      Dashboard missions
+                    </a>
+                  </li>
+                </ul>
+                <% end %>
+                <!-- End List -->
+
+                <div class="d-lg-none">
+                  <div class="dropdown-divider"></div>
+
+                  <!-- List -->
+                  <ul class="nav nav-sub nav-sm nav-tabs nav-list-y-2">
+                    <li class="nav-item">
+                      <a class="nav-link text-primary" href="#">
+                        <i class="fas fa-sign-out-alt nav-icon"></i>
+                        Log out
+                      </a>
+                    </li>
+                  </ul>
+                  <!-- End List -->
+                </div>
+              </div>
+            </div>
+            <!-- End Card -->
+          </div>
+        </div>
+        <!-- End Navbar -->
+      </div>
+
+      <div class="col-lg-9">
+        <!-- Card -->
+        <div class="card mb-3 mb-lg-5">
+          <div class="card-header">
+            <h5 class="card-title">Infos perso</h5>
+          </div>
+
+          <!-- Body -->
+          <div class="card-body">
+            <form>
+              <!-- Form Group -->
+              <div class="row form-group">
+                <label class="col-sm-3 col-form-label input-label">Photo de profil</label>
+
+                <div class="col-sm-9">
+                  <div class="media align-items-center">
+                    <label class="avatar avatar-xl avatar-circle mr-4" for="avatarUploader">
+                      <!-- <img id="avatarImg" class="avatar-img" src="../../assets/img/160x160/img1.jpg" alt="Image Description"> -->
+                    </label>
+
+                    <div class="media-body">
+                        <input type="file" class="js-file-attach file-attachment-btn-label" id="avatarUploader"
+                               data-hs-file-attach-options='{
+                                  "textTarget": "#avatarImg",
+                                  "mode": "image",
+                                  "targetAttr": "src"
+                               }'><br>
+
+                      <a class="btn btn-sm btn-white mb-2 mb-sm-0" href="javascript:;">Supprimer</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- End Form Group -->
+
+              <!-- Form Group -->
+              <div class="row form-group">
+                <%= simple_form_for @user do |f| %>
+                <label for="firstNameLabel" class="col-sm-3 col-form-label input-label">Nom </label>
+
+                <div class="col-sm-9">
+                  <div class="input-group">
+                    <input type="text" class="form-control" name="firstName" id="firstNameLabel" placeholder="Prénom" aria-label="Clarice" value="<%= @user.first_name %>">
+                    <input type="text" class="form-control" name="lastName" id="lastNameLabel" placeholder="Nom" aria-label="Boone" value="<%= @user.last_name %>">
+                  </div>
+                </div>
+              </div>
+              <!-- End Form Group -->
+
+              <!-- Form Group -->
+              <div class="row form-group">
+                <label for="emailLabel" class="col-sm-3 col-form-label input-label">Email</label>
+
+                <div class="col-sm-9">
+                  <input type="email" class="form-control" name="email" id="emailLabel" placeholder="clarice@example.com" aria-label="clarice@example.com" value="<%= @user.email %>">
+                </div>
+              </div>
+              <!-- End Form Group -->
+
+              <!-- Form Group -->
+              <div class="js-add-field row form-group">
+                <label for="phoneLabel" class="col-sm-3 col-form-label input-label">Téléphone <small class="input-label-secondary">(Obligatoire pour s'inscrire aux missions)</small></label>
+
+                <div class="col-sm-9">
+                  <div class="input-group align-items-center">
+                    <input type="text" class="js-masked-input form-control" name="phone" id="phoneLabel" placeholder="+33 x-xx-xx-xx-xx" aria-label="+33 x-xx-xx-xx-xx" value="<%= @user.phone_number %>">
+                  </div>
+                </div>
+              </div>
+
+              <!-- End Form Group -->
+
+              <!-- Form Group -->
+              <div class="row form-group">
+                <label class="col-sm-3 col-form-label input-label">Sexe</label>
+
+                <div class="col-sm-9">
+                  <div class="input-group input-group-md-down-break">
+                    <!-- Custom Radio -->
+                    <div class="form-control">
+                      <div class="custom-control custom-radio">
+                        <input type="radio" class="custom-control-input" name="genderTypeRadio" id="genderTypeRadio1">
+                        <label class="custom-control-label" for="genderTypeRadio1">Mr.</label>
+                      </div>
+                    </div>
+                    <!-- End Custom Radio -->
+
+                    <!-- Custom Radio -->
+                    <div class="form-control">
+                      <div class="custom-control custom-radio">
+                        <input type="radio" class="custom-control-input" name="genderTypeRadio" id="genderTypeRadio2" checked>
+                        <label class="custom-control-label" for="genderTypeRadio2">Mme.</label>
+                      </div>
+                    </div>
+                    <!-- End Custom Radio -->
+
+                    <!-- Custom Radio -->
+                    <div class="form-control">
+                      <div class="custom-control custom-radio">
+                        <input type="radio" class="custom-control-input" name="genderTypeRadio" id="genderTypeRadio3">
+                        <label class="custom-control-label" for="genderTypeRadio3">Autre</label>
+                      </div>
+                    </div>
+                    <!-- End Custom Radio -->
+                  </div>
+                </div>
+              </div>
+              <!-- End Form Group -->
+
+              <!-- Form Group -->
+              <div class="row form-group">
+                <label for="birthDateLabel" class="col-sm-3 col-form-label input-label">Date de naissance</label>
+
+                <div class="col-sm-9">
+                  <%= f.input :date_of_birth, class: 'custom-select', start_year: 1920, end_year: 2002, label: false %>
+                </div>
+              </div>
+              <!-- End Form Group -->
+
+            </form>
+          </div>
+          <!-- End Body -->
+
+          <!-- Footer -->
+          <div class="card-footer d-flex justify-content-end">
+            <a class="btn btn-white" href="javascript:;">Annuler</a>
+            <span class="mx-2"></span>
+            <%= f.button :submit, "Sauvegarder les informations", class: "btn btn-primary" %>
+          </div>
+          <!-- End Footer -->
+        </div>
+        <!-- End Card -->
+        <% end %>
+        <!-- Card -->
+        <div id="editAddressCard" class="card mb-3 mb-lg-5">
+          <div class="card-header">
+            <h5 class="card-title">Adresse</h5>
+          </div>
+
+          <!-- Body -->
+          <div class="card-body">
+            <form>
+              <!-- Form Group -->
+              <div class="row form-group">
+                <label for="locationLabel" class="col-sm-3 col-form-label input-label">Numéro de la rue</label>
+                <div class="col-sm-9">
+                  <div class="mb-3">
+                    <input type="text" class="form-control" name="city" id="cityLabel" placeholder="4bis" aria-label="City" value="">
+                  </div>
+                </div>
+              </div>
+              <!-- End Form Group -->
+
+              <!-- Form Group -->
+              <div class="row form-group">
+                <label for="addressLine1Label" class="col-sm-3 col-form-label input-label">Rue</label>
+
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" name="street" id="addressLine1Label" placeholder="rue du Père Noël" aria-label="Your address" value="">
+                </div>
+              </div>
+              <!-- End Form Group -->
+
+              <!-- Form Group -->
+              <div class="row form-group">
+                <label for="cityLabel" class="col-sm-3 col-form-label input-label">Ville</label>
+
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" name="city" id="cityLabel" placeholder="Paris" aria-label="Your address" value="">
+                </div>
+              </div>
+              <!-- End Form Group -->
+
+              <!-- Form Group -->
+              <div class="row form-group">
+                <label for="zipCodeLabel" class="col-sm-3 col-form-label input-label">Code postal <i class="far fa-question-circle text-body ml-1" data-toggle="tooltip" data-placement="top" title="You can find your code in a postal address."></i></label>
+
+                <div class="col-sm-9">
+                  <input type="text" class="js-masked-input form-control" name="zipCode" id="zipCodeLabel" placeholder="75015" aria-label="Your zip code" value=""
+                         data-hs-mask-options='{
+                           "template": "AA0 0AA"
+                         }'>
+                </div>
+              </div>
+              <!-- End Form Group -->
+            </form>
+          </div>
+          <!-- End Body -->
+
+          <!-- Footer -->
+          <div class="card-footer d-flex justify-content-end">
+            <a class="btn btn-white" href="javascript:;">Cancel</a>
+            <span class="mx-2"></span>
+            <a class="btn btn-primary" href="javascript:;">Save Changes</a>
+          </div>
+          <!-- End Footer -->
+        </div>
+        <!-- End Card -->
+
+        <!-- Card -->
+        <div class="card mb-3 mb-lg-5">
+          <div class="card-header">
+            <h5 class="card-title">Privacy</h5>
+          </div>
+
+          <!-- Body -->
+          <div class="card-body">
+            <form>
+              <!-- Form Group -->
+              <div class="row form-group">
+                <div class="col-sm-3">
+                  <span class="d-block font-size-1 mb-2">Who can see your profile photo? <i class="far fa-question-circle" data-toggle="tooltip" data-placement="top" title="Your visibility setting only applies to your profile photo. Your header image is always visible to anyone."></i></span>
+                </div>
+
+                <div class="col-sm-9">
+                  <!-- Select -->
+                  <div class="select2-custom">
+                    <select class="js-custom-select"
+                            data-hs-select2-options='{
+                              "minimumResultsForSearch": "Infinity",
+                              "customClass": "custom-select"
+                            }'>
+                      <option value="privacy1" data-option-template='<span class="media"><i class="fas fa-globe-americas text-body mt-1 mr-2"></i><span class="media-body"><span class="d-block">Anyone</span><small class="select2-custom-hide">Visible to anyone who can view your content. Accessible by installed apps.</small></span></span>'>Anyone</option>
+                      <option value="privacy2" data-option-template='<span class="media"><i class="fas fa-user-lock text-body mt-1 mr-2"></i><span class="media-body"><span class="d-block">Only you</span><small class="select2-custom-hide">Only visible to you.</small></span></span>'>Only you</option>
+                    </select>
+                   </div>
+                  <!-- End Select -->
+                </div>
+              </div>
+              <!-- End Form Group -->
+            </form>
+          </div>
+          <!-- End Body -->
+        </div>
+        <!-- End Card -->
+
+        <!-- Card -->
+        <div class="card">
+          <div class="card-header">
+            <h5 class="card-title">Delete your account</h5>
+          </div>
+
+          <!-- Body -->
+          <div class="card-body">
+            <p class="card-text">When you delete your account, you lose access to Front account services, and we permanently delete your personal data. You can cancel the deletion for 14 days.</p>
+
+            <div class="form-group">
+              <!-- Custom Checkbox -->
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="deleteAccountCheckbox">
+                <label class="custom-control-label" for="deleteAccountCheckbox">Confirm that I want to delete my account.</label>
+              </div>
+              <!-- End Custom Checkbox -->
+            </div>
+
+            <div class="d-flex justify-content-end">
+              <button type="submit" class="btn btn-danger transition-3d-hover">Delete</button>
+            </div>
+          </div>
+          <!-- End Body -->
+        </div>
+        <!-- End Card -->
+      </div>
+    </div>
+    <!-- End Row -->
+  </div>
+  <!-- End Content Section -->
+</main>
+<!-- ========== END MAIN ========== -->
