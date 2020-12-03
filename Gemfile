@@ -21,6 +21,7 @@ gem 'jbuilder', '~> 2.7'
 # gem 'bcrypt', '~> 3.1.7'
 gem 'devise'
 gem 'rails_admin', '~> 2.0'
+gem 'table_print'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

@@ -1,17 +1,13 @@
 
-      <%= form_for @user do |f| %>
-      <%= f.text_field :first_name, class:"form-control m-3" %>
-      <%= f.text_field :last_name, class:"form-control m-3" %>
-
-
-
-      <%= f.fields_for :address do |a| %>
-        
-        <%= a.text_field :number, class:"form-control m-3" %>
-        <%= a.text_field :street, class:"form-control m-3" %>
-        <%= a.text_field :city, class:"form-control m-3" %>
-        <%= a.text_field :zipcode, class:"form-control m-3" %>
-
-      <% end %>
-      <%= f.submit "envoeyr" %>
+      <%= simple_form_for @user do |f| %>
+        <%= f.input :first_name, class:"form-control m-3"  %>
+        <%= f.input :last_name, class:"form-control m-3" %>
+        <%= f.simple_fields_for :address do |a| %>
+          <%= a.input :number, class:"form-control m-3" %>
+          <%= a.input :street, class:"form-control m-3" %>
+          <%= a.input :city, class:"form-control m-3" %>
+          <%= a.input :zipcode, class:"form-control m-3" %>
+          <%= a.input :country, class:"form-control m-3", as: :string %>
+        <% end %>
+        <%= f.button :submit, 'Modifier' %>
       <% end %>

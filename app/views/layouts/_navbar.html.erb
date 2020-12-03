@@ -14,7 +14,7 @@
               <%= current_user.username %>
             </a>
               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" <%= link_to "Mon profil", user_path(current_user) %></a>
+                <a class="dropdown-item" <%= link_to "Mon profil", user_path(current_user.id) %></a>
                 <a class="dropdown-item" <%= link_to "Se déconnecter", destroy_user_session_path, method: :delete %></a>
               </div>
           </div>
