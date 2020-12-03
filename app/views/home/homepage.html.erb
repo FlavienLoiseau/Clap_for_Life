@@ -172,9 +172,11 @@
 
                 <%= link_to "Voir la mission", organisation_mission_path(mission.organisation.id, mission.id), class: "btn btn-primary mb-2"%><br>
                 <%= link_to "#{mission.organisation.name}", organisation_path(mission.organisation.id), class: "btn btn-light mb-3"%>
-                <p class="mb-0"><i class="fas fa-tags" style="color:#808080"></i><small style="color:#808080"> <%mission.tags.each do |tag|%>
-                <%=tag.name%>
-                <%end%></small></p>
+                <p class="mb-0">
+                  <small style="color:#808080"> <%mission.tags.each do |tag|%>
+                  <li class="list-inline-item mr-3"><i class="fas fa-tags"></i> <%=tag.name%></li>
+                  <%end%></small>
+                  </p>
               </div>
             </div>
           </div>
