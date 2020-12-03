@@ -71,7 +71,7 @@
             <!-- venue item-->
             <div class="col-sm-6 col-lg-4 mb-5 hover-animate" data-marker-id="59c0c8e33b1527bfe2abaf92">
               <div class="card h-100 border-0 shadow">
-                <div class="card-img-top overflow-hidden dark-overlay bg-cover" style="background-image: url(https://www.linfodurable.fr/sites/linfodurable/files/styles/landscape_w800/public/2018-06/NETTOYAGES%20DE%20PLAGE.jpg?h=a7a713b3&itok=D2cYNkDE); min-height: 200px;"><a class="tile-link" href="detail.html"></a>
+                <div class="card-img-top overflow-hidden dark-overlay bg-cover" style="background-image: url(https://www.linfodurable.fr/sites/linfodurable/files/styles/landscape_w800/public/2018-06/NETTOYAGES%20DE%20PLAGE.jpg?h=a7a713b3&itok=D2cYNkDE); min-height: 200px;"><%= link_to "", organisation_mission_path(mission.organisation.id, mission.id), class: "tile-link"%>
                   <div class="card-img-overlay-bottom z-index-20">
                     <h4 class="text-white text-shadow"><%=mission.title%></h4>
                   </div>
