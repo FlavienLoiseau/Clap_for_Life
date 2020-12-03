@@ -25,5 +25,11 @@ class Organisation < ApplicationRecord
       Organisation.all
     end
   end
+  accepts_nested_attributes_for :tags
+  accepts_nested_attributes_for :activity
+  accepts_nested_attributes_for :address
+
+
+
 
 end

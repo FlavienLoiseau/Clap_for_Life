@@ -1,0 +1,25 @@
+<main id="content" role="main" class="bg-light">
+  <!-- Breadcrumb Section -->
+  <div class="bg-navy" style="background-image: url(../../assets/svg/components/abstract-shapes-20.svg);">
+
+
+<%= render 'users/index'  %>
+
+<h3> Création d'un profil association </h3>
+
+<%= simple_form_for @organisation,
+  :url => url_for(action: 'create'),
+  method: :post do |f|  %>
+  <%= f.input :name, class:"form-control m-3" %>
+  <%= f.input :registration_number, class:"form-control m-3" %>
+  <%= f.input :registration_date, class:"form-control m-3" %>
+  <%= f.input :description, class:"form-control m-3" %>
+  <%= f.association :tags, class:"form-control m-3", as: :check_boxes %>
+  <%= f.association :activity, class:"form-control m-3", include_blank: false %>
+
+  <%= f.button :submit, 'Créer mon Asso' %>
+<% end %>
+
+</div>
+<!-- End Content Section -->
+</main>

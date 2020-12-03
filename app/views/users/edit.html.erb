@@ -1,13 +1,28 @@
+<main id="content" role="main" class="bg-light">
+  <!-- Breadcrumb Section -->
+  <div class="bg-navy" style="background-image: url(../../assets/svg/components/abstract-shapes-20.svg);">
 
+<%= render 'users/index'  %>
       <%= simple_form_for @user do |f| %>
         <%= f.input :first_name, class:"form-control m-3"  %>
         <%= f.input :last_name, class:"form-control m-3" %>
+        <%= f.input :email, class:"form-control m-3" %>
+        <%= f.input :phone_number, class:"form-control m-3" %>
+        <%= f.input :date_of_birth, class:"form-control m-3" %>
         <%= f.simple_fields_for :address do |a| %>
           <%= a.input :number, class:"form-control m-3", placeholder: "4bis" %>
-          <%= a.input :street, class:"form-control m-3" %>
-          <%= a.input :city, class:"form-control m-3" %>
-          <%= a.input :zipcode, class:"form-control m-3" %>
-          <%= a.input :country, class:"form-control m-3", as: :string %>
+          <%= a.input :street, class:"form-control m-3", placeholder: "rue du Père Noël" %>
+          <%= a.input :city, class:"form-control m-3", placeholder: "Paris" %>
+          <%= a.input :zipcode, class:"form-control m-3", placeholder: "75015" %>
+          <%= a.input :country, class:"form-control m-3", as: :string, placeholder: "France" %>
         <% end %>
         <%= f.button :submit, 'Modifier' %>
       <% end %>
+
+
+
+
+        </div>
+        <!-- End Content Section -->
+      </main>
+      <!-- ========== END MAIN ========== -->

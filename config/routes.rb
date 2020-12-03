@@ -10,7 +10,8 @@ Rails.application.routes.draw do
   devise_for :users
   resources :users, only: [:show, :edit, :update]
   resources :missions, only: [:index]
-  resources :organisations, only: [:index, :show] do
+
+  resources :organisations, only: [:index, :show, :new, :create] do
     resources :missions, only: [:show]
   end
 
