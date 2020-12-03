@@ -9,7 +9,7 @@ require 'faker'
 Faker::Config.locale = :fr
 
 i=1
-3.times do
+10.times do
   user = User.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, admin: true, password: "foobar", username: "user"+i.to_s)
   puts "User added"
   i+=1
@@ -33,7 +33,7 @@ end
   puts "Organisation created !"
   mission = Mission.create(
     organisation_id: organisation.id,
-    title: Faker::Company.bs,
+    title: ["Collecte de déchets sur la plage", "Campagne sacs réutilisables", "Aide organisation marche pour le climat", "Distribution alimentaire", "Maraude", "Soupe populaire", "Livraison chocolats de Noël", "Allô comment ça va?"].sample,
     contact_first_name: Faker::Name.first_name,
     contact_last_name: Faker::Name.last_name,
     contact_phone: Faker::PhoneNumber.phone_number,
