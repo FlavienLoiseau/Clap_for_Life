@@ -96,8 +96,11 @@
         <div class="col-md-8">
           <h2>Thèmes associatifs</h2>
         </div>
-        <div class="col-md-4 d-md-flex align-items-center justify-content-end"><a class="text-muted text-sm" href="category.html">
-              Voir tous les thèmes<i class="fas fa-angle-double-right ml-2"></i></a></div>
+        <div class="col-md-4 d-md-flex align-items-center justify-content-end ">
+          <%= link_to organisations_path do %>
+            <div class="text-muted text-sm">Voir toutes les associations<i class="fas fa-angle-double-right ml-2 "></i></div>
+          <%end%>
+        </div>
       </div>
       <div class="row">
         <div class="d-flex align-items-lg-stretch mb-4 col-lg-8">
