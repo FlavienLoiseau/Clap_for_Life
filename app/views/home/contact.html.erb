@@ -1,12 +1,117 @@
-<div class="container">
-  <h1>A remplir avec les informations concernant les contacts</h1>
-  <h2>Template trouvable sous views/home/contact</h2>
-  <ul>
-    <li>info 1</li>
-    <li>info 2</li>
-    <li>info 3</li>
-    <li>info 4</li>
-    <li>info 5</li>
-
-  </ul>
+<section class="hero py-5 py-lg-7 text-white dark-overlay"><img class="bg-image" src="https://images.unsplash.com/photo-1447069387593-a5de0862481e?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxzZWFyY2h8Nnx8bGV0dGVyfGVufDB8fDB8&auto=format&fit=crop&w=700&q=60" alt="How can we help you today?">
+  <div class="container overlay-content">
+    <h3>Besoin de nous contacter ?</h3>
+    <h1 class="hero-heading">Laissez-nous un message :)</h1>
+  </div>
+</section>
+<section class="py-5 bg-gray-100">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-7 mb-5 mb-md-0">
+        <form class="form" id="contact-form" method="post" action="contact.php">
+          <div class="controls">
+            <div class="row">
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label class="form-label" for="name">Votre prénom *</label>
+                  <input class="form-control" type="text" name="name" id="name" required="required">
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label class="form-label" for="surname">Votre nom *</label>
+                  <input class="form-control" type="text" name="surname" id="surname" required="required">
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="email">Votre email *</label>
+              <input class="form-control" type="email" name="email" id="email" required="required">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="message">Votre message pour nous *</label>
+              <textarea class="form-control" rows="4" name="message" id="message" required="required"></textarea>
+            </div>
+            <button class="btn btn-outline-primary" type="submit">Envoyer</button>
+          </div>
+        </form>
+      </div>
+      <div class="col-md-5">
+        <div class="pl-lg-4">
+          <p><em>emplacement de la carte</em></p>
+          <p class="text-muted">Effects present letters inquiry no an removed or friends. Desire behind latter me though in. Supposing shameless am he engrossed up additions. My possible peculiar together to. Desire so better am cannot he up before points. Remember mistaken opinions it pleasure of debating. Court front maids forty if aware their at. Chicken use are pressed removed. </p>
+          <p class="text-muted">Able an hope of body. Any nay shyness article matters own removal nothing his forming. Gay own additions education satisfied the perpetual. If he cause manor happy. Without farther she exposed saw man led. Along on happy could cease green oh. </p>
+          <div class="social">
+            <ul class="list-inline">
+              <li class="list-inline-item"><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
+              <li class="list-inline-item"><a href="#" target="_blank"><i class="fab fa-facebook"></i></a></li>
+              <li class="list-inline-item"><a href="#" target="_blank"><i class="fab fa-instagram"></i></a></li>
+              <li class="list-inline-item"><a href="#" target="_blank"><i class="fab fa-pinterest"></i></a></li>
+              <li class="list-inline-item"><a href="#" target="_blank"><i class="fab fa-vimeo"></i></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="map-wrapper-300">
+  <div class="h-100" id="detailMap"></div>
 </div>
+<!-- JavaScript files-->
+<script>
+  // ------------------------------------------------------- //
+  //   Inject SVG Sprite - 
+  //   see more here 
+  //   https://css-tricks.com/ajaxing-svg-sprite/
+  // ------------------------------------------------------ //
+  function injectSvgSprite(path) {
+  
+      var ajax = new XMLHttpRequest();
+      ajax.open("GET", path, true);
+      ajax.send();
+      ajax.onload = function(e) {
+      var div = document.createElement("div");
+      div.className = 'd-none';
+      div.innerHTML = ajax.responseText;
+      document.body.insertBefore(div, document.body.childNodes[0]);
+      }
+  }    
+  // to avoid CORS issues when viewing using file:// protocol, using the demo URL for the SVG sprite
+  // use your own URL in production, please :)
+  // https://demo.bootstrapious.com/directory/1-0/icons/orion-svg-sprite.svg
+  //- injectSvgSprite('${path}icons/orion-svg-sprite.svg'); 
+  injectSvgSprite('https://demo.bootstrapious.com/directory/1-4/icons/orion-svg-sprite.svg'); 
+  
+</script>
+<!-- jQuery-->
+<script src="vendor/jquery/jquery.min.js"></script>
+<!-- Bootstrap JS bundle - Bootstrap + PopperJS-->
+<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- Magnific Popup - Lightbox for the gallery-->
+<script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+<!-- Smooth scroll-->
+<script src="vendor/smooth-scroll/smooth-scroll.polyfills.min.js"></script>
+<!-- Bootstrap Select-->
+<script src="vendor/bootstrap-select/js/bootstrap-select.min.js"></script>
+<!-- Object Fit Images - Fallback for browsers that don't support object-fit-->
+<script src="vendor/object-fit-images/ofi.min.js"></script>
+<!-- Swiper Carousel                       -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.1/js/swiper.min.js"></script>
+<script>var basePath = ''</script>
+<!-- Main Theme JS file    -->
+<script src="js/theme.js"></script>
+<!-- Map-->
+<script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js" integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og==" crossorigin=""></script>
+<!-- Available tile layers-->
+<script src="js/map-layers.js"> </script>
+<script src="js/map-detail.js"></script>
+<script>
+  createDetailMap({
+      mapId: 'detailMap',
+      mapCenter: [40.732346, -74.0014247],
+      markerShow: true,
+      markerPosition: [40.732346, -74.0014247],
+      markerPath: 'img/marker.svg',
+  })
+</script>
