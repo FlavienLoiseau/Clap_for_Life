@@ -7,6 +7,7 @@ class MissionsController < ApplicationController
 
   def show
     @missions=Mission.all
+    @participation =Participation.new
   end
 
   def new

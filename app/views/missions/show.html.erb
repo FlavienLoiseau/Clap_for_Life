@@ -49,7 +49,11 @@
           <div class="p-4 shadow ml-lg-4 rounded sticky-top" style="top: 100px;">
             <p class="text-muted">Places restantes : <span class="text-primary h4"><%=@mission.volunteers_needed - @mission.participations.count%>  </span></p>
             <hr class="my-4">
-            <button class="btn btn-primary btn-block" type="submit">Participer</button>
+            <%=form_for @participation, :url => {:action => "create"} do |f|%>
+              <% f.hidden_field :user_id, :value => current_user.id %>
+              <% f.hidden_field :mission_id, :value => @mission.id %>
+              <%=f.submit "Participer", class: "btn btn-primary"%>
+            <%end%>
             <hr class="my-4">
             <div class="text-center">
               <p class="text-secondary text-sm" > Contact responsable de mission</p>
