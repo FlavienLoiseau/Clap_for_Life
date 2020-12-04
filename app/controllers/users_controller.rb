@@ -3,7 +3,6 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :is_current_user]
   before_action :is_current_user, only: [:show]
 
-
   def edit
     if @user.address.blank?
       @user.build_address
@@ -45,7 +44,6 @@ class UsersController < ApplicationController
       ]
     )
   end
-  
 
   def is_current_user
     unless current_user == @user

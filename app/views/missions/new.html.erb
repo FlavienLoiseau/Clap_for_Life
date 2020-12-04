@@ -6,14 +6,10 @@
       <div class="row align-items-center">
         <div class="col">
           <div class="d-none d-lg-block">
-            <h1 class="my-5 text-white">Informations de <%= @user.username %></h1>
+            <h1 class="my-5 text-white">Page de création de Mission</h1>
           </div>
         </div>
-        <div class="col-auto">
-          <div class="d-none d-lg-block">
-            <a class="btn btn-sm btn-soft-light"><%= link_to "Se déconnecter", destroy_user_session_path, method: :delete, class: "btn btn-light" %></a>
-          </div>
-        </div>
+        
       </div>
     </div>
   </div>
@@ -91,11 +87,12 @@
         <!-- Card -->
         <div class="card mb-3 mb-lg-5">
           <div class="card-header">
-            <h5 class="card-title mt-3">Créer une association</h5>
+            <h5 class="card-title mt-3">Créer une mission</h5>
           </div>
           <!-- Body -->
           <div class="card-body">
             <%= simple_form_for @mission,
+              :url => url_for(action: 'create'),
               method: :post do |f|  %>
               <%= f.input :title, class:"form-control m-3" %>
               <%= f.input :contact_first_name, class:"form-control m-3" %>
@@ -105,11 +102,19 @@
               <%= f.input :start_date, class:"form-control m-3" %>
               <%= f.input :end_date, class:"form-control m-3" %>
               <%= f.input :volunteers_needed, class:"form-control m-3" %>
+              <%= f.association :tags, class:"form-control m-3", as: :check_boxes %>
+               <%= f.simple_fields_for :address do |a| %>
+                <%= a.input :number %>
+                <%= a.input :street %>
+                <%= a.input :city %>
+                <%= a.input :zipcode %>
+                <%= a.input :country %>
+              <% end %>
               <!-- End Form Group -->
               </div>
               <!-- Footer -->
               <div class="card-footer d-flex justify-content-end">
-                <%= f.button :submit, 'Créer ma mission', class:'btn btn-primary' %>
+                <%= f.button :submit, 'Créer ma mission', class:'btn btn-success' %>
                   <% end %>
               </div>
                 <!-- End Footer -->
