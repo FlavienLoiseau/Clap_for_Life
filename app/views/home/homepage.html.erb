@@ -151,6 +151,11 @@
         <div class="col-md-8">
           <h2>Ces associations ont besoin de vous !</h2>
         </div>
+        <div class="col-md-4 d-md-flex align-items-center justify-content-end ">
+          <%= link_to missions_path do %>
+            <div class="text-muted text-sm">Voir toutes les missions<i class="fas fa-angle-double-right ml-2 "></i></div>
+          <%end%>
+        </div>
       </div>
       <div class="row">
         <% @missions.each do |mission| %>
