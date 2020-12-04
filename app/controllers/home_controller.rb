@@ -3,9 +3,7 @@ class HomeController < ApplicationController
   end
 
   def homepage
-
-      @missions = Mission.all.limit(12)
-
+    @missions = Mission.all.limit(12)
   end
 
   def pages
@@ -26,13 +24,6 @@ class HomeController < ApplicationController
     @participations = Participation.all
   end
 
-  def organisationinfo
-    @user = current_user
-  end
-
-  def organisationedit
-    @user = current_user
-  end
 
   def dashboard
     @user = current_user

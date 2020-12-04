@@ -8,6 +8,12 @@
 require 'faker'
 Faker::Config.locale = :fr
 
+Address.destroy_all
+Participation.destroy_all
+Mission.destroy_all
+Organisation.destroy_all
+Activity.destroy_all
+User.destroy_all
 
 
 i=1

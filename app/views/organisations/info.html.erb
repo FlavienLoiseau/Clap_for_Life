@@ -1,100 +1,11 @@
 <!-- ========== MAIN ========== -->
 <main id="content" role="main" class="bg-light">
-  <!-- Breadcrumb Section -->
-  <div class="bg-navy" style="background-image: url(https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80); background-position: 50% 55%">
-    <div class="container space-1 space-top-lg-2 space-bottom-lg-3" style="height:300px;">
-      <div class="row align-items-center">
-        <div class="col">
-          <div class="d-none d-lg-block">
-            <h1 class="my-5 text-white">Informations de <%= @user.username %></h1>
-          </div>
-        </div>
 
-        <div class="col-auto">
-          <div class="d-none d-lg-block">
-            <a class="btn btn-sm btn-soft-light"><%= link_to "Se déconnecter", destroy_user_session_path, method: :delete, class: "btn btn-light" %></a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- End Breadcrumb Section -->
+  <%= render 'users/cover'  %>
 
-  <!-- Content Section -->
   <div class="container space-1 space-top-lg-0 mt-lg-n10" style="position: relative ; top: -80px ;">
     <div class="row">
-      <div class="col-lg-3">
-        <!-- Navbar -->
-        <div class="navbar-expand-lg navbar-expand-lg-collapse-block navbar-light">
-          <div id="sidebarNav" class="collapse navbar-collapse navbar-vertical">
-            <!-- Card -->
-            <div class="card mb-5">
-              <div class="card-body">
-                <!-- Avatar -->
-                <div class="d-none d-lg-block text-center mb-5">
-                  <div class="avatar avatar-xxl avatar-circle mb-3">
-                    <!-- <img class="avatar-img" src="" alt="Image Description"> -->
-                  </div>
-
-                  <h4 class="card-title"><%= @user.username %></h4>
-                  <p class="card-text font-size-1"><p><%= @user.first_name %> <%= @user.last_name %></p>
-                </div>
-                <!-- End Avatar -->
-
-                <h6 class="text-muted" style="font-size:0.9em">INFORMATIONS UTILISATEUR</h6>
-
-                <!-- List -->
-                <ul class="nav nav-sub nav-sm nav-tabs nav-list-y-2 mb-4">
-                  <li class="nav-item">
-                    <i class="fas fa-id-card nav-icon"></i><a class="btn btn-unique active text-left" style="font-size:0.7em" <%= link_to "Infos perso", user_path(current_user.id) %></a>
-                  </li>
-                  <li class="nav-item">
-                    <i class="far fa-check-square"></i><a class="btn btn-unique active text-left" style="font-size:0.7em" <%= link_to "Missions", "/home/missions" %></a>
-                  </li>
-                  <li class="nav-item">
-                    <i class="fas fa-pencil-alt"></i><a class="btn btn-unique active text-left" style="font-size:0.7em" <%= link_to "Editer le profil", edit_user_path(current_user) %></a>
-                  </li>
-                  <li class="nav-item mb-2">
-                      <i class="fas fa-shield-alt nav-icon"></i><a class="btn btn-unique active text-left" style="font-size:0.7em" <%= link_to "Editer le compte", edit_user_registration_path %></a>
-
-                  </li>
-                </ul>
-                <!-- End List -->
-
-                <h6 class="text-muted" style="font-size:0.9em">INFORMATIONS ASSOCIATION</h6>
-
-                <!-- List -->
-                <% if @user.organisation_admin == false %>
-                <ul class="nav nav-sub nav-sm nav-tabs nav-list-y-2 mb-4">
-                  <li class="nav-item">
-                    <i class="fas fa-plus-circle"></i><a class="btn btn-unique text-left" style="font-size:0.7em" <%= link_to "Créer association", new_organisation_path %></a>
-                  </li>
-                </ul>
-                <% else %>
-                <ul class="nav nav-sub nav-sm nav-tabs nav-list-y-2 mb-4">
-                  <li class="nav-item">
-                      <i class="fas fa-id-card nav-icon"></i><a class="btn btn-unique active text-left" style="font-size:0.7em; color: #d24d57" <%= link_to "Infos asso", "/home/organisationinfo" %></a>
-                  </li>
-                  <li class="nav-item">
-                  <i class="fas fa-pencil-alt"></i><a class="btn btn-unique active text-left" style="font-size:0.7em" <%= link_to "Editer le profil", "/home/organisationedit" %></a>
-                  </li>
-                  <li class="nav-item">
-                    <i class="fas fa-plus-circle"></i><a class="btn btn-unique text-left" style="font-size:0.7em"  <%= link_to "Créer une mission", new_mission_path %></a>
-                  </li>
-                  <li class="nav-item">
-                      <i class="fas fa-heart nav-icon"></i><a class="btn btn-unique active text-left" style="font-size:0.7em" <%= link_to "Dashboard", "/home/dashboard" %></a>
-                  </li>
-                </ul>
-                <% end %>
-                <!-- End List -->
-
-              </div>
-            </div>
-            <!-- End Card -->
-          </div>
-        </div>
-        <!-- End Navbar -->
-      </div>
+      <%= render 'users/left_column'  %>
 
       <div class="col-lg-9">
         <!-- Card -->
@@ -120,7 +31,7 @@
               <div class=" row form-group">
                 <label for="firstNameLabel" class="col-sm-4 col-form-label " style="color:gray;">NOM DE L'ASSOCIATION </label>
                   <div class="col-sm-8 pt-2">
-                    <p>nom de l'asso</p>
+                    <p><%= @organisation.name %></p>
                 </div>
               </div>
               <!-- End Form Group -->
@@ -130,7 +41,7 @@
 
                 <label for="firstNameLabel" class="col-sm-4 col-form-label input-label" style="color:gray;">NUMERO SIREN</label>
                   <div class="col-sm-8 pt-2">
-                    <p>numéro siren de l'asso</p>
+                    <p><%= @organisation.registration_number %></p>
                 </div>
               </div>
               <!-- End Form Group -->
@@ -139,7 +50,7 @@
               <div class="row form-group">
                 <label for="emailLabel" class="col-sm-4 col-form-label input-label" style="color:gray;">DATE D'ENREGISTREMENT</label>
                 <div class="col-sm-8 pt-2">
-                  <p>date d'enregistrement</p>
+                  <p><%= @organisation.registration_date %></p>
                 </div>
               </div>
               <!-- End Form Group -->
@@ -148,7 +59,7 @@
               <div class="js-add-field row form-group">
                 <label for="phoneLabel" class="col-sm-4 col-form-label input-label" style="color:gray;">DESCRIPTION</label>
                 <div class="col-sm-8 pt-2">
-                    <p>description</p>
+                    <p><%= @organisation.description %></p>
                 </div>
               </div>
               <!-- End Form Group -->
@@ -157,7 +68,7 @@
               <div class="row form-group">
                 <label for="birthDateLabel" class="col-sm-4 col-form-label input-label" style="color:gray;">DOMAINE D'ACTIVITE</label>
                 <div class="col-sm-8 pt-2">
-                  <p>activity</p>
+                  <p><%= @organisation.activity.title %></p>
                 </div>
               </div>
               <!-- End Form Group -->
@@ -174,7 +85,7 @@
           <!-- End Body -->
           <!-- Footer -->
           <div class="card-footer d-flex justify-content-end">
-            <a class="btn btn-primary" <%= link_to "Editer les informations", "/home/organisationedit" %></a>
+            <a class="btn btn-success" <%= link_to "Editer les informations", edit_organisation_path(current_user.organisation) %></a>
           </div>
           <!-- End Footer -->
         </div>
@@ -190,7 +101,7 @@
               <div class="row">
                 <label for="locationLabel" class="col-sm-4 col-form-label input-label" style="color:gray;">NUMERO DE RUE</label>
                 <div class="col-sm-8 pt-2">
-                    <p>numéro</p>
+                    <p><%= @organisation.address.number %></p>
                 </div>
               </div>
               <!-- End Form Group -->
@@ -199,7 +110,7 @@
               <div class="row">
                 <label for="addressLine1Label" class="col-sm-4 col-form-label input-label" style="color:gray;">RUE</label>
                 <div class="col-sm-8 pt-2">
-                <p>rue</p>
+                <p><%= @organisation.address.street %></p>
                 </div>
               </div>
               <!-- End Form Group -->
@@ -208,7 +119,7 @@
               <div class="row">
                 <label for="cityLabel" class="col-sm-4 col-form-label input-label" style="color:gray;">VILLE</label>
                 <div class="col-sm-8 pt-2">
-                  <p>ville</p>
+                  <p><%= @organisation.address.city %></p>
                 </div>
               </div>
               <!-- End Form Group -->
@@ -217,7 +128,7 @@
               <div class="row">
                 <label for="zipCodeLabel" class="col-sm-4 col-form-label input-label" style="color:gray;">CODE POSTAL </label>
                 <div class="col-sm-8 pt-2">
-                  <p>zipcode</p>
+                  <p><%= @organisation.address.zipcode %></p>
                 </div>
               </div>
               <!-- End Form Group -->
@@ -226,7 +137,7 @@
               <div class="row">
                 <label for="zipCodeLabel" class="col-sm-4 col-form-label input-label" style="color:gray;">PAYS</label>
                 <div class="col-sm-8 pt-2">
-                  <p>pays</p>
+                  <p><%= @organisation.address.country %></p>
                 </div>
               </div>
               <!-- End Form Group -->
@@ -234,8 +145,13 @@
           </div>
           <!-- Footer -->
           <div class="card-footer d-flex justify-content-end">
-            <a class="btn btn-primary" <%= link_to "Editer les informations", "/home/organisationedit" %></a>
+            <a class="btn btn-success" <%= link_to "Editer les informations", edit_organisation_path(current_user.organisation) %></a>
           </div>
+          <br>
+          <div class="card-footer d-flex justify-content-end">
+            <%= link_to "Supprimer l'asso", organisation_path(current_user.organisation), method: :delete, class: "btn btn-primary" %>
+          </div>
+
           <!-- End Footer -->
         </div>
         <!-- End Card -->
