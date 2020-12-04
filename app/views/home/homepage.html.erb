@@ -10,79 +10,33 @@
       </div>
     </div>
   </section>
+
+  <%# Search bar final %>
   <div class="container position-relative mt-n6 z-index-20">
     <ul class="nav nav-tabs search-bar-nav-tabs" role="tablist">
-      <li class="nav-item mr-2"><a class="nav-link active" href="#buy" data-toggle="tab" role="tab">Chercher une association</a></li>
-      <li class="nav-item mr-2"><a class="nav-link" href="#rent" data-toggle="tab" role="tab">Chercher une mission</a></li>
+      <li class="nav-item mr-2"><a class="nav-link active" href="#orga" data-toggle="tab" role="tab">Chercher une association</a></li>
+      <li class="nav-item mr-2"><a class="nav-link" href="#mission" data-toggle="tab" role="tab">Chercher une mission</a></li>
     </ul>
     <div class="search-bar search-bar-with-tabs p-3 p-lg-4">
       <div class="tab-content">
-        <div class="tab-pane fade show active" id="buy" role="tabpanel">
-              <form action="get">
-                <div class="row">
-                  <div class="col-md-6 col-lg-4 d-flex align-items-center form-group no-divider">
-                    <div class="input-label-absolute input-label-absolute-right w-100">
-                      <label class="label-absolute" for="Ville"><i class="fa fa-crosshairs"></i>
-                        <div class="sr-only">Ville</div>
-                      </label>
-                        <input class="form-control border-0 shadow-0" type="text" name="location" placeholder="Ville" id="location">
-                    </div>
-                  </div>
-                  <div class="col-md-6 col-lg-3 d-flex align-items-center form-group no-divider">
-                    <select class="selectpicker" title="Domaine associatif" data-style="btn-form-control">
-                      <option value="small">Précarité</option>
-                      <option value="medium">Environnement</option>
-                      <option value="large">Education</option>
-                      <option value="x-large">Aide à la personne</option>
-                    </select>
-                  </div>
-                  <div class="col-md-6 col-lg-3 d-flex align-items-center form-group no-divider">
-                    <select class="selectpicker" title="Activité" data-style="btn-form-control">
-                      <option value="small">Restaurants</option>
-                      <option value="medium">Hotels</option>
-                      <option value="large">Cafes</option>
-                      <option value="x-large">Garages</option>
-                    </select>
-                  </div>
-                  <div class="col-lg-2 form-group mb-0">
-                    <button class="btn btn-primary btn-block h-100" type="submit">Rechercher </button>
-                  </div>
-                </div>
-              </form>
+        <div class="tab-pane fade show active" id="orga" role="tabpanel">
+          <%= form_tag(organisations_path, method: :get) do%>
+            <div class ="row">
+              <%=text_field_tag(:search, params[:search], class: "form-control border-0 shadow-0 col-lg-4", placeholder: "Tag")%>
+              <%=submit_tag "Rechercher", class: "btn btn-primary h-100 ml-2" %>
+            </div>
+          <%end%>
         </div>
-        <div class="tab-pane fade" id="rent" role="tabpanel">
-              <form action="#">
-                <div class="row">
-                  <div class="col-md-6 col-lg-4 d-flex align-items-center form-group no-divider">
-                    <div class="input-label-absolute input-label-absolute-right w-100">
-                <label class="label-absolute" for="Ville"><i class="fa fa-crosshairs"></i>
-                  <div class="sr-only">Ville</div>
-                </label>
-                <input class="form-control border-0 shadow-0" type="text" name="location" placeholder="Ville" id="location">
+        <div class="tab-pane fade" id="mission" role="tabpanel">
+          <%= form_tag(missions_path, method: :get) do%>
+            <div class="tab-pane fade show active">
+              <div class ="row">
+                <%=text_field_tag(:search, params[:search], class: "form-control border-0 shadow-0 col-lg-4", placeholder: "Tag")%>
+                <%=submit_tag "Search", class: "btn btn-primary  h-100 ml-2" %>
               </div>
-                  </div>
-                  <div class="col-md-6 col-lg-3 d-flex align-items-center form-group no-divider">
-                    <select class="selectpicker" title="Domaine associatif" data-style="btn-form-control">
-                      <option value="small">Précarité</option>
-                      <option value="medium">Environnement</option>
-                      <option value="large">Education</option>
-                      <option value="x-large">Aide à la personne</option>
-                    </select>
-                  </div>
-                  <div class="col-md-6 col-lg-3 d-flex align-items-center form-group no-divider">
-                    <select class="selectpicker" title="Activité" data-style="btn-form-control">
-                      <option value="small">Manuel</option>
-                      <option value="medium">Organisation</option>
-                      <option value="large">Intellectuel</option>
-                      <option value="x-large">Ecoute</option>
-                    </select>
-                  </div>
-                  <div class="col-lg-2 form-group mb-0">
-                    <button class="btn btn-primary btn-block h-100" type="submit">Rechercher </button>
-                  </div>
-                </div>
-              </form>
-          </div>
+            </div>
+          <%end%>
+        </div>
       </div>
     </div>
   </div>
