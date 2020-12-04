@@ -16,8 +16,9 @@ Rails.application.routes.draw do
   resources :missions, only: [:index, :new]
 
   resources :organisations, only: [:index, :show, :new, :create] do
-    resources :missions, only: [:show]
+    resources :missions, only: [:show] do
+      resources :participations, only: [:create, :destroy]
+    end
   end
-
 
 end

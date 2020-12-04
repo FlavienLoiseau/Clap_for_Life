@@ -1,6 +1,6 @@
 class Mission < ApplicationRecord
   belongs_to :organisation
-
+  
   has_one :address, as: :addressable
 
   has_many :participations
