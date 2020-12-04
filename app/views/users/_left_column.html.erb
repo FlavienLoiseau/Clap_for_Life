@@ -24,7 +24,7 @@
               <i class="fas fa-id-card nav-icon"></i><a class="btn btn-unique active text-left" style="font-size:0.7em; color: #d24d57" <%= link_to "Infos perso", user_path(current_user.id) %></a>
             </li>
             <li class="nav-item">
-              <i class="far fa-check-square"></i><a class="btn btn-unique active text-left" style="font-size:0.7em" <%= link_to "Missions", 'home_organisation' %></a>
+              <i class="far fa-check-square"></i><a class="btn btn-unique active text-left" style="font-size:0.7em" <%= link_to "Missions", user_missions_path(current_user.id) %></a>
             </li>
             <li class="nav-item">
               <i class="fas fa-pencil-alt"></i><a class="btn btn-unique active text-left" style="font-size:0.7em" <%= link_to "Editer le profil", edit_user_path(current_user) %></a>
