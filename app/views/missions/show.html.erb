@@ -3,7 +3,7 @@
         <div class="col-lg-8">
           <div class="text-block">
             <h1><%=@mission.title%></h1>
-            <p class="text-primary"><i class="fa-map-marker-alt fa mr-1"></i><%=@mission.address.number%>, <%=@mission.address.street%>, <%=@mission.address.city%>, <%=@mission.address.zipcode%>, <%=@mission.address.country%></p>
+            <p class="text-primary"><i class="fa-map-marker-alt fa mr-1"></i><%=@mission.address.number if @mission.address%>, <%=@mission.address.street if @mission.address%>, <%=@mission.address.city if @mission.address%>, <%=@mission.address.zipcode if @mission.address%>, <%=@mission.address.country if @mission.address%></p>
             <p class="text-muted mb-4"> <%=@mission.start_date.strftime("Du %-d/%-m/%Y à %lh%H")%> - <%=@mission.end_date.strftime("Au %-d/%-m/%Y à %lh%H")%> </p>
             <ul class="list-inline text-sm mb-4">
             <%@mission.tags.each do |tag| %>
@@ -87,7 +87,7 @@
 
                 </div>
                 <div class="card-body">
-                  <i class="fas fa-search-location" style="color:#808080"></i><small style="color:#808080"> <%=mission.address.city%>,  <%=mission.address.zipcode%></small><br>
+                  <i class="fas fa-search-location" style="color:#808080"></i><small style="color:#808080"> <%=mission.address.city if mission.address%>,  <%=mission.address.zipcode if mission.address%></small><br>
                   <i class="fas fa-users" style="color:#808080"></i><small style="color:#808080"> Besoin de <%=mission.volunteers_needed%> volontaires</small><br>
                   <i class="fas fa-calendar-day" style="color:#808080"></i><small style="color:#808080"> Date: <%=mission.start_date%></small><br></p>
 
