@@ -9,6 +9,11 @@ class MissionsController < ApplicationController
     @missions=Mission.all
   end
 
+  def new
+    @user = current_user
+    @mission=Mission.new
+  end
+
 
   private
 

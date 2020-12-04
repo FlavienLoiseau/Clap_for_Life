@@ -3210,6 +3210,7 @@ input[type="button"].btn-block {
 .dropdown-menu {
   position: absolute;
   top: 100%;
+  right:0;
   left: 0;
   z-index: 1000;
   display: none;
@@ -4790,7 +4791,7 @@ input[type="button"].btn-block {
 }
 
 .card-header {
-  padding: 0.75rem 1.25rem;
+  padding: 0rem 1.25rem;
   margin-bottom: 0;
   background-color: rgba(0, 0, 0, 0.03);
   border-bottom: 1px solid rgba(0, 0, 0, 0.125);
