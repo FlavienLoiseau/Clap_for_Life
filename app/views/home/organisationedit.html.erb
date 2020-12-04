@@ -51,7 +51,7 @@
                     <i class="fas fa-pencil-alt"></i><a class="btn btn-unique active text-left" style="font-size:0.7em" <%= link_to "Editer le profil", edit_user_path(current_user) %></a>
                   </li>
                   <li class="nav-item mb-2">
-                    <i class="fas fa-shield-alt nav-icon"></i><a class="btn btn-unique active text-left" style="font-size:0.7em; color: #d24d57" <%= link_to "Editer le compte", edit_user_registration_path %></a>
+                    <i class="fas fa-shield-alt nav-icon"></i><a class="btn btn-unique active text-left" style="font-size:0.7em" <%= link_to "Editer le compte", edit_user_registration_path %></a>
                   </li>
                 </ul>
                 <!-- End List -->
@@ -69,7 +69,7 @@
                         <i class="fas fa-id-card nav-icon"></i><a class="btn btn-unique active text-left" style="font-size:0.7em" <%= link_to "Infos asso", "/home/organisationinfo" %></a>
                     </li>
                     <li class="nav-item">
-                    <i class="fas fa-pencil-alt"></i><a class="btn btn-unique active text-left" style="font-size:0.7em" <%= link_to "Editer le profil", "/home/organisationedit" %></a>
+                    <i class="fas fa-pencil-alt"></i><a class="btn btn-unique active text-left" style="font-size:0.7em; color: #d24d57" <%= link_to "Editer le profil", "/home/organisationedit" %></a>
                     </li>
                     <li class="nav-item">
                       <i class="fas fa-plus-circle"></i><a class="btn btn-unique text-left" style="font-size:0.7em"  <%= link_to "Créer une mission", new_mission_path %></a>
@@ -91,85 +91,94 @@
         <!-- Card -->
         <div class="card mb-3 mb-lg-5">
           <div class="card-header">
-            <h5 class="card-title mt-3">Modifier le compte de <%= @user.username %></h5>
+            <h5 class="card-title mt-3">Editer le profil</h5>
           </div>
           <!-- Body -->
           <div class="card-body">
-            <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-              <%= render "devise/shared/error_messages", resource: resource %>
+            <%# simple_form_for @user.organisations do |f| %>
               <!-- Form Group -->
               <div class=" row form-group">
-                <div class="col-sm-12 pt-2">
-                  <%= f.label :email %><br />
-                  <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control" %>
+                <div class="col-sm-8 pt-2">
+                  <%# f.input :name, class:"form-control m-3"  %>
                 </div>
               </div>
               <!-- End Form Group -->
               <hr>
               <!-- Form Group -->
               <div class=" row form-group">
-                <div class="col-sm-12 pt-2">
-                  <%= f.label :password, "Nouveau mot de passe" %> <i><small>(laisser vide si vous ne souhaitez pas le changer)</small></i><br />
-                  <%= f.password_field :password, autocomplete: "new-password", class:"form-control" %>
-                  <% if @minimum_password_length %>
-                    <br />
-                    <em><%= @minimum_password_length %> caractères minimum</em>
-                  <% end %>
+                <div class="col-sm-8 pt-2">
+                  <%# f.input :description, class:"form-control m-3"  %>
                 </div>
               </div>
               <!-- End Form Group -->
               <hr>
               <!-- Form Group -->
               <div class="js-add-field row form-group">
-                <div class="col-sm-12 pt-2">
-                  <%= f.label :password_confirmation, "Confirmation du nouveau mot de passe" %><br />
-                  <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"form-control" %>
-
+                <div class="col-sm-8 pt-2">
+                  <%# f.input :registration_number, class:"form-control m-3"  %>
                 </div>
               </div>
               <!-- End Form Group -->
               <hr>
                 <!-- Form Group -->
               <div class="js-add-field row form-group">
-                <div class="col-sm-12 pt-2">
-                  <p>Mot de passe actuel <i><small>(nous avons besoin de votre mot de passe actuel pour confirmer vos modifications)</small></i><br /></p>
-                  <%= f.password_field :current_password, autocomplete: "current-password", class:"form-control" %>
+                <div class="col-sm-8 pt-2">
+                  <%# f.input :registration_date, class:"form-control m-3", end_year: 2002, start_year: 1940 %>
                 </div>
               </div>
+              <!-- End Form Group -->
+            <%# f.simple_fields_for :address do |a| %>
+            <!-- Form Group -->
+            <div class=" row form-group">
+              <div class="col-sm-8 pt-2">
+                <%# a.input :number, class:"form-control m-3", placeholder: "4bis" %>
+              </div>
+            </div>
+            <!-- End Form Group -->
+              <hr>
+              <!-- Form Group -->
+              <div class=" row form-group">
+                <div class="col-sm-8 pt-2">
+                  <%# a.input :street, class:"form-control m-3", placeholder: "rue du Père Noël" %>
+                </div>
               </div>
               <!-- End Form Group -->
+              <hr>
+              <!-- Form Group -->
+              <div class=" row form-group">
+                <div class="col-sm-8 pt-2">
+                  <%# a.input :city, class:"form-control m-3", placeholder: "Paris" %>
+                </div>
+              </div>
+              <!-- End Form Group -->
+              <hr>
+              <!-- Form Group -->
+              <div class=" row form-group">
+                <div class="col-sm-8 pt-2">
+                  <%# a.input :zipcode, class:"form-control m-3", placeholder: "75015" %>
+                </div>
+              </div>
+              <!-- End Form Group -->
+              <hr>
+              <!-- Form Group -->
+              <div class=" row form-group">
+                <div class="col-sm-8 pt-2">
+                  <%# a.input :country, class:"form-control m-3", as: :string, placeholder: "France" %>
+                </div>
+              </div>
+              <!-- End Form Group -->
+              <%# end %>
+            </div>
               <!-- Footer -->
               <div class="card-footer d-flex justify-content-end">
-                <%= f.submit "Modifier mon compte", class:"btn btn-primary" %>
-                <% end %>
+                <%# f.button :submit, 'Editer', class:"btn btn-primary" %>
+                <%# end %>
               </div>
                 <!-- End Footer -->
           <!-- End Body -->
-
+          </div>
       </div>
         <!-- End Card -->
-
-        <!-- Card -->
-        <div class="card mb-3 mb-lg-5">
-          <div class="card-header">
-            <h5 class="card-title pt-3">Supprimer le compte</h5>
-          </div>
-
-          <!-- Body -->
-          <div class="card-body">
-            <form>
-              <!-- Form Group -->
-                <div class="container row">
-                  <p class="col-sm-8 pt-2">Pas satisfait? </p>
-                    <a class="col-sm-4" <%= button_to "Supprimer mon compte", registration_path(resource_name), data: { confirm: "Etes-vous sûr?" }, method: :delete, class: "btn btn-primary" %></a>
-                </div>
-              <!-- End Form Group -->
-            </form>
-          </div>
-          <!-- End Body -->
-        </div>
-        <!-- End Card -->
-
     </div>
     <!-- End Row -->
   </div>

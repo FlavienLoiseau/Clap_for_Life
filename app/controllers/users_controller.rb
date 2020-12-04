@@ -45,6 +45,7 @@ class UsersController < ApplicationController
       ]
     )
   end
+  
 
   def is_current_user
     unless current_user == @user

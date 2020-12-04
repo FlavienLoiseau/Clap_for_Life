@@ -46,7 +46,7 @@
                 <!-- List -->
                 <ul class="nav nav-sub nav-sm nav-tabs nav-list-y-2 mb-4">
                   <li class="nav-item">
-                    <i class="fas fa-id-card nav-icon"></i><a class="btn btn-unique active text-left" style="font-size:0.7em; color: #d24d57" <%= link_to "Infos perso", user_path(current_user.id) %></a>
+                    <i class="fas fa-id-card nav-icon"></i><a class="btn btn-unique active text-left" style="font-size:0.7em" <%= link_to "Infos perso", user_path(current_user.id) %></a>
                   </li>
                   <li class="nav-item">
                     <i class="far fa-check-square"></i><a class="btn btn-unique active text-left" style="font-size:0.7em" <%= link_to "Missions", "/home/missions" %></a>
@@ -73,7 +73,7 @@
                 <% else %>
                 <ul class="nav nav-sub nav-sm nav-tabs nav-list-y-2 mb-4">
                   <li class="nav-item">
-                      <i class="fas fa-id-card nav-icon"></i><a class="btn btn-unique active text-left" style="font-size:0.7em" <%= link_to "Infos asso", "/home/organisationinfo" %></a>
+                      <i class="fas fa-id-card nav-icon"></i><a class="btn btn-unique active text-left" style="font-size:0.7em; color: #d24d57" <%= link_to "Infos asso", "/home/organisationinfo" %></a>
                   </li>
                   <li class="nav-item">
                   <i class="fas fa-pencil-alt"></i><a class="btn btn-unique active text-left" style="font-size:0.7em" <%= link_to "Editer le profil", "/home/organisationedit" %></a>
@@ -100,16 +100,27 @@
         <!-- Card -->
         <div class="card mb-3 mb-lg-5">
           <div class="card-header">
-            <h5 class="card-title mt-3">Informations personnelles</h5>
+            <h5 class="card-title mt-3">Informations sur l'association</h5>
           </div>
 
           <!-- Body -->
           <div class="card-body">
+            <!-- Form Group -->
+            <div class=" row form-group">
+              <label for="firstNameLabel" class="col-sm-4 col-form-label" style="color:gray;">LOGO DE L'ASSOCIATION </label>
+                <div class="col-sm-8 pt-2">
+                  <div class="avatar avatar-xxl avatar-circle mb-3">
+                    <!-- <img class="avatar-img" src="" alt="Image Description"> -->
+                  </div>
+              </div>
+            </div>
+            <!-- End Form Group -->
+
               <!-- Form Group -->
               <div class=" row form-group">
-                <label for="firstNameLabel" class="col-sm-4 col-form-label " style="color:gray;">PSEUDONYME </label>
+                <label for="firstNameLabel" class="col-sm-4 col-form-label " style="color:gray;">NOM DE L'ASSOCIATION </label>
                   <div class="col-sm-8 pt-2">
-                    <p><%= @user.username %></p>
+                    <p>nom de l'asso</p>
                 </div>
               </div>
               <!-- End Form Group -->
@@ -117,47 +128,56 @@
               <!-- Form Group -->
               <div class="row form-group">
 
-                <label for="firstNameLabel" class="col-sm-4 col-form-label input-label" style="color:gray;">NOM </label>
+                <label for="firstNameLabel" class="col-sm-4 col-form-label input-label" style="color:gray;">NUMERO SIREN</label>
                   <div class="col-sm-8 pt-2">
-                    <p><%= @user.first_name %> <%= @user.last_name %></p>
+                    <p>numéro siren de l'asso</p>
                 </div>
               </div>
               <!-- End Form Group -->
               <hr>
               <!-- Form Group -->
               <div class="row form-group">
-                <label for="emailLabel" class="col-sm-4 col-form-label input-label" style="color:gray;">EMAIL</label>
+                <label for="emailLabel" class="col-sm-4 col-form-label input-label" style="color:gray;">DATE D'ENREGISTREMENT</label>
                 <div class="col-sm-8 pt-2">
-                  <p><%= @user.email %></p>
+                  <p>date d'enregistrement</p>
                 </div>
               </div>
               <!-- End Form Group -->
               <hr>
               <!-- Form Group -->
               <div class="js-add-field row form-group">
-                <label for="phoneLabel" class="col-sm-4 col-form-label input-label" style="color:gray;">TELEPHONE <small class="input-label-secondary" style="color:gray;">(Obligatoire pour s'inscrire aux missions)</small></label>
+                <label for="phoneLabel" class="col-sm-4 col-form-label input-label" style="color:gray;">DESCRIPTION</label>
                 <div class="col-sm-8 pt-2">
-                    <p><%= @user.phone_number %></p>
+                    <p>description</p>
                 </div>
               </div>
               <!-- End Form Group -->
               <hr>
               <!-- Form Group -->
               <div class="row form-group">
-                <label for="birthDateLabel" class="col-sm-4 col-form-label input-label" style="color:gray;">DATE DE NAISSANCE</label>
+                <label for="birthDateLabel" class="col-sm-4 col-form-label input-label" style="color:gray;">DOMAINE D'ACTIVITE</label>
                 <div class="col-sm-8 pt-2">
-                  <p><%= @user.date_of_birth %></p>
+                  <p>activity</p>
+                </div>
+              </div>
+              <!-- End Form Group -->
+              <hr>
+              <!-- Form Group -->
+              <div class="js-add-field row form-group">
+                <label for="phoneLabel" class="col-sm-4 col-form-label input-label" style="color:gray;">TAGS</label>
+                <div class="col-sm-8 pt-2">
+                    <p>tags</p>
+                </div>
               </div>
               <!-- End Form Group -->
           </div>
-        </div>
           <!-- End Body -->
           <!-- Footer -->
           <div class="card-footer d-flex justify-content-end">
-            <%= link_to "Editer les informations", edit_user_path(current_user), class:"btn btn-primary" %>
+            <a class="btn btn-primary" <%= link_to "Editer les informations", "/home/organisationedit" %></a>
           </div>
           <!-- End Footer -->
-      </div>
+        </div>
 
           <!-- Card -->
           <div class="card mb-3 mb-lg-5">
@@ -170,7 +190,7 @@
               <div class="row">
                 <label for="locationLabel" class="col-sm-4 col-form-label input-label" style="color:gray;">NUMERO DE RUE</label>
                 <div class="col-sm-8 pt-2">
-                    <p><%if @user.address != nil%><%= @user.address.number %> <%end%></p>
+                    <p>numéro</p>
                 </div>
               </div>
               <!-- End Form Group -->
@@ -179,7 +199,7 @@
               <div class="row">
                 <label for="addressLine1Label" class="col-sm-4 col-form-label input-label" style="color:gray;">RUE</label>
                 <div class="col-sm-8 pt-2">
-                <p><%if @user.address != nil%><%= @user.address.street %><%end%></p>
+                <p>rue</p>
                 </div>
               </div>
               <!-- End Form Group -->
@@ -188,7 +208,7 @@
               <div class="row">
                 <label for="cityLabel" class="col-sm-4 col-form-label input-label" style="color:gray;">VILLE</label>
                 <div class="col-sm-8 pt-2">
-                  <p><%if @user.address != nil%><%= @user.address.city %><%end%></p>
+                  <p>ville</p>
                 </div>
               </div>
               <!-- End Form Group -->
@@ -197,7 +217,7 @@
               <div class="row">
                 <label for="zipCodeLabel" class="col-sm-4 col-form-label input-label" style="color:gray;">CODE POSTAL </label>
                 <div class="col-sm-8 pt-2">
-                  <p><%if @user.address != nil%><%= @user.address.zipcode %><%end%></p>
+                  <p>zipcode</p>
                 </div>
               </div>
               <!-- End Form Group -->
@@ -206,7 +226,7 @@
               <div class="row">
                 <label for="zipCodeLabel" class="col-sm-4 col-form-label input-label" style="color:gray;">PAYS</label>
                 <div class="col-sm-8 pt-2">
-                  <p><%if @user.address != nil%><%= @user.address.country %><%end%></p>
+                  <p>pays</p>
                 </div>
               </div>
               <!-- End Form Group -->
@@ -214,7 +234,7 @@
           </div>
           <!-- Footer -->
           <div class="card-footer d-flex justify-content-end">
-            <%= link_to "Editer les informations", edit_user_path(current_user), class:"btn btn-primary" %>
+            <a class="btn btn-primary" <%= link_to "Editer les informations", "/home/organisationedit" %></a>
           </div>
           <!-- End Footer -->
         </div>
