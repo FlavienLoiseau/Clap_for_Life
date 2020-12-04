@@ -7,7 +7,7 @@ class User < ApplicationRecord
 
   has_one :address, as: :addressable, :dependent => :destroy
 
-  has_one :organisations
+  has_one :organisation
 
   has_many :participations
   has_many :missions, through: :participations
