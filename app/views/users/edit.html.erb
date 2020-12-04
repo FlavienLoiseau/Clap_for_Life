@@ -1,106 +1,90 @@
 
       <main id="content" role="main" class="bg-light">
 
+
         <%= render 'users/cover'  %>
 
         <div class="container space-1 space-top-lg-0 mt-lg-n10" style="position: relative ; top: -80px ;">
           <div class="row">
               <%= render 'users/left_column'  %>
             <div class="col-lg-9">
-              <!-- Card -->
               <div class="card mb-3 mb-lg-5">
                 <div class="card-header">
                   <h5 class="card-title mt-3">Editer le profil</h5>
                 </div>
-                <!-- Body -->
                 <div class="card-body">
                   <%= simple_form_for @user do |f| %>
-                    <!-- Form Group -->
+                    <div class=" row form-group">
+                      <div class="col-sm-8 pt-2">
+                        <%= f.input :avatar, as: :file %>
+                      </div>
+                    </div>
+                    <div class=" row form-group">
+                      <div class="col-sm-8 pt-2">
+                        <%= f.input :username, class:"form-control m-3"  %>
+                      </div>
+                    </div>
                     <div class=" row form-group">
                       <div class="col-sm-8 pt-2">
                         <%= f.input :first_name, class:"form-control m-3"  %>
                       </div>
                     </div>
-                    <!-- End Form Group -->
                     <hr>
-                    <!-- Form Group -->
                     <div class=" row form-group">
                       <div class="col-sm-8 pt-2">
                         <%= f.input :last_name, class:"form-control m-3"  %>
                       </div>
                     </div>
-                    <!-- End Form Group -->
                     <hr>
-                    <!-- Form Group -->
                     <div class="js-add-field row form-group">
                       <div class="col-sm-8 pt-2">
                         <%= f.input :phone_number, class:"form-control m-3"  %>
                       </div>
                     </div>
-                    <!-- End Form Group -->
                     <hr>
-                      <!-- Form Group -->
                     <div class="js-add-field row form-group">
                       <div class="col-sm-8 pt-2">
                         <%= f.input :date_of_birth, class:"form-control m-3", end_year: 2002, start_year: 1940 %>
                       </div>
                     </div>
-                    <!-- End Form Group -->
                   <%= f.simple_fields_for :address do |a| %>
-                  <!-- Form Group -->
                   <div class=" row form-group">
                     <div class="col-sm-8 pt-2">
                       <%= a.input :number, class:"form-control m-3", placeholder: "4bis" %>
                     </div>
                   </div>
-                  <!-- End Form Group -->
                     <hr>
-                    <!-- Form Group -->
                     <div class=" row form-group">
                       <div class="col-sm-8 pt-2">
                         <%= a.input :street, class:"form-control m-3", placeholder: "rue du Père Noël" %>
                       </div>
                     </div>
-                    <!-- End Form Group -->
                     <hr>
-                    <!-- Form Group -->
                     <div class=" row form-group">
                       <div class="col-sm-8 pt-2">
                         <%= a.input :city, class:"form-control m-3", placeholder: "Paris" %>
                       </div>
                     </div>
-                    <!-- End Form Group -->
                     <hr>
-                    <!-- Form Group -->
                     <div class=" row form-group">
                       <div class="col-sm-8 pt-2">
                         <%= a.input :zipcode, class:"form-control m-3", placeholder: "75015" %>
                       </div>
                     </div>
-                    <!-- End Form Group -->
                     <hr>
-                    <!-- Form Group -->
                     <div class=" row form-group">
                       <div class="col-sm-8 pt-2">
-                        <%= a.input :country, class:"form-control m-3", as: :string, placeholder: "France" %>
+                        <%= a.input :country, class:"form-control m-3", placeholder: "France" %>
                       </div>
                     </div>
-                    <!-- End Form Group -->
                     <% end %>
                   </div>
-                    <!-- Footer -->
                     <div class="card-footer d-flex justify-content-end">
                       <%= f.button :submit, 'Editer', class:"btn btn-primary" %>
                       <% end %>
                     </div>
-                      <!-- End Footer -->
-                <!-- End Body -->
                 </div>
             </div>
-              <!-- End Card -->
           </div>
-          <!-- End Row -->
         </div>
-        <!-- End Content Section -->
       </main>
-      <!-- ========== END MAIN ========== -->
