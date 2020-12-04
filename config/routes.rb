@@ -14,10 +14,10 @@ Rails.application.routes.draw do
   devise_for :users
   resources :users, only: [:show, :edit, :update]
   resources :missions, only: [:index, :new]
-  resources :participations
   resources :organisations, only: [:index, :show, :new, :create] do
-    resources :missions, only: [:show]
+    resources :missions, only: [:show] do
+      resources :participations, only: [:create, :destroy]
+    end
   end
-
 
 end

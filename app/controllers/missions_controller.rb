@@ -2,12 +2,12 @@ class MissionsController < ApplicationController
   before_action :set_mission, only: [:show]
 
   def index
-      @missions = Mission.search(params[:search])
+    @missions = Mission.search(params[:search])
   end
 
   def show
-    @missions=Mission.all
-    @participation =Participation.new
+    @missions = Mission.all
+    @participation = Participation.new
   end
 
   def new
