@@ -10,7 +10,6 @@ class UsersController < ApplicationController
   end
 
   def show
-
   end
 
   def update
@@ -29,6 +28,8 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(
+      :avatar,
+      :username,
       :first_name,
       :last_name,
       :email,
