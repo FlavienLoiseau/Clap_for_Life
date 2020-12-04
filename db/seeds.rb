@@ -8,6 +8,8 @@
 require 'faker'
 Faker::Config.locale = :fr
 
+
+
 i=1
 15.times do
   user = User.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, admin: true, password: "foobar", username: "user"+i.to_s)
@@ -20,6 +22,10 @@ end
   puts "Activity added !"
 end
 
+tag_names =  ["Environnement", "Précarité", "Handicap","Lien intergenerationnel", "Aide a l emploi", "Education" ]
+tag_names.each {|name| Tag.create(name: name)}
+puts "#{Tag.all.size} tags created"
+
 15.times do
   organisation = Organisation.create(
     user_id: rand(1..15),
@@ -30,7 +36,9 @@ end
     description: Faker::Lorem.paragraph_by_chars(number: 250, supplemental: false),
     confirmed: true
   )
-  puts "Organisation created !"
+  organisation.tags << [Tag.all.sample, Tag.all.sample]
+puts "15 organisations created !"
+
   mission = Mission.create(
     organisation_id: organisation.id,
     title: ["Collecte de déchets sur la plage", "Campagne sacs réutilisables", "Aide organisation marche pour le climat", "Distribution alimentaire", "Maraude", "Soupe populaire", "Livraison chocolats de Noël", "Allô comment ça va?"].sample,
@@ -42,55 +50,32 @@ end
     end_date: Faker::Date.between(from: '2020-12-10', to: '2020-12-20'),
     volunteers_needed: rand(2..10)
   )
-  puts "Mission created !"
+  mission.tags << [Tag.all.sample, Tag.all.sample]
 end
+puts "15 missions created !"
 
-i=1
-10.times do
-  Tag.create(name: ["Environnement", "Précarité", "Handicap" ].sample, tagable_type: "Mission", tagable_id: i )
-  puts "Mission Tag created"
-  i+=1
-end
-
-i=1
-10.times do
-  Tag.create(name: ["Lien intergenerationnel", "Aide a l emploi", "Education" ].sample, tagable_type: "Mission", tagable_id: i )
-  puts "Mission Tag created"
-  i+=1
-end
-
-i=1
-10.times do
-  Tag.create(name: ["Environnement", "Précarité", "Handicap", "Lien intergenerationnel", "Aide a l emploi", "Education"].sample, tagable_type: "Organisation", tagable_id: i )
-  puts "Organisation Tag created"
-  i+=1
-end
-
-
-i=1
-10.times do
+i = Organisation.first.id
+Organisation.all.count.times do
   Address.create(number: rand(1..50), street: Faker::Address.street_name, city: ["Paris", "Marseille", "Bordeaux", "Nantes"].sample, zipcode: Faker::Address.zip_code, country: "France", addressable_type: "Organisation", addressable_id: i)
   puts "Organisation Address added"
   i+=1
 end
 
-i=1
-10.times do
+i = User.first.id
+User.all.count.times do
   Address.create(number: rand(1..50), street: Faker::Address.street_name, city: ["Paris", "Marseille", "Bordeaux", "Nantes"].sample, zipcode: Faker::Address.zip_code, country: "France", addressable_type: "User", addressable_id: i)
   puts "User Address added"
   i+=1
 end
 
-i=1
-10.times do
+i = Mission.first.id
+Mission.all.count.times do
   Address.create(number: rand(1..50), street: Faker::Address.street_name, city: ["Paris", "Marseille", "Bordeaux", "Nantes"].sample, zipcode: Faker::Address.zip_code, country: "France", addressable_type: "Mission", addressable_id: i)
   puts "Mission Address added"
   i+=1
 end
 
-
-i=1
 10.times do
-  Participation.create(user_id: rand(1..20), mission_id: rand(1..10))
+  Participation.create(user_id: User.all.sample.id, mission_id: Mission.all.sample.id)
   puts "Participation created"
 end

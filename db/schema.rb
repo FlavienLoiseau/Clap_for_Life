@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_01_144751) do
+ActiveRecord::Schema.define(version: 2020_12_04_090502) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -81,11 +81,9 @@ ActiveRecord::Schema.define(version: 2020_12_01_144751) do
     t.date "registration_date"
     t.text "description"
     t.boolean "confirmed"
-    t.bigint "tagable_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["activity_id"], name: "index_organisations_on_activity_id"
-    t.index ["tagable_id"], name: "index_organisations_on_tagable_id"
     t.index ["user_id"], name: "index_organisations_on_user_id"
   end
 
@@ -98,17 +96,23 @@ ActiveRecord::Schema.define(version: 2020_12_01_144751) do
     t.index ["user_id"], name: "index_participations_on_user_id"
   end
 
+  create_table "taggings", force: :cascade do |t|
+    t.bigint "tag_id"
+    t.string "taggable_type"
+    t.bigint "taggable_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["tag_id"], name: "index_taggings_on_tag_id"
+    t.index ["taggable_type", "taggable_id"], name: "index_taggings_on_taggable_type_and_taggable_id"
+  end
+
   create_table "tags", force: :cascade do |t|
-    t.string "tagable_type"
-    t.bigint "tagable_id"
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["tagable_type", "tagable_id"], name: "index_tags_on_tagable_type_and_tagable_id"
   end
 
   create_table "users", force: :cascade do |t|
-    t.bigint "address_id"
     t.string "first_name"
     t.string "last_name"
     t.string "username", null: false
@@ -127,7 +131,6 @@ ActiveRecord::Schema.define(version: 2020_12_01_144751) do
     t.string "unconfirmed_email"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["address_id"], name: "index_users_on_address_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
