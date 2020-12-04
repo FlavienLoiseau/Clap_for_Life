@@ -37,7 +37,7 @@
                 </div>
               </div>
               <div class="card-body">
-                <i class="fas fa-search-location" style="color:#808080"></i><small style="color:#808080"> <%=mission.address.city%>,  <%=mission.address.zipcode%></small><br>
+                <i class="fas fa-search-location" style="color:#808080"></i><small style="color:#808080"> <%=mission.address.city if mission.address%>,  <%=mission.address.zipcode if mission.address%></small><br>
                 <i class="fas fa-users" style="color:#808080"></i><small style="color:#808080"> Besoin de <%=mission.volunteers_needed%> volontaires</small><br>
                 <i class="fas fa-calendar-day" style="color:#808080"></i><small style="color:#808080"> Date: <%=mission.start_date%></small><br></p>
 
