@@ -19,4 +19,5 @@ Rails.application.routes.draw do
     resources :missions, only: [:show]
   end
 
+
 end

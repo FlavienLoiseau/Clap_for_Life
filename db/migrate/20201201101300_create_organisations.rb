@@ -8,7 +8,6 @@ class CreateOrganisations < ActiveRecord::Migration[6.0]
       t.date        :registration_date
       t.text        :description
       t.boolean     :confirmed
-      t.references  :tagable
 
       t.timestamps
     end
