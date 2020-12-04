@@ -1,6 +1,6 @@
 class Mission < ApplicationRecord
   belongs_to :organisation
-
+  
   has_one :address, as: :addressable
 
   has_many :participations
@@ -11,6 +11,9 @@ class Mission < ApplicationRecord
 
   has_one_attached :cover
   has_many_attached :images
+
+  accepts_nested_attributes_for :address
+
 
   def self.search(search)
     if search

@@ -13,11 +13,11 @@ Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users
   resources :users, only: [:show, :edit, :update]
-  resources :missions, only: [:index, :new]
-
+  resources :missions, only: [:index]
   resources :organisations, only: [:index, :show, :new, :create] do
-    resources :missions, only: [:show]
+    resources :missions, only: [:show, :new, :create] do
+      resources :participations, only: [:create, :destroy]
+    end
   end
-
 
 end

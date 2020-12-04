@@ -6,18 +6,27 @@ class OrganisationsController < ApplicationController
   end
 
   def new
-    @user = current_user
-    @organisation = Organisation.new
-    if @organisation.address.blank?
-      @organisation.build_address
+    if current_user.organisation.present?
+      flash[:notice] = "Vous avez déjà créé une association (Une seule organisation par profil utilisateur)"
+      redirect_to user_path(current_user.id)
+    else
+      @user = current_user
+      @organisation = Organisation.new
+      if @organisation.address.blank?
+        @organisation.build_address
+      end
     end
   end
 
   def create
-    @organisation = Organisation.new(organisation_params)
-    @organisation.user = current_user
-    if @organisation.save && @organisation.address.save
-      redirect_to organisations_path, notice: "Votre association a bien été créée"
+    if current_user.organisation.present?
+      flash[:notice] = "Vous avez déjà créé une association"
+    else
+      @organisation = Organisation.new(organisation_params)
+      @organisation.user = current_user
+      if @organisation.save 
+        redirect_to organisations_path, notice: "Votre association a bien été créée (Une seule organisation par profil utilisateur)"
+      end
     end
   end
 
