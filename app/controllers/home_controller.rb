@@ -18,11 +18,6 @@ class HomeController < ApplicationController
   def operations
   end
 
-  def missions
-    @user = current_user
-    @missions = Mission.all
-    @participations = Participation.all
-  end
 
 
   def dashboard

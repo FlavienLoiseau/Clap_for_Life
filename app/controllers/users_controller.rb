@@ -21,7 +21,9 @@ class UsersController < ApplicationController
   end
 
   def missions
-    @participations = current_user.participations
+    @user = current_user
+    @missions = Mission.all
+    @participations = Participation.all
   end
 
   private
