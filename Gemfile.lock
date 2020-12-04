@@ -93,6 +93,10 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
+    dotenv (2.7.6)
+    dotenv-rails (2.7.6)
+      dotenv (= 2.7.6)
+      railties (>= 3.2)
     erubi (1.10.0)
     faker (2.15.1)
       i18n (>= 1.6, < 2)
@@ -125,10 +129,6 @@ GEM
       activerecord
       kaminari-core (= 1.2.1)
     kaminari-core (1.2.1)
-    launchy (2.5.0)
-      addressable (~> 2.7)
-    letter_opener (1.7.0)
-      launchy (~> 2.2)
     listen (3.3.3)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
@@ -284,9 +284,9 @@ DEPENDENCIES
   capybara (>= 2.15)
   country_select
   devise
+  dotenv-rails
   faker
   jbuilder (~> 2.7)
-  letter_opener
   listen (~> 3.2)
   pg (>= 0.18, < 2.0)
   puma (~> 4.1)
