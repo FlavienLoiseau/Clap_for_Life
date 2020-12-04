@@ -25,7 +25,7 @@ gem 'table_print'
 gem 'dotenv-rails'
 gem 'simple_form'
 gem 'country_select'
-
+gem 'faker'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
@@ -46,7 +46,6 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-  gem 'faker'
 end
 
 group :test do
