@@ -20,6 +20,10 @@ class UsersController < ApplicationController
     end
   end
 
+  def missions
+    @participations = current_user.participations
+  end
+
   private
 
   def set_user
