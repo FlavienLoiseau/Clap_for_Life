@@ -49,14 +49,18 @@
           <div class="p-4 shadow ml-lg-4 rounded sticky-top" style="top: 100px;">
             <p class="text-muted">Places restantes : <span class="text-primary h4"><%=@mission.volunteers_needed - @mission.participations.count%>  </span></p>
             <hr class="my-4">
-            <% if @mission.participations.any?{|p| p.user_id == current_user.id}%>
-              <%= link_to "Se désinscrire", organisation_mission_participation_path(@mission.organisation, @mission.id), method: :delete, class:"btn btn-danger", id: "checkout-button" %>
-            <% else %>
-              <%= simple_form_for @participation, :url => organisation_mission_participations_path(@mission.organisation, @mission.id), :method => :post do |f|%>
-                <%= f.hidden_field :mission_id, value:"#{@mission.id}", class:"form-control m-3" %>
-                <%= f.hidden_field :user_id, value: current_user.id, class:"form-control m-3" %>
-                <%= f.button :submit, 'Participer', class:'btn btn-success' %>
+            <% if current_user.present? %>
+              <% if @mission.participations.any?{|p| p.user_id == current_user.id}%>
+                <%= link_to "Se désinscrire", organisation_mission_participation_path(@mission.organisation, @mission.id), method: :delete, class:"btn btn-danger", id: "checkout-button" %>
+              <% else %>
+                <%= simple_form_for @participation, :url => organisation_mission_participations_path(@mission.organisation, @mission.id), :method => :post do |f|%>
+                  <%= f.hidden_field :mission_id, value:"#{@mission.id}", class:"form-control m-3" %>
+                  <%= f.hidden_field :user_id, value: current_user.id, class:"form-control m-3" %>
+                  <%= f.button :submit, 'Participer', class:'btn btn-success' %>
+                <% end %>
               <% end %>
+            <% else %>
+                <%= link_to "Participer", new_user_registration_path, class:"btn btn-success" %>
             <% end %>
 
             <hr class="my-4">

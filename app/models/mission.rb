@@ -1,12 +1,12 @@
 class Mission < ApplicationRecord
   belongs_to :organisation
-  
-  has_one :address, as: :addressable
+
+  has_one :address, as: :addressable, dependent: :destroy
 
   has_many :participations
   has_many :users, through: :participations
 
-  has_many :taggings, as: :taggable
+  has_many :taggings, as: :taggable, dependent: :destroy
   has_many :tags, through: :taggings
 
   has_one_attached :cover
