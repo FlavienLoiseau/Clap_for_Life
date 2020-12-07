@@ -13,6 +13,7 @@ class UsersController < ApplicationController
   end
 
   def update
+    @user.avatar.attach(params[:avatar])
     if @user.update(user_params)
       redirect_to user_path, notice:"Votre profil a été mis à jour !"
     else
