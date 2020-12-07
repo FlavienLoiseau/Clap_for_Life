@@ -26,10 +26,8 @@
             </div>
           </div>
           <div class="text-block">
-            <h5 class="mb-4">Location  (image à remplacer par le iframe google maps)</h5>
-            <div class="map-wrapper-300 mb-3">
-              <img class="h-100" id="detailMap" src="https://img.20mn.fr/Hm_mQqfYRW2-3-uB-i9qAQ/830x532_carte-localisation-place-trocadero-paris.jpg"></img>
-            </div>
+            <h5 class="mb-4">Localisation de la mission</h5>
+            <div class="mapouter"><div class="gmap_canvas"><iframe width="600" height="500" id="gmap_canvas" src="https://maps.google.com/maps?q=<%=@mission.address.number%>%20<%=@street%>%20<%=@mission.address.city%>%20<%=@mission.address.zipcode%>%20<%=@mission.address.country%>&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://embedgooglemap.net/131/">might</a></div><style>.mapouter{position:relative;text-align:right;height:500px;width:600px;}.gmap_canvas {overflow:hidden;background:none!important;height:500px;width:600px;}</style></div>
           </div>
 
           <div class="text-block">
@@ -172,5 +170,3 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"> </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-date-range-picker/0.19.0/jquery.daterangepicker.min.js"> </script>
     <script src="js/datepicker-detail.js">   </script>
-  </body>
-</html>
