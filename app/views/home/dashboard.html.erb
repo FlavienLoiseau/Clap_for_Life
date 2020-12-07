@@ -9,14 +9,60 @@
         <!-- Card -->
         <div class="card mb-3 mb-lg-5">
           <div class="card-header">
-            <h5 class="card-title mt-3">Les missions proposées par ...</h5>
+            <h5 class="card-title mt-3">Les missions proposées par votre association</h5>
+            <% unless @user.organisation.missions.blank?%>
+
+            <% @user.organisation.missions.each do |mission| %>
+              <ul class="list-unstyled">
+                    <!-- Card -->
+                    <li class="card card-bordered mb-3">
+                      <div class="card-body">
+                        <div class="row">
+                          <div class="col-6 col-md mb-3 mb-md-0">
+                            Date: <%=mission.start_date%>
+                          </div>
+                          <div class="col-6 col-md mb-3 mb-md-0">
+                           <%=mission.address.city if mission.address%>,  <%=mission.address.zipcode if mission.address%>
+                          </div>
+                          <div class="col-6 col-md">
+                            Besoin de <%=mission.volunteers_needed%> volontaires
+                          </div>
+                          <div class="col-6 col-md">
+                            <%=mission.participations.count%> inscrits
+                          </div>
+                        </div>
+                        <!-- End Row -->
+
+                        <hr>
+
+                        <div class="row">
+                          <div class="col-md-8">
+                            <h5><%=mission.title%></h5>
+
+                            <div class="row mx-n1">
+                              <div class="col px-1">
+                              <img class="img-fluid" src="https://www.linfodurable.fr/sites/linfodurable/files/styles/landscape_w800/public/2018-06/NETTOYAGES%20DE%20PLAGE.jpg?h=a7a713b3&itok=D2cYNkDE" alt="Image mission"/>                              </div>
+                              
+                            </div>
+                            <!-- End Row -->
+                          </div>
+
+                          <div class="col-md-4">
+                           <%= link_to "Voir la mission", organisation_mission_path(mission.organisation.id, mission.id), class: "btn btn-primary mb-2"%><br>
+                           <%= link_to "Editer la mission", edit_organisation_mission_path(mission.organisation.id, mission.id), class: "btn btn-success mb-2"%><br>
+                           <%= link_to "Supprimer la mission", organisation_mission_path(mission.organisation.id, mission.id), method: :delete, class: "btn btn-danger mb-2" ,data: {confirm: "Etes vous sur?"} %><br>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                </ul>
+           
+              <%end%>
+              <%end%>
+          </div>
           </div>
 
-          <!-- Body -->
-          <div class="card-body row">
-
-        </div>
-          <!-- End Body -->
+       
 
       </div>
     </div>
