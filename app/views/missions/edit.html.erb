@@ -1,0 +1,41 @@
+<main id="content" role="main" class="bg-light">
+
+  <%= render 'users/cover'  %>
+
+  <div class="container space-1 space-top-lg-0 mt-lg-n10" style="position: relative ; top: -80px ;">
+    <div class="row">
+      <%= render 'users/left_column' %>
+
+      <div class="col-lg-9">
+        <div class="card mb-3 mb-lg-5">
+          <div class="card-header">
+            <h5 class="card-title mt-3">Modifier la Mission</h5>
+          </div>
+          <div class="card-body">
+            <%= simple_form_for @mission,
+            url: url_for(action: 'update'),
+            method: :put do |f| %>
+             <%= f.input :title, class:"form-control m-3" %>
+              <%= f.input :contact_first_name, class:"form-control m-3" %>
+              <%= f.input :contact_last_name, class:"form-control m-3" %>
+              <%= f.input :description, class:"form-control m-3" %>
+              <%= f.input :contact_phone, class:"form-control m-3" %>
+              <%= f.input :start_date, class:"form-control m-3" %>
+              <%= f.input :end_date, class:"form-control m-3" %>
+              <%= f.input :volunteers_needed, class:"form-control m-3" %>
+              <%= f.association :tags, class:"form-control m-3", as: :check_boxes %>
+               <%= f.simple_fields_for :address do |a| %>
+                <%= a.input :number %>
+                <%= a.input :street %>
+                <%= a.input :city %>
+                <%= a.input :zipcode %>
+                <%= a.input :country %>
+              <% end %>
+            <%= f.button :submit, 'Modifier', class:"btn btn-primary"%>
+            <% end %>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</main>
