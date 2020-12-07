@@ -36,12 +36,30 @@ Merit::Badge.create!(
 
 Merit::Badge.create!(
   id: 2,
-  name: "Profil complété",
+  name: "Biographe",
   description: "A modifié ses informations personnelles",
 )
 
 Merit::Badge.create!(
   id: 3,
-  name: "Première mission",
+  name: "Homme d'action",
   description: "S'est inscrit à sa première mission",
+)
+
+Merit::Badge.create!(
+  id: 4,
+  name: "Association du futur",
+  description: "A créé un profil d'association",
+)
+
+Merit::Badge.create!(
+  id: 5,
+  name: "Organisateur",
+  description: "A créé sa première mission",
+)
+
+Merit::Badge.create!(
+  id: 6,
+  name: "Super bénévole",
+  description: "S'est inscrit à dix missions",
 )

@@ -1,5 +1,4 @@
 class ParticipationsController < ApplicationController
-  before_action :set_participation, only: [:destroy]
   before_action :authenticate_user!
 
   def create
@@ -28,9 +27,6 @@ class ParticipationsController < ApplicationController
 
   private
 
-  def set_participation
-    @participation = Participation.find(params[:id])
-  end
 
   def already_participated?
     Participation.where(mission_id: params[:mission_id], user_id: current_user.id).exists?
