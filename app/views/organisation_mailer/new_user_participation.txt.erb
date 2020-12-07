@@ -1,0 +1,14 @@
+Bonjour <%= @admin.first_name %>,
+
+Un nouveau bénévole s'est inscrit à la mission <%= @mission.title %>.
+
+Profil du bénévole
+- Nom : <%= @user.first_name %> <%= @user.last_name %>
+- Email : <%= @user.email %>
+
+Organisateur de la mission
+- Nom : <%= @mission.contact_first_name %> <%= @mission.contact_last_name %>
+- Téléphone : <%= @mission.contact_phone %>
+
+Bonne journée,
+Toute l'équipe Clap for Life
