@@ -10986,7 +10986,6 @@ a.text-dark:hover, a.text-dark:focus {
   content: '\f107';
   vertical-align: top;
   border: none;
-  font-family: "Font Awesome\ 5 Free";
   font-weight: 900;
 }
 
@@ -11808,7 +11807,6 @@ a.text-dark:hover, a.text-dark:focus {
   margin-right: .5rem;
   content: '\f067';
   text-align: center;
-  font-family: 'Font Awesome 5 Free';
   font-weight: 900;
 }
 
@@ -14231,7 +14229,6 @@ button.mfp-close {
 
 .form-star label::before {
   content: "\f005";
-  font-family: "Font Awesome 5 Free";
   font-weight: 900;
   transition: all .2s ease;
   font-size: 1.0625rem;
