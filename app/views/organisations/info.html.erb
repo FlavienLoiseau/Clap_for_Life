@@ -149,7 +149,7 @@
           </div>
           <br>
           <div class="card-footer d-flex justify-content-end">
-            <%= link_to "Supprimer l'asso", organisation_path(current_user.organisation), method: :delete, class: "btn btn-primary" %>
+            <%= link_to "Supprimer l'asso", organisation_path(current_user.organisation), method: :delete, class: "btn btn-primary", data: {confirm: "Etes vous sur?"}  %>
           </div>
 
           <!-- End Footer -->
