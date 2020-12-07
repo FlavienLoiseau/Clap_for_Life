@@ -53,14 +53,22 @@
             <li class="nav-item">
               <i class="fas fa-pencil-alt"></i><a class="btn user-btn btn-unique text-left" style="font-size:0.7em" <%= link_to "Editer l'asso", edit_organisation_path(current_user.organisation) %></a>
             </li>
+          </ul>
+          <% end %>
+          <% if current_user.organisation.present? %>
+          <h6 class="text-muted" style="font-size:0.9em">INFORMATIONS MISSIONS</h6>
+          <ul class="nav nav-sub nav-sm nav-tabs nav-list-y-2 mb-4">
             <li class="nav-item">
               <i class="fas fa-plus-circle"></i>
               <a class="btn btn-unique user-btn text-left" style="font-size:0.7em"
                 <%= link_to "Créer une mission", new_organisation_mission_path(current_user.organisation.id)%>
               </a>
             </li>
-            <li class="nav-item">
-                <i class="fas fa-heart nav-icon"></i><a class="btn btn-unique active text-left" style="font-size:0.7em" <%= link_to "Dashboard", "/home/dashboard" %></a>
+             <li class="nav-item">
+              <i class="fas fa-heart nav-icon"></i>
+              <a class="btn btn-unique active text-left" style="font-size:0.7em"
+                <%= link_to "Dashboard missions", "/home/dashboard" %>
+              </a>
             </li>
           </ul>
           <% end %>

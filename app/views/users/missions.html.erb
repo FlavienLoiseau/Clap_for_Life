@@ -18,6 +18,7 @@
           <div class="card-body row">
             <% @participations.each do |participation| %>
             <% if participation.user == @user %>
+              <% unless participation.mission.blank?%>
               <!-- venue item-->
               <div class="col-sm-6 col-lg-6 mb-5 hover-animate" data-marker-id="59c0c8e33b1527bfe2abaf92">
                 <div class="card h-100 border-0 shadow">
@@ -48,6 +49,7 @@
                 </div>
               </div>
               <%end%>
+            <%end%>
             <%end%>
 
           </div>
