@@ -14,8 +14,8 @@
   <%# Search bar final %>
   <div class="container position-relative mt-n6 z-index-20">
     <ul class="nav nav-tabs search-bar-nav-tabs" role="tablist">
-      <li class="nav-item mr-2"><a class="nav-link active" href="#orga" data-toggle="tab" role="tab">Chercher une association</a></li>
-      <li class="nav-item mr-2"><a class="nav-link" href="#mission" data-toggle="tab" role="tab">Chercher une mission</a></li>
+      <li class="nav-item mr-2"><a class="nav-link active" href="#orga" data-toggle="tab" role="tab">Association</a></li>
+      <li class="nav-item mr-2"><a class="nav-link" href="#mission" data-toggle="tab" role="tab">Mission</a></li>
     </ul>
     <div class="search-bar search-bar-with-tabs p-3 p-lg-4">
       <div class="tab-content">
@@ -56,46 +56,74 @@
           <%end%>
         </div>
       </div>
-      <div class="row">
-        <div class="d-flex align-items-lg-stretch mb-4 col-lg-8">
-          <div class="card shadow-lg border-0 w-100 border-0 hover-animate" style="background: center center url(https://images.unsplash.com/photo-1501633159663-1836f82ceaf0?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=967&q=80) no-repeat; background-size: cover;"><a class="tile-link" href="/organisations?search=Environnement&commit=Search"> </a>
-            <div class="d-flex align-items-center h-100 text-white justify-content-center py-6 py-lg-7">
-              <h3 class="text-shadow text-uppercase mb-0">Environnement</h3>
+      <div class="row d-flex container mt-5">
+          <div class="col-lg-4 col-md-6 col-sm-10 col-xs-10 my-3 align-items-center organisation-example d-flex hover-animate"><a class="tile-link" href="/organisations?search=Handicap&commit=Search"> </a>
+            <%= image_tag("https://images.unsplash.com/photo-1593115057322-e94b77572f20?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1051&q=80", :alt => "human_rights", class: "organisation-example-photo shadow-sm") %>
+            <div class="organisation-example-text">
+              <h6 class="text-shadow mb-0 pt-1">Droits de l'homme</h6>
+              <small>Défense des droits de tous les citoyens</small><br>
+              <small style="color:gray; font-style:italic;"> 12 associations</small>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 col-sm-10 col-xs-10 my-3 align-items-center organisation-example d-flex hover-animate"><a class="tile-link" href="/organisations?search=Handicap&commit=Search"> </a>
+            <%= image_tag("https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=666&q=80", :alt => "education", class: "organisation-example-photo shadow-sm") %>
+            <div class="organisation-example-text">
+              <h6 class="text-shadow mb-0 pt-1">Education</h6>
+              <small>Promotion de l'égalité des chances</small><br>
+              <small style="color:gray; font-style:italic;"> 17 associations</small>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 col-sm-10 col-xs-10 my-3 align-items-center organisation-example d-flex hover-animate"><a class="tile-link" href="/organisations?search=Handicap&commit=Search"> </a>
+            <%= image_tag("https://images.unsplash.com/photo-1584982751601-97dcc096659c?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1052&q=80", :alt => "health", class: "organisation-example-photo shadow-sm") %>
+            <div class="organisation-example-text">
+              <h6 class="text-shadow mb-0 pt-1">Santé</h6>
+              <small>Prévention et protection sanitaire</small><br>
+              <small style="color:gray; font-style:italic;"> 6 associations</small>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 col-sm-10 col-xs-10 my-3 align-items-center organisation-example d-flex hover-animate"><a class="tile-link" href="/organisations?search=Handicap&commit=Search"> </a>
+            <%= image_tag("https://images.unsplash.com/photo-1591045211820-2fe94117fe18?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1072&q=80", :alt => "intervention", class: "organisation-example-photo shadow-sm") %>
+            <div class="organisation-example-text">
+              <h6 class="text-shadow mb-0 pt-1">Interventions sociales</h6>
+              <small>Lutte contre les violences</small><br>
+              <small style="color:gray; font-style:italic;"> 27 associations</small>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 col-sm-10 col-xs-10 my-3 align-items-center organisation-example d-flex hover-animate"><a class="tile-link" href="/organisations?search=Handicap&commit=Search"> </a>
+            <%= image_tag("https://images.unsplash.com/photo-1519430044529-9a9a57177865?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1061&q=80", :alt => "charity", class: "organisation-example-photo shadow-sm") %>
+            <div class="organisation-example-text">
+              <h6 class="text-shadow mb-0 pt-1">Humanitaire, précarité</h6>
+              <small>Charité envers les ceux dans le besoin</small><br>
+              <small style="color:gray; font-style:italic;"> 34 associations</small>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 col-sm-10 col-xs-10 my-3 align-items-center organisation-example d-flex hover-animate"><a class="tile-link" href="/organisations?search=Handicap&commit=Search"> </a>
+            <%= image_tag("https://images.pexels.com/photos/339620/pexels-photo-339620.jpeg?auto=compress&cs=tinysrgb&h=650&w=940", :alt => "elderly", class: "organisation-example-photo shadow-sm") %>
+            <div class="organisation-example-text">
+              <h6 class="text-shadow mb-0 pt-1">Services aux personnes âgées</h6>
+              <small>Accompagnement des ainés</small><br>
+              <small style="color:gray; font-style:italic;"> 4 associations</small>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 col-sm-10 col-xs-10 my-3 align-items-center organisation-example d-flex hover-animate"><a class="tile-link" href="/organisations?search=Handicap&commit=Search"> </a>
+            <%= image_tag("https://images.pexels.com/photos/2026764/pexels-photo-2026764.jpeg?auto=compress&cs=tinysrgb&h=650&w=940", :alt => "medico-soc", class: "organisation-example-photo shadow-sm") %>
+            <div class="organisation-example-text">
+              <h6 class="text-shadow mb-0 pt-1">Médico-social</h6>
+              <small>Soutien aux personnes vulnérables</small><br>
+              <small style="color:gray; font-style:italic;"> 4 associations</small>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 col-sm-10 col-xs-10 my-3 align-items-center organisation-example d-flex hover-animate"><a class="tile-link" href="/organisations?search=Handicap&commit=Search"> </a>
+            <%= image_tag("https://images.pexels.com/photos/9198/nature-sky-twilight-grass-9198.jpg?auto=compress&cs=tinysrgb&h=650&w=940", :alt => "environment", class: "organisation-example-photo shadow-sm") %>
+            <div class="organisation-example-text">
+              <h6 class="text-shadow mb-0 pt-1">Environnement</h6>
+              <small>Protection de l'eco-système</small><br>
+              <small style="color:gray; font-style:italic;"> 28 associations</small>
             </div>
           </div>
         </div>
-        <div class="d-flex align-items-lg-stretch mb-4 col-lg-4">
-          <div class="card shadow-lg border-0 w-100 border-0 hover-animate" style="background: center center url(https://images.unsplash.com/photo-1499257398700-43669759a540?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80) no-repeat; background-size: cover;"><a class="tile-link" href="/organisations?search=Handicap&commit=Search"> </a>
-            <div class="d-flex align-items-center h-100 text-white justify-content-center py-6 py-lg-7">
-              <h3 class="text-shadow text-uppercase mb-0">Handicap</h3>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="d-flex align-items-lg-stretch mb-4 col-lg-4">
-          <div class="card shadow-lg border-0 w-100 border-0 hover-animate" style="background: center center url(https://images.unsplash.com/photo-1603651481343-0f71466bb14a?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80) no-repeat; background-size: cover;"><a class="tile-link" href="/organisations?search=Aide+a+l+emploi&commit=Search"> </a>
-            <div class="d-flex align-items-center h-100 text-white justify-content-center py-6 py-lg-7">
-              <h3 class="text-shadow text-uppercase mb-0">Aide a l emploi</h3>
-            </div>
-          </div>
-        </div>
-        <div class="d-flex align-items-lg-stretch mb-4 col-lg-4">
-          <div class="card shadow-lg border-0 w-100 border-0 hover-animate" style="background: center center url(https://images.unsplash.com/photo-1520277739336-7bf67edfa768?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1189&q=80) no-repeat; background-size: cover;"><a class="tile-link" href="/organisations?search=Précarité&commit=Search"> </a>
-            <div class="d-flex align-items-center h-100 text-white justify-content-center py-6 py-lg-7">
-              <h3 class="text-shadow text-uppercase mb-0">Précarité</h3>
-            </div>
-          </div>
-        </div>
-        <div class="d-flex align-items-lg-stretch mb-4 col-lg-4">
-          <div class="card shadow-lg border-0 w-100 border-0 hover-animate" style="background: center center url(https://images.unsplash.com/photo-1527490087278-9c75be0b8052?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1047&q=80) no-repeat; background-size: cover;"><a class="tile-link" href="/organisations?search=Education&commit=Search"> </a>
-            <div class="d-flex align-items-center h-100 text-white justify-content-center py-6 py-lg-7">
-              <h3 class="text-shadow text-uppercase mb-0">Education</h3>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+      </div><br><br>
+
   </section>
 
   <%#Carte mission%>
@@ -114,7 +142,7 @@
       <div class="row">
         <% @missions.each do |mission| %>
           <!-- venue item-->
-          <div class="col-sm-6 col-lg-4 mb-5 hover-animate" data-marker-id="59c0c8e33b1527bfe2abaf92">
+          <div class="col-lg-4 col-md-6 col-sm-10 col-xs-10 mb-5 hover-animate" data-marker-id="59c0c8e33b1527bfe2abaf92">
             <div class="card h-100 border-0 shadow">
               <div class="card-img-top overflow-hidden dark-overlay bg-cover" style="background-image: url(https://www.linfodurable.fr/sites/linfodurable/files/styles/landscape_w800/public/2018-06/NETTOYAGES%20DE%20PLAGE.jpg?h=a7a713b3&itok=D2cYNkDE); min-height: 200px;"><%= link_to "", organisation_mission_path(mission.organisation.id, mission.id), class: "tile-link"%>
                 <div class="card-img-overlay-bottom z-index-20">
