@@ -30,7 +30,7 @@
               <div class="media text-dark pt-3">
                <p class="media-body pb-3 mb-0 medium lh-125 border-bottom border-gray">
                  <strong class="d-block text-gray-dark" style="color:gray;"><i class="fas fa-id-card nav-icon mr-4"></i> NOM</strong>
-                 <a class="pl-5" style="text-decoration: none;"> <%= @user.first_name %> <%= @user.last_name %> </a>
+                 <a class="pl-5" style="text-decoration: none;"> <%= @user.first_name unless @user.first_name.blank? %> <%= @user.last_name unless @user.last_name.blank? %> </a>
                </p>
              </div>
               <!-- End Form Group -->
@@ -46,7 +46,7 @@
               <div class="media text-dark pt-3">
                <p class="media-body pb-3 mb-0 medium lh-125 border-bottom border-gray">
                  <strong class="d-block text-gray-dark" style="color:gray;"><i class="fas fa-phone mr-4"></i> TELEPHONE</strong>
-                 <a class="pl-5" style="text-decoration: none;"> <%= @user.phone_number %> </a>
+                 <a class="pl-5" style="text-decoration: none;"> <%= @user.phone_number unless @user.phone_number.blank? %> </a>
                </p>
              </div>
               <!-- End Form Group -->
@@ -54,7 +54,7 @@
               <div class="media text-dark pt-3">
                <p class="media-body pb-3 mb-0 medium lh-125">
                  <strong class="d-block text-gray-dark" style="color:gray;"><i class="fas fa-birthday-cake mr-4"></i> DATE DE NAISSANCE</strong>
-                 <a class="pl-5" style="text-decoration: none;"> <%= @user.date_of_birth.strftime("%-d/%-m/%y") %> </a>
+                 <a class="pl-5" style="text-decoration: none;"> <%= @user.date_of_birth.strftime("%-d/%-m/%y") unless @user.date_of_birth.blank? %> </a>
                </p>
              </div>
               <!-- End Form Group -->
@@ -72,8 +72,8 @@
             <div class="card-header">
               <h5 class="card-title mt-3">Adresse </h5>
             </div>
-          <!-- Body -->
-          <div class="card-body">
+            <!-- Body -->
+            <div class="card-body">
               <div class="media text-dark pt-3">
                <p class="media-body pb-3 mb-0 medium lh-125 border-bottom border-gray">
                  <strong class="d-block text-gray-dark" style="color:gray;">ADRESSE</strong>
@@ -110,9 +110,31 @@
           <div class="card-footer d-flex justify-content-end">
             <%= link_to "Editer les informations", edit_user_path(current_user), class:"btn btn-info" %>
           </div>
+          
           <!-- End Footer -->
         </div>
         <!-- End Card -->
+        <!-- Card -->
+          <div class="card mb-3 mb-lg-5">
+            <div class="card-header">
+              <h5 class="card-title mt-3">Trophées </h5>
+            </div>
+            <!-- Body -->
+            <%unless @user.badges.blank?%>
+            <%@user.badges.each do |badge|%>
+              <div class="card-body">
+                <div class="media text-dark pt-3">
+                <p class="media-body pb-3 mb-0 medium lh-125 border-bottom border-gray">
+                  <strong class="d-block text-gray-dark" style="color:gray;">Titre: <%=badge.name%></strong>
+                  <a style="text-decoration: none;">Accomplissement:  <%= badge.description %> </a>
+                </p>
+              </div>
+            <%end%>
+            <%end%>
+              
+              <!-- End Form Group -->
+          <!-- End Body -->
+          </div>
       </div>
     </div>
     <!-- End Row -->
