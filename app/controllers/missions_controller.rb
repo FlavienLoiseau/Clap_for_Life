@@ -17,7 +17,7 @@ class MissionsController < ApplicationController
   def show
     @missions = Mission.all
     @participation = Participation.new
-    @street= @mission.address.street.split(" ").flat_map { |x| [x, "%20"] }[0...-1].join(" ")
+    @street= Mission.street(params[:id])
   end
 
   def create

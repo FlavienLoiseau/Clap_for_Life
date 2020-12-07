@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :confirmable
 
-  has_one :address, as: :addressable
+  has_one :address, as: :addressable, dependent: :destroy
 
   has_one :organisation
   
