@@ -28,4 +28,8 @@ class Mission < ApplicationRecord
     end
   end
 
+  def self.street(id)
+    Mission.find(id).address.street.split(" ").flat_map { |x| [x, "%20"] }[0...-1].join(" ")
+  end
+
 end
