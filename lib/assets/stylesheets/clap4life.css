@@ -69,6 +69,7 @@ body {
   background-color: #fff;
 }
 
+
 [tabindex="-1"]:focus:not(:focus-visible) {
   outline: 0 !important;
 }
@@ -4220,6 +4221,14 @@ input[type="button"].btn-block {
   }
 }
 
+.user-btn:hover {
+  color: #d24d57;
+}
+
+.user-btn:active {
+  color: #d24d57;
+}
+
 .nav {
   display: -ms-flexbox;
   display: flex;
@@ -4326,7 +4335,7 @@ input[type="button"].btn-block {
   align-items: center;
   -ms-flex-pack: justify;
   justify-content: space-between;
-  padding: 0.5rem 0.5rem;
+  padding: 0.8rem 0.8rem;
 }
 
 .navbar .container,
@@ -4349,6 +4358,7 @@ input[type="button"].btn-block {
   font-size: 1rem;
   line-height: inherit;
   white-space: nowrap;
+  /* position: absolute; */
 }
 
 .navbar-brand:hover, .navbar-brand:focus {
@@ -14295,8 +14305,8 @@ button.mfp-close {
 }
 
 .avatar.avatar-sm {
-  width: 2.5rem;
-  height: 2.5rem;
+  width: 3.5rem;
+  height: 3.5rem;
 }
 
 .avatar.avatar-lg {

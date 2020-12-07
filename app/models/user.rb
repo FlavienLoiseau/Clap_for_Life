@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  has_merit
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -8,12 +10,12 @@ class User < ApplicationRecord
   has_one :address, as: :addressable, dependent: :destroy
 
   has_one :organisation
-  
+
   has_many :participations
   has_many :missions, through: :participations
 
   has_one_attached :avatar
 
-  accepts_nested_attributes_for :address
+  accepts_nested_attributes_for :address, allow_destroy: true
 
 end

@@ -26,7 +26,7 @@ gem 'dotenv-rails'
 gem 'simple_form'
 gem 'country_select'
 gem 'faker'
-
+gem 'merit'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 

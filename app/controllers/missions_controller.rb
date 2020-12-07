@@ -17,6 +17,7 @@ class MissionsController < ApplicationController
   def show
     @missions = Mission.all
     @participation = Participation.new
+    @street= Mission.street(params[:id])
   end
 
   def create
