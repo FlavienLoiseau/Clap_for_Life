@@ -1,0 +1,10 @@
+Bonjour <%= @user.username %>,
+
+Nous vous confirmons votre inscription à la mission <%= @mission.title %>, du <%= @mission.start_date %> au <%= @mission.end_date %>.
+L'association <%= @organisation.name %> va prendre contact avec vous prochainement.
+
+Pour toute question, <%= @mission.contact_first_name %> <%= @mission.contact_last_name %>, qui organise la mission, pourra vous renseigner.
+Son numéro de téléphone : <%= @mission.contact_phone %>
+
+====================
+Résumé de la mission : <%= @mission.description %>
