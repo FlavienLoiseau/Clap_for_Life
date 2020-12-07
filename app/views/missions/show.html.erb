@@ -34,7 +34,11 @@
             <h5 class="mb-0">Ils se sont inscrits</h5>
             <%@mission.participations.each do |participation|%>
             <div class="media d-block d-sm-flex review">
-              <div class="text-md-center mr-4 mr-xl-5"><img class="d-block avatar avatar-xl p-2 mb-2" src="img/avatar/avatar-8.jpg" alt="Padmé Amidala"><span class="text-uppercase text-muted text-sm">Dec 2018</span></div>
+              <%if participation.user.avatar.attached?%>
+                      <%= image_tag participation.user.avatar, alt: 'avatar', class: "avatar avatar-sm avatar-circle mb-3" %>
+                    <%else%>
+                       <%= image_tag("person.png", :alt => "logo_person", class: "avatar avatar-sm avatar-circle mb-3") %>
+                    <%end%>
               <div class="media-body">
                 <h6 class="mt-2 mb-1"><%=participation.user.username%></h6>
               </div>
