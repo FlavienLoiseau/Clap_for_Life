@@ -69,6 +69,24 @@ body {
   background-color: #fff;
 }
 
+.organisation-example {
+  border: 1px 1px solid gray;
+  
+}
+
+.organisation-example-photo {
+  border-radius: 15%;
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+
+}
+
+.organisation-example-text {
+  margin-left: 15px;
+  width: 350px;
+}
+
 
 [tabindex="-1"]:focus:not(:focus-visible) {
   outline: 0 !important;
