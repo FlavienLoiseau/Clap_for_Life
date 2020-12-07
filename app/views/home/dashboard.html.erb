@@ -6,7 +6,6 @@
     <div class="row">
       <%= render 'users/left_column'  %>
       <div class="col-lg-9">
-        <!-- Card -->
         <div class="card mb-3 mb-lg-5">
           <div class="card-header">
             <h5 class="card-title mt-3">Les missions proposées par votre association</h5>
@@ -14,7 +13,6 @@
 
             <% @user.organisation.missions.each do |mission| %>
               <ul class="list-unstyled">
-                    <!-- Card -->
                     <li class="card card-bordered mb-3">
                       <div class="card-body">
                         <div class="row">
@@ -31,7 +29,6 @@
                             <%=mission.participations.count%> inscrits
                           </div>
                         </div>
-                        <!-- End Row -->
 
                         <hr>
 
@@ -42,27 +39,27 @@
                             <div class="row mx-n1">
                               <div class="col px-1">
                               <img class="img-fluid" src="https://www.linfodurable.fr/sites/linfodurable/files/styles/landscape_w800/public/2018-06/NETTOYAGES%20DE%20PLAGE.jpg?h=a7a713b3&itok=D2cYNkDE" alt="Image mission"/>                              </div>
-                              
+
                             </div>
                             <!-- End Row -->
                           </div>
 
                           <div class="col-md-4">
-                           <%= link_to "Voir la mission", organisation_mission_path(mission.organisation.id, mission.id), class: "btn btn-primary mb-2"%><br>
-                           <%= link_to "Editer la mission", edit_organisation_mission_path(mission.organisation.id, mission.id), class: "btn btn-success mb-2"%><br>
+                           <%= link_to "Voir la mission", organisation_info_mission_path(mission.organisation.id, mission.id), class: "btn btn-success mb-2"%><br>
+                           <%= link_to "Editer la mission", edit_organisation_mission_path(mission.organisation.id, mission.id), class: "btn btn-info mb-2"%><br>
                            <%= link_to "Supprimer la mission", organisation_mission_path(mission.organisation.id, mission.id), method: :delete, class: "btn btn-danger mb-2" ,data: {confirm: "Etes vous sur?"} %><br>
                           </div>
                         </div>
                       </div>
                     </li>
                 </ul>
-           
+
               <%end%>
               <%end%>
           </div>
           </div>
 
-       
+
 
       </div>
     </div>
