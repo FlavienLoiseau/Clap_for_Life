@@ -1,5 +1,4 @@
 class ParticipationsController < ApplicationController
-  before_action :set_participation, only: [:destroy]
   before_action :authenticate_user!
 
   def create
@@ -9,6 +8,8 @@ class ParticipationsController < ApplicationController
       @participation = Participation.new(participation_params)
       if @participation.save
         redirect_to organisation_mission_path(@participation.mission.organisation, @participation.mission), notice: "Vous êtes bien inscrits"
+        UserMailer.mission_subscribe(current_user, @participation.mission.organisation, @participation.mission).deliver_now
+        OrganisationMailer.new_user_participation(current_user, @participation.mission.organisation, @participation.mission).deliver_now
       else
         redirect_to organisation_mission_path(@participation.mission.organisation, @participation.mission), flash[:warning]= "Erreur"
       end
@@ -19,15 +20,13 @@ class ParticipationsController < ApplicationController
     @participation = Participation.where(mission_id: params[:mission_id], user_id: current_user.id).first
     if @participation.present?
       @participation.destroy
+      UserMailer.mission_unsubscribe(current_user, @participation.mission.organisation, @participation.mission).deliver_now
       redirect_to organisation_mission_path(@participation.mission.organisation, @participation.mission), notice: "Vous êtes bien désinscrits "
     end
   end
 
   private
 
-  def set_participation
-    @participation = Participation.find(params[:id])
-  end
 
   def already_participated?
     Participation.where(mission_id: params[:mission_id], user_id: current_user.id).exists?
