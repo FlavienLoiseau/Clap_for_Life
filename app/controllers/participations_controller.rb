@@ -9,6 +9,7 @@ class ParticipationsController < ApplicationController
       @participation = Participation.new(participation_params)
       if @participation.save
         redirect_to organisation_mission_path(@participation.mission.organisation, @participation.mission), notice: "Vous êtes bien inscrits"
+        UserMailer.participation_success(current_user, @participation.mission.organisation, @participation.mission).deliver_now
       else
         redirect_to organisation_mission_path(@participation.mission.organisation, @participation.mission), flash[:warning]= "Erreur"
       end
