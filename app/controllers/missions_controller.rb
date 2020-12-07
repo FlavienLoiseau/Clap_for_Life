@@ -1,5 +1,5 @@
 class MissionsController < ApplicationController
-  before_action :set_mission, only: [:show, :update, :destroy]
+  before_action :set_mission, only: [:show, :update, :destroy, :info]
 
 
   def index
@@ -48,6 +48,10 @@ class MissionsController < ApplicationController
   def destroy
     @mission.destroy
     redirect_to root_path, notice:"Votre mission a été supprimée !"
+  end
+
+  def info
+
   end
 
   private

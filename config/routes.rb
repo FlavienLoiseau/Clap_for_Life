@@ -18,7 +18,8 @@ Rails.application.routes.draw do
   resources :missions, only: [:index]
 
   resources :organisations do
-    resources :missions, only: [:show, :new, :create] do
+    get 'missions/:id/info', to: 'missions#info', as: 'info_mission'
+    resources :missions, except: [:index] do
       resources :participations, only: [:create, :destroy]
     end
   end
