@@ -45,10 +45,18 @@ module Merit
       #   user.name.length > 4
       # end
   
-      grant_on 'users#update', badge_id: 2, badge: 'Profil complété', to: :action_user
+      grant_on 'users#update', badge_id: 2, badge: 'Biographe', to: :action_user
 
-      grant_on 'participations#create', badge_id: 3 ,badge: 'Membre actif', to: :action_user do |participation|
+      grant_on 'participations#create', badge_id: 3 ,badge: "Homme d'action", to: :action_user do |participation|
         User.find(participation.user_id).participations.count == 1
+      end
+
+      grant_on 'organisations#create', badge_id: 4, badge: 'Association du futur', to: :action_user
+
+      grant_on 'missions#create', badge_id: 5, badge: 'Organisateur', to: :action_user
+
+      grant_on 'participations#create', badge_id: 6 , to: :action_user do |participation|
+        User.find(participation.user_id).participations.count >= 10
       end
 
 
