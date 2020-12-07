@@ -10,11 +10,11 @@ Faker::Config.locale = :fr
 
 Address.destroy_all
 Participation.destroy_all
+Tag.destroy_all
 Mission.destroy_all
 Organisation.destroy_all
 Activity.destroy_all
 User.destroy_all
-
 
 i=1
 15.times do
@@ -34,8 +34,8 @@ puts "#{Tag.all.size} tags created"
 
 15.times do
   organisation = Organisation.create(
-    user_id: rand(1..15),
-    activity_id: rand(1..15),
+    user_id: User.all.sample.id,
+    activity_id: Activity.all.sample.id,
     name: Faker::Company.name,
     registration_number: Faker::Lorem.words(number: 2).join(""),
     registration_date: Faker::Date.between(from: '2014-09-23', to: '2019-09-25'),
