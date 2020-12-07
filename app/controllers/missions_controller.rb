@@ -1,5 +1,5 @@
 class MissionsController < ApplicationController
-  before_action :set_mission, only: [:show]
+  before_action :set_mission, only: [:show, :update, :destroy, :info]
 
 
   def index
@@ -33,6 +33,26 @@ class MissionsController < ApplicationController
     end
   end
 
+  def edit
+    @mission=Mission.find(params[:id])
+  end
+
+  def update
+    if @mission.update(mission_params)
+      redirect_to root_path, notice:"Votre mission a été mis à jour !"
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @mission.destroy
+    redirect_to root_path, notice:"Votre mission a été supprimée !"
+  end
+
+  def info
+
+  end
 
   private
 
