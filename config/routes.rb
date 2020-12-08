@@ -1,10 +1,14 @@
 Rails.application.routes.draw do
   root 'home#homepage'
   get 'index', to: 'home#index'
-  get 'pages', to: 'home#pages'
   get 'contact', to: 'home#contact'
-  get 'vision', to: 'home#vision'
-  get 'operations', to: 'home#operations'
+  get 'clap_vision', to: 'home#clap_vision'
+  get 'clap_team', to: 'home#clap_team'
+  get 'clap_business', to: 'home#clap_business'
+  get 'clap_jobs', to: 'home#clap_jobs'
+  get 'clap_partnerships', to: 'home#clap_partnerships'
+  get 'press', to: 'home#press'
+  get 'blog', to: 'home#blog'
   get 'home/dashboard', to: 'home#dashboard'
   get 'home/organisationinfo', to: 'home#organisationinfo'
 
