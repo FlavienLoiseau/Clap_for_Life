@@ -10,8 +10,8 @@
           </div>
         </div>
         <div class="mb-4">
-          <label class="form-label" for="form_search">Tag 1</label>
-          <%=select_tag :search, options_from_collection_for_select(Tag.all, :name, :name), class: "form-control ", include_blank: "Tag" %>
+          <label class="form-label" for="form_search">Thème associatif</label>
+          <%=select_tag :search, options_from_collection_for_select(Activity.all, :title, :title), class: "form-control ", include_blank: "Thème" %>
 
         </div>
         
