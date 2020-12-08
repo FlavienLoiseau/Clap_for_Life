@@ -3,7 +3,7 @@
       <div class="row">
         <div class="col-lg-3 mr-lg-auto">
           <div class="card border-0 shadow mb-6 mb-lg-0">
-            <div class="card-header bg-gray-100 py-4 border-0 text-center"><a class="d-inline-block" href="#">
+            <div class="card-header bg-gray-100 py-4 border-0 text-center">
             <%if @organisation.logo.attached?%>
               <%= image_tag @organisation.logo, alt: 'logo', class: "avatar avatar-xxl avatar-circle mb-3" %>
             <%else%>
@@ -50,32 +50,38 @@
             <h4 class="mb-5">Les missions proposées par <%=@organisation.name%></h4>
             <div class="row">
               <% @organisation.missions.each do |mission| %>
-                <div class="col-sm-6 col-lg-4 mb-30px hover-animate" data-marker-id="59c0c8e33b1527bfe2abaf92">
-                  <div class="card h-100 border-0 shadow">
-                    <div class="card-img-top overflow-hidden gradient-overlay">
-                    <%if mission.cover.attached?%>
-                      <%= image_tag mission.cover, alt: 'cover', height: "200" %>
-                    <%else%>
-                      <img src="https://media.discordapp.net/attachments/757539327998951525/785913233511809054/pexels-photo-1546105.jpeg?width=995&height=663" alt="cover" height="240">
-                    <%end%>
-                    <%= link_to "", organisation_mission_path(mission.organisation.id, mission.id), class: "tile-link"%>
-                      <div class="card-img-overlay-top text-right">
-                      </div>
+              <div class="col-lg-5 col-md-5 col-sm-10 col-xs-10 mb-5 hover-animate" data-marker-id="59c0c8e33b1527bfe2abaf92">
+                <div class="card h-100 border-0 shadow">
+                  <div class="card-img-top overflow-hidden dark-overlay bg-cover" style="min-height: 200px;">
+                  <%if mission.cover.attached?%>
+                    <%= image_tag mission.cover, alt: 'cover', height: "200" %>
+                  <%else%>
+                    <img src="https://media.discordapp.net/attachments/757539327998951525/785913233511809054/pexels-photo-1546105.jpeg?width=995&height=663" alt="cover" height="240">
+                  <%end%>
+                  <%= link_to "", organisation_mission_path(mission.organisation.id, mission.id), class: "tile-link"%>
+                    <div class="card-img-overlay-bottom z-index-20">
+                      <h4 class="text-white text-shadow"><%=mission.title%></h4>
                     </div>
-                    <div class="card-body d-flex align-items-center">
-                      <div class="w-100">
-                        <h6 class="card-title"><a class="text-decoration-none text-dark" href="detail-rooms.html"><%=mission.title%></a></h6>
-                        <i class="fas fa-search-location" style="color:#808080"></i><small style="color:#808080"> <%=mission.address.city if mission.address%>,  <%=mission.address.zipcode if mission.address%></small><br>
-                        <i class="fas fa-users" style="color:#808080"></i><small style="color:#808080"> Besoin de <%=mission.volunteers_needed%> volontaires</small><br>
-                        <i class="fas fa-calendar-day" style="color:#808080"></i><small style="color:#808080"> Date: <%=mission.start_date%></small><br></p>
-                        <%= link_to "Voir la mission", organisation_mission_path(mission.organisation.id, mission.id), class: "btn btn-primary mb-2"%><br>
-                        <p class="mb-0"><i class="fas fa-tags" style="color:#808080"></i><small style="color:#808080"> <%mission.tags.each do |tag|%>
-                        <%=tag.name%>
-                        <%end%></small></p>
-                      </div>
+                    <div class="card-img-overlay-top d-flex justify-content-between align-items-center">
+                      <div class="badge badge-transparent badge-pill px-3 py-2 mt-2">
+                        <%=mission.organisation.name%>
+                        </div>
                     </div>
                   </div>
+                  <div class="card-body">
+                    <i class="fas fa-search-location pr-2" style="color:#808080"></i><small style="color:#808080" class="pl-1"> <%if mission.address.present?%>
+                      <%=mission.address.city%>,  <%=mission.address.zipcode%>
+                      <%end%></small><br>
+                    <i class="fas fa-users pr-2" style="color:#808080"></i><small style="color:#808080"> Besoin de <%=mission.volunteers_needed%> volontaires</small><br>
+                    <i class="fas fa-calendar-day pr-2" style="color:#808080"></i><small style="color:#808080" class="pl-1"> Date: <%=mission.start_date.time.strftime("%-d/%-m/%y à %H:%M")%></small><br></p>
+                    <%= link_to "Voir la mission", organisation_mission_path(mission.organisation.id, mission.id), class: "btn btn-primary mb-2"%><br>
+                    <hr>
+                      <small style="color:#808080"> <%mission.tags.each do |tag|%>
+                      <li class="list-inline-item mr-3"><i class="fas fa-tags"></i> <%=tag.name%></li>
+                      <%end%></small>
+                  </div>
                 </div>
+              </div>
               <%end%>
             </div>
           </div>
