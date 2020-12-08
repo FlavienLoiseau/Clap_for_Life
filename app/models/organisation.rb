@@ -17,7 +17,7 @@ class Organisation < ApplicationRecord
   def self.search(search)
     if search
       tag = Tag.find_by(name: search)
-      if tag
+      if tag.present?
         Organisation.all.select{|o| o if o.tags.any? {|t| t.name == tag.name}}
       else
         Organisation.all
