@@ -65,6 +65,7 @@ tag_names =
 tag_names.each {|name| Tag.create(name: name)}
 puts "#{Tag.all.size} tags created"
 
+
 15.times do
   organisation = Organisation.create(
     user_id: User.all.sample.id,
