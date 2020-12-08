@@ -38,6 +38,7 @@ Merit::Badge.create!(
   id: 2,
   name: "Biographe",
   description: "A modifié ses informations personnelles",
+  custom_fields: {image: "https://www.flaticon.com/svg/static/icons/svg/3855/3855108.svg"}
 )
 
 Merit::Badge.create!(

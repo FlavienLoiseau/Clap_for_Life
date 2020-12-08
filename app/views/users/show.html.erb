@@ -9,7 +9,7 @@
       <%= render 'users/left_column'  %>
 
 
-      <div class="col-lg-9">
+      <div class="col-lg-8">
         <!-- Card -->
         <div class="card mb-3 mb-lg-5">
           <div class="card-header">
@@ -110,7 +110,7 @@
           <div class="card-footer d-flex justify-content-end">
             <%= link_to "Editer les informations", edit_user_path(current_user), class:"btn btn-info" %>
           </div>
-          
+
           <!-- End Footer -->
         </div>
         <!-- End Card -->
@@ -128,11 +128,11 @@
                   <strong class="d-block text-gray-dark" style="color:gray;">Titre: <%=badge.name%></strong>
                 </p>
                   <div class= "row border-bottom border-gray">
-                  <div class="col-2"><img src="<%=badge.custom_fields[:image] if badge.custom_fields[:image].present?%>"> </div> <div class= "col-10"> <a style="text-decoration: none;">Accomplissement:  <%= badge.description %> </a> </div>
+                  <div class="col-2"><img src="<%=badge.custom_fields[:image] unless badge.custom_fields.blank?%>"> </div> <div class= "col-10"> <a style="text-decoration: none;">Accomplissement:  <%= badge.description %> </a> </div>
               </div>
             <%end%>
             <%end%>
-              
+
               <!-- End Form Group -->
           <!-- End Body -->
           </div>
