@@ -35,7 +35,7 @@ class OrganisationsController < ApplicationController
   end
 
   def edit
-
+    @user = current_user
   end
 
   def update
@@ -52,7 +52,7 @@ class OrganisationsController < ApplicationController
   end
 
   def info
-
+    @user = current_user
   end
 
   private

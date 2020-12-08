@@ -1,29 +1,12 @@
 <!-- ========== MAIN ========== -->
 <main id="content" role="main" class="bg-light">
-  <!-- Breadcrumb Section -->
-  <div class="bg-navy" style="background-image: url(https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80); background-position: 50% 55%">
-    <div class="container space-1 space-top-lg-2 space-bottom-lg-3" style="height:300px;">
-      <div class="row align-items-center">
-        <div class="col">
-          <div class="d-none d-lg-block">
-            <h1 class="my-5 text-white">Informations de <%= @user.username %></h1>
-          </div>
-        </div>
-        <div class="col-auto">
-          <div class="d-none d-lg-block">
-            <a class="btn btn-sm btn-soft-light"><%= link_to "Se déconnecter", destroy_user_session_path, method: :delete, class: "btn btn-light" %></a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- End Breadcrumb Section -->
 
+  <%= render 'users/cover'  %>
   <!-- Content Section -->
   <div class="container space-1 space-top-lg-0 mt-lg-n10" style="position: relative ; top: -80px ;">
     <div class="row">
       <%= render 'users/left_column'  %>
-      <div class="col-lg-9">
+      <div class="col-lg-8">
         <!-- Card -->
         <div class="card mb-3 mb-lg-5">
           <div class="card-header">
