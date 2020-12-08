@@ -1,6 +1,16 @@
 <div class="container-fluid py-5 px-lg-5">
   <div class="row">
     <div class="col-lg-3 pt-3">
+      <div class="mb-4">
+        <label class="form-label" for="form_neighbourhood">Tag</label>
+        <%= form_tag(organisations_path, method: :get) do%>
+          <div class ="row">
+            <%= select_tag :search, options_from_collection_for_select(Tag.all, :name, :name), class: "form-control pr-4", include_blank: params[:search]%>
+            <button class="btn btn-primary" type="submit"> <i class="fas fa-filter mr-1"></i>Filtrer</button>
+          </div>
+        <%end%>
+      </div>
+
       <form class="pr-xl-3" action="#">
         <div class="mb-4">
           <label class="form-label" for="form_search">Tag</label>
@@ -10,6 +20,7 @@
           </div>
         </div>
         <div class="mb-4">
+
           <label class="form-label" for="form_neighbourhood">Catégorie 1</label>
           <select class="selectpicker form-control" name="neighbourhood" id="form_neighbourhood" multiple data-style="btn-selectpicker" data-live-search="true" data-selected-text-format="count &gt; 1" title="">
             <option value="neighbourhood_0">XXX    </option>
