@@ -34,6 +34,7 @@
             <div class ="row">
               <%=select_tag :search, options_from_collection_for_select(Tag.all, :name, :name), class: "form-control border-0 shadow-0 col-lg-4", include_blank: "Tag" %>
               <%=text_field_tag(:location, params[:location], class: "form-control pr-4 col-3 ml-4", placeholder: "Ville")%>
+              <%=select_date(params[:start_date]) %>
               <%=submit_tag "Rechercher", class: "btn btn-primary  h-100 ml-2" %>
             </div>
           </div>

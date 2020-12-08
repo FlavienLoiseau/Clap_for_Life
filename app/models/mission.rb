@@ -14,14 +14,17 @@ class Mission < ApplicationRecord
 
   accepts_nested_attributes_for :address
 
+  require 'active_support/core_ext'
+  def self.search(search, location, date)
 
-  def self.search(search, location)
+
+
 
     if search.present? && location.present? 
       tag = Tag.find_by(name: search)
       address = Address.find_by(city: location.strip)
-      if address.present?
-        Mission.all.select{|m| m if m.tags.any? {|t| t.name == tag.name} && m.address.city.downcase == address.city.downcase}
+      if address.present? && date.present?
+        Mission.all.select{|m| m if m.tags.any? {|t| t.name == tag.name} && m.address.city.downcase == address.city.downcase && m.start_date.strftime("%F") >= date}
       else
         Mission.all
       end
