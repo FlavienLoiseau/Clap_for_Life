@@ -23,12 +23,45 @@ i=1
   i+=1
 end
 
-15.times do
-  Activity.create(code: Faker::Code.npi, title: Faker::Lorem.sentence(word_count: 3), description: Faker::Lorem.paragraph)
-  puts "Activity added !"
-end
 
-tag_names =  ["Environnement", "Précarité", "Handicap","Lien intergenerationnel", "Aide a l emploi", "Education" ]
+  Activity.create(code: 03000, title: "Droits de l'Homme", description: "Défense des droits de tous les citoyens")
+  Activity.create(code: 15000, title: "Education", description: "Promotion de l'égalité des chances")
+  Activity.create(code: 17000, title: "Santé", description: "Prévention et protection sanitaire")
+  Activity.create(code: 18000, title: "Médico-social", description: "Soutien aux personnes vulnérables")
+  Activity.create(code: 19000, title: "Interventions sociales", description: "Lutte contre toute forme de violence")
+  Activity.create(code: 20000, title: "Humanitaire et précarité", description: "Charité envers les plus démunis")
+  Activity.create(code: 21000, title: "Services aux personnes âgées", description: "Accompagnement des ainés")
+  Activity.create(code: 24000, title: "Environnement", description: "Protection de notre éco-système")
+
+tag_names =
+    ["Défense des droits des enfants",
+    "Défense des droits de l'Homme",
+    "Défense des droits des minorités",
+    "Aide à l'enseignement",
+    "Accompagnement périscolaire",
+    "Accompagnement des malades",
+    "Prévention et dépistage",
+    "Recherche médicale",
+    "Accueil et protection de l'enfance",
+    "Services pour adolescents et adultes en difficulté",
+    'Lutte contre la toxicomanie',
+    "Aide aux victimes de maladies professionnelles",
+    "Services sociaux pour les familles",
+    "Lutte contre le surendettement",
+    "Aide à l'insertion des jeunes",
+    'Aide aux chômeurs',
+    "Aide aux réfugiés et aux immigrés",
+    'Aide aux victimes de catastrophes naturelles',
+    "Aide aux victimes de violences conjugales",
+    "Soutien psychologique et moral",
+    "Réinsertion de détenus et délinquants",
+    "Aide financière aux personnes démunies",
+    "Distribution de nourriture et de vêtements",
+    "Accompagnement à domicile de personnes âgées",
+    "Activités pour personnes âgées",
+    "Protection de la biodiversité",
+    "Défense et amélioration du cadre de vie environnemental",
+    "Sensibilisation au développement durable"]
 tag_names.each {|name| Tag.create(name: name)}
 puts "#{Tag.all.size} tags created"
 
