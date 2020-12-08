@@ -22,7 +22,7 @@
       <div class="tab-pane fade " id="orga" role="tabpanel">
         <%= form_tag(organisations_path, method: :get) do%>
           <div class ="row">
-            <%= select_tag :search, options_from_collection_for_select(Tag.all, :name, :name), class: "form-control border-0 shadow-0 col-lg-4", include_blank: "Tag" %>
+            <%= select_tag :search, options_from_collection_for_select(Activity.all, :title, :title), class: "form-control border-0 shadow-0 col-lg-4", include_blank: "Thème" %>
             <%=text_field_tag(:location, params[:location], class: "form-control pr-4 col-3 ml-4", placeholder: "Ville")%>
             <%= submit_tag "Rechercher", class: "btn btn-primary h-100 ml-2" %>
           </div>
@@ -59,68 +59,68 @@
       </div>
     </div>
     <div class="row d-flex container mt-5">
-        <div class="col-lg-4 col-md-6 col-sm-10 col-xs-10 my-3 align-items-center organisation-example d-flex hover-animate"><a class="tile-link" href="/organisations?search=Handicap&commit=Search"> </a>
+        <div class="col-lg-4 col-md-6 col-sm-10 col-xs-10 my-3 align-items-center organisation-example d-flex hover-animate"><a class="tile-link" href="/organisations?search=Droits+de+l%27Homme&location=&commit=Rechercher"> </a>
           <%= image_tag("https://images.unsplash.com/photo-1593115057322-e94b77572f20?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1051&q=80", :alt => "human_rights", class: "organisation-example-photo shadow-sm") %>
           <div class="organisation-example-text">
             <h6 class="text-shadow mb-0 pt-1">Droits de l'homme</h6>
             <small>Défense des droits de tous les citoyens</small><br>
-            <small style="color:gray; font-style:italic;"> 12 associations</small>
+            <small style="color:gray; font-style:italic;"> <%=Organisation.where(activity_id: 1).count%> associations</small>
           </div>
         </div>
-        <div class="col-lg-4 col-md-6 col-sm-10 col-xs-10 my-3 align-items-center organisation-example d-flex hover-animate"><a class="tile-link" href="/organisations?search=Handicap&commit=Search"> </a>
+        <div class="col-lg-4 col-md-6 col-sm-10 col-xs-10 my-3 align-items-center organisation-example d-flex hover-animate"><a class="tile-link" href="/organisations?search=Education&location=&commit=Rechercher"> </a>
           <%= image_tag("https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=666&q=80", :alt => "education", class: "organisation-example-photo shadow-sm") %>
           <div class="organisation-example-text">
             <h6 class="text-shadow mb-0 pt-1">Education</h6>
             <small>Promotion de l'égalité des chances</small><br>
-            <small style="color:gray; font-style:italic;"> 17 associations</small>
+            <small style="color:gray; font-style:italic;"> <%=Organisation.where(activity_id: 2).count%> associations</small>
           </div>
         </div>
-        <div class="col-lg-4 col-md-6 col-sm-10 col-xs-10 my-3 align-items-center organisation-example d-flex hover-animate"><a class="tile-link" href="/organisations?search=Handicap&commit=Search"> </a>
+        <div class="col-lg-4 col-md-6 col-sm-10 col-xs-10 my-3 align-items-center organisation-example d-flex hover-animate"><a class="tile-link" href="/organisations?search=Santé&location=&commit=Rechercher"> </a>
           <%= image_tag("https://images.unsplash.com/photo-1584982751601-97dcc096659c?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1052&q=80", :alt => "health", class: "organisation-example-photo shadow-sm") %>
           <div class="organisation-example-text">
             <h6 class="text-shadow mb-0 pt-1">Santé</h6>
             <small>Prévention et protection sanitaire</small><br>
-            <small style="color:gray; font-style:italic;"> 6 associations</small>
+            <small style="color:gray; font-style:italic;"> <%=Organisation.where(activity_id: 3).count%> associations</small>
           </div>
         </div>
-        <div class="col-lg-4 col-md-6 col-sm-10 col-xs-10 my-3 align-items-center organisation-example d-flex hover-animate"><a class="tile-link" href="/organisations?search=Handicap&commit=Search"> </a>
+        <div class="col-lg-4 col-md-6 col-sm-10 col-xs-10 my-3 align-items-center organisation-example d-flex hover-animate"><a class="tile-link" href="/organisations?search=Interventions+sociales&location=&commit=Rechercher"> </a>
           <%= image_tag("https://images.unsplash.com/photo-1591045211820-2fe94117fe18?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1072&q=80", :alt => "intervention", class: "organisation-example-photo shadow-sm") %>
           <div class="organisation-example-text">
             <h6 class="text-shadow mb-0 pt-1">Interventions sociales</h6>
             <small>Lutte contre les violences</small><br>
-            <small style="color:gray; font-style:italic;"> 27 associations</small>
+            <small style="color:gray; font-style:italic;"> <%=Organisation.where(activity_id: 5).count%> associations</small>
           </div>
         </div>
-        <div class="col-lg-4 col-md-6 col-sm-10 col-xs-10 my-3 align-items-center organisation-example d-flex hover-animate"><a class="tile-link" href="/organisations?search=Handicap&commit=Search"> </a>
+        <div class="col-lg-4 col-md-6 col-sm-10 col-xs-10 my-3 align-items-center organisation-example d-flex hover-animate"><a class="tile-link" href="/organisations?search=Humanitaire+et+précarité&location=&commit=Rechercher"> </a>
           <%= image_tag("https://images.unsplash.com/photo-1519430044529-9a9a57177865?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1061&q=80", :alt => "charity", class: "organisation-example-photo shadow-sm") %>
           <div class="organisation-example-text">
             <h6 class="text-shadow mb-0 pt-1">Humanitaire, précarité</h6>
             <small>Charité envers les ceux dans le besoin</small><br>
-            <small style="color:gray; font-style:italic;"> 34 associations</small>
+            <small style="color:gray; font-style:italic;"> <%=Organisation.where(activity_id: 6).count%> associations</small>
           </div>
         </div>
-        <div class="col-lg-4 col-md-6 col-sm-10 col-xs-10 my-3 align-items-center organisation-example d-flex hover-animate"><a class="tile-link" href="/organisations?search=Handicap&commit=Search"> </a>
+        <div class="col-lg-4 col-md-6 col-sm-10 col-xs-10 my-3 align-items-center organisation-example d-flex hover-animate"><a class="tile-link" href="/organisations?search=Services+aux+personnes+âgées&location=&commit=Rechercher"> </a>
           <%= image_tag("https://images.pexels.com/photos/339620/pexels-photo-339620.jpeg?auto=compress&cs=tinysrgb&h=650&w=940", :alt => "elderly", class: "organisation-example-photo shadow-sm") %>
           <div class="organisation-example-text">
             <h6 class="text-shadow mb-0 pt-1">Services aux personnes âgées</h6>
             <small>Accompagnement des ainés</small><br>
-            <small style="color:gray; font-style:italic;"> 4 associations</small>
+            <small style="color:gray; font-style:italic;"> <%=Organisation.where(activity_id: 7).count%> associations</small>
           </div>
         </div>
-        <div class="col-lg-4 col-md-6 col-sm-10 col-xs-10 my-3 align-items-center organisation-example d-flex hover-animate"><a class="tile-link" href="/organisations?search=Handicap&commit=Search"> </a>
+        <div class="col-lg-4 col-md-6 col-sm-10 col-xs-10 my-3 align-items-center organisation-example d-flex hover-animate"><a class="tile-link" href="/organisations?search=Médico-social&location=&commit=Rechercher"> </a>
           <%= image_tag("https://images.pexels.com/photos/2026764/pexels-photo-2026764.jpeg?auto=compress&cs=tinysrgb&h=650&w=940", :alt => "medico-soc", class: "organisation-example-photo shadow-sm") %>
           <div class="organisation-example-text">
             <h6 class="text-shadow mb-0 pt-1">Médico-social</h6>
             <small>Soutien aux personnes vulnérables</small><br>
-            <small style="color:gray; font-style:italic;"> 4 associations</small>
+            <small style="color:gray; font-style:italic;"> <%=Organisation.where(activity_id: 4).count%> associations</small>
           </div>
         </div>
-        <div class="col-lg-4 col-md-6 col-sm-10 col-xs-10 my-3 align-items-center organisation-example d-flex hover-animate"><a class="tile-link" href="/organisations?search=Handicap&commit=Search"> </a>
+        <div class="col-lg-4 col-md-6 col-sm-10 col-xs-10 my-3 align-items-center organisation-example d-flex hover-animate"><a class="tile-link" href="/organisations?search=Environnement&location=&commit=Rechercher"> </a>
           <%= image_tag("https://images.pexels.com/photos/9198/nature-sky-twilight-grass-9198.jpg?auto=compress&cs=tinysrgb&h=650&w=940", :alt => "environment", class: "organisation-example-photo shadow-sm") %>
           <div class="organisation-example-text">
             <h6 class="text-shadow mb-0 pt-1">Environnement</h6>
             <small>Protection de l'eco-système</small><br>
-            <small style="color:gray; font-style:italic;"> 28 associations</small>
+            <small style="color:gray; font-style:italic;"> <%=Organisation.where(activity_id: 8).count%> associations</small>
           </div>
         </div>
       </div>

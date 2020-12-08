@@ -26,7 +26,7 @@
     <div class="col-lg-9">
       <div class="d-flex justify-content-between align-items-center flex-column flex-md-row mb-4">
         <div class="mr-3">
-          <p class="mb-3 mb-md-0"><strong><%= @missions.count %></strong> résultats</p>
+          <p class="mb-3 mb-md-0"><strong> <%=search_result(@missions, params[:search], params[:location])%>  </strong> <%=params[:location] if params[:location]%>  <%=params[:search] if params[:search]%> </p>
         </div>
         <div>
           <label class="form-label mr-2" for="form_sort">Trier par</label>

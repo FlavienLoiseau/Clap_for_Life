@@ -18,16 +18,16 @@ class Organisation < ApplicationRecord
  
 
     if search.present? && location.present?
-      tag = Tag.find_by(name: search)
+      activity = Activity.find_by(title: search)
       address = Address.find_by(city: location.strip)
       if address.present?
-        Organisation.all.select{|o| o if o.tags.any? {|t| t.name == tag.name} && o.address.city.downcase == address.city.downcase}
+        Organisation.all.select{|o| o if o.activity.title == activity.title && o.address.city.downcase == address.city.downcase}
       else
         Organisation.all
       end
     elsif search.present? && location.blank?
-      tag = Tag.find_by(name: search)
-      Organisation.all.select{|o| o if o.tags.any? {|t| t.name == tag.name}}
+      activity = Activity.find_by(title: search)
+      Organisation.all.select{|o| o if o.activity.title == activity.title}
     elsif search.blank? && location.present?
       address = Address.find_by(city: location.strip)
       if address.present?
