@@ -14,9 +14,9 @@
           <%=select_tag :search, options_from_collection_for_select(Tag.all, :name, :name), class: "form-control ", include_blank: "Tag" %>
 
         </div>
-        
+
         <div class="pb-4">
-          
+
           <div class="mb-4">
             <button class="btn btn-primary" type="submit"> <i class="fas fa-filter mr-1"></i>Filtrer                </button>
           </div>
@@ -39,31 +39,29 @@
       </div>
       <div class="row">
         <% @missions.each do |mission| %>
-          <div class="col-sm-6 col-lg-4 mb-5 hover-animate" data-marker-id="59c0c8e33b1527bfe2abaf92">
+          <div class="col-lg-4 col-md-6 col-sm-10 col-xs-10 mb-5 hover-animate" data-marker-id="59c0c8e33b1527bfe2abaf92">
             <div class="card h-100 border-0 shadow">
               <div class="card-img-top overflow-hidden dark-overlay bg-cover" style="background-image: url(https://www.linfodurable.fr/sites/linfodurable/files/styles/landscape_w800/public/2018-06/NETTOYAGES%20DE%20PLAGE.jpg?h=a7a713b3&itok=D2cYNkDE); min-height: 200px;"><%= link_to "", organisation_mission_path(mission.organisation.id, mission.id), class: "tile-link"%>
                 <div class="card-img-overlay-bottom z-index-20">
                   <h4 class="text-white text-shadow"><%=mission.title%></h4>
                 </div>
                 <div class="card-img-overlay-top d-flex justify-content-between align-items-center">
-                  <div class="badge badge-transparent badge-pill px-3 py-2 mt-2"><%if mission.organisation.tags.present?%>
-                    <%=mission.organisation.tags.last.name%>
-                    <%end%>
+                  <div class="badge badge-transparent badge-pill px-3 py-2 mt-2">
+                    <%=mission.organisation.name%>
                     </div>
                 </div>
               </div>
               <div class="card-body">
-                <i class="fas fa-search-location" style="color:#808080"></i><small style="color:#808080"> <%=mission.address.city if mission.address%>,  <%=mission.address.zipcode if mission.address%></small><br>
-                <i class="fas fa-users" style="color:#808080"></i><small style="color:#808080"> Besoin de <%=mission.volunteers_needed%> volontaires</small><br>
-                <i class="fas fa-calendar-day" style="color:#808080"></i><small style="color:#808080"> Date: <%=mission.start_date%></small><br></p>
-
+                <i class="fas fa-search-location pr-2" style="color:#808080"></i><small style="color:#808080" class="pl-1"> <%if mission.address.present?%>
+                  <%=mission.address.city%>,  <%=mission.address.zipcode%>
+                  <%end%></small><br>
+                <i class="fas fa-users pr-2" style="color:#808080"></i><small style="color:#808080"> Besoin de <%=mission.volunteers_needed%> volontaires</small><br>
+                <i class="fas fa-calendar-day pr-2" style="color:#808080"></i><small style="color:#808080" class="pl-1"> Date: <%=mission.start_date.time.strftime("%-d/%-m/%y à %H:%M")%></small><br></p>
                 <%= link_to "Voir la mission", organisation_mission_path(mission.organisation.id, mission.id), class: "btn btn-primary mb-2"%><br>
-                <%= link_to "#{mission.organisation.name}", organisation_path(mission.organisation.id), class: "btn btn-light mb-3"%>
-                <p class="mb-0">
+                <hr>
                   <small style="color:#808080"> <%mission.tags.each do |tag|%>
                   <li class="list-inline-item mr-3"><i class="fas fa-tags"></i> <%=tag.name%></li>
                   <%end%></small>
-                  </p>
               </div>
             </div>
           </div>
