@@ -124,10 +124,11 @@
             <%@user.badges.each do |badge|%>
               <div class="card-body">
                 <div class="media text-dark pt-3">
-                <p class="media-body pb-3 mb-0 medium lh-125 border-bottom border-gray">
+                <p class="media-body pb-3 mb-0 medium lh-125 ">
                   <strong class="d-block text-gray-dark" style="color:gray;">Titre: <%=badge.name%></strong>
-                  <a style="text-decoration: none;">Accomplissement:  <%= badge.description %> </a>
                 </p>
+                  <div class= "row border-bottom border-gray">
+                  <div class="col-2"><img src="<%=badge.custom_fields[:image] if badge.custom_fields[:image].present?%>"> </div> <div class= "col-10"> <a style="text-decoration: none;">Accomplissement:  <%= badge.description %> </a> </div>
               </div>
             <%end%>
             <%end%>
