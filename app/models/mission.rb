@@ -15,17 +15,30 @@ class Mission < ApplicationRecord
   accepts_nested_attributes_for :address
 
 
-  def self.search(search)
-    if search
+  def self.search(search, location)
+
+    if search.present? && location.present? 
       tag = Tag.find_by(name: search)
-      if tag
-        Mission.all.select{|m| m if m.tags.any? {|t| t.name == tag.name}}
+      address = Address.find_by(city: location.strip)
+      if address.present?
+        Mission.all.select{|m| m if m.tags.any? {|t| t.name == tag.name} && m.address.city.downcase == address.city.downcase}
+      else
+        Mission.all
+      end
+    elsif search.present? && location.blank?
+      tag = Tag.find_by(name: search)
+      Mission.all.select{|m| m if m.tags.any? {|t| t.name == tag.name}}
+    elsif search.blank? && location.present?
+      address = Address.find_by(city: location.strip)
+      if address.present?
+        Mission.all.select{|m| m if m.address.city.downcase == address.city.downcase}
       else
         Mission.all
       end
     else
       Mission.all
     end
+
   end
 
   def self.street(id)

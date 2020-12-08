@@ -44,6 +44,7 @@ Merit::Badge.create!(
   id: 3,
   name: "Homme d'action",
   description: "S'est inscrit à sa première mission",
+  custom_fields: {image: "https://img.icons8.com/android/48/000000/action.png"}
 )
 
 Merit::Badge.create!(

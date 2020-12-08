@@ -3,51 +3,20 @@
     <div class="col-lg-3 pt-3">
       <form class="pr-xl-3" action="#">
         <div class="mb-4">
-          <label class="form-label" for="form_search">Tag</label>
+          <label class="form-label" for="form_search">Ville</label>
           <div class="input-label-absolute input-label-absolute-right">
             <div class="label-absolute"><i class="fa fa-search"></i></div>
-            <%=text_field_tag(:search, params[:search], class: "form-control pr-4", placeholder: "Tag")%>
+              <%=text_field_tag(:location, params[:location], class: "form-control pr-4", placeholder: "Ville")%>
           </div>
         </div>
         <div class="mb-4">
-          <label class="form-label" for="form_neighbourhood">Catégorie 1</label>
-          <select class="selectpicker form-control" name="neighbourhood" id="form_neighbourhood" multiple data-style="btn-selectpicker" data-live-search="true" data-selected-text-format="count &gt; 1" title="">
-            <option value="neighbourhood_0">XXX    </option>
-            <option value="neighbourhood_1">XXX    </option>
-            <option value="neighbourhood_2">XXX    </option>
-          </select>
+          <label class="form-label" for="form_search">Tag 1</label>
+          <%=select_tag :search, options_from_collection_for_select(Tag.all, :name, :name), class: "form-control ", include_blank: "Tag" %>
+
         </div>
-        <div class="mb-4">
-          <label class="form-label" for="form_category">Catégorie 2</label>
-          <select class="selectpicker form-control" name="category" id="form_category" multiple data-style="btn-selectpicker" data-selected-text-format="count &gt; 1" title="">
-            <option value="category_0">XXX    </option>
-            <option value="category_1">XXX    </option>
-            <option value="category_2">XXX    </option>
-          </select>
-        </div>
+        
         <div class="pb-4">
-          <div class="collapse" id="moreFilters">
-            <div class="mb-4">
-              <label class="form-label">Autres</label>
-              <ul class="list-unstyled mb-0">
-                <li>
-                  <div class="custom-control custom-radio">
-                    <input class="custom-control-input" type="radio" id="vegetarians_0" name="vegetarians">
-                    <label class="custom-control-label" for="vegetarians_0">XXX</label>
-                  </div>
-                </li>
-                <li>
-                  <div class="custom-control custom-radio">
-                    <input class="custom-control-input" type="radio" id="vegetarians_1" name="vegetarians">
-                    <label class="custom-control-label" for="vegetarians_1">XXX</label>
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="mb-4">
-            <button class="btn btn-link btn-collapse pl-0 text-secondary" type="button" data-toggle="collapse" data-target="#moreFilters" aria-expanded="false" aria-controls="moreFilters" data-expanded-text="Less filters" data-collapsed-text="More filters">Plus de filtres</button>
-          </div>
+          
           <div class="mb-4">
             <button class="btn btn-primary" type="submit"> <i class="fas fa-filter mr-1"></i>Filtrer                </button>
           </div>
