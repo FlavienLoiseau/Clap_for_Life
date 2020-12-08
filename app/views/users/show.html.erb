@@ -128,7 +128,7 @@
                   <strong class="d-block text-gray-dark" style="color:gray;">Titre: <%=badge.name%></strong>
                 </p>
                   <div class= "row border-bottom border-gray">
-                  <div class="col-2"><img src="<%=badge.custom_fields[:image] if badge.custom_fields[:image].present?%>"> </div> <div class= "col-10"> <a style="text-decoration: none;">Accomplissement:  <%= badge.description %> </a> </div>
+                  <div class="col-2"><img src="<%=badge.custom_fields[:image] if badge.custom_fields.present?%>"> </div> <div class= "col-10"> <a style="text-decoration: none;">Accomplissement:  <%= badge.description %> </a> </div>
               </div>
             <%end%>
             <%end%>

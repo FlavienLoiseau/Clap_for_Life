@@ -38,8 +38,12 @@
 
                             <div class="row mx-n1">
                               <div class="col px-1">
-                              <img class="img-fluid" src="https://www.linfodurable.fr/sites/linfodurable/files/styles/landscape_w800/public/2018-06/NETTOYAGES%20DE%20PLAGE.jpg?h=a7a713b3&itok=D2cYNkDE" alt="Image mission"/>                              </div>
-
+                                <%if mission.cover.attached?%>
+                                  <%= image_tag mission.cover, alt: 'cover', :height => "160" %>
+                                <%else%>
+                                  <img src="https://media.discordapp.net/attachments/757539327998951525/785913233511809054/pexels-photo-1546105.jpeg?width=995&height=663" alt="cover" height="240">
+                                <%end%>
+                              </div>
                             </div>
                             <!-- End Row -->
                           </div>
