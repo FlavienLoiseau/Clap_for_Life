@@ -15,6 +15,7 @@
             <%= simple_form_for @organisation,
             url: url_for(action: 'update'),
             method: :put do |f| %>
+              <%= f.input :logo, as: :file %>
               <%= f.input :name, class:"form-control m-3"  %>
               <%= f.input :description, class:"form-control m-3"  %>
               <%= f.input :registration_number, class:"form-control m-3"  %>

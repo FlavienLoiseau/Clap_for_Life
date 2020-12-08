@@ -15,7 +15,8 @@
             <%= simple_form_for @mission,
             url: url_for(action: 'update'),
             method: :put do |f| %>
-             <%= f.input :title, class:"form-control m-3" %>
+              <%= f.input :cover, as: :file %>
+              <%= f.input :title, class:"form-control m-3" %>
               <%= f.input :contact_first_name, class:"form-control m-3" %>
               <%= f.input :contact_last_name, class:"form-control m-3" %>
               <%= f.input :description, class:"form-control m-3" %>
