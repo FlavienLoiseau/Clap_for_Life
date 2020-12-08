@@ -1,32 +1,49 @@
-<nav class="navbar navbar-expand-lg fixed-top shadow navbar-light bg-white">
-  <div class="container-fluid">
-    <%# Clap for Life logo %>
-    <div class="d-flex align-items-center"><a class="navbar-brand" href="/">
-      <%= image_tag("logo_1.png", :alt => "logo Clap for Life", :height => "40") %></a>
-    </div>
-    <%# Navbar user buttons %>
-    <div class="collapse navbar-collapse" id="navbarCollapse">
-      <ul class="navbar-nav ml-auto">
-        <%if user_signed_in?%>
-        <small class="mr-3 mt-3 ml-3" style="font-size:1.1rem; text-decoration: none; color:gray" ><%= current_user.username %></small>
-        <li class="nav-item dropdown ml-lg-3"> <a id="userDropdownMenuLink" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="text-decoration:none;"><%if current_user.avatar.attached?%>
-                <%= image_tag current_user.avatar, alt: 'avatar', class: "avatar avatar-sm mr-2 ml-3" %>
-              <%else%>
-                <%= image_tag("person.png", :alt => "logo_person", :class => "avatar avatar-sm mr-2 ml-3") %></a>
-              <%end%></a>
-          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdownMenuLink">
-            <a class="dropdown-item" <%= link_to "Mon profil", user_path(current_user.id) %></a>
-            <a class="dropdown-item" <%= link_to "Se déconnecter", destroy_user_session_path, method: :delete %></a>
-          </div>
-        </li>
-        <%else%>
-          <ul>
-            <li class="nav-item mt-3 mt-lg-0 ml-lg-3 d-lg-none d-xl-inline-block"><a class="nav-link" <%= link_to "Se connecter", new_user_session_path %></a></li>
-            <li class="nav-item mt-3 mt-lg-0 ml-lg-3 d-lg-none d-xl-inline-block"><a class="btn btn-primary" <%= link_to "S'inscrire", new_user_registration_path %></a></li>
+<!-- Navbar-->
+    <nav class="navbar navbar-expand-lg fixed-top shadow navbar-light bg-white">
+      <div class="container-fluid">
+        <div class="d-flex align-items-center"><a class="navbar-brand" href="/">
+          <%= image_tag("logo_1.png", :alt => "logo Clap for Life", :height => "40") %></a>
+        </div>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars"></i></button>
+        <!-- Navbar Collapse -->
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <form class="form-inline mt-4 mb-2 d-sm-none" action="#" id="searchcollapsed">
+            <div class="input-label-absolute input-label-absolute-left input-reset w-100">
+              <label class="label-absolute" for="searchcollapsed_search"><i class="fa fa-search"></i><span class="sr-only">What are you looking for?</span></label>
+              <input class="form-control form-control-sm border-0 shadow-0 bg-gray-200" id="searchcollapsed_search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-reset btn-sm" type="reset"><i class="fa-times fas">           </i></button>
+            </div>
+          </form>
+          <ul class="navbar-nav ml-3">
+            <!-- /Megamenu end-->
+            <li class="nav-item"><a class="nav-link" href="/organisations?search=&location=&commit=Rechercher">Associations</a>
+            </li>
+            <li class="nav-item"><a class="nav-link" href="/missions?search=&location=&commit=Rechercher">Missions</a>
+            </li>
           </ul>
+          <%# Navbar user buttons %>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav ml-auto">
+              <%if user_signed_in?%>
+              <small class="mr-3 mt-3 ml-3" style="font-size:1.1rem; text-decoration: none; color:gray" ><%= current_user.username %></small>
+              <li class="nav-item dropdown ml-lg-3"> <a id="userDropdownMenuLink" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="text-decoration:none;"><%if current_user.avatar.attached?%>
+                      <%= image_tag current_user.avatar, alt: 'avatar', class: "avatar avatar-sm mr-2 ml-3" %>
+                    <%else%>
+                      <%= image_tag("person.png", :alt => "logo_person", :class => "avatar avatar-sm mr-2 ml-3") %></a>
+                    <%end%></a>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdownMenuLink">
+                  <a class="dropdown-item" <%= link_to "Mon profil", user_path(current_user.id) %></a>
+                  <a class="dropdown-item" <%= link_to "Se déconnecter", destroy_user_session_path, method: :delete %></a>
+                </div>
+              </li>
+              <%else%>
+                <ul>
+                  <li class="nav-item mt-3 mt-lg-0 ml-lg-3 d-lg-none d-xl-inline-block"><a class="nav-link" <%= link_to "Se connecter", new_user_session_path %></a></li>
+                  <li class="nav-item mt-3 mt-lg-0 ml-lg-3 d-lg-none d-xl-inline-block"><a class="btn btn-primary" <%= link_to "S'inscrire", new_user_registration_path %></a></li>
+                </ul>
 
-        <%end%>
-      </ul>
-    </div>
-  </div>
-</nav>
+              <%end%>
+        </div>
+      </div>
+    </nav>
+    <!-- /Navbar -->
