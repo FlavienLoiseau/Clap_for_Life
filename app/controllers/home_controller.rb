@@ -6,20 +6,30 @@ class HomeController < ApplicationController
     @missions = Mission.all.limit(6)
   end
 
-  def pages
-  end
-
   def contact
     UserMailer.contact_form(first_name: params[:first_name], last_name: params[:last_name], email: params[:email], email_content: params[:email_content])
   end
 
-  def vision
+  def clap_vision
   end
 
-  def operations
+  def clap_team
   end
 
+  def clap_business
+  end
 
+  def clap_jobs
+  end
+
+  def clap_partnerships
+  end
+
+  def press
+  end
+
+  def blog
+  end
 
   def dashboard
     @user = current_user
