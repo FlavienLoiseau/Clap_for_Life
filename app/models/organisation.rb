@@ -14,17 +14,32 @@ class Organisation < ApplicationRecord
 
   accepts_nested_attributes_for :address, allow_destroy: true
 
-  def self.search(search)
-    if search
+  def self.search(search, location)
+ 
+
+    if search.present? && location.present?
       tag = Tag.find_by(name: search)
-      if tag.present?
-        Organisation.all.select{|o| o if o.tags.any? {|t| t.name == tag.name}}
+      address = Address.find_by(city: location.strip)
+      if address.present?
+        Organisation.all.select{|o| o if o.tags.any? {|t| t.name == tag.name} && o.address.city.downcase == address.city.downcase}
+      else
+        Organisation.all
+      end
+    elsif search.present? && location.blank?
+      tag = Tag.find_by(name: search)
+      Organisation.all.select{|o| o if o.tags.any? {|t| t.name == tag.name}}
+    elsif search.blank? && location.present?
+      address = Address.find_by(city: location.strip)
+      if address.present?
+        Organisation.all.select{|o| o if o.address.city.downcase == address.city.downcase}
       else
         Organisation.all
       end
     else
       Organisation.all
     end
+
+ 
   end
 
 end
