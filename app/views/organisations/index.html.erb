@@ -28,14 +28,7 @@
         <div class="mr-3">
           <p class="mb-3 mb-md-0"><strong> <%=search_result(@organisations, params[:search], params[:location])%></strong> <%= params[:location] if params[:location]%>  <%=params[:search] if params[:search]%> </p>
         </div>
-        <div>
-          <label class="form-label mr-2" for="form_sort">Trier par</label>
-          <select class="selectpicker" name="sort" id="form_sort" data-style="btn-selectpicker" title="">
-            <option value="sortBy_0">Popularité   </option>
-            <option value="sortBy_1">Nouveauté   </option>
-            <option value="sortBy_2">Ancienneté   </option>
-          </select>
-        </div>
+        
       </div>
       <div class="row">
         <% @organisations.each do |organisation| %>
