@@ -9,8 +9,11 @@
         <div class="card mb-3 mb-lg-5">
           <div class="card-header">
             <h5 class="card-title mt-3">Les missions proposées par votre association</h5>
-            <% unless @user.organisation.missions.blank?%> 
-            <% @user.organisation.missions.each do |mission| %>
+            <% if current_user.organisation.missions.blank?%> 
+             <div class="m-4">Votre association ne propose aucune mission pour l'instant ! </div>
+             <div class="m-4"> N'hésitez pas à créer une nouvelle mission pour votre association en cliquant sur le lien "Créer une mission" accessible depuis votre panneau de contrôle (à gauche) sous la catégorie "INFORMATIONS MISSIONS" ou en <a href="/organisations/<%=current_user.organisation.id%>/missions/new">cliquant ici</a></div>
+            <%else%>
+            <% current_user.organisation.missions.each do |mission| %>
               <ul class="list-unstyled">
                     <li class="card card-bordered mb-3">
                       <div class="card-body">

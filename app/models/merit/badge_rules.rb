@@ -45,18 +45,46 @@ module Merit
       #   user.name.length > 4
       # end
   
-      grant_on 'users#update', badge_id: 2, badge: 'Biographe', to: :action_user
+      grant_on 'users#update', badge_id: 2, to: :action_user
 
-      grant_on 'participations#create', badge_id: 3 ,badge: "Homme d'action", to: :action_user do |participation|
-        User.find(participation.user_id).participations.count == 1
+      grant_on 'participations#create', badge_id: 3, to: :action_user do |participation|
+       participation.user.participations.count == 1
       end
 
-      grant_on 'organisations#create', badge_id: 4, badge: 'Association du futur', to: :action_user
+      grant_on 'organisations#create', badge_id: 4, to: :action_user
 
-      grant_on 'missions#create', badge_id: 5, badge: 'Organisateur', to: :action_user
+      grant_on 'missions#create', badge_id: 5, to: :action_user
 
       grant_on 'participations#create', badge_id: 6 , to: :action_user do |participation|
-        User.find(participation.user_id).participations.count >= 10
+        participation.user.participations.count >= 10
+      end
+
+      grant_on 'participations#create', badge_id: 7 , to: :action_user do |participation|
+        participation.user.participations.count >= 50
+      end
+
+      grant_on 'participations#create', badge_id: 8 , to: :action_user do |participation|
+        participation.user.participations.count >= 3
+      end
+
+      grant_on 'participations#create', badge_id: 9 , to: :action_user do |participation|
+        total = []
+        participation.user.participations.each do |p|
+          total << p.mission.organisation_id if p.mission.organisation_id == participation.mission.organisation_id
+        end
+        total.count >=2
+      end
+
+      grant_on 'participations#create', badge_id: 10 , to: :action_user do |participation|
+        participation.mission.tags.any? {|t| t.id == 26 || t.id == 27  || t.id == 28 }
+      end
+
+      grant_on 'participations#create', badge_id: 11 , to: :action_user do |participation|
+        participation.mission.tags.any? {|t| t.id == 1 || t.id == 2  || t.id == 3 }
+      end
+
+      grant_on 'participations#create', badge_id: 12 , to: :action_user do |participation|
+        participation.mission.tags.any? {|t| t.id == 4 || t.id == 5 }
       end
 
 

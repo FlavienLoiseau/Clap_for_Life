@@ -17,7 +17,12 @@
             <p class="text-muted font-weight-light">En participant à une mission clap for life vous vous engagez à être présent le jour de la mission. Si vous souhaitez vous desinscire vous devez le faire au moins 24h à l avance pour laisser le temps aux responsables de trouver une solution pour vous remplacer. Merci de prevenir le responsable de la mission avant de vous désinscrire sur le site ! Les associations comptent sur vous ! Merci</p>
           </div>
           <div class="text-block">
-            <div class="media"><img class="avatar avatar-lg mr-4" src="img/avatar/avatar-10.jpg" alt="Avatar de l association">
+            <div class="media">
+            <%if @mission.organisation.logo.attached?%>
+              <%= image_tag @mission.organisation.logo, alt: 'logo', class: "avatar avatar-lg mr-4" %>
+            <%else%>
+              <%= image_tag("high-five.png", :alt => "logo_person", :class => "avatar avatar-lg mr-4") %>
+            <%end%>
               <div class="media-body">
                 <p> <span class="text-muted text-uppercase text-sm">Mission proposée par </span><br><strong><%=@mission.organisation.name%></strong></p>
                 <p class="text-muted text-sm mb-2"><%=@mission.organisation.description%></p>
@@ -35,16 +40,21 @@
             <%@mission.participations.each do |participation|%>
             <div class="media d-block d-sm-flex review">
               <%if participation.user.avatar.attached?%>
-                      <%= image_tag participation.user.avatar, alt: 'avatar', class: "avatar avatar-sm avatar-circle mb-3" %>
+                      <%= image_tag participation.user.avatar, alt: 'avatar', class: "avatar avatar-sm avatar-circle mb-3 mr-2" %>
                     <%else%>
                        <%= image_tag("person.png", :alt => "logo_person", class: "avatar avatar-sm avatar-circle mb-3") %>
                     <%end%>
-              <div class="media-body">
+              <div class="media-body ml-4">
                 <h6 class="mt-2 mb-1"><%=participation.user.username%></h6>
+                <em>Trophées de l'utilisateur</em><br>
+                <%unless participation.user.badges.blank?%>
+                <%participation.user.badges.each do |badge|%>
+                  <img class="avatar avatar-16 img-circle" src="<%=badge.custom_fields[:image] unless badge.custom_fields.blank?%>">
+                <%end%>
+              <%end%>
               </div>
             </div>
             <%end%>
-
           </div>
         </div>
         <div class="col-lg-4">
@@ -64,13 +74,11 @@
             <% else %>
                 <%= link_to "Participer", new_user_registration_path, class:"btn btn-success" %>
             <% end %>
-
             <hr class="my-4">
             <div class="text-center">
               <p class="text-secondary text-sm" > Contact responsable de mission</p>
               <p class="text-muted text-sm"><%=@mission.contact_first_name%> <%=@mission.contact_last_name%> </p>
               <p class="text-muted text-sm"><%=@mission.contact_phone%> </p>
-
             </div>
           </div>
         </div>
@@ -83,7 +91,6 @@
         <div class="row">
         <% @missions.each do |mission| %>
           <%unless (mission.tags.map {|tag| tag.name} & @mission.tags.map {|tag| tag.name} ).empty? || mission.id == @mission.id%>
-            <!-- venue item-->
             <div class="col-lg-4 col-md-6 col-sm-10 col-xs-10 mb-5 hover-animate" data-marker-id="59c0c8e33b1527bfe2abaf92">
               <div class="card h-100 border-0 shadow">
                 <div class="card-img-top overflow-hidden dark-overlay bg-cover" style="min-height: 200px;">
