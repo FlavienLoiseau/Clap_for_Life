@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   before_action :configure_devise_parameters, if: :devise_controller?
+  before_action :set_locale
 
 # @user=current_user
 
@@ -16,5 +17,11 @@ class ApplicationController < ActionController::Base
         :phone_number, :date_of_birth
       )
     }
+  end
+
+  def set_locale
+    if params[:locale]
+      I18n.locale = params[:locale]
+    end
   end
 end
