@@ -1,0 +1,42 @@
+<section class="hero py-5 py-lg-7 text-white dark-overlay"><img class="bg-image" src="https://images.unsplash.com/photo-1447069387593-a5de0862481e?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxzZWFyY2h8Nnx8bGV0dGVyfGVufDB8fDB8&auto=format&fit=crop&w=700&q=60" alt="How can we help you today?">
+  <div class="container overlay-content">
+    <h3>Besoin de nous contacter ?</h3>
+    <h1 class="hero-heading">Laissez-nous un message :)</h1>
+  </div>
+</section>
+<section class="py-5 bg-gray-100">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-7 mb-5 mb-md-0">
+                  <h4 class="text-primary">Formulaire de contact</h4><br>
+        <%= simple_form_for @contact,
+        :url => url_for(action: 'create'),
+        method: :post do |f|  %>
+        <%= f.input :first_name, class:"form-control m-3" %>
+        <%= f.input :last_name, class:"form-control m-3" %>
+        <%= f.input :email, class:"form-control m-3" %>
+        <%= f.input :email_content, class:"form-control m-3" %>
+        <%= f.button :submit, 'Envoyer', class:'btn btn-success' %>
+        <% end %>
+      </div>
+      <div class="col-md-5">
+        <div class="pl-lg-4">
+          <h4 class="text-primary">Comment nous contacter ?</h4><br>
+          <h5 class="text-muted">Par email</h5>
+          <p class="text-muted">Via le formulaire de contact ci-contre.<br>
+          Notre temps de réponse moyen est inférieur à 1h, dans les tranches horaires suivantes :</p>
+          <ul>
+            <li class="list-item text-muted">de 8h à 21h du lundi au vendredi</li>
+            <li class="list-item text-muted">de 10h à 18h le samedi</li>
+          </ul>
+          <h5 class="text-muted">Par courrier</h5>
+          <p class="text-muted">Clap for Life,<br>
+          114 Av. des Champs-Élysées,<br>
+          75008, Paris, France</p>
+          <h5 class="text-muted">Par téléphone</h5>
+          <p class="text-muted">au 01 70 98 09 00</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
