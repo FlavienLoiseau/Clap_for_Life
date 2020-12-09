@@ -16,41 +16,30 @@
                     <li class="card card-bordered mb-3">
                       <div class="card-body">
                         <div class="row">
-                          <div class="col-6 col-md mb-3 mb-md-0">
-                            Date: <%=mission.start_date%>
-                          </div>
-                          <div class="col-6 col-md mb-3 mb-md-0">
-                           <%=mission.address.city if mission.address%>,  <%=mission.address.zipcode if mission.address%>
-                          </div>
-                          <div class="col-6 col-md">
-                            Besoin de <%=mission.volunteers_needed%> volontaires
-                          </div>
-                          <div class="col-6 col-md">
-                            <%=mission.participations.count%> inscrits
-                          </div>
-                        </div>
-
-                        <hr>
-
-                        <div class="row">
-                          <div class="col-md-8">
-                            <h5><%=mission.title%></h5>
-
+                          <div class="col-md-7">
+                            <h5 class="pl-2"><%=mission.title%></h5>
                             <div class="row mx-n1">
                               <div class="col px-1">
-                              <img class="img-fluid" src="https://www.linfodurable.fr/sites/linfodurable/files/styles/landscape_w800/public/2018-06/NETTOYAGES%20DE%20PLAGE.jpg?h=a7a713b3&itok=D2cYNkDE" alt="Image mission"/>                              </div>
-
+                                <%if mission.cover.attached?%>
+                                  <%= image_tag mission.cover, alt: 'cover', class: "image-dashboard-mission shadow-sm" %>
+                                <%else%>
+                                  <img src="https://media.discordapp.net/attachments/757539327998951525/785913233511809054/pexels-photo-1546105.jpeg?width=995&height=663" alt="cover" height="240">
+                                <%end%>
+                              </div>
                             </div>
-                            <!-- End Row -->
                           </div>
-
-                          <div class="col-md-4">
-                           <%= link_to "Voir la mission", organisation_info_mission_path(mission.organisation.id, mission.id), class: "btn btn-success mb-2"%><br>
-                           <%= link_to "Editer la mission", edit_organisation_mission_path(mission.organisation.id, mission.id), class: "btn btn-info mb-2"%><br>
-                           <%= link_to "Supprimer la mission", organisation_mission_path(mission.organisation.id, mission.id), method: :delete, class: "btn btn-danger mb-2" ,data: {confirm: "Etes vous sur?"} %><br>
+                          <div class="col-6 col-md mb-3 mb-md-0 mt-5">
+                            <p style="font-size:0.9rem; line-height: 0.8;"> Date: <%=mission.start_date.time.strftime("%-d/%-m/%y à %H:%M")%></p>
+                            <p style="font-size:0.9rem; line-height: 0.8;">Lieu: <%=mission.address.city if mission.address%>,  <%=mission.address.zipcode if mission.address%></p>
+                            <p style="font-size:0.9rem; line-height: 0.8;">Besoin de <%=mission.volunteers_needed%> volontaires</p>
+                            <p style="font-size:0.9rem; line-height: 0.8;"><%=mission.participations.count%> inscrits</p>
+                          <hr>
+                           <i class="far fa-eye"></i><a class="btn btn-unique text-left" style="font-size:0.7em; color:#28a745" <%= link_to "Voir la mission", organisation_info_mission_path(mission.organisation.id, mission.id) %></a>
+                           <div><i class="fas fa-pencil-alt"></i><a class="btn btn-unique text-left" style="font-size:0.7em; color:#17a2b8" <%= link_to "Editer la mission", edit_organisation_mission_path(mission.organisation.id, mission.id) %></a></div>
+                           <div><i class="far fa-trash-alt"></i><a class="btn btn-unique text-left" style="font-size:0.7em; color:#cf000f" <%= link_to "Supprimer la mission", organisation_mission_path(mission.organisation.id, mission.id), method: :delete, class: "btn btn-danger mb-2" ,data: {confirm: "Etes vous sur?"} %></a></div>
                           </div>
                         </div>
-                      </div>
+                        </div>
                     </li>
                 </ul>
 

@@ -120,21 +120,18 @@
               <h5 class="card-title mt-3">Trophées </h5>
             </div>
             <!-- Body -->
-            <%unless @user.badges.blank?%>
-            <%@user.badges.each do |badge|%>
-              <div class="card-body">
-                <div class="media text-dark pt-3">
-                <p class="media-body pb-3 mb-0 medium lh-125 ">
-                  <strong class="d-block text-gray-dark" style="color:gray;">Titre: <%=badge.name%></strong>
-                </p>
-                  <div class= "row border-bottom border-gray">
-                  <div class="col-2"><img src="<%=badge.custom_fields[:image] unless badge.custom_fields.blank?%>"> </div> <div class= "col-10"> <a style="text-decoration: none;">Accomplissement:  <%= badge.description %> </a> </div>
-              </div>
-            <%end%>
-            <%end%>
-
-              <!-- End Form Group -->
-          <!-- End Body -->
+            <div class="card-body">
+              <%unless @user.badges.blank?%>
+                <%@user.badges.each do |badge|%>
+                <div class="col-10 align-items-center d-flex my-4">
+                  <img class="organisation-example-photo" src="<%=badge.custom_fields[:image] unless badge.custom_fields.blank?%>">
+                    <div class="col-6 organisation-example-text">
+                      <h6 class="text-shadow mb-0 pt-1"><%=badge.name%></h6>
+                      <small><%= badge.description %></small><br>
+                      </div>
+                    </div>
+                <%end%>
+              <%end%>
           </div>
       </div>
     </div>

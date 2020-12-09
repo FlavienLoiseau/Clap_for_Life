@@ -69,9 +69,13 @@ body {
   background-color: #fff;
 }
 
+.image-dashboard-mission {
+  max-width: 350px;
+}
+
 .organisation-example {
   border: 1px 1px solid gray;
-  
+
 }
 
 .organisation-example-photo {
@@ -336,6 +340,11 @@ legend {
   line-height: inherit;
   color: inherit;
   white-space: normal;
+}
+
+.trophy {
+  width: 70px;
+  height:70px;
 }
 
 progress {

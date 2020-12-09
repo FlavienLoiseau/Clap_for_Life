@@ -23,9 +23,10 @@ class MissionsController < ApplicationController
   def create
     if is_admin?
       @mission = Mission.new(mission_params)
+      @mission.cover.attach(params[:cover])
       @mission.organisation_id = current_user.organisation.id
       if @mission.save
-        redirect_to root_path,  notice: "Votre mission a bien été créée"
+        redirect_to "/home/dashboard",  notice: "Votre mission a bien été créée"
       else
         redirect_to root,  notice: "Erreur lors de la création de votre mission"
       end
@@ -35,12 +36,14 @@ class MissionsController < ApplicationController
   end
 
   def edit
+    @user = current_user
     @mission=Mission.find(params[:id])
   end
 
   def update
+    @mission.cover.attach(params[:cover])
     if @mission.update(mission_params)
-      redirect_to root_path, notice:"Votre mission a été mis à jour !"
+      redirect_to "/home/dashboard", notice:"Votre mission a été mis à jour !"
     else
       render :edit
     end
@@ -52,7 +55,7 @@ class MissionsController < ApplicationController
   end
 
   def info
-
+    @user = current_user
   end
 
   private
@@ -63,6 +66,7 @@ class MissionsController < ApplicationController
 
   def mission_params
     params.require(:mission).permit(
+      :cover,
       :title,
       :contact_first_name,
       :contact_last_name,
@@ -74,6 +78,10 @@ class MissionsController < ApplicationController
       tag_ids:[],
       address_attributes: [address_attributes]
      )
+  end
+
+  def picture_params
+    params.require(:mission).permit(:picture)
   end
 
   def is_admin?

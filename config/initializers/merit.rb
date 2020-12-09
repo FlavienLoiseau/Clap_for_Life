@@ -45,19 +45,21 @@ Merit::Badge.create!(
   id: 3,
   name: "Homme d'action",
   description: "S'est inscrit à sa première mission",
-  custom_fields: {image: "https://img.icons8.com/android/48/000000/action.png"}
+  custom_fields: {image: "https://www.flaticon.com/svg/static/icons/svg/2856/2856361.svg"}
 )
 
 Merit::Badge.create!(
   id: 4,
   name: "Association du futur",
   description: "A créé un profil d'association",
+  custom_fields: {image: "https://www.flaticon.com/svg/static/icons/svg/3047/3047838.svg"}
 )
 
 Merit::Badge.create!(
   id: 5,
   name: "Organisateur",
   description: "A créé sa première mission",
+  custom_fields: {image: "https://www.flaticon.com/svg/static/icons/svg/3380/3380915.svg"}
 )
 
 Merit::Badge.create!(

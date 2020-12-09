@@ -6,7 +6,7 @@
     <div class="row">
       <%= render 'users/left_column' %>
 
-      <div class="col-lg-9">
+      <div class="col-lg-8">
         <div class="card mb-3 mb-lg-5">
           <div class="card-header">
             <h5 class="card-title mt-3">Modifier la Mission</h5>
@@ -15,7 +15,8 @@
             <%= simple_form_for @mission,
             url: url_for(action: 'update'),
             method: :put do |f| %>
-             <%= f.input :title, class:"form-control m-3" %>
+              <%= f.input :cover, as: :file %>
+              <%= f.input :title, class:"form-control m-3" %>
               <%= f.input :contact_first_name, class:"form-control m-3" %>
               <%= f.input :contact_last_name, class:"form-control m-3" %>
               <%= f.input :description, class:"form-control m-3" %>

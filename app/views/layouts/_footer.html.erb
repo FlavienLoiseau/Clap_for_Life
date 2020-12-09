@@ -3,7 +3,7 @@
     <div class="container">
       <div class="row">
         <%# Contact information %>
-        <div class="col-lg-3 mb-5 mb-lg-0">
+        <div class="col-4 mb-5 mb-lg-0">
           <div class="py-2"><%= image_tag("logo_1.png", :alt => "logo Clap for Life", :height => "40") %></div>
           <p>114 Av. des Champs-Élysées,<br>
           75008, Paris, France<br>
@@ -17,34 +17,22 @@
           </ul>
         </div>
         <%# Link to all site pages %>
-        <div class="col-lg-3 col-md-6 mb-5 mb-lg-0 text-center">
+        <div class="col-4 mb-5 mb-lg-0 text-center">
           <br>
           <h6 class="text-uppercase text-dark mb-3">A propos</h6>
           <ul class="list-unstyled">
             <li><a class="text-muted" <%= link_to "Vision & mission", clap_vision_path%></a></li>
             <li><a class="text-muted" <%= link_to "Equipe & valeurs", clap_team_path%></a></li>
-            <li><a class="text-muted" <%= link_to "Modèle économique", clap_business_path%></a></li>
-            <li><a class="text-muted" <%= link_to "Offres d'emploi", clap_jobs_path%></a></li>
-          </ul>
-        </div>
-        <div class="col-lg-3 col-md-6 mb-5 mb-lg-0 text-center">
-          <br>
-          <h6 class="text-uppercase text-dark mb-3">Ecosystème</h6>
-          <ul class="list-unstyled">
             <li><a class="text-muted" <%= link_to "Nous contacter", contact_path%></a></li>
-            <li><a class="text-muted" <%= link_to "Partenaires", clap_partnerships_path%></a></li>
-            <li><a class="text-muted" <%= link_to "Espace presse", press_path%></a></li>
-            <li><a class="text-muted" <%= link_to "Blog", blog_path%></a></li>
           </ul>
         </div>
-        <div class="col-lg-3 col-md-6 mb-5 mb-lg-0 text-center">
+        <div class="col-4 mb-5 mb-lg-0 text-center">
           <br>
           <h6 class="text-uppercase text-dark mb-3">Plan du site</h6>
           <ul class="list-unstyled">
             <li><a class="text-muted" <%= link_to "Accueil", root_path%></a></li>
             <li><a class="text-muted" <%= link_to "Recherche d’associations", organisations_path%></a></li>
             <li><a class="text-muted" <%= link_to "Recherche de missions", missions_path%></a></li>
-            <li><a class="text-muted" <%= link_to "Classements & badges", root_path%></a></li>
           </ul>
         </div>
       </div>

@@ -39,6 +39,7 @@ class OrganisationsController < ApplicationController
   end
 
   def update
+    @organisation.logo.attach(params[:logo])
     if @organisation.update(organisation_params)
       redirect_to organisation_path(current_user.organisation), notice:"Votre profil a été mis à jour !"
     else
@@ -63,6 +64,7 @@ class OrganisationsController < ApplicationController
 
   def organisation_params
     params.require(:organisation).permit(
+      :logo,
       :name,
       :registration_number,
       :registration_date,
