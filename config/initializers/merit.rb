@@ -30,40 +30,85 @@ end
 # end
 Merit::Badge.create!(
   id: 1,
-  name: "Bénévole du futur",
-  description: "A créé un compte bénévole",
+  name: "??????",
+  description: "??????????????????????",
+  custom_fields: {image: "https://www.flaticon.com/svg/static/icons/svg/1647/1647169.svg"}
 )
 
 Merit::Badge.create!(
   id: 2,
   name: "Biographe",
   description: "A modifié ses informations personnelles",
-  custom_fields: {image: "https://www.flaticon.com/svg/static/icons/svg/3855/3855108.svg"}
+  custom_fields: {image: "https://www.flaticon.com/svg/static/icons/svg/3419/3419416.svg"}
 )
 
 Merit::Badge.create!(
   id: 3,
-  name: "Homme d'action",
+  name: "Rêveur",
   description: "S'est inscrit à sa première mission",
-  custom_fields: {image: "https://www.flaticon.com/svg/static/icons/svg/2856/2856361.svg"}
+  custom_fields: {image: "https://www.flaticon.com/svg/static/icons/svg/3419/3419466.svg"}
 )
 
 Merit::Badge.create!(
   id: 4,
   name: "Association du futur",
   description: "A créé un profil d'association",
-  custom_fields: {image: "https://www.flaticon.com/svg/static/icons/svg/3047/3047838.svg"}
+  custom_fields: {image: "https://www.flaticon.com/svg/static/icons/svg/2692/2692721.svg"}
 )
 
 Merit::Badge.create!(
   id: 5,
   name: "Organisateur",
   description: "A créé sa première mission",
-  custom_fields: {image: "https://www.flaticon.com/svg/static/icons/svg/3380/3380915.svg"}
+  custom_fields: {image: "https://www.flaticon.com/svg/static/icons/svg/1049/1049858.svg"}
 )
 
 Merit::Badge.create!(
   id: 6,
-  name: "Super bénévole",
-  description: "S'est inscrit à dix missions",
+  name: "Missionaire",
+  description: "S'est inscrit à 10 missions",
+  custom_fields: {image: "https://www.flaticon.com/svg/static/icons/svg/3419/3419247.svg"}
+)
+
+
+Merit::Badge.create!(
+  id: 7,
+  name: "All Star",
+  description: "S'est inscrit à 50 missions",
+  custom_fields: {image: "https://www.flaticon.com/svg/static/icons/svg/3523/3523526.svg"}
+)
+
+Merit::Badge.create!(
+  id: 8,
+  name: "Claper",
+  description: "S'est inscrit à 3 missions",
+  custom_fields: {image: "https://www.flaticon.com/svg/static/icons/svg/1049/1049860.svg"}
+)
+
+Merit::Badge.create!(
+  id: 9,
+  name: "Loyal",
+  description: "S'est inscrit à 2 missions d'une même association",
+  custom_fields: {image: "https://www.flaticon.com/svg/static/icons/svg/2546/2546440.svg"}
+)
+
+Merit::Badge.create!(
+  id: 10,
+  name: "Protecteur de l'environnement",
+  description: "S'est inscrit à une mission Environnement",
+  custom_fields: {image: "https://www.flaticon.com/svg/static/icons/svg/2692/2692740.svg"}
+)
+
+Merit::Badge.create!(
+  id: 11,
+  name: "Defenseur des droits fondamentaux",
+  description: "S'est inscrit à une mission Defense des droits ",
+  custom_fields: {image: "https://www.flaticon.com/svg/static/icons/svg/1761/1761066.svg"}
+)
+
+Merit::Badge.create!(
+  id: 12,
+  name: "Transmetteur de savoir",
+  description: "S'est inscrit à une mission Education",
+  custom_fields: {image: "https://www.flaticon.com/svg/static/icons/svg/1946/1946628.svg"}
 )

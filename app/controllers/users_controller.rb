@@ -4,9 +4,7 @@ class UsersController < ApplicationController
   before_action :is_current_user, only: [:show]
 
   def edit
-    if @user.address.blank?
-      @user.build_address
-    end
+    @user.build_address if @user.address.blank?
   end
 
   def show
@@ -25,6 +23,14 @@ class UsersController < ApplicationController
     @user = current_user
     @missions = Mission.all
     @participations = Participation.all
+  end
+
+  def success
+    @user = current_user
+    @success = current_user.badges
+    @badges = Merit::Badge.all
+    @interrogation = Merit::Badge.find(1)
+
   end
 
   private
@@ -54,9 +60,7 @@ class UsersController < ApplicationController
   end
 
   def is_current_user
-    unless current_user == @user
-      redirect_to user_path(current_user)
-    end
+		redirect_to user_path(current_user) unless current_user == @user
   end
   
 end
