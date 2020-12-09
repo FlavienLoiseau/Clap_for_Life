@@ -139,6 +139,7 @@
   </div>
   <div class="row">
     <% @missions.each do |mission| %>
+    <% unless mission.start_date < DateTime.now%>
     <div class="col-lg-4 col-md-6 col-sm-10 col-xs-10 mb-5 hover-animate" data-marker-id="59c0c8e33b1527bfe2abaf92">
       <div class="card h-100 border-0 shadow">
         <div class="card-img-top overflow-hidden dark-overlay bg-cover" style="min-height: 200px;">
@@ -172,6 +173,7 @@
           </div>
         </div>
       </div>
+      <%end%>
       <%end%>
     </div>
   </div>
