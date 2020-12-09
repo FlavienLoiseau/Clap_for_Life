@@ -14,30 +14,70 @@ class Mission < ApplicationRecord
 
   accepts_nested_attributes_for :address
 
+  require 'active_support/core_ext'
+  def self.search(search, location, date)
 
-  def self.search(search, location)
-
-    if search.present? && location.present? 
+    if search.present? && location.present? && date.present?
       tag = Tag.find_by(name: search)
-      address = Address.find_by(city: location.strip)
+      address = Address.find_by(city: location.strip.capitalize)
+      search_date= date.to_date
+      puts "all present ======================================================================="
       if address.present?
-        Mission.all.select{|m| m if m.tags.any? {|t| t.name == tag.name} && m.address.city.downcase == address.city.downcase}
+        Mission.all.select{|m| m if m.tags.any? {|t| t.name == tag.name} && m.address.city.downcase == address.city.downcase && m.start_date.to_date >= search_date}
       else
         Mission.all
       end
-    elsif search.present? && location.blank?
+    elsif search.present? && location.blank? && date.present?
+      puts "only location blank ======================================================================="
+
+      tag = Tag.find_by(name: search)
+      search_date= date.to_date
+      Mission.all.select{|m| m if m.tags.any? {|t| t.name == tag.name} && m.start_date.to_date >= search_date}
+    elsif search.present? && location.blank? && date.blank?
+      puts "only tag present ======================================================================="
+
       tag = Tag.find_by(name: search)
       Mission.all.select{|m| m if m.tags.any? {|t| t.name == tag.name}}
-    elsif search.blank? && location.present?
-      address = Address.find_by(city: location.strip)
+    elsif search.blank? && location.present? && date.present?
+      puts "only tag  blank ======================================================================="
+
+      address = Address.find_by(city: location.strip.capitalize)
+      search_date= date.to_date
+      if address.present?
+        Mission.all.select{|m| m if m.address.city.downcase == address.city.downcase && m.start_date.to_date >= search_date}
+      else
+        Mission.all
+      end
+    elsif search.blank? && location.present? && date.blank?
+      puts "only location  present ======================================================================="
+
+      address = Address.find_by(city: location.strip.capitalize)
       if address.present?
         Mission.all.select{|m| m if m.address.city.downcase == address.city.downcase}
       else
         Mission.all
       end
+    elsif search.blank? && location.blank? && date.present?
+      puts "only date present ======================================================================="
+
+      search_date= date.to_date
+      Mission.all.select{|m| m if m.start_date.to_date >= search_date}
+    elsif search.present? && location.present? && date.blank?
+      puts " date detected blank ======================================================================="
+      tag = Tag.find_by(name: search)
+      address = Address.find_by(city: location.strip.capitalize)
+      if address.present?
+        Mission.all.select{|m| m if m.tags.any? {|t| t.name == tag.name} && m.address.city.downcase == address.city.downcase}
+      else
+        Mission.all
+      end
+    
     else
+      puts "ELSE ======================================================================="
+
       Mission.all
     end
+      
 
   end
 

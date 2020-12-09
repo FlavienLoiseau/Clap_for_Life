@@ -3,7 +3,8 @@ class MissionsController < ApplicationController
 
 
   def index
-    @missions = Mission.search(params[:search], params[:location])
+    @missions = Mission.search(params[:search], params[:location], params[:start_date])
+    
   end
 
   def new
