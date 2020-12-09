@@ -12,7 +12,11 @@
         <div class="mb-4">
           <label class="form-label" for="form_search">Tag 1</label>
           <%=select_tag :search, options_from_collection_for_select(Tag.all, :name, :name), class: "form-control ", include_blank: "Tag" %>
-
+        </div>
+        <div class="mb-4">
+          <label class="form-label" for="form_search">Disponible à partir du</label>
+              <%=date_field_tag(:start_date, params[:start_date], class: "form-control") %>
+          
         </div>
 
         <div class="pb-4">
