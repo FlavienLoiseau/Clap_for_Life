@@ -31,8 +31,11 @@
             <li class="nav-item">
               <i class="fas fa-pencil-alt"></i><a class="btn user-btn btn-unique text-left" style="font-size:0.7em" <%= link_to "Editer le profil", edit_user_path(current_user) %></a>
             </li>
-            <li class="nav-item mb-2">
+            <li class="nav-item">
                 <i class="fas fa-shield-alt nav-icon"></i><a class="btn user-btn btn-unique text-left" style="font-size:0.7em" <%= link_to "Editer le compte", edit_user_registration_path %></a>
+            </li>
+            <li class="nav-item mb-2">
+              <i class="fa fa-trophy"></i><a class="btn user-btn  btn-unique text-left" style="font-size:0.7em" <%= link_to "Trophées", user_success_path(current_user.id) %></a>
             </li>
           </ul>
           <!-- End List -->

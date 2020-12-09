@@ -115,24 +115,6 @@
         </div>
         <!-- End Card -->
         <!-- Card -->
-          <div class="card mb-3 mb-lg-5">
-            <div class="card-header">
-              <h5 class="card-title mt-3">Trophées </h5>
-            </div>
-            <!-- Body -->
-            <div class="card-body">
-              <%unless @user.badges.blank?%>
-                <%@user.badges.each do |badge|%>
-                <div class="col-10 align-items-center d-flex my-4">
-                  <img class="organisation-example-photo" src="<%=badge.custom_fields[:image] unless badge.custom_fields.blank?%>">
-                    <div class="col-6 organisation-example-text">
-                      <h6 class="text-shadow mb-0 pt-1"><%=badge.name%></h6>
-                      <small><%= badge.description %></small><br>
-                      </div>
-                    </div>
-                <%end%>
-              <%end%>
-          </div>
       </div>
     </div>
     <!-- End Row -->

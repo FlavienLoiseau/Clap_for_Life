@@ -1,10 +1,8 @@
 class MissionsController < ApplicationController
   before_action :set_mission, only: [:show, :update, :destroy, :info]
 
-
   def index
     @missions = Mission.search(params[:search], params[:location], params[:start_date])
-    
   end
 
   def new
@@ -64,7 +62,7 @@ class MissionsController < ApplicationController
   end
 
   private
-
+  
   def set_mission
     @mission = Mission.find(params[:id])
   end
@@ -93,7 +91,6 @@ class MissionsController < ApplicationController
     Organisation.where(user_id: current_user.id).exists?
   end
 
-
   def address_attributes
     [
       :addressable_type,
@@ -106,5 +103,4 @@ class MissionsController < ApplicationController
       :country
     ]
   end
-
 end
