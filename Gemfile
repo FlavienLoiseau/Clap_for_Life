@@ -27,6 +27,7 @@ gem 'simple_form'
 gem 'country_select'
 gem 'faker'
 gem 'merit'
+gem 'rails-i18n'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
