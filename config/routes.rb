@@ -1,14 +1,15 @@
 Rails.application.routes.draw do
 
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+  devise_for :users
+
   root 'home#homepage'
-  get 'contact', to: 'home#contact'
   get 'clap_vision', to: 'home#clap_vision'
   get 'clap_team', to: 'home#clap_team'
   get 'missions/dashboard', to: 'missions#dashboard'
   get 'organisations/:id/info', to: 'organisations#info', as: 'info_organisation'
 
-  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
-  devise_for :users
+  resources :contact, only: [:new, :create]
 
   resources :users, only: [:show, :edit, :update] do
     get 'missions', to: 'users#missions'

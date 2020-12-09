@@ -14,4 +14,5 @@ class User < ApplicationRecord
 
   accepts_nested_attributes_for :address, allow_destroy: true
 
+  scope :admin, -> { where(admin: true) }
 end
