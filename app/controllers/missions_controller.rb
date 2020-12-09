@@ -2,7 +2,7 @@ class MissionsController < ApplicationController
   before_action :set_mission, only: [:show, :update, :destroy, :info]
 
   def index
-    @missions = Mission.search(params[:search], params[:location], params[:start_date])
+    @missions = Mission.search(params[:search], params[:location], params[:start_date]).sort_by(&:start_date)
   end
 
   def new

@@ -14,26 +14,48 @@ module ApplicationHelper
     end
   end
 
-  def search_result(object, search, location)
+  def search_result_organisation(organisation, search, location)
       
       if search.present? && location.present? 
        
-        if object.any? {|m| m.address.city == location.strip.capitalize}
-          "#{object.count} résultats pour: "
+        if organisation.any? {|m| m.address.city == location.strip.capitalize}
+          "#{organisation.count} résultats pour: "
         else
           "Aucun résultat pour: "
         end
       elsif search.present? && location.blank?
-        "#{object.count} résultats pour: "
+        "#{organisation.count} résultats pour: "
       elsif search.blank? && location.present?
-        if object.any? {|m| m.address.city == location.strip.capitalize}
-          "#{object.count} résultats pour: "
+        if organisation.any? {|m| m.address.city == location.strip.capitalize}
+          "#{organisation.count} résultats pour: "
         else
           "Aucun résultat pour: "
         end
       else
-        "#{object.count} résultats"
+        "#{organisation.count} résultats"
       end
   end
+
+  def search_result_mission(mission, search, location)
+      
+    if search.present? && location.present? 
+     
+      if mission.any? {|m| m.address.city == location.strip.capitalize}
+        "#{(mission.select {|m| m if m.start_date > DateTime.now}).count  } résultats pour: "
+      else
+        "Aucun résultat pour: "
+      end
+    elsif search.present? && location.blank?
+      "#{(mission.select {|m| m if m.start_date > DateTime.now}).count} résultats pour: "
+    elsif search.blank? && location.present?
+      if mission.any? {|m| m.address.city == location.strip.capitalize}
+        "#{(mission.select {|m| m if m.start_date > DateTime.now}).count} résultats pour: "
+      else
+        "Aucun résultat pour: "
+      end
+    else
+      "#{(mission.select {|m| m if m.start_date > DateTime.now}).count} résultats"
+    end
+end
 
 end
