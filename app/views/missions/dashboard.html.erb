@@ -9,8 +9,7 @@
         <div class="card mb-3 mb-lg-5">
           <div class="card-header">
             <h5 class="card-title mt-3">Les missions proposées par votre association</h5>
-            <% unless @user.organisation.missions.blank?%>
-
+            <% unless @user.organisation.missions.blank?%> 
             <% @user.organisation.missions.each do |mission| %>
               <ul class="list-unstyled">
                     <li class="card card-bordered mb-3">
