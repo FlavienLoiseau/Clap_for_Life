@@ -3,7 +3,8 @@ class MissionsController < ApplicationController
 
 
   def index
-    @missions = Mission.search(params[:search], params[:location])
+    @missions = Mission.search(params[:search], params[:location], params[:start_date])
+    
   end
 
   def new
@@ -26,7 +27,7 @@ class MissionsController < ApplicationController
       @mission.cover.attach(params[:cover])
       @mission.organisation_id = current_user.organisation.id
       if @mission.save
-        redirect_to "/home/dashboard",  notice: "Votre mission a bien été créée"
+        redirect_to missions_dashboard_path,  notice: "Votre mission a bien été créée"
       else
         redirect_to root,  notice: "Erreur lors de la création de votre mission"
       end
@@ -43,7 +44,7 @@ class MissionsController < ApplicationController
   def update
     @mission.cover.attach(params[:cover])
     if @mission.update(mission_params)
-      redirect_to "/home/dashboard", notice:"Votre mission a été mis à jour !"
+      redirect_to missions_dashboard_path, notice:"Votre mission a été mis à jour !"
     else
       render :edit
     end
@@ -55,6 +56,10 @@ class MissionsController < ApplicationController
   end
 
   def info
+    @user = current_user
+  end
+
+  def dashboard
     @user = current_user
   end
 

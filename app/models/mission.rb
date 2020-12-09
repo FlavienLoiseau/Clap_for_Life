@@ -15,30 +15,52 @@ class Mission < ApplicationRecord
   accepts_nested_attributes_for :address
 
 
-  def self.search(search, location)
-
-    if search.present? && location.present? 
+  def self.search(search, location, date)
+    if search.present? && location.present? && date.present?
       tag = Tag.find_by(name: search)
-      address = Address.find_by(city: location.strip)
+      address = Address.find_by(city: location.strip.capitalize)
+      search_date= date.to_date
       if address.present?
-        Mission.all.select{|m| m if m.tags.any? {|t| t.name == tag.name} && m.address.city.downcase == address.city.downcase}
+        Mission.all.select{|m| m if m.tags.any? {|t| t.name == tag.name} && m.address.city.downcase == address.city.downcase && m.start_date.to_date >= search_date}
       else
         Mission.all
       end
-    elsif search.present? && location.blank?
+    elsif search.present? && location.blank? && date.present?
+      tag = Tag.find_by(name: search)
+      search_date= date.to_date
+      Mission.all.select{|m| m if m.tags.any? {|t| t.name == tag.name} && m.start_date.to_date >= search_date}
+    elsif search.present? && location.blank? && date.blank?
       tag = Tag.find_by(name: search)
       Mission.all.select{|m| m if m.tags.any? {|t| t.name == tag.name}}
-    elsif search.blank? && location.present?
-      address = Address.find_by(city: location.strip)
+    elsif search.blank? && location.present? && date.present?
+      address = Address.find_by(city: location.strip.capitalize)
+      search_date= date.to_date
+      if address.present?
+        Mission.all.select{|m| m if m.address.city.downcase == address.city.downcase && m.start_date.to_date >= search_date}
+      else
+        Mission.all
+      end
+    elsif search.blank? && location.present? && date.blank?
+      address = Address.find_by(city: location.strip.capitalize)
       if address.present?
         Mission.all.select{|m| m if m.address.city.downcase == address.city.downcase}
       else
         Mission.all
       end
+    elsif search.blank? && location.blank? && date.present?
+      search_date= date.to_date
+      Mission.all.select{|m| m if m.start_date.to_date >= search_date}
+    elsif search.present? && location.present? && date.blank?
+      tag = Tag.find_by(name: search)
+      address = Address.find_by(city: location.strip.capitalize)
+      if address.present?
+        Mission.all.select{|m| m if m.tags.any? {|t| t.name == tag.name} && m.address.city.downcase == address.city.downcase}
+      else
+        Mission.all
+      end
     else
       Mission.all
-    end
-
+    end    
   end
 
   def self.street(id)

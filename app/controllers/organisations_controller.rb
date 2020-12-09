@@ -31,7 +31,6 @@ class OrganisationsController < ApplicationController
   end
 
   def show
-
   end
 
   def edit
@@ -87,5 +86,5 @@ class OrganisationsController < ApplicationController
       :country
     ]
   end
-
+  
 end
