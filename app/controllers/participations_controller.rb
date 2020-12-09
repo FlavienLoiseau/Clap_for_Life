@@ -27,7 +27,6 @@ class ParticipationsController < ApplicationController
 
   private
 
-
   def already_participated?
     Participation.where(mission_id: params[:mission_id], user_id: current_user.id).exists?
   end

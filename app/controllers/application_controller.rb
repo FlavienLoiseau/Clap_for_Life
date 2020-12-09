@@ -2,8 +2,6 @@ class ApplicationController < ActionController::Base
   before_action :configure_devise_parameters, if: :devise_controller?
   before_action :set_locale
 
-# @user=current_user
-
   private
 
   def configure_devise_parameters

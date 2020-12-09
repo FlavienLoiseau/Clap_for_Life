@@ -14,10 +14,9 @@ class Mission < ApplicationRecord
 
   accepts_nested_attributes_for :address
 
-
   def self.search(search, location)
 
-    if search.present? && location.present? 
+    if search.present? && location.present?
       tag = Tag.find_by(name: search)
       address = Address.find_by(city: location.strip)
       if address.present?

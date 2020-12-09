@@ -4,5 +4,4 @@ class Tag < ApplicationRecord
             source_type: 'Organisation'
   has_many :missions, through: :taggings, source: :taggable,
             source_type: 'Mission'
-
 end

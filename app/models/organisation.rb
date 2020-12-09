@@ -15,7 +15,6 @@ class Organisation < ApplicationRecord
   accepts_nested_attributes_for :address, allow_destroy: true
 
   def self.search(search, location)
- 
 
     if search.present? && location.present?
       activity = Activity.find_by(title: search)
@@ -38,8 +37,7 @@ class Organisation < ApplicationRecord
     else
       Organisation.all
     end
-
- 
+    
   end
 
 end
