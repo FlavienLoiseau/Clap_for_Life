@@ -18,7 +18,7 @@ module ApplicationHelper
       
       if search.present? && location.present? 
        
-        if object.any? {|m| m.address.city == location.strip}
+        if object.any? {|m| m.address.city == location.strip.capitalize}
           "#{object.count} résultats pour: "
         else
           "Aucun résultat pour: "
@@ -26,7 +26,7 @@ module ApplicationHelper
       elsif search.present? && location.blank?
         "#{object.count} résultats pour: "
       elsif search.blank? && location.present?
-        if object.any? {|m| m.address.city == location.strip}
+        if object.any? {|m| m.address.city == location.strip.capitalize}
           "#{object.count} résultats pour: "
         else
           "Aucun résultat pour: "

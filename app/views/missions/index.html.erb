@@ -12,7 +12,11 @@
         <div class="mb-4">
           <label class="form-label" for="form_search">Tag 1</label>
           <%=select_tag :search, options_from_collection_for_select(Tag.all, :name, :name), class: "form-control ", include_blank: "Tag" %>
-
+        </div>
+        <div class="mb-4">
+          <label class="form-label" for="form_search">Disponible à partir du</label>
+              <%=date_field_tag(:start_date, params[:start_date], class: "form-control") %>
+          
         </div>
 
         <div class="pb-4">
@@ -28,14 +32,7 @@
         <div class="mr-3">
           <p class="mb-3 mb-md-0"><strong> <%=search_result(@missions, params[:search], params[:location])%>  </strong> <%=params[:location] if params[:location]%>  <%=params[:search] if params[:search]%> </p>
         </div>
-        <div>
-          <label class="form-label mr-2" for="form_sort">Trier par</label>
-          <select class="selectpicker" name="sort" id="form_sort" data-style="btn-selectpicker" title="">
-            <option value="sortBy_0">Popularité   </option>
-            <option value="sortBy_1">Nouveauté   </option>
-            <option value="sortBy_2">Ancienneté   </option>
-          </select>
-        </div>
+       
       </div>
       <div class="row">
         <% @missions.each do |mission| %>
