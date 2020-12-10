@@ -37,20 +37,19 @@ ActiveRecord::Schema.define(version: 2020_12_09_170307) do
   end
 
   create_table "activities", force: :cascade do |t|
-    t.string "code"
-    t.string "title"
-    t.string "description"
+    t.string "code", null: false
+    t.string "title", null: false
+    t.string "description", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "addresses", force: :cascade do |t|
-    t.string "number", default: ""
-    t.string "street", default: ""
-    t.string "additional", default: ""
-    t.string "city", default: ""
-    t.string "zipcode", default: ""
-    t.string "country", default: ""
+    t.string "number", default: "", null: false
+    t.string "street", default: "", null: false
+    t.string "city", default: "", null: false
+    t.string "zipcode", default: "", null: false
+    t.string "country", default: "", null: false
     t.string "addressable_type"
     t.bigint "addressable_id"
     t.datetime "created_at", precision: 6, null: false
@@ -69,10 +68,10 @@ ActiveRecord::Schema.define(version: 2020_12_09_170307) do
   end
 
   create_table "contacts", force: :cascade do |t|
-    t.string "first_name"
-    t.string "last_name"
-    t.string "email"
-    t.string "email_content"
+    t.string "first_name", null: false
+    t.string "last_name", null: false
+    t.string "email", null: false
+    t.string "email_content", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -114,14 +113,14 @@ ActiveRecord::Schema.define(version: 2020_12_09_170307) do
 
   create_table "missions", force: :cascade do |t|
     t.bigint "organisation_id"
-    t.string "title"
-    t.string "contact_first_name"
-    t.string "contact_last_name"
-    t.string "contact_phone"
-    t.text "description"
-    t.datetime "start_date"
-    t.datetime "end_date"
-    t.integer "volunteers_needed"
+    t.string "title", null: false
+    t.string "contact_first_name", null: false
+    t.string "contact_last_name", null: false
+    t.string "contact_phone", null: false
+    t.text "description", null: false
+    t.datetime "start_date", null: false
+    t.datetime "end_date", null: false
+    t.integer "volunteers_needed", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["organisation_id"], name: "index_missions_on_organisation_id"
@@ -130,11 +129,11 @@ ActiveRecord::Schema.define(version: 2020_12_09_170307) do
   create_table "organisations", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "activity_id"
-    t.string "name"
-    t.string "registration_number"
-    t.date "registration_date"
-    t.text "description"
-    t.boolean "confirmed"
+    t.string "name", null: false
+    t.string "registration_number", null: false
+    t.date "registration_date", null: false
+    t.text "description", null: false
+    t.boolean "confirmed", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["activity_id"], name: "index_organisations_on_activity_id"
@@ -166,7 +165,7 @@ ActiveRecord::Schema.define(version: 2020_12_09_170307) do
   end
 
   create_table "tags", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

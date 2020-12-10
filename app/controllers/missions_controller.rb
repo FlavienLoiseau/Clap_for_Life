@@ -22,12 +22,11 @@ class MissionsController < ApplicationController
   def create
     if is_admin?
       @mission = Mission.new(mission_params)
-      @mission.cover.attach(params[:cover])
       @mission.organisation_id = current_user.organisation.id
       if @mission.save
         redirect_to missions_dashboard_path,  notice: "Votre mission a bien été créée"
       else
-        redirect_to root,  notice: "Erreur lors de la création de votre mission"
+        render :new,  notice: "Erreur lors de la création de votre mission"
       end
     else
       flash[:notice] = "Tu n'es pas administrateur de cette association"
@@ -62,7 +61,7 @@ class MissionsController < ApplicationController
   end
 
   private
-  
+
   def set_mission
     @mission = Mission.find(params[:id])
   end

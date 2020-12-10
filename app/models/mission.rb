@@ -1,7 +1,32 @@
 class Mission < ApplicationRecord
+  validates :title,
+    presence: true,
+    length: { in: 10..50 }
+  validates :contact_first_name,
+    presence: true,
+    length: { maximum: 30 }
+  validates :contact_last_name,
+    presence: true,
+    length: { maximum: 30 }
+  validates :contact_phone,
+    presence: true,
+    numericality: true,
+    length: { minimum: 10, maximum: 15 }
+  validates :description,
+    presence: true,
+    length: { minimum:500, maximum: 10000 }
+  validates :start_date, presence: true
+  validates :end_date, presence: true
+  validate :date_validation
+  validates :volunteers_needed,
+    presence: true,
+    numericality: { only_integer: true, greater_than: 0 }
+
+
   belongs_to :organisation
 
   has_one :address, as: :addressable, dependent: :destroy
+  has_one_attached :cover, dependent: :destroy
 
   has_many :participations
   has_many :users, through: :participations
@@ -9,8 +34,6 @@ class Mission < ApplicationRecord
   has_many :taggings, as: :taggable, dependent: :destroy
   has_many :tags, through: :taggings
 
-  has_one_attached :cover
-  has_many_attached :images
 
   accepts_nested_attributes_for :address
 
@@ -60,11 +83,22 @@ class Mission < ApplicationRecord
       end
     else
       Mission.all
-    end    
+    end
   end
 
   def self.street(id)
     Mission.find(id).address.street.split(" ").flat_map { |x| [x, "%20"] }[0...-1].join(" ")
+  end
+
+  private
+
+  def date_validation
+    if self[:end_date] < self[:start_date]
+      errors[:end_date] << "La date de fin doit être après la date de début"
+      return false
+    else
+      return true
+    end
   end
 
 end

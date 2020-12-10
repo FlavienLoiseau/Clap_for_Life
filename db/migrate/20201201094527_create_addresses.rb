@@ -1,12 +1,11 @@
 class CreateAddresses < ActiveRecord::Migration[6.0]
   def change
     create_table :addresses do |t|
-      t.string :number, default: ""
-      t.string :street, default: ""
-      t.string :additional, default: ""
-      t.string :city, default: ""
-      t.string :zipcode, default: ""
-      t.string :country, default: ""
+      t.string :number,             default: "", null: false
+      t.string :street,             default: "", null: false
+      t.string :city,               default: "", null: false
+      t.string :zipcode,            default: "", null: false
+      t.string :country,            default: "", null: false
       t.references :addressable,    polymorphic: true
 
       t.timestamps
