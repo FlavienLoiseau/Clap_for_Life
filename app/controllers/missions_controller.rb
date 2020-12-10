@@ -22,7 +22,6 @@ class MissionsController < ApplicationController
   def create
     if is_admin?
       @mission = Mission.new(mission_params)
-      @mission.cover.attach(params[:cover])
       @mission.organisation_id = current_user.organisation.id
       if @mission.save
         redirect_to missions_dashboard_path,  notice: "Votre mission a bien été créée"
@@ -83,9 +82,6 @@ class MissionsController < ApplicationController
      )
   end
 
-  def picture_params
-    params.require(:mission).permit(:picture)
-  end
 
   def is_admin?
     Organisation.where(user_id: current_user.id).exists?

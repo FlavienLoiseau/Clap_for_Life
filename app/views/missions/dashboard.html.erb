@@ -37,6 +37,7 @@
                             <p style="font-size:0.9rem; line-height: 0.8;"><%=mission.participations.count%> inscrits</p>
                           <hr>
                            <i class="far fa-eye"></i><a class="btn btn-unique text-left" style="font-size:0.7em; color:#28a745" <%= link_to "Voir la mission", organisation_info_mission_path(mission.organisation.id, mission.id) %></a>
+                          <div><i class="far fa-eye"></i><a class="btn btn-unique text-left" style="font-size:0.7em; color:#28a745" <%= link_to "Vue bénévole", organisation_mission_path(mission.organisation.id, mission.id) %></a></div>
                            <div><i class="fas fa-pencil-alt"></i><a class="btn btn-unique text-left" style="font-size:0.7em; color:#17a2b8" <%= link_to "Editer la mission", edit_organisation_mission_path(mission.organisation.id, mission.id) %></a></div>
                            <div><i class="far fa-trash-alt"></i><a class="btn btn-unique text-left" style="font-size:0.7em; color:#cf000f" <%= link_to "Supprimer la mission", organisation_mission_path(mission.organisation.id, mission.id), method: :delete, class: "btn btn-danger mb-2" ,data: {confirm: "Etes vous sur?"} %></a></div>
                           </div>

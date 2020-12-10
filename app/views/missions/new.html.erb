@@ -16,7 +16,7 @@
             <%= simple_form_for @mission,
               :url => url_for(action: 'create'),
               method: :post do |f|  %>
-              <%= f.input :cover, as: :file %>
+              <%= f.input :cover, as: :file, label: false %>
               <%= f.input :title, class:"form-control m-3" %>
               <%= f.input :contact_first_name, class:"form-control m-3" %>
               <%= f.input :contact_last_name, class:"form-control m-3" %>

@@ -13,11 +13,8 @@
         <div class="mb-4">
           <label class="form-label" for="form_search">Thème associatif</label>
           <%=select_tag :search, options_from_collection_for_select(Activity.all, :title, :title), class: "form-control ", include_blank: "Thème" %>
-
         </div>
-
         <div class="pb-4">
-
           <div class="mb-4">
             <button class="btn btn-primary" type="submit"> <i class="fas fa-filter mr-1"></i>Filtrer                </button>
           </div>
@@ -29,7 +26,6 @@
         <div class="mr-3">
           <p class="mb-3 mb-md-0"><strong> <%=search_result_organisation(@organisations, params[:search], params[:location])%></strong> <%= params[:location] if params[:location]%>  <%=params[:search] if params[:search]%> </p>
         </div>
-
       </div>
       <div class="row">
         <% @organisations.each do |organisation| %>
@@ -48,9 +44,7 @@
               <div class="card-body">
                 <i class="fas fa-search-location" style="color:#808080"></i><small style="color:#808080"> <%=organisation.address.city if organisation.address%>,  <%=organisation.address.zipcode  if organisation.address%></small><br>
                 <i class="fas fa-calendar-day" style="color:#808080"></i><small style="color:#808080"> Actif depuis: <%=organisation.registration_date%></small><br></p>
-
                 <%= link_to "Plus de détails sur l'association", organisation_path(organisation.id), class: "btn btn-light mb-3"%>
-
               </div>
             </div>
           </div>
