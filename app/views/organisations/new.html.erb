@@ -6,7 +6,7 @@
       <div class="row align-items-center">
         <div class="col">
           <div class="d-none d-lg-block">
-            <h1 class="my-5 text-white">Informations de <%= @user.username %></h1>
+            <h1 class="my-5 text-white">Informations de <%= current_user.username %></h1>
           </div>
         </div>
         <div class="col-auto">
@@ -34,8 +34,8 @@
                   <div class="avatar avatar-xxl avatar-circle mb-3">
                     <!-- <img class="avatar-img" src="" alt="Image Description"> -->
                   </div>
-                  <h4 class="card-title"><%= @user.username %></h4>
-                  <p class="card-text font-size-1"><p><%= @user.first_name %> <%= @user.last_name %></p>
+                  <h4 class="card-title"><%= current_user.username %></h4>
+                  <p class="card-text font-size-1"><p><%= current_user.first_name %> <%= current_user.last_name %></p>
                 </div>
                 <!-- End Avatar -->
                 <h6 class="text-muted" style="font-size:0.9em">INFORMATIONS UTILISATEUR</h6>
@@ -57,7 +57,7 @@
                 <!-- End List -->
                 <h6 class="text-muted" style="font-size:0.9em">INFORMATIONS ASSOCIATION</h6>
                 <!-- List -->
-                <% if @user.organisation_admin == false %>
+                <% if current_user.organisation_admin == false %>
                   <ul class="nav nav-sub nav-sm nav-tabs nav-list-y-2 mb-4">
                     <li class="nav-item">
                       <i class="fas fa-plus-circle"></i><a class="btn btn-unique text-left" style="font-size:0.7em ; color: #d24d57" <%= link_to "Créer association", new_organisation_path %></a>

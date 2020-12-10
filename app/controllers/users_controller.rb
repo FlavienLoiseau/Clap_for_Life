@@ -7,9 +7,6 @@ class UsersController < ApplicationController
     @user.build_address if @user.address.blank?
   end
 
-  def show
-  end
-
   def update
     @user.avatar.attach(params[:avatar])
     if @user.update(user_params)
@@ -21,17 +18,13 @@ class UsersController < ApplicationController
   end
 
   def missions
-    @user = current_user
-    @missions = Mission.all
     @participations = Participation.all
   end
 
   def success
-    @user = current_user
     @success = current_user.badges
     @badges = Merit::Badge.all
     @interrogation = Merit::Badge.find(1)
-
   end
 
   private
@@ -49,15 +42,23 @@ class UsersController < ApplicationController
       :email,
       :phone_number,
       :date_of_birth,
-      address_attributes:[
-        :number,
-        :street,
-        :city,
-        :zipcode,
-        :address_type,
-        :country
-      ]
+      address_attributes: [address_attributes]
+
     )
+  end
+
+
+  def address_attributes
+    [
+      :addressable_type,
+      :addressable_id,
+      :number,
+      :street,
+      :city,
+      :zipcode,
+      :address_type,
+      :country
+    ]
   end
 
   def is_current_user
