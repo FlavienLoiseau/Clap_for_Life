@@ -21,7 +21,7 @@
               <div class="m-4">N'hésitez pas à consulter la liste des missions disponibles en <a href="/missions">cliquant ici</a> </div>
               <%end%>
             <% @participations.each do |participation| %>
-            <% if participation.user == @user %>
+            <% if participation.user == current_user %>
          
               <% unless participation.mission.blank?%>
               <!-- venue item-->

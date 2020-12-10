@@ -1,16 +1,13 @@
 class MissionsController < ApplicationController
-  before_action :set_mission, only: [:show, :update, :destroy, :info]
+  before_action :set_mission, only: [:show, :update, :destroy, :edit, :info]
 
   def index
     @missions = Mission.search(params[:search], params[:location], params[:start_date]).sort_by(&:start_date)
   end
 
   def new
-    @user = current_user
     @mission=Mission.new
-    if @mission.address.blank?
-      @mission.build_address
-    end
+    @mission.build_address if @mission.address.blank?
   end
 
   def show
@@ -20,28 +17,23 @@ class MissionsController < ApplicationController
   end
 
   def create
-    if is_admin?
+    if has_organisation?
       @mission = Mission.new(mission_params)
       @mission.organisation_id = current_user.organisation.id
       if @mission.save
         redirect_to missions_dashboard_path,  notice: "Votre mission a bien été créée"
       else
-        redirect_to root,  notice: "Erreur lors de la création de votre mission"
+        render :new,  notice: "Erreur lors de la création de votre mission"
       end
     else
       flash[:notice] = "Tu n'es pas administrateur de cette association"
     end
   end
 
-  def edit
-    @user = current_user
-    @mission=Mission.find(params[:id])
-  end
-
   def update
     @mission.cover.attach(params[:cover])
     if @mission.update(mission_params)
-      redirect_to missions_dashboard_path, notice:"Votre mission a été mis à jour !"
+      redirect_to missions_dashboard_path, notice:"Votre mission a été mise à jour !"
     else
       render :edit
     end
@@ -49,15 +41,7 @@ class MissionsController < ApplicationController
 
   def destroy
     @mission.destroy
-    redirect_to root_path, notice:"Votre mission a été supprimée !"
-  end
-
-  def info
-    @user = current_user
-  end
-
-  def dashboard
-    @user = current_user
+    redirect_to missions_dashboard_path, notice:"Votre mission a été supprimée !"
   end
 
   private
@@ -82,10 +66,9 @@ class MissionsController < ApplicationController
      )
   end
 
-
-  def is_admin?
-    Organisation.where(user_id: current_user.id).exists?
-  end
+	def has_organisation?
+	  current_user.organisation.present?
+	end
 
   def address_attributes
     [

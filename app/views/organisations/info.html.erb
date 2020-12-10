@@ -10,7 +10,12 @@
       <div class="col-lg-8">
         <div class="card mb-3 mb-lg-5">
           <div class="card-header">
-            <h5 class="card-title mt-3">Informations sur l'association</h5>
+          <div>
+            <h5 class="card-title mt-3">Informations sur l'association </h5>
+            </div>
+            <div class= "float-right">
+             <%= link_to "Vue bénévole", organisation_path(current_user.organisation) %>
+             </div>
           </div>
 
           <div class="card-body">
