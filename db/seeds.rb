@@ -79,8 +79,8 @@ puts "15 organisations created !"
     contact_last_name: Faker::Name.last_name,
     contact_phone: Faker::PhoneNumber.phone_number,
     description: Faker::Lorem.paragraph_by_chars(number: 500, supplemental: false),
-    start_date: Faker::Date.between(from: '2020-12-01', to: '2020-12-10'),
-    end_date: Faker::Date.between(from: '2020-12-10', to: '2020-12-20'),
+    start_date: Faker::Date.between(from: '2020-12-12', to: '2020-12-14'),
+    end_date: Faker::Date.between(from: '2020-12-14', to: '2020-12-16'),
     volunteers_needed: rand(2..10)
   )
   mission.tags << [Tag.all.sample, Tag.all.sample]
