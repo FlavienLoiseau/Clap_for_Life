@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <%= favicon_link_tag("logo_clap.png") %>
     <title>Clap for Life</title>
     <%= csrf_meta_tags %>
@@ -13,9 +15,11 @@
   </head>
 
   <body style="padding-top: 80px;">
-    <%= render 'layouts/navbar'  %>
-    <%= render 'layouts/flash'  %>
-    <%= yield %>
+    <div class="content-page">
+      <%= render 'layouts/navbar'  %>
+      <%= render 'layouts/flash'  %>
+      <%= yield %>
+    </div>
     <footer>
       <%= render 'layouts/footer'  %>
     </footer>

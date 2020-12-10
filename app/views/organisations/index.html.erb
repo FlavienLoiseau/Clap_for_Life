@@ -1,4 +1,5 @@
 <div class="container-fluid py-5 px-lg-5">
+  <h5>Recherche par:</h5>
   <div class="row">
     <div class="col-lg-3 pt-3">
       <form class="pr-xl-3" action="#">
@@ -14,9 +15,9 @@
           <%=select_tag :search, options_from_collection_for_select(Activity.all, :title, :title), class: "form-control ", include_blank: "Thème" %>
 
         </div>
-        
+
         <div class="pb-4">
-          
+
           <div class="mb-4">
             <button class="btn btn-primary" type="submit"> <i class="fas fa-filter mr-1"></i>Filtrer                </button>
           </div>
@@ -28,7 +29,7 @@
         <div class="mr-3">
           <p class="mb-3 mb-md-0"><strong> <%=search_result_organisation(@organisations, params[:search], params[:location])%></strong> <%= params[:location] if params[:location]%>  <%=params[:search] if params[:search]%> </p>
         </div>
-        
+
       </div>
       <div class="row">
         <% @organisations.each do |organisation| %>
