@@ -61,17 +61,6 @@ puts "#{Tag.all.size} tags created"
 
 
 
-  organisation = Organisation.create(
-    user_id: User.find(x),
-    activity_id: x,
-    name: "xxx",
-    registration_number: Faker::Company.french_siret_number,
-    registration_date: Faker::Date.between(from: '2014-09-23', to: '2019-09-25'),
-    description: Faker::Lorem.paragraph_by_chars(number: 250, supplemental: false),
-    confirmed: true, 
-    tags: []
-  )
-
   Organisation.create(
     user_id: User.find(1),
     activity_id: 1,
@@ -225,7 +214,7 @@ puts "#{Tag.all.size} tags created"
     registration_date: '2015-11-05'),
     description: "Nous luttons contre l’isolement des personnes sans-abri et développons un lien social basé sur l’écoute et le dialogue depuis quatre ans dans les 10ème, 13ème et 15ème arrondissements de Paris, ainsi qu'à Vincennes. Le but premier de l’association est de favoriser le partage et briser la solitude des sans-abri, et donc de prendre le temps de discuter avec les personnes qu'elle rencontre, s'asseoir pour partager un café, échanger, être une oreille attentive, ou partager un moment de détente. Au fil des maraudes un lien de confiance se crée, et permet aux bénévoles de conseiller et rediriger les personnes suivis vers des associations professionnelles en fonction des besoins.",
     confirmed: true, 
-    tags: [ag.find(23), Tag.find(22)],
+    tags: [Tag.find(23), Tag.find(22)],
     logo:
   )
 
@@ -234,22 +223,248 @@ puts "#{Organisation.all.size}  organisations created !"
 
 
 
-i=1
-15.times do
-  mission = Mission.create(
-    organisation_id: organisation.id,
-    title: ["Collecte de déchets sur la plage", "Campagne sacs réutilisables", "Aide organisation marche pour le climat", "Distribution alimentaire", "Maraude", "Soupe populaire", "Livraison chocolats de Noël", "Allô comment ça va?"].sample,
-    contact_first_name: Faker::Name.first_name,
-    contact_last_name: Faker::Name.last_name,
-    contact_phone: Faker::PhoneNumber.phone_number,
-    description: Faker::Lorem.paragraph_by_chars(number: 500, supplemental: false),
-    start_date: Faker::Date.between(from: '2020-12-12', to: '2020-12-14'),
-    end_date: Faker::Date.between(from: '2020-12-14', to: '2020-12-16'),
-    volunteers_needed: rand(2..10)
-  )
-  mission.tags << [Tag.all.sample, Tag.all.sample]
-i+=1
-end
+
+
+
+
+
+
+
+
+
+Mission.create(
+  organisation_id: Organisation.find(1),
+  title: "Support à Amnesty International",
+  contact_first_name: "Edouard",
+  contact_last_name: "Cullen",
+  contact_phone: "0658349802",
+  description: "A l'occasion du festival de la bienfaisance 2021, Amnesty International cherche 5 personnes motivées pour aider son équipe à organiser son stand dans le but de promouvoir la mission de l'association.",
+  start_date: DateTime.parse("20/02/2021 10:00"),
+  end_date: DateTime.parse("20/02/2021 13:30"),
+  volunteers_needed: 3,
+  tags: [Tag.find(1), Tag.find(2), Tag.find(3)],
+  cover:
+)
+
+
+Mission.create(
+  organisation_id: Organisation.find(2),
+  title: "Un coup de main pour faire nos devoirs !",
+  contact_first_name: "Ron",
+  contact_last_name: "Weasley",
+  contact_phone: "0845738567",
+  description: "Notre association travaille en partenariat avec un centre social qui a pour objectif de de développer la participation, la citoyenneté, la favorisation du lien social et de permettre l'intégration des personnes les plus en difficultés. Les centres sociaux ont pour vocation d'être au cœur des quartiers pour proposer des animations et un lieu de vie, d'échange et de rencontres qui donnent aux habitants la possibilité de participer à la vie du quartier.Avec le soutien d'un animateur, les bénévoles accompagneront des enfants du CP à la cinquième dans l'aide aux devoirs et encadre des temps d'animations. Les enfants accompagnés ont été orientés vers le Centre social par les enseignants en raison d'une certaine difficulté scolaire. ",
+  start_date: DateTime.parse("10/01/2021 17:00"),
+  end_date: DateTime.parse("20/02/2021 19:30"),
+  volunteers_needed: 4,
+  tags: [Tag.find(4), Tag.find(5)],
+  cover:
+)
+
+)
+Mission.create(
+  organisation_id: Organisation.find(3),
+  title: "Aide à l'organisation du festival Solidays",
+  contact_first_name: "Margaux",
+  contact_last_name: "Laval",
+  contact_phone: "0734081039",
+  description: "Nous recherchons 4 bénévoles très motivés pour aider à l'organisation du festival. Vous serez basé sur le village associations et vous aurez un stand particulier attitré. Vous devrez vous assurer tout au long de la journée que l'association ne manque de rien d'un point de vue logistique et administratif pour bien fonctionner la journée. Lorsque les stands sont pliés, les bénévoles peuvent rejoindre les participants du festival pour les derniers concerts de la nuit.",
+  start_date: DateTime.parse("17/06/2021 08:00"),
+  end_date: DateTime.parse("24/06/2021 21:00"),
+  volunteers_needed: 4,
+  tags: [Tag.find(6), Tag.find(7)],
+  cover:
+)
+
+
+
+Mission.create(
+  organisation_id: Organisation.find(4),
+  title: "Organisateur course solidaire",
+  contact_first_name: "Marie-Amélie",
+  contact_last_name: "Grosjean",
+  contact_phone: "0739353901",
+  description: "Ce dimanche, nous organisons la huitième édition de notre course annuelle pour financer les activités de France Handicap. Nous avons besoin d'une vingtaine de bénévoles pour mettre en place le circuit, mais aussi être autour du parcours pour ravitailler nos valeureux coureurs. Nous organisons un pic-nic pour nos bénévoles à la fin de la course.",
+  start_date: DateTime.parse("23/01/2021 08:00"),
+  end_date: DateTime.parse("23/01/2021 12:00"),
+  volunteers_needed: 17,
+  tags: [Tag.find(6), Tag.find(8), Tag.find(12), Tag.find(13)],
+  cover:
+
+
+
+Mission.create(
+  organisation_id: Organisation.find(5),
+  title: "Distribution de paniers repas",
+  contact_first_name: "Pierre",
+  contact_last_name: "Leroy",
+  contact_phone: "0735802438",
+  description: "Nous organisons une distribution de paniers repas à 12h30 samedi sur la place de la mairie. Nous avons besoin de bénévoles pour récupérer les cartons du camion et préparer les paniers repas. Vous aiderez également à distribuer les paniers aux familles dans le besoin.",
+  start_date: DateTime.parse("01/02/2021 10:00"),
+  end_date: DateTime.parse("01/02/2021 13:30"),
+  volunteers_needed: 19,
+  tags: [Tag.find(23), Tag.find(22), Tag.find(20), Tag.find(1), Tag.find(2), Tag.find(3), Tag.find(13), Tag.find(17), Tag.find(4)],
+  cover:
+)
+
+Mission.create(
+  organisation_id: Organisation.find(6),
+  title: "Halte au handicap !",
+  contact_first_name: "Pierre",
+  contact_last_name: "Petitgros",
+  contact_phone: "0635462781",
+  description: "Notre association travaille en partenariat avec une école de Sport Handisport qui permet à des personnes en situation de handicap physique ou sensoriel de pratiquer une activité sportive diversifiée et sécurisée. L’école de Sport Handisport propose tous les mercredis hors vacances scolaires de découvrir, de pratiquer la Boccia et la Sarbacane pour des personnes ayant un lourd handicap entrainant souvent un déficit majeur de la motricité. C'est pourquoi, les animateurs ont besoin d'aide pour accompagner toutes les personnes et ainsi réduire les temps d'attente entre les exercices.  Vos missions: Installer le matériel; Accueillir le public en lien avec les animateurs; Former un binôme avec un sportif et l'aider dans sa pratique",
+  start_date: DateTime.parse("15/01/2021 17:00"),
+  end_date: DateTime.parse("20/01/2021 19:30"),
+  volunteers_needed: 5,
+  tags: [Tag.find(24), Tag.find(4), Tag.find(5), Tag.find(10)],
+  cover:
+)
+
+Mission.create(
+  organisation_id: Organisation.find(7),
+  title: "Allô comment ça va ?",
+  contact_first_name: "Valérie",
+  contact_last_name: "Delatable",
+  contact_phone: "0784958372",
+  description: "En France, 1 personne sur 10 souffre d’isolement social. Ce risque d’isolement se trouve aujourd’hui accru par les mesures de confinement liées au COVID-19. C’est dans un objectif de maintien du lien social avec les plus fragiles que le dispositif « Allô comment ça va ? » (ACCV) a ainsi vu le jour. La mission intervient en complémentarité de la plateforme téléphonique « Croix-Rouge chez vous », qui reçoit des appels émis par des personnes isolées. Vos missions de bénévole seront : Prendre de leurs nouvelles; les rassurer et diffuser les bonnes informations sur le COVID-19; leur offrir la possibilité de maintenir un lien social malgré le confinement; les orienter vers les dispositifs sociaux pertinents le cas échéant.",
+  start_date: DateTime.parse("01/01/2021 08:00"),
+  end_date: DateTime.parse("31/01/2021 19:30"),
+  volunteers_needed: 15,
+  tags: [Tag.find(24), Tag.find(4), Tag.find(5), Tag.find(10)],
+  cover:
+)
+
+Mission.create(
+  organisation_id: Organisation.find(8),
+  title: "Glanage au marché du 12",
+  contact_first_name: "Henry",
+  contact_last_name: "Four",
+  contact_phone: "0784958372",
+  description: "Depuis décembre 2015, Greenpeace s'est lancé dans un projet de glanage dans les marchés parisiens. Le but ? Agir à la fois contre la précarité et le gaspillage alimentaire ! Vos missions: récupérer les invendus auprès des commerçants du marché; Récupérer les invendus auprès des commerçants du marché; Distribuer les produits aux personnes qui le demandent",
+  start_date: DateTime.parse("01/01/2021 08:00"),
+  end_date: DateTime.parse("31/12/2021 08:00"),
+  volunteers_needed: 10,
+  tags: [Tag.find(26), Tag.find(27), Tag.find(28)],
+  cover:
+)
+
+
+Mission.create(
+  organisation_id: Organisation.find(9),
+  title: "Glanage au marché du 20e !",
+  contact_first_name: "Amélie",
+  contact_last_name: "Poule",
+  contact_phone: "0685802438",
+  description: "En France, le gaspillage alimentaire représente 260 kg de nourriture par an et par personne ! Pour agir contre ces pertes très importantes, WWF a mis en place une solution simple : récupérer en fin de marché des produits trop abîmés pour être vendus mais parfaitement comestibles et les redistribuer. Le déroulement de l'après-midi est simple : récupération des invendus, tri, et redistribution chaleureuse !",
+  start_date: DateTime.parse("29/12/2020 10:00"),
+  end_date: DateTime.parse("24/06/2021 13:30"),
+  volunteers_needed: 7,
+  tags: [Tag.find(26), Tag.find(27), Tag.find(28)],
+  cover:
+)
+
+
+
+Mission.create(
+  organisation_id: Organisation.find(10),
+  title: "Ramassage de déchets à Ivry!",
+  contact_first_name: "Rémi",
+  contact_last_name: "Detroyes",
+  contact_phone: "0685802438",
+  description: "L'association organise des opérations de ramassage des déchets en petite et grande couronne parisienne plusieurs week-ends par mois. Il s’agit pour la plupart d’actions sur les berges de fleuves (Seine, Marne, Yerres, etc.) visant à prévenir la pollution des eaux et des océans et à restaurer la nature à son état initial. L’ampleur des dégâts causés par les déchets dans les villes est telle que nous avons toujours besoin de bénévoles... à vous de jouer :)",
+  start_date: DateTime.parse("01/01/2021 10:00"),
+  end_date: DateTime.parse("02/06/2021 13:30"),
+  volunteers_needed: 20,
+  tags: [Tag.find(26), Tag.find(27), Tag.find(28)],
+  cover:
+)
+
+Mission.create(
+  organisation_id: Organisation.find(11),
+  title: "Distribution de colis alimentaires !",
+  contact_first_name: "Francesca",
+  contact_last_name: "Ravioli",
+  contact_phone: "0756837453",
+  description: "Trois fois par semaine (le mardi, mercredi et jeudi) les Restos du Coeur organisent des distributions de colis alimentaires à destination de personnes en situation de précarité. Le but étant d'aider les personnes et familles qui n'en n'ont pas les moyens à se nourrir convenablement.  Les demandes sont croissantes et l'activité en est décuplée : préparez-vous pour une session de bénévolat intense ! :)",
+  start_date: DateTime.parse("20/02/2021 10:00"),
+  end_date: DateTime.parse("20/02/2021 13:30"),
+  volunteers_needed: 3,
+  tags: [Tag.find(13), Tag.find(20), Tag.find(23), Tag.find(21), Tag.find(22)],
+  cover:
+)
+
+Mission.create(
+  organisation_id: Organisation.find(11),
+  title: "Distribution de colis alimentaires !",
+  contact_first_name: "Francesca",
+  contact_last_name: "Ravioli",
+  contact_phone: "0756837453",
+  description: "Trois fois par semaine (le mardi, mercredi et jeudi) les Restos du Coeur organisent des distributions de colis alimentaires à destination de personnes en situation de précarité. Le but étant d'aider les personnes et familles qui n'en n'ont pas les moyens à se nourrir convenablement.  Les demandes sont croissantes et l'activité en est décuplée : préparez-vous pour une session de bénévolat intense ! :)",
+  start_date: DateTime.parse("21/02/2021 10:00"),
+  end_date: DateTime.parse("21/02/2021 13:30"),
+  volunteers_needed: 3,
+  tags: [Tag.find(13), Tag.find(20), Tag.find(23), Tag.find(21), Tag.find(22)],
+  cover:
+)
+
+Mission.create(
+  organisation_id: Organisation.find(11),
+  title: "Distribution de colis alimentaires !",
+  contact_first_name: "Francesca",
+  contact_last_name: "Ravioli",
+  contact_phone: "0756837453",
+  description: "Trois fois par semaine (le mardi, mercredi et jeudi) les Restos du Coeur organisent des distributions de colis alimentaires à destination de personnes en situation de précarité. Le but étant d'aider les personnes et familles qui n'en n'ont pas les moyens à se nourrir convenablement.  Les demandes sont croissantes et l'activité en est décuplée : préparez-vous pour une session de bénévolat intense ! :)",
+  start_date: DateTime.parse("22/02/2021 10:00"),
+  end_date: DateTime.parse("22/02/2021 13:30"),
+  volunteers_needed: 3,
+  tags: [Tag.find(13), Tag.find(20), Tag.find(23), Tag.find(21), Tag.find(22)],
+  cover:
+)
+
+Mission.create(
+  organisation_id: Organisation.find(12),
+  title: "Maraudes",
+  contact_first_name: "Jean-Claude",
+  contact_last_name: "Martin",
+  contact_phone: "0739834204",
+  description: "Tous les jeudis soirs, nous organisons avec des bénévoles ponctuels une maraude de quartier dans le 11e arrondissement de Paris. Vous serez toujours accompagné d'un bénévole permanent afin de vous enseigner les bonnes pratiques logistiques aussi vous aider dans vos paroles et gestes auprès des sans-abri. Nous nous retrouvons en général pour deux heures à partir de 19h.",
+  start_date: DateTime.parse("23/12/2020 19:00"),
+  end_date: DateTime.parse("23/12/2020 21:00"),
+  volunteers_needed: 6,
+  tags: [Tag.find(23), Tag.find(22)],
+  cover:
+)
+
+Mission.create(
+  organisation_id: Organisation.find(12),
+  title: "Maraudes",
+  contact_first_name: "Jean-Claude",
+  contact_last_name: "Martin",
+  contact_phone: "0739834204",
+  description: "Tous les jeudis soirs, nous organisons avec des bénévoles ponctuels une maraude de quartier dans le 11e arrondissement de Paris. Vous serez toujours accompagné d'un bénévole permanent afin de vous enseigner les bonnes pratiques logistiques aussi vous aider dans vos paroles et gestes auprès des sans-abri. Nous nous retrouvons en général pour deux heures à partir de 19h.",
+  start_date: DateTime.parse("23/12/2021 19:00"),
+  end_date: DateTime.parse("23/12/2021 21:00"),
+  volunteers_needed: 6,
+  tags: [Tag.find(23), Tag.find(22)],
+  cover:
+)
+
+Mission.create(
+  organisation_id: Organisation.find(12),
+  title: "Maraudes",
+  contact_first_name: "Jean-Claude",
+  contact_last_name: "Martin",
+  contact_phone: "0739834204",
+  description: "Tous les jeudis soirs, nous organisons avec des bénévoles ponctuels une maraude de quartier dans le 11e arrondissement de Paris. Vous serez toujours accompagné d'un bénévole permanent afin de vous enseigner les bonnes pratiques logistiques aussi vous aider dans vos paroles et gestes auprès des sans-abri. Nous nous retrouvons en général pour deux heures à partir de 19h.",
+  start_date: DateTime.parse("30/12/2020 19:00"),
+  end_date: DateTime.parse("30/12/2020 21:00"),
+  volunteers_needed: 6,
+  tags: [Tag.find(23), Tag.find(22)],
+  cover:
+)
+
+
 puts "#{Mission.all.size}  missions created !"
 
 i = Organisation.first.id
