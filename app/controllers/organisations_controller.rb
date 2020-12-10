@@ -10,7 +10,6 @@ class OrganisationsController < ApplicationController
       flash[:notice] = "Vous avez déjà créé une association (Une seule association par profil utilisateur)"
       redirect_to user_path(current_user.id)
     else
-      @user = current_user
       @organisation = Organisation.new
       if @organisation.address.blank?
         @organisation.build_address
@@ -25,16 +24,9 @@ class OrganisationsController < ApplicationController
       @organisation = Organisation.new(organisation_params)
       @organisation.user = current_user
       if @organisation.save
-        redirect_to organisations_path, notice: "Votre association a bien été créée (Une seule association par profil utilisateur)"
+        redirect_to organisation_path(current_user.organisation), notice: "Votre association a bien été créée (Une seule association par profil utilisateur)"
       end
     end
-  end
-
-  def show
-  end
-
-  def edit
-    @user = current_user
   end
 
   def update
@@ -48,11 +40,7 @@ class OrganisationsController < ApplicationController
 
   def destroy
     @organisation.destroy
-    redirect_to user_path(current_user.id), notice:"Votre asso a été supprimée !"
-  end
-
-  def info
-    @user = current_user
+    redirect_to user_path(current_user.id), notice:"Votre association a été supprimée !"
   end
 
   private

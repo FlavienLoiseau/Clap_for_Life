@@ -40,7 +40,7 @@
             <hr>
             <div class="js-add-field row form-group">
               <div class="col-sm-12 pt-2">
-                <p>Mot de passe actuel <i><small>(nous avons besoin de votre mot de passe actuel pour confirmer vos modifications)</small></i><br /></p>
+                <%= f.label :current_password, "Mot de passe actuel" %> <i><small>(nous avons besoin de votre mot de passe actuel pour confirmer vos modifications)</small></i><br />
                 <%= f.password_field :current_password, autocomplete: "current-password", class:"form-control" %>
               </div>
             </div>
@@ -59,7 +59,7 @@
             <form>
               <div class="d-flex justify-content-between">
                 <p>Pas satisfait?</p>
-                <%= button_to "Supprimer mon compte", registration_path(resource_name), data: { confirm: "Etes-vous sûr?" }, method: :delete, class: "btn btn-primary" %>
+                <%= link_to "Supprimer mon compte", registration_path(resource_name), data: { confirm: "Etes-vous sûr?" }, method: :delete, class: "btn btn-primary" %>
               </div>
             </form>
           </div>
