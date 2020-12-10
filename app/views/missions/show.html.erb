@@ -37,6 +37,11 @@
 
           <div class="text-block">
             <h5 class="mb-0">Ils se sont inscrits</h5>
+            <%if @mission.participations.blank?%>
+            <div class="media d-block d-sm-flex review">
+            Personne pour l'instant
+            </div>
+            <%end%>
             <%@mission.participations.each do |participation|%>
             <div class="media d-block d-sm-flex review">
               <%if participation.user.avatar.attached?%>

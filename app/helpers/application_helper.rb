@@ -14,10 +14,8 @@ module ApplicationHelper
     end
   end
 
-  def search_result_organisation(organisation, search, location)
-      
+  def search_result_organisation(organisation, search, location) 
       if search.present? && location.present? 
-       
         if organisation.any? {|m| m.address.city == location.strip.capitalize}
           "#{organisation.count} résultats pour: "
         else
@@ -36,10 +34,8 @@ module ApplicationHelper
       end
   end
 
-  def search_result_mission(mission, search, location)
-      
+  def search_result_mission(mission, search, location)   
     if search.present? && location.present? 
-     
       if mission.any? {|m| m.address.city == location.strip.capitalize}
         "#{(mission.select {|m| m if m.start_date > DateTime.now}).count  } résultats pour: "
       else
