@@ -20,8 +20,8 @@
 
           <!-- Body -->
           <div class="card-body row">
-            <%unless @user.badges.blank?%>
-                <%@user.badges.each do |badge|%>
+            <%unless current_user.badges.blank?%>
+                <%current_user.badges.each do |badge|%>
                 <div class="col-10 align-items-center d-flex my-4 ml-4">
                   <img class="organisation-example-photo" src="<%=badge.custom_fields[:image] unless badge.custom_fields.blank?%>">
                     <div class="col-10 organisation-example-text">
@@ -32,7 +32,7 @@
                 <%end%>
               <%end%>
               <%@badges.each do |badge|%>
-                <%unless @user.badges.any? {|b| b.id == badge.id}  %>
+                <%unless current_user.badges.any? {|b| b.id == badge.id}  %>
                   <div class="col-10 align-items-center d-flex my-4 ml-4">
                     <img class="organisation-example-photo" src="<%=@interrogation.custom_fields[:image] unless badge.custom_fields.blank?%>">
                       <div class="col-10 organisation-example-text">
