@@ -14926,3 +14926,13 @@ STYLE SWITCHER FOR DEMO
 .content-page {
   min-height: 100vh;
 }
+
+.edit-icon {
+  width: 40px;
+  height: 40px;
+}
+
+.avatar-left-column {
+  /* position: absolute; */
+  margin-left: 50px;
+}

@@ -13,6 +13,7 @@ class UsersController < ApplicationController
   def update
     @user.avatar.attach(params[:avatar])
     if @user.update(user_params)
+      @user.update_attribute(:avatar, params[:user][:avatar])
       redirect_to user_path, notice:"Votre profil a été mis à jour !"
     else
       render :edit
@@ -62,5 +63,5 @@ class UsersController < ApplicationController
   def is_current_user
 		redirect_to user_path(current_user) unless current_user == @user
   end
-  
+
 end
