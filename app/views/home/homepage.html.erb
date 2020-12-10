@@ -19,9 +19,9 @@
       <div class="tab-pane fade " id="orga" role="tabpanel">
         <%= form_tag(organisations_path, method: :get) do%>
           <div class ="row">
-            <%= select_tag :search, options_from_collection_for_select(Activity.all, :title, :title), class: "form-control border-0 shadow-0 col-lg-4", include_blank: "Thème" %>
-            <%=text_field_tag(:location, params[:location], class: "form-control pr-4 col-3 ml-4", placeholder: "Ville")%>
-            <%= submit_tag "Rechercher", class: "btn btn-primary h-100 ml-2" %>
+            <%= select_tag :search, options_from_collection_for_select(Activity.all, :title, :title), class: "form-control border-0 shadow-0 col-5 ml-1", include_blank: "Thème" %>
+            <%=text_field_tag(:location, params[:location], class: "form-control col-3 ml-1", placeholder: "Ville")%>
+            <%= submit_tag "Rechercher", class: "btn btn-primary h-100 col-3 ml-1" %>
           </div>
         <%end%>
       </div>
@@ -29,10 +29,10 @@
         <%= form_tag(missions_path, method: :get) do%>
           <div class="tab-pane fade show active">
             <div class ="row">
-              <%=select_tag :search, options_from_collection_for_select(Tag.all, :name, :name), class: "form-control border-0 shadow-0 col-lg-3", include_blank: "Tag" %>
-              <%=text_field_tag(:location, params[:location], class: "form-control pr-4 col-3 ml-4", placeholder: "Ville")%>
-              <%=date_field_tag(:start_date, params[:start_date], class: "form-control col-2 ml-3 ") %>
-              <%=submit_tag "Rechercher", class: "btn btn-primary  h-100 ml-2" %>
+              <%=select_tag :search, options_from_collection_for_select(Tag.all, :name, :name), class: "form-control border-0 shadow-0 col-3", include_blank: "Tag" %>
+              <%=text_field_tag(:location, params[:location], class: "form-control pr-4 col-3 ml-1", placeholder: "Ville")%>
+              <%=date_field_tag(:start_date, params[:start_date], class: "form-control col-2 ml-1 ") %>
+              <%=submit_tag "Rechercher", class: "btn btn-primary col-3 h-100 ml-1" %>
             </div>
           </div>
         <%end%>
@@ -42,7 +42,47 @@
 </div>
 
 <br><br>
-
+<% unless user_signed_in? %>
+<section class="py-6 bg-gray-100" style="position: relative ; top: -100px ;">
+  <div class="container">
+    <div class="text-center pb-lg-4">
+      <h3 class="mb-3 mt-5">Le concept de Clap for Life?</h3>
+      <p class="subtitle text-secondary mb-5">Faciliter l'accès au bénévolat ponctuel pour plus d'implication sociale des citoyens</p>
+    </div>
+    <div class="row">
+      <div class="col-lg-4 mb-3 mb-lg-0 text-center">
+        <div class="px-0 px-lg-3">
+          <div class="icon-rounded bg-primary-light mb-3 shadow">
+            <i class="fas fa-hand-holding-heart" style="color:#d24d57; font-size:200%"></i>
+          </div>
+          <h3 class="h5">Pour toi, bénévole</h3>
+          <p class="text-muted">Trouve une association ou une mission dont le combat t'inspire en fonction de la ville où tu te situes et tes disponibilités</p>
+          <a class="nav-link" <%= link_to "Crées-toi un compte utilisateur !", new_user_registration_path %></a>
+        </div>
+      </div>
+      <div class="col-lg-4 mb-3 mb-lg-0 text-center">
+        <div class="px-0 px-lg-3">
+          <div class="icon-rounded bg-primary-light mb-3 shadow">
+            <i class="far fa-handshake" style="color:#d24d57; font-size:200%"></i>
+          </div>
+          <h3 class="h5">Pour toi, association</h3>
+          <p class="text-muted">Trouve des bénévoles ponctuels plus facilement, plus rapidement, en quelques clics. Et tu gagnes en visibilité !</p>
+          <a class="nav-link" <%= link_to "Crées-toi un compte association !", new_user_registration_path %></a>
+        </div>
+      </div>
+      <div class="col-lg-4 mb-3 mb-lg-0 text-center">
+        <div class="px-0 px-lg-3">
+          <div class="icon-rounded bg-primary-light mb-3 shadow">
+            <i class="fas fa-walking" style="color:#d24d57; font-size:200%"></i>
+          </div>
+          <h3 class="h5">Pour toi, curieux</h3>
+          <p class="text-muted">Vas faire un tour du côté des associations et des missions et sois inspiré par les femmes et les hommes qui s'engagent pour une société plus juste.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</section>
 <section>
   <div class="container">
     <div class="row mb-3">

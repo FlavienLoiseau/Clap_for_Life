@@ -32,8 +32,8 @@
             </li>
           <%else%>
             <ul>
-              <li class="nav-item mt-3 mt-lg-0 ml-lg-3 d-lg-none d-xl-inline-block"><a class="nav-link" <%= link_to "Se connecter", new_user_session_path %></a></li>
-              <li class="nav-item mt-3 mt-lg-0 ml-lg-3 d-lg-none d-xl-inline-block"><a class="btn btn-primary" <%= link_to "S'inscrire", new_user_registration_path %></a></li>
+              <div class="nav-item mt-3 mt-lg-0 d-lg-none d-xl-inline-block"><a class="nav-link" <%= link_to "Se connecter", new_user_session_path %></a></div>
+              <div class="nav-item mt-3 mt-lg-0 d-lg-none d-xl-inline-block"><a class="btn btn-primary" <%= link_to "S'inscrire", new_user_registration_path %></a></div>
             </ul>
           <%end%>
         </div>

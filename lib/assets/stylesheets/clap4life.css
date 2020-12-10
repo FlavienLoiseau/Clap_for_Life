@@ -41,6 +41,18 @@
   --font-family-brand : "Sansita"
 }
 
+@media only screen and (max-width: 768px) {
+  b {
+    font-size: 20px;
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  b {
+    font-size: 10px;
+  }
+}
+
 *,
 *::before,
 *::after {
@@ -52,6 +64,10 @@ html {
   line-height: 1.15;
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.email-text {
+  font-family: "Noto Sans", sans-serif;
 }
 
 article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
@@ -1977,6 +1993,8 @@ pre code {
   background-color: rgba(255, 255, 255, 0.075);
 }
 
+
+
 @media (max-width: 575.98px) {
   .table-responsive-sm {
     display: block;
@@ -1984,6 +2002,8 @@ pre code {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
   }
+}
+
   .table-responsive-sm > .table-bordered {
     border: 0;
   }
@@ -14891,4 +14911,18 @@ STYLE SWITCHER FOR DEMO
 
 #style-switch h4 {
   color: #495057;
+}
+
+
+@media all and (max-width: 1024px) {
+  .personal-info{
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    font-size: 120%;
+  }
+}
+
+.content-page {
+  min-height: 100vh;
 }
