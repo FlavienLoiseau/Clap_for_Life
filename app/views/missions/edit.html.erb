@@ -16,27 +16,105 @@
             url: url_for(action: 'update'),
             method: :put do |f| %>
               <%= f.input :cover, as: :file %>
-              <%= f.input :title, class:"form-control m-3" %>
-              <%= f.input :contact_first_name, class:"form-control m-3" %>
-              <%= f.input :contact_last_name, class:"form-control m-3" %>
-              <%= f.input :description, class:"form-control m-3" %>
-              <%= f.input :contact_phone, class:"form-control m-3" %>
-              <%= f.input :start_date, class:"form-control m-3" %>
-              <%= f.input :end_date, class:"form-control m-3" %>
-              <%= f.input :volunteers_needed, class:"form-control m-3" %>
-              <%= f.association :tags, class:"form-control m-3", as: :check_boxes %>
-               <%= f.simple_fields_for :address do |a| %>
-                <%= a.input :number %>
-                <%= a.input :street %>
-                <%= a.input :city %>
-                <%= a.input :zipcode %>
-                <%= a.input :country %>
+              <div class="row">
+                <div class="col-sm-3 pt-1 d-block text-gray-dark" style="color:gray;">NOM DE MISSION</div>
+                <div class="col-sm-8">
+              <%= f.input :title, class:"form-control m-3", label: false  %>
+                </div>
+              </div>
+              <hr>
+              <h5 class="my-4">CONTACT DE L'ORGANISATEUR</h5>
+              <div class="row">
+                <div class="col-sm-3 pt-1 d-block text-gray-dark" style="color:gray;">NOM</div>
+                <div class="col-sm-8">
+              <%= f.input :contact_first_name, class:"form-control m-3", label: false %>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-3 pt-1 d-block text-gray-dark" style="color:gray;">PRENOM</div>
+                <div class="col-sm-8">
+                  <%= f.input :contact_last_name, class:"form-control m-3", label: false %>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-3 pt-1 d-block text-gray-dark" style="color:gray;">NUMERO</div>
+                <div class="col-sm-8">
+                  <%= f.input :contact_phone, class:"form-control m-3", label: false %>
+                </div>
+              </div>
+              <hr>
+              <h5 class="my-4">DETAILS DE LA MISSION</h5>
+              <div class="row">
+                <div class="col-sm-3 pt-1 d-block text-gray-dark" style="color:gray;">DESCRIPTION</div>
+                <div class="col-sm-8">
+              <%= f.input :description, class:"form-control m-3", label: false %>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-3 pt-1 d-block text-gray-dark" style="color:gray;">DEBUT</div>
+                <div class="col-sm-8">
+              <%= f.input :start_date, class:"form-control m-3", label: false %>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-3 pt-1 d-block text-gray-dark" style="color:gray;">FIN</div>
+                <div class="col-sm-8">
+                  <%= f.input :end_date, class:"form-control m-3", label: false %>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-3 pt-1 d-block text-gray-dark" style="color:gray;">BESOIN DE VOLONTAIRES</div>
+                <div class="col-sm-8">
+                  <%= f.input :volunteers_needed, class:"form-control m-3", label: false %>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-3 pt-1 d-block text-gray-dark" style="color:gray;">TAGS</div>
+                <div class="col-sm-8">
+                  <%= f.association :tags, class:"form-control m-3", as: :check_boxes %>
+                </div>
+              </div>
+              <hr>
+              <h5 class="my-4">ADRESSE</h5>
+              <%= f.simple_fields_for :address do |a| %>
+                <div class="row">
+                  <div class="col-sm-3 pt-1 d-block text-gray-dark" style="color:gray;">NUMERO</div>
+                  <div class="col-sm-8">
+                    <%= a.input :number, class:"form-control m-3", placeholder: "4bis", label: false  %>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-3 pt-1 d-block text-gray-dark" style="color:gray;">RUE</div>
+                  <div class="col-sm-8">
+                    <%= a.input :street, class:"form-control m-3", placeholder: "rue du Père Noël", label: false  %>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-3 pt-1 d-block text-gray-dark" style="color:gray;">VILLE</div>
+                  <div class="col-sm-8">
+                    <%= a.input :city, class:"form-control m-3", placeholder: "Paris", label: false  %>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-3 pt-1 d-block text-gray-dark" style="color:gray;">CODE POSTAL</div>
+                  <div class="col-sm-8">
+                    <%= a.input :zipcode, class:"form-control m-3", placeholder: "75015", label: false  %>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-3 pt-1 d-block text-gray-dark" style="color:gray;">PAYS</div>
+                  <div class="col-sm-8">
+                    <%= a.input :country, class:"form-control m-3", as: :string, placeholder: "France", label: false  %>
+                  </div>
+                </div>
               <% end %>
-            <%= f.button :submit, 'Modifier', class:"btn btn-primary"%>
-            <% end %>
+              </div>
+              <div class="card-footer d-flex justify-content-end">
+                <%= f.button :submit, 'Modifier', class:"btn btn-primary"%>
+                <% end %>
+              </div>
             </div>
           </div>
+        </div>
       </div>
-    </div>
-  </div>
-</main>
+  </main>

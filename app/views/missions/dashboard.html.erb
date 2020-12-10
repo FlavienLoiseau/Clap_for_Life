@@ -9,7 +9,7 @@
         <div class="card mb-3 mb-lg-5">
           <div class="card-header">
             <h5 class="card-title mt-3">Les missions proposées par votre association</h5>
-            <% if current_user.organisation.missions.blank?%> 
+            <% if current_user.organisation.missions.blank?%>
              <div class="m-4">Votre association ne propose aucune mission pour l'instant ! </div>
              <div class="m-4"> N'hésitez pas à créer une nouvelle mission pour votre association en cliquant sur le lien "Créer une mission" accessible depuis votre panneau de contrôle (à gauche) sous la catégorie "INFORMATIONS MISSIONS" ou en <a href="/organisations/<%=current_user.organisation.id%>/missions/new">cliquant ici</a></div>
             <%else%>
@@ -21,7 +21,7 @@
                           <div class="col-md-7">
                             <h5 class="pl-2"><%=mission.title%></h5>
                             <div class="row mx-n1">
-                              <div class="col px-1">
+                              <div class="col-xl-7 col-lg-10 px-1">
                                 <%if mission.cover.attached?%>
                                   <%= image_tag mission.cover, alt: 'cover', class: "image-dashboard-mission shadow-sm" %>
                                 <%else%>
@@ -30,7 +30,7 @@
                               </div>
                             </div>
                           </div>
-                          <div class="col-6 col-md mb-3 mb-md-0 mt-5">
+                          <div class="col-xl-5 col-lg-10 col-md-12 mb-3 mb-md-0 mt-5">
                             <p style="font-size:0.9rem; line-height: 0.8;"> Date: <%=mission.start_date.time.strftime("%-d/%-m/%y à %H:%M")%></p>
                             <p style="font-size:0.9rem; line-height: 0.8;">Lieu: <%=mission.address.city if mission.address%>,  <%=mission.address.zipcode if mission.address%></p>
                             <p style="font-size:0.9rem; line-height: 0.8;">Besoin de <%=mission.volunteers_needed%> volontaires</p>
