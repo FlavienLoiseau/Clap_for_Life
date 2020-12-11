@@ -298,7 +298,7 @@ mission = Mission.create(
   start_date: DateTime.parse("01/02/2021 10:00"),
   end_date: DateTime.parse("01/02/2021 13:30"),
   volunteers_needed: 19,
-  tag_ids: [23, 22, 20, 1, 2, 3, 13, 17, 4],
+  tag_ids: [23, 22],
 )
 mission.cover.attach(io: File.open('./app/assets/images/cover5.jpeg'), filename: 'cover5.jpeg')
 
