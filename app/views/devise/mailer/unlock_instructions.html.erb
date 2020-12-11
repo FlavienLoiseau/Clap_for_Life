@@ -1,8 +1,5 @@
 <p>Bonjour <%= @resource.email %>!</p>
-
 <p>Votre compte est verrouillé car vous avez échoué lors de votre identification trop de fois.</p>
-
 <p>Cliquez sur le lien ci-dessous pour déverrouiller votre compte:</p>
-
 <p><%= link_to 'Déverrouiller mon compte', unlock_url(@resource, unlock_token: @token) %></p>
-  <p>L'équipe <strong style="color:#d24d57; font-style:italic; font-size: 1.2rem">Clap for Life</strong></p>
+<p>L'équipe <strong style="color:#d24d57; font-style:italic; font-size: 1.2rem">Clap for Life</strong></p>

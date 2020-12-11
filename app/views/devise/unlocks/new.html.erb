@@ -1,4 +1,4 @@
-<h2>Resend unlock instructions</h2>
+<h2>Renvoyer un mail pour déverrouiller mon compte</h2>
 
 <%= form_for(resource, as: resource_name, url: unlock_path(resource_name), html: { method: :post }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
@@ -9,7 +9,7 @@
   </div>
 
   <div class="actions">
-    <%= f.submit "Recevoir un mail pour déverrouiller mon compte" %>
+    <%= f.submit "Renvoyer un mail pour déverrouiller mon compte" %>
   </div>
 <% end %>
 

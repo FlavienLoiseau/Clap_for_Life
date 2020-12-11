@@ -1,23 +1,18 @@
-<!-- ========== MAIN ========== -->
-<main id="content" role="main" class="bg-light">
-
+<section id="content" role="main" class="bg-light">
   <%= render 'users/cover'  %>
-
   <div class="container space-1 space-top-lg-0 mt-lg-n10" style="position: relative ; top: -80px ;">
     <div class="row">
       <%= render 'users/left_column'  %>
-
       <div class="col-lg-8">
         <div class="card mb-3 mb-lg-5">
           <div class="card-header">
-          <div>
-            <h5 class="card-title mt-3">Informations sur l'association </h5>
+            <div>
+              <h5 class="card-title mt-3">Informations sur l'association </h5>
             </div>
             <div class= "float-right">
-             <%= link_to "Vue bénévole", organisation_path(current_user.organisation) %>
-             </div>
+              <%= link_to "Vue bénévole", organisation_path(current_user.organisation) %>
+            </div>
           </div>
-
           <div class="card-body">
             <div class=" row form-group">
               <label for="firstNameLabel" class="col-sm-4 col-form-label" style="color:gray;"><i class="far fa-images mr-4"></i>LOGO </label>
@@ -28,91 +23,90 @@
               <%end%>
             </div>
             <hr>
-              <div class="media text-dark pt-3">
-               <p class="media-body pb-3 mb-0 medium lh-125 border-bottom border-gray">
+            <div class="media text-dark pt-3">
+              <p class="media-body pb-3 mb-0 medium lh-125 border-bottom border-gray">
                 <strong class="d-block text-gray-dark" style="color:gray;"> <i class="fas fa-passport mr-4"></i> NOM DE L'ASSOCIATION</strong>
-                 <a class="pl-5" style="text-decoration: none;"> <%= @organisation.name %> </a>
-               </p>
-             </div>
-              <div class="media text-dark pt-3">
-               <p class="media-body pb-3 mb-0 medium lh-125 border-bottom border-gray">
+                <a class="pl-5" style="text-decoration: none;"> <%= @organisation.name %> </a>
+              </p>
+            </div>
+            <div class="media text-dark pt-3">
+              <p class="media-body pb-3 mb-0 medium lh-125 border-bottom border-gray">
                 <strong class="d-block text-gray-dark" style="color:gray;"> <i class="fab fa-adversal mr-4"></i> NUMERO SIREN</strong>
-                 <a class="pl-5" style="text-decoration: none;"> <%= @organisation.registration_number %> </a>
-               </p>
-             </div>
-              <div class="media text-dark pt-3">
-               <p class="media-body pb-3 mb-0 medium lh-125 border-bottom border-gray">
+                <a class="pl-5" style="text-decoration: none;"> <%= @organisation.registration_number %> </a>
+              </p>
+            </div>
+            <div class="media text-dark pt-3">
+              <p class="media-body pb-3 mb-0 medium lh-125 border-bottom border-gray">
                 <strong class="d-block text-gray-dark" style="color:gray;"> <i class="far fa-calendar-alt mr-4"></i> DATE D'ENREGISTREMENT</strong>
-                 <a class="pl-5" style="text-decoration: none;"> <%= @organisation.registration_date %> </a>
-               </p>
-             </div>
-              <div class="media text-dark pt-3">
-               <p class="media-body pb-3 mb-0 medium lh-125 border-bottom border-gray">
+                <a class="pl-5" style="text-decoration: none;"> <%= @organisation.registration_date %> </a>
+              </p>
+            </div>
+            <div class="media text-dark pt-3">
+              <p class="media-body pb-3 mb-0 medium lh-125 border-bottom border-gray">
                 <strong class="d-block text-gray-dark" style="color:gray;"> <i class="far fa-file-alt mr-4"></i> DESCRIPTION</strong>
-                 <a class="pl-5" style="text-decoration: none;"> <%=  @organisation.description %> </a>
-               </p>
-             </div>
-              <div class="media text-dark pt-3">
-               <p class="media-body pb-3 mb-0 medium lh-125">
+                <a class="pl-5" style="text-decoration: none;"> <%=  @organisation.description %> </a>
+              </p>
+            </div>
+            <div class="media text-dark pt-3">
+              <p class="media-body pb-3 mb-0 medium lh-125">
                 <strong class="d-block text-gray-dark" style="color:gray;"> <i class="fas fa-project-diagram mr-4"></i> DOMAINE D'ACTIVITE</strong>
-                 <a class="pl-5" style="text-decoration: none;"> <%= @organisation.activity.code %> - <%= @organisation.activity.title %> </a>
-               </p>
-             </div>
+                <a class="pl-5" style="text-decoration: none;"> <%= @organisation.activity.code %> - <%= @organisation.activity.title %> </a>
+              </p>
+            </div>
           </div>
           <div class="card-footer d-flex justify-content-end">
             <a class="btn btn-info" <%= link_to "Editer les informations", edit_organisation_path(current_user.organisation) %></a>
           </div>
         </div>
-          <div class="card mb-3 mb-lg-5">
-            <div class="card-header">
-              <h5 class="card-title mt-3">Adresse </h5>
-            </div>
+        <div class="card mb-3 mb-lg-5">
+          <div class="card-header">
+            <h5 class="card-title mt-3">Adresse </h5>
+          </div>
           <div class="card-body">
-              <div class="row">
-                <label for="locationLabel" class="col-sm-4 col-form-label input-label" style="color:gray;">NUMERO DE RUE</label>
-                <div class="col-sm-8 pt-2">
-                    <p><%= @organisation.address.number %></p>
-                </div>
+            <div class="row">
+              <label for="locationLabel" class="col-sm-4 col-form-label input-label" style="color:gray;">NUMERO DE RUE</label>
+              <div class="col-sm-8 pt-2">
+                <p><%= @organisation.address.number %></p>
               </div>
-              <hr>
-              <div class="row">
-                <label for="addressLine1Label" class="col-sm-4 col-form-label input-label" style="color:gray;">RUE</label>
-                <div class="col-sm-8 pt-2">
+            </div>
+            <hr>
+            <div class="row">
+              <label for="addressLine1Label" class="col-sm-4 col-form-label input-label" style="color:gray;">RUE</label>
+              <div class="col-sm-8 pt-2">
                 <p><%= @organisation.address.street %></p>
-                </div>
               </div>
-              <hr>
-              <div class="row">
-                <label for="cityLabel" class="col-sm-4 col-form-label input-label" style="color:gray;">VILLE</label>
-                <div class="col-sm-8 pt-2">
-                  <p><%= @organisation.address.city %></p>
-                </div>
+            </div>
+            <hr>
+            <div class="row">
+              <label for="cityLabel" class="col-sm-4 col-form-label input-label" style="color:gray;">VILLE</label>
+              <div class="col-sm-8 pt-2">
+                <p><%= @organisation.address.city %></p>
               </div>
-              <hr>
-              <div class="row">
-                <label for="zipCodeLabel" class="col-sm-4 col-form-label input-label" style="color:gray;">CODE POSTAL </label>
-                <div class="col-sm-8 pt-2">
-                  <p><%= @organisation.address.zipcode %></p>
-                </div>
+            </div>
+            <hr>
+            <div class="row">
+              <label for="zipCodeLabel" class="col-sm-4 col-form-label input-label" style="color:gray;">CODE POSTAL </label>
+              <div class="col-sm-8 pt-2">
+                <p><%= @organisation.address.zipcode %></p>
               </div>
-              <hr>
-              <div class="row">
-                <label for="zipCodeLabel" class="col-sm-4 col-form-label input-label" style="color:gray;">PAYS</label>
-                <div class="col-sm-8 pt-2">
-                  <p><%= @organisation.address.country %></p>
-                </div>
+            </div>
+            <hr>
+            <div class="row">
+              <label for="zipCodeLabel" class="col-sm-4 col-form-label input-label" style="color:gray;">PAYS</label>
+              <div class="col-sm-8 pt-2">
+                <p><%= @organisation.address.country %></p>
               </div>
+            </div>
           </div>
           <div class="card-footer d-flex justify-content-end">
             <a class="btn btn-success" <%= link_to "Editer les informations", edit_organisation_path(current_user.organisation) %></a>
           </div>
-          </div>
-          <br>
-          <div class="card d-flex justify-content-end">
-            <%= link_to "Supprimer l'asso", organisation_path(current_user.organisation), method: :delete, class: "btn btn-primary", data: {confirm: "Etes vous sur?"}  %>
-          </div>
         </div>
-
+        <br>
+        <div class="card d-flex justify-content-end">
+          <%= link_to "Supprimer l'asso", organisation_path(current_user.organisation), method: :delete, class: "btn btn-primary", data: {confirm: "Etes vous sur?"}  %>
+        </div>
       </div>
     </div>
-</main>
+  </div>
+</section>

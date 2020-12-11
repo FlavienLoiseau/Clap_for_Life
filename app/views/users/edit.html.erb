@@ -1,102 +1,97 @@
-
-      <main id="content" role="main" class="bg-light">
-
-
-        <%= render 'users/cover'  %>
-
-        <div class="container space-1 space-top-lg-0 mt-lg-n10" style="position: relative ; top: -80px ;">
-          <div class="row">
-              <%= render 'users/left_column'  %>
-            <div class="col-lg-8">
-              <div class="card mb-3 mb-lg-5">
-                <div class="card-header">
-                  <h5 class="card-title mt-3">Editer le profil</h5>
+<main id="content" role="main" class="bg-light">
+  <%= render 'users/cover'  %>
+  <div class="container space-1 space-top-lg-0 mt-lg-n10" style="position: relative ; top: -80px ;">
+    <div class="row">
+      <%= render 'users/left_column'  %>
+      <div class="col-lg-8">
+        <div class="card mb-3 mb-lg-5">
+          <div class="card-header">
+            <h5 class="card-title mt-3">Editer le profil</h5>
+          </div>
+          <div class="card-body">
+            <%= simple_form_for @user do |f| %>
+              <div class=" row form-group">
+                <div class="col-sm-8 pt-2">
+                  <% if @user.avatar.attached?%>
+                    <%= image_tag @user.avatar, :class => "avatar avatar-xxl avatar-circle mb-3" %>
+                    <% default_picture = @user.avatar %>
+                  <% else %>
+                    <%= image_tag("person.png", :alt => "logo_person", :class => "avatar avatar-xxl avatar-circle mb-3") %>
+                  <% end %>
+                    <%= f.input :avatar, as: :file, value: default_picture, label: false %>
                 </div>
-                <div class="card-body">
-                  <%= simple_form_for @user do |f| %>
-                    <div class=" row form-group">
-                      <div class="col-sm-8 pt-2">
-                        <% if @user.avatar.attached?%>
-                        <%= image_tag @user.avatar, :class => "avatar avatar-xxl avatar-circle mb-3" %>
-                          <% default_picture = @user.avatar %>
-                        <% else %>
-                          <%= image_tag("person.png", :alt => "logo_person", :class => "avatar avatar-xxl avatar-circle mb-3") %>
-                        <% end %>
-                        <%= f.input :avatar, as: :file, value: default_picture, label: false %>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-sm-3 pt-1 d-block text-gray-dark" style="color:gray;">PSEUDONYME</div>
-                      <div class="col-sm-8">
-                        <%= f.input :username, class:"form-control m-3", label: false  %>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-sm-3 pt-1 d-block text-gray-dark" style="color:gray;">PRENOM</div>
-                      <div class="col-sm-8">
-                        <%= f.input :first_name, class:"form-control m-3", label: false  %>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-sm-3 pt-1 d-block text-gray-dark" style="color:gray;">NOM</div>
-                      <div class="col-sm-8">
-                        <%= f.input :last_name, class:"form-control m-3", label: false  %>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-sm-3 pt-1 d-block text-gray-dark" style="color:gray;">TELEPHONE</div>
-                      <div class="col-sm-8">
-                        <%= f.input :phone_number, class:"form-control m-3", label: false  %>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-sm-3 pt-1 d-block text-gray-dark" style="color:gray;">DATE DE NAISSANCE</div>
-                      <div class="col-sm-8">
-                        <%= f.input :date_of_birth, class:"form-control m-3", end_year: 2002, start_year: 1940, label: false, include_blank: true %>
-
-                      </div>
-                    </div>
-                    <hr>
-                    <h5>ADRESSE</h5>
-                  <%= f.simple_fields_for :address do |a| %>
+              </div>
+              <div class="row">
+                <div class="col-sm-3 pt-1 d-block text-gray-dark" style="color:gray;">PSEUDONYME</div>
+                <div class="col-sm-8">
+                  <%= f.input :username, class:"form-control m-3", label: false  %>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-3 pt-1 d-block text-gray-dark" style="color:gray;">PRENOM</div>
+                <div class="col-sm-8">
+                  <%= f.input :first_name, class:"form-control m-3", label: false  %>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-3 pt-1 d-block text-gray-dark" style="color:gray;">NOM</div>
+                <div class="col-sm-8">
+                  <%= f.input :last_name, class:"form-control m-3", label: false  %>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-3 pt-1 d-block text-gray-dark" style="color:gray;">TELEPHONE</div>
+                <div class="col-sm-8">
+                  <%= f.input :phone_number, class:"form-control m-3", label: false  %>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-3 pt-1 d-block text-gray-dark" style="color:gray;">DATE DE NAISSANCE</div>
+                <div class="col-sm-8">
+                  <%= f.input :date_of_birth, class:"form-control m-3", end_year: 2002, start_year: 1940, label: false, include_blank: true %>
+                </div>
+              </div>
+              <hr>
+              <h5>ADRESSE</h5>
+                <%= f.simple_fields_for :address do |a| %>
                   <div class=" row">
                     <div class="col-sm-3 pt-1 d-block text-gray-dark" style="color:gray;">NUMERO</div>
                     <div class="col-sm-8">
                       <%= a.input :number, class:"form-control m-3", placeholder: "4bis", label: false %>
                     </div>
                   </div>
-                    <div class="row">
-                      <div class="col-sm-3 pt-1 d-block text-gray-dark" style="color:gray;">RUE</div>
-                      <div class="col-sm-8">
-                        <%= a.input :street, class:"form-control m-3", placeholder: "rue du Père Noël", label: false %>
-                      </div>
+                  <div class="row">
+                    <div class="col-sm-3 pt-1 d-block text-gray-dark" style="color:gray;">RUE</div>
+                    <div class="col-sm-8">
+                      <%= a.input :street, class:"form-control m-3", placeholder: "rue du Père Noël", label: false %>
                     </div>
-                    <div class="row">
-                      <div class="col-sm-3 pt-1 d-block text-gray-dark" style="color:gray;">VILLE</div>
-                      <div class="col-sm-8">
-                        <%= a.input :city, class:"form-control m-3", placeholder: "Paris", label: false %>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-sm-3 pt-1 d-block text-gray-dark" style="color:gray;">CODE POSTAL</div>
-                      <div class="col-sm-8">
-                        <%= a.input :zipcode, class:"form-control m-3", placeholder: "75015", label: false %>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-sm-3 pt-1 d-block text-gray-dark" style="color:gray;">PAYS</div>
-                      <div class="col-sm-8 pt-2">
-                        <%= a.input :country, class:"form-control m-3", placeholder: "France", label: false %>
-                      </div>
-                    </div>
-                    <% end %>
                   </div>
-                    <div class="card-footer d-flex justify-content-end">
-                      <%= f.button :submit, 'Editer', class:"btn btn-success" %>
-                      <% end %>
+                  <div class="row">
+                    <div class="col-sm-3 pt-1 d-block text-gray-dark" style="color:gray;">VILLE</div>
+                    <div class="col-sm-8">
+                      <%= a.input :city, class:"form-control m-3", placeholder: "Paris", label: false %>
                     </div>
-                </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-3 pt-1 d-block text-gray-dark" style="color:gray;">CODE POSTAL</div>
+                    <div class="col-sm-8">
+                      <%= a.input :zipcode, class:"form-control m-3", placeholder: "75015", label: false %>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-3 pt-1 d-block text-gray-dark" style="color:gray;">PAYS</div>
+                    <div class="col-sm-8 pt-2">
+                      <%= a.input :country, class:"form-control m-3", placeholder: "France", label: false %>
+                    </div>
+                  </div>
+                <% end %>
+              </div>
+            <div class="card-footer d-flex justify-content-end">
+              <%= f.button :submit, 'Editer', class:"btn btn-success" %>
+              <% end %>
             </div>
           </div>
         </div>
-      </main>
+      </div>
+    </div>
+  </main>

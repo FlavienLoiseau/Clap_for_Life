@@ -1,21 +1,17 @@
 <main id="content" role="main" class="bg-light">
-
   <%= render 'users/cover'  %>
-
   <div class="container space-1 space-top-lg-0 mt-lg-n10" style="position: relative ; top: -80px ;">
     <div class="row">
         <%= render 'users/left_column'  %>
       <div class="col-lg-8">
-        <!-- Card -->
         <div class="card mb-3 mb-lg-5">
           <div class="card-header">
             <h5 class="card-title mt-3">Créer une mission</h5>
           </div>
-          <!-- Body -->
           <div class="card-body">
             <%= simple_form_for @mission,
-              :url => url_for(action: 'create'),
-              method: :post do |f|  %>
+            :url => url_for(action: 'create'),
+            method: :post do |f|  %>
               <%= f.input :cover, as: :file, label: false %>
               <%= f.input :title, class:"form-control m-3" %>
               <%= f.input :contact_first_name, class:"form-control m-3" %>
@@ -26,27 +22,20 @@
               <%= f.input :end_date, class:"form-control m-3" %>
               <%= f.input :volunteers_needed, class:"form-control m-3" %>
               <%= f.association :tags, class:"form-control m-3", as: :check_boxes %>
-               <%= f.simple_fields_for :address do |a| %>
+              <%= f.simple_fields_for :address do |a| %>
                 <%= a.input :number %>
                 <%= a.input :street %>
                 <%= a.input :city %>
                 <%= a.input :zipcode %>
                 <%= a.input :country %>
               <% end %>
-              <!-- End Form Group -->
-              </div>
-              <!-- Footer -->
-              <div class="card-footer d-flex justify-content-end">
-                <%= f.button :submit, 'Créer ma mission', class:'btn btn-success' %>
-                  <% end %>
-              </div>
-                <!-- End Footer -->
-          <!-- End Body -->
-
-        <!-- End Card -->
+          </div>
+          <div class="card-footer d-flex justify-content-end">
+              <%= f.button :submit, 'Créer ma mission', class:'btn btn-success' %>
+            <% end %>
+          </div>
+        </div>
+      </div>
     </div>
-    <!-- End Row -->
   </div>
-  <!-- End Content Section -->
 </main>
-<!-- ========== END MAIN ========== -->

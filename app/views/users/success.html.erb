@@ -1,14 +1,9 @@
-<!-- ========== MAIN ========== -->
 <main id="content" role="main" class="bg-light">
-
   <%= render 'users/cover'  %>
-
   <div class="container space-1 space-top-lg-0 mt-lg-n10" style="position: relative ; top: -80px ;">
     <div class="row">
       <%= render 'users/left_column' %>
-
       <div class="col-lg-8">
-        <!-- Card -->
         <div class="card mb-3 mb-lg-5">
           <div class="card-header">
             <h5 class="card-title mt-3">Trophées</h5>
@@ -17,18 +12,16 @@
             <p> Sur Clap for Life vous pouvez remporter des trophées lorsque vous atteignez certains objectifs.</p>
             <p> Plus vous contribuez à la plateforme, plus vous débloquerez de succès et plus vous serez reconnu au sein de la communauté de bénévole ! Vous pouvez voir la liste des trophées que vous avez gagnés et ceux qu'il vous reste à débloquer ci dessous.</p>
           </div>
-
-          <!-- Body -->
           <div class="card-body row">
             <%unless current_user.badges.blank?%>
                 <%current_user.badges.each do |badge|%>
-                <div class="col-10 align-items-center d-flex my-4 ml-4">
-                  <img class="organisation-example-photo" src="<%=badge.custom_fields[:image] unless badge.custom_fields.blank?%>">
+                  <div class="col-10 align-items-center d-flex my-4 ml-4">
+                    <img class="organisation-example-photo" src="<%=badge.custom_fields[:image] unless badge.custom_fields.blank?%>">
                     <div class="col-10 organisation-example-text">
                       <h6 class="text-shadow mb-0 pt-1"><%=badge.name%></h6>
                       <small><%= badge.description %></small><br>
-                      </div>
                     </div>
+                  </div>
                 <%end%>
               <%end%>
               <%@badges.each do |badge|%>
@@ -43,12 +36,7 @@
                 <%end%>
               <%end%>
           </div>
-          <!-- End Body -->
-
       </div>
     </div>
-    <!-- End Row -->
   </div>
-  <!-- End Content Section -->
 </main>
-<!-- ========== END MAIN ========== -->

@@ -1,35 +1,35 @@
-    <div class="container-fluid px-3">
-      <div class="row min-vh-100">
-        <div class="col-sm-12 col-md-12 col-lg-6 col-xl-5 d-flex align-items-center">
-          <div class="w-100 py-5 px-md-5 px-xl-6 position-relative">
-            <div class="mb-5">
-              <h1>Se connecter</h1>
-                <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-                  <div class="form-group">
-                    <%= f.label :email, "Email" %>
-                    <%= f.email_field :email, autofocus: true, autocomplete: 'email', class: 'form-control' %>
-                  </div>
-                  <div class="form-group">
-                    <%= f.label :password, "Mot de passe" %>
-                    <%= f.password_field :password, autocomplete: 'current-password', class: 'form-control' %>
-                  </div>
-                  <div class="col-auto"><a class="form-text small" href="#">Mot de passe oublié?</a></div>
-                  <% if devise_mapping.rememberable? %>
-                    <div class="custom-control custom-checkbox my-2">
-                      <input class="custom-control-input" id="loginRemember" type="checkbox">
-                      <label class="custom-control-label text-muted" for="loginRemember"> <span class="text-sm">Se souvenir de moi</span></label>
-                    </div>
-                  <% end %>
-                  <div class="form-group">
-                    <%= f.submit  "S'authentifier", class: 'btn btn-primary' %>
-                  </div>
-                <% end %>
-                <%= render 'devise/shared/links' %>
+<div class="container-fluid px-3">
+  <div class="row min-vh-100">
+    <div class="col-sm-12 col-md-12 col-lg-6 col-xl-5 d-flex align-items-center">
+      <div class="w-100 py-5 px-md-5 px-xl-6 position-relative">
+        <div class="mb-5">
+          <h1>Se connecter</h1>
+          <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+            <div class="form-group">
+              <%= f.label :email, "Email" %>
+              <%= f.email_field :email, autofocus: true, autocomplete: 'email', class: 'form-control' %>
+            </div>
+            <div class="form-group">
+              <%= f.label :password, "Mot de passe" %>
+              <%= f.password_field :password, autocomplete: 'current-password', class: 'form-control' %>
+            </div>
+            <div class="col-auto"><a class="form-text small" href="#">Mot de passe oublié?</a></div>
+              <% if devise_mapping.rememberable? %>
+                <div class="custom-control custom-checkbox my-2">
+                  <input class="custom-control-input" id="loginRemember" type="checkbox">
+                  <label class="custom-control-label text-muted" for="loginRemember"> <span class="text-sm">Se souvenir de moi</span></label>
+                </div>
+              <% end %>
+              <div class="form-group">
+                <%= f.submit  "S'authentifier", class: 'btn btn-primary' %>
               </div>
-            </div>
-            </div>
-            <div class="col-sm-0 col-md-0 col-lg-6 col-xl-6 d-none d-md-block">
-              <div class="bg-cover h-100 mr-n3" style="background-image: url(https://images.unsplash.com/photo-1593113598332-cd288d649433?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80);"></div>
-            </div>
-          </div>
+            <% end %>
+            <%= render 'devise/shared/links' %>
         </div>
+      </div>
+    </div>
+    <div class="col-sm-0 col-md-0 col-lg-6 col-xl-6 d-none d-md-block">
+      <div class="bg-cover h-100 mr-n3" style="background-image: url(https://images.unsplash.com/photo-1593113598332-cd288d649433?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80);"></div>
+    </div>
+  </div>
+</div>

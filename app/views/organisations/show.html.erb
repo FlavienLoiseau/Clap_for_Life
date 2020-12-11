@@ -1,87 +1,92 @@
-  <section class="py-5">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-3 mr-lg-auto">
-          <div class="card border-0 shadow mb-6 mb-lg-0">
-            <div class="card-header bg-gray-100 py-4 border-0 text-center">
+<section class="py-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-3 mr-lg-auto">
+        <div class="card border-0 shadow mb-6 mb-lg-0">
+          <div class="card-header bg-gray-100 py-4 border-0 text-center">
             <%if @organisation.logo.attached?%>
               <%= image_tag @organisation.logo, alt: 'logo', class: "avatar avatar-xxl avatar-circle mb-3" %>
             <%else%>
               <%= image_tag("high-five.png", :alt => "logo_person", :class => "avatar avatar-xxl avatar-circle mb-3") %>
             <%end%>
-              <h5><%= @organisation.name %></h5>
-              <p class="text-muted text-sm mb-0"><%= @organisation.address.number if @organisation.address%>, <%= @organisation.address.street if @organisation.address%></p>
-              <p class="text-muted text-sm mb-0"><%= @organisation.address.zipcode if @organisation.address%></p>
-              <p class="text-muted text-sm mb-0"><%= @organisation.address.country if @organisation.address%></p>
-            </div>
-            <div class="card-body p-4">
-              <h5 class="text-center mb-4">Par le passé</h5>
-              <div class="media align-items-center mb-3">
-                <div class="icon-rounded icon-rounded-sm bg-primary-light mr-2">
-                  <i class="fas fa-user-plus pl-1 pb-1" style="color:#d24d57"></i>
-                </div>
-                <div class="media-body">
-                  <p class="mb-0"><%= @organisation.missions.sum {|m| m.participations.count} %> bénévoles</p>
-                </div>
+            <h5><%= @organisation.name %></h5>
+            <p class="text-muted text-sm mb-0"><%= @organisation.address.number if @organisation.address%>, <%= @organisation.address.street if @organisation.address%></p>
+            <p class="text-muted text-sm mb-0"><%= @organisation.address.zipcode if @organisation.address%></p>
+            <p class="text-muted text-sm mb-0"><%= @organisation.address.country if @organisation.address%></p>
+          </div>
+          <div class="card-body p-4">
+            <h5 class="text-center mb-4">Par le passé</h5>
+            <div class="media align-items-center mb-3">
+              <div class="icon-rounded icon-rounded-sm bg-primary-light mr-2">
+                <i class="fas fa-user-plus pl-1 pb-1" style="color:#d24d57"></i>
               </div>
-              <div class="media align-items-center mb-3">
-                <div class="icon-rounded icon-rounded-sm bg-primary-light mr-2">
-                  <i class="far fa-calendar-check pb-1" style="color:#d24d57"></i>
-                </div>
-                <div class="media-body">
-                  <p class="mb-0"><%=@organisation.missions.count %> <%= "mission".pluralize(@organisation.missions.count)%></p>
-                </div>
+              <div class="media-body">
+                <p class="mb-0"><%= @organisation.missions.sum {|m| m.participations.count} %> bénévoles</p>
+              </div>
+            </div>
+            <div class="media align-items-center mb-3">
+              <div class="icon-rounded icon-rounded-sm bg-primary-light mr-2">
+                <i class="far fa-calendar-check pb-1" style="color:#d24d57"></i>
+              </div>
+              <div class="media-body">
+                <p class="mb-0"><%=@organisation.missions.count %> <%= "mission".pluralize(@organisation.missions.count)%></p>
               </div>
             </div>
           </div>
         </div>
-        <div class="col-lg-9 pl-lg-5">
-          <h1 class="hero-heading mb-0"><%= @organisation.name %></h1>
-          <div class="text-block">
-            <p> <span class="badge badge-secondary-light">Actif depuis <%=@organisation.registration_date.year%></span></p>
-            <p class="text-muted">Description de l'assocation:  </p>
-            <p class="text-muted"><%=@organisation.description%> </p>
-          </div>
-          <div class="text-block">
-            <h4 class="mb-5">Les missions proposées par <%=@organisation.name%></h4>
-            <div class="row">
-              <% @organisation.missions.each do |mission| %>
+      </div>
+      <div class="col-lg-9 pl-lg-5">
+        <h1 class="hero-heading mb-0"><%= @organisation.name %></h1>
+        <div class="text-block">
+          <p> <span class="badge badge-secondary-light">Actif depuis <%=@organisation.registration_date.year%></span></p>
+          <p class="text-muted">Description de l'assocation:  </p>
+          <p class="text-muted"><%=@organisation.description%> </p>
+        </div>
+        <div class="text-block">
+          <h4 class="mb-5">Les missions proposées par <%=@organisation.name%></h4>
+          <div class="row">
+            <% @organisation.missions.each do |mission| %>
               <div class="col-lg-5 col-md-5 col-sm-10 col-xs-10 mb-5 hover-animate" data-marker-id="59c0c8e33b1527bfe2abaf92">
                 <div class="card h-100 border-0 shadow">
                   <div class="card-img-top overflow-hidden dark-overlay bg-cover" style="height: 220px;">
-                  <%if mission.cover.attached?%>
-                    <%= image_tag mission.cover, alt: 'cover', width: "100%", height: "100%" %>
-                  <%else%>
-                    <img src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22286%22%20height%3D%22180%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20286%20180%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_1764d760105%20text%20%7B%20fill%3Argba(255%2C255%2C255%2C.75)%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A14pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_1764d760105%22%3E%3Crect%20width%3D%22286%22%20height%3D%22180%22%20fill%3D%22%23777%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%2299.4140625%22%20y%3D%2296.24375%22%3EImage%20cap%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" alt="cover" height="240">
-                  <%end%>
-                  <%= link_to "", organisation_mission_path(mission.organisation.id, mission.id), class: "tile-link"%>
+                    <%if mission.cover.attached?%>
+                      <%= image_tag mission.cover, alt: 'cover', width: "100%", height: "100%" %>
+                    <%else%>
+                      <img src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22286%22%20height%3D%22180%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20286%20180%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_1764d760105%20text%20%7B%20fill%3Argba(255%2C255%2C255%2C.75)%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A14pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_1764d760105%22%3E%3Crect%20width%3D%22286%22%20height%3D%22180%22%20fill%3D%22%23777%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%2299.4140625%22%20y%3D%2296.24375%22%3EImage%20cap%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" alt="cover" height="240">
+                    <%end%>
+                    <%= link_to "", organisation_mission_path(mission.organisation.id, mission.id), class: "tile-link"%>
                     <div class="card-img-overlay-bottom z-index-20">
                       <h4 class="text-white text-shadow"><%=mission.title%></h4>
                     </div>
                     <div class="card-img-overlay-top d-flex justify-content-between align-items-center">
                       <div class="badge badge-transparent badge-pill px-3 py-2 mt-2">
                         <%=mission.organisation.name%>
-                        </div>
+                      </div>
                     </div>
                   </div>
                   <div class="card-body">
-                    <i class="fas fa-search-location pr-2" style="color:#808080"></i><small style="color:#808080" class="pl-1"> <%if mission.address.present?%>
-                      <%=mission.address.city%>,  <%=mission.address.zipcode%>
-                      <%end%></small><br>
+                    <i class="fas fa-search-location pr-2" style="color:#808080"></i>
+                      <small style="color:#808080" class="pl-1">
+                        <%if mission.address.present?%>
+                          <%=mission.address.city%>,  <%=mission.address.zipcode%>
+                        <%end%>
+                      </small><br>
                     <i class="fas fa-users pr-2" style="color:#808080"></i><small style="color:#808080"> Besoin de <%=mission.volunteers_needed%> volontaires</small><br>
                     <i class="fas fa-calendar-day pr-2" style="color:#808080"></i><small style="color:#808080" class="pl-1"> Date: <%=mission.start_date.time.strftime("%-d/%-m/%y à %H:%M")%></small><br></p>
                     <%= link_to "Voir la mission", organisation_mission_path(mission.organisation.id, mission.id), class: "btn btn-primary mb-2"%><br>
                     <hr>
-                      <small style="color:#808080"> <%mission.tags.each do |tag|%>
-                      <li class="list-inline-item mr-3"><i class="fas fa-tags"></i> <%=tag.name%></li>
-                      <%end%></small>
+                    <small style="color:#808080">
+                      <%mission.tags.each do |tag|%>
+                        <li class="list-inline-item mr-3"><i class="fas fa-tags"></i> <%=tag.name%></li>
+                      <%end%>
+                    </small>
                   </div>
                 </div>
               </div>
-              <%end%>
-            </div>
+            <%end%>
           </div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>

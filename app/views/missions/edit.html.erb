@@ -1,11 +1,8 @@
 <main id="content" role="main" class="bg-light">
-
   <%= render 'users/cover'  %>
-
   <div class="container space-1 space-top-lg-0 mt-lg-n10" style="position: relative ; top: -80px ;">
     <div class="row">
       <%= render 'users/left_column' %>
-
       <div class="col-lg-8">
         <div class="card mb-3 mb-lg-5">
           <div class="card-header">
@@ -16,18 +13,18 @@
             url: url_for(action: 'update'),
             method: :put do |f| %>
               <%= f.input :cover, as: :file %>
-              <div class="row">
-                <div class="col-sm-3 pt-1 d-block text-gray-dark" style="color:gray;">NOM DE MISSION</div>
-                <div class="col-sm-8">
-              <%= f.input :title, class:"form-control m-3", label: false  %>
+                <div class="row">
+                  <div class="col-sm-3 pt-1 d-block text-gray-dark" style="color:gray;">NOM DE MISSION</div>
+                  <div class="col-sm-8">
+                    <%= f.input :title, class:"form-control m-3", label: false  %>
+                  </div>
                 </div>
-              </div>
               <hr>
               <h5 class="my-4">CONTACT DE L'ORGANISATEUR</h5>
               <div class="row">
                 <div class="col-sm-3 pt-1 d-block text-gray-dark" style="color:gray;">NOM</div>
                 <div class="col-sm-8">
-              <%= f.input :contact_first_name, class:"form-control m-3", label: false %>
+                  <%= f.input :contact_first_name, class:"form-control m-3", label: false %>
                 </div>
               </div>
               <div class="row">
@@ -47,13 +44,13 @@
               <div class="row">
                 <div class="col-sm-3 pt-1 d-block text-gray-dark" style="color:gray;">DESCRIPTION</div>
                 <div class="col-sm-8">
-              <%= f.input :description, class:"form-control m-3", label: false %>
+                  <%= f.input :description, class:"form-control m-3", label: false %>
                 </div>
               </div>
               <div class="row">
                 <div class="col-sm-3 pt-1 d-block text-gray-dark" style="color:gray;">DEBUT</div>
                 <div class="col-sm-8">
-              <%= f.input :start_date, class:"form-control m-3", label: false %>
+                  <%= f.input :start_date, class:"form-control m-3", label: false %>
                 </div>
               </div>
               <div class="row">

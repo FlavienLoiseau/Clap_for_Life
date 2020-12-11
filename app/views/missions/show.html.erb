@@ -1,137 +1,141 @@
-    <div class="container py-5">
-      <div class="row">
-        <div class="col-lg-8">
-          <div class="text-block">
-            <h1><%=@mission.title%></h1>
-            <p class="text-primary"><i class="fa-map-marker-alt fa mr-1"></i><%=@mission.address.number if @mission.address%>, <%=@mission.address.street if @mission.address%>, <%=@mission.address.city if @mission.address%>, <%=@mission.address.zipcode if @mission.address%>, <%=@mission.address.country if @mission.address%></p>
-            <p class="text-muted mb-4"> <%=@mission.start_date.strftime("Du %-d/%-m/%Y à %lh%H")%> - <%=@mission.end_date.strftime("Au %-d/%-m/%Y à %lh%H")%> </p>
-            <ul class="list-inline text-sm mb-4">
+<section>
+  <div class="container py-5">
+    <div class="row">
+      <div class="col-lg-8">
+        <div class="text-block">
+          <h1><%=@mission.title%></h1>
+          <p class="text-primary"><i class="fa-map-marker-alt fa mr-1"></i><%=@mission.address.number if @mission.address%>, <%=@mission.address.street if @mission.address%>, <%=@mission.address.city if @mission.address%>, <%=@mission.address.zipcode if @mission.address%>, <%=@mission.address.country if @mission.address%></p>
+          <p class="text-muted mb-4"> <%=@mission.start_date.strftime("Du %-d/%-m/%Y à %lh%H")%> - <%=@mission.end_date.strftime("Au %-d/%-m/%Y à %lh%H")%> </p>
+          <ul class="list-inline text-sm mb-4">
             <%@mission.tags.each do |tag| %>
               <li class="list-inline-item mr-3"><i class="fas fa-tags text-secondary"></i> <%=tag.name%></li>
             <%end%>
-            </ul>
-            <h6 class="mb-3">Descriptif de la mission </h6>
-            <p class="text-muted font-weight-light"><%=@mission.description%></p>
-
-            <h6 class="mb-3">Rappel</h6>
-            <p class="text-muted font-weight-light">En participant à une mission clap for life vous vous engagez à être présent le jour de la mission. Si vous souhaitez vous desinscire vous devez le faire au moins 24h à l avance pour laisser le temps aux responsables de trouver une solution pour vous remplacer. Merci de prevenir le responsable de la mission avant de vous désinscrire sur le site ! Les associations comptent sur vous ! Merci</p>
-          </div>
-          <div class="text-block">
-            <div class="media">
-            <%if @mission.organisation.logo.attached?%>
-              <%= image_tag @mission.organisation.logo, alt: 'logo', class: "avatar avatar-lg mr-4" %>
-            <%else%>
-              <%= image_tag("high-five.png", :alt => "logo_person", :class => "avatar avatar-lg mr-4") %>
-            <%end%>
-              <div class="media-body">
-                <p> <span class="text-muted text-uppercase text-sm">Mission proposée par </span><br><strong><%=@mission.organisation.name%></strong></p>
-                <p class="text-muted text-sm mb-2"><%=@mission.organisation.description%></p>
-                <p class="text-sm"><a <%=link_to "Voir la page de l association", organisation_path(@mission.organisation.id)%></p>
-              </div>
+          </ul>
+          <h6 class="mb-3">Descriptif de la mission </h6>
+          <p class="text-muted font-weight-light"><%=@mission.description%></p>
+          <h6 class="mb-3">Rappel</h6>
+          <p class="text-muted font-weight-light">En participant à une mission clap for life vous vous engagez à être présent le jour de la mission. Si vous souhaitez vous desinscire vous devez le faire au moins 24h à l avance pour laisser le temps aux responsables de trouver une solution pour vous remplacer. Merci de prevenir le responsable de la mission avant de vous désinscrire sur le site ! Les associations comptent sur vous ! Merci</p>
+        </div>
+        <div class="text-block">
+          <div class="media">
+          <%if @mission.organisation.logo.attached?%>
+            <%= image_tag @mission.organisation.logo, alt: 'logo', class: "avatar avatar-lg mr-4" %>
+          <%else%>
+            <%= image_tag("high-five.png", :alt => "logo_person", :class => "avatar avatar-lg mr-4") %>
+          <%end%>
+          <div class="media-body">
+              <p> <span class="text-muted text-uppercase text-sm">Mission proposée par </span><br><strong><%=@mission.organisation.name%></strong></p>
+              <p class="text-muted text-sm mb-2"><%=@mission.organisation.description%></p>
+              <p class="text-sm"><a <%=link_to "Voir la page de l association", organisation_path(@mission.organisation.id)%></p>
             </div>
           </div>
-          <div class="text-block">
-            <h5 class="mb-4">Localisation de la mission</h5>
-            <div class="mapouter"><div class="gmap_canvas"><iframe width="600" height="500" id="gmap_canvas" src="https://maps.google.com/maps?q=<%=@mission.address.number%>%20<%=@street%>%20<%=@mission.address.city%>%20<%=@mission.address.zipcode%>%20<%=@mission.address.country%>&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://embedgooglemap.net/131/">might</a></div><style>.mapouter{position:relative;text-align:right;height:500px;width:600px;}.gmap_canvas {overflow:hidden;background:none!important;height:500px;width:600px;}</style></div>
-          </div>
-
-          <div class="text-block">
-            <h5 class="mb-0">Ils se sont inscrits</h5>
-            <%if @mission.participations.blank?%>
+        </div>
+        <div class="text-block">
+          <h5 class="mb-4">Localisation de la mission</h5>
+          <div class="mapouter"><div class="gmap_canvas"><iframe width="600" height="500" id="gmap_canvas" src="https://maps.google.com/maps?q=<%=@mission.address.number%>%20<%=@street%>%20<%=@mission.address.city%>%20<%=@mission.address.zipcode%>%20<%=@mission.address.country%>&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://embedgooglemap.net/131/">might</a></div><style>.mapouter{position:relative;text-align:right;height:500px;width:600px;}.gmap_canvas {overflow:hidden;background:none!important;height:500px;width:600px;}</style></div>
+        </div>
+        <div class="text-block">
+          <h5 class="mb-0">Ils se sont inscrits</h5>
+          <%if @mission.participations.blank?%>
             <div class="media d-block d-sm-flex review">
-            Personne pour l'instant
+              Personne pour l'instant
             </div>
-            <%end%>
-            <%@mission.participations.each do |participation|%>
+          <%end%>
+          <%@mission.participations.each do |participation|%>
             <div class="media d-block d-sm-flex review">
               <%if participation.user.avatar.attached?%>
-                      <%= image_tag participation.user.avatar, alt: 'avatar', class: "avatar avatar-sm avatar-circle mb-3 mr-2" %>
-                    <%else%>
-                       <%= image_tag("person.png", :alt => "logo_person", class: "avatar avatar-sm avatar-circle mb-3") %>
-                    <%end%>
+                <%= image_tag participation.user.avatar, alt: 'avatar', class: "avatar avatar-sm avatar-circle mb-3 mr-2" %>
+              <%else%>
+                <%= image_tag("person.png", :alt => "logo_person", class: "avatar avatar-sm avatar-circle mb-3") %>
+              <%end%>
               <div class="media-body ml-4">
                 <h6 class="mt-2 mb-1"><%=participation.user.username%></h6>
                 <em>Trophées de l'utilisateur</em><br>
                 <%if participation.user.badges.present?%>
-                <%participation.user.badges.each do |badge|%>
-                  <img class="avatar avatar-16 img-circle" src="<%=badge.custom_fields[:image] unless badge.custom_fields.blank?%>">
+                  <%participation.user.badges.each do |badge|%>
+                    <img class="avatar avatar-16 img-circle" src="<%=badge.custom_fields[:image] unless badge.custom_fields.blank?%>">
+                  <%end%>
+                <%else%>
+                  <p><small> Cet utilisateur n'a pas encore débloqué de trophées </small></p>
                 <%end%>
-                 <%else%>
-                <p><small> Cet utilisateur n'a pas encore débloqué de trophées </small></p>
-              <%end%>
               </div>
             </div>
-            <%end%>
-          </div>
+          <%end%>
         </div>
-        <div class="col-lg-4">
-          <div class="p-4 shadow ml-lg-4 rounded sticky-top" style="top: 100px;">
-            <p class="text-muted">Places restantes : <span class="text-primary h4"><%=@mission.volunteers_needed - @mission.participations.count%>  </span></p>
-            <hr class="my-4">
-            <% if current_user.present? %>
-              <% if @mission.participations.any?{|p| p.user_id == current_user.id}%>
-                <%= link_to "Se désinscrire", organisation_mission_participation_path(@mission.organisation, @mission.id), method: :delete, class:"btn btn-danger", id: "checkout-button" %>
-              <% else %>
-                <%= simple_form_for @participation, :url => organisation_mission_participations_path(@mission.organisation, @mission.id), :method => :post do |f|%>
-                  <%= f.hidden_field :mission_id, value:"#{@mission.id}", class:"form-control m-3" %>
-                  <%= f.hidden_field :user_id, value: current_user.id, class:"form-control m-3" %>
-                  <%= f.button :submit, 'Participer', class:'btn btn-success' %>
-                <% end %>
-              <% end %>
+      </div>
+      <div class="col-lg-4">
+        <div class="p-4 shadow ml-lg-4 rounded sticky-top" style="top: 100px;">
+          <p class="text-muted">Places restantes : <span class="text-primary h4"><%=@mission.volunteers_needed - @mission.participations.count%>  </span></p>
+          <hr class="my-4">
+          <% if current_user.present? %>
+            <% if @mission.participations.any?{|p| p.user_id == current_user.id}%>
+              <%= link_to "Se désinscrire", organisation_mission_participation_path(@mission.organisation, @mission.id), method: :delete, class:"btn btn-danger", id: "checkout-button" %>
             <% else %>
-                <%= link_to "Participer", new_user_registration_path, class:"btn btn-success" %>
+              <%= simple_form_for @participation, :url => organisation_mission_participations_path(@mission.organisation, @mission.id), :method => :post do |f|%>
+                <%= f.hidden_field :mission_id, value:"#{@mission.id}", class:"form-control m-3" %>
+                <%= f.hidden_field :user_id, value: current_user.id, class:"form-control m-3" %>
+                <%= f.button :submit, 'Participer', class:'btn btn-success' %>
+              <% end %>
             <% end %>
-            <hr class="my-4">
-            <div class="text-center">
-              <p class="text-secondary text-sm" > Contact responsable de mission</p>
-              <p class="text-muted text-sm"><%=@mission.contact_first_name%> <%=@mission.contact_last_name%> </p>
-              <p class="text-muted text-sm"><%=@mission.contact_phone%> </p>
-            </div>
+          <% else %>
+                <%= link_to "Participer", new_user_registration_path, class:"btn btn-success" %>
+          <% end %>
+          <hr class="my-4">
+          <div class="text-center">
+            <p class="text-secondary text-sm" > Contact responsable de mission</p>
+            <p class="text-muted text-sm"><%=@mission.contact_first_name%> <%=@mission.contact_last_name%> </p>
+            <p class="text-muted text-sm"><%=@mission.contact_phone%> </p>
           </div>
         </div>
       </div>
     </div>
-    <div class="py-6 bg-gray-100">
-      <div class="container">
-        <h5 class="mb-0">Dans la même catégorie</h5>
-        </br>
-        <div class="row">
+  </div>
+  <div class="py-6 bg-gray-100">
+    <div class="container">
+      <h5 class="mb-0">Dans la même catégorie</h5><br>
+      <div class="row">
         <% @missions.each do |mission| %>
           <%unless (mission.tags.map {|tag| tag.name} & @mission.tags.map {|tag| tag.name} ).empty? || mission.id == @mission.id%>
             <div class="col-lg-4 col-md-6 col-sm-10 col-xs-10 mb-5 hover-animate" data-marker-id="59c0c8e33b1527bfe2abaf92">
               <div class="card h-100 border-0 shadow">
                 <div class="card-img-top overflow-hidden dark-overlay bg-cover" style="height: 220px;">
-                <%if mission.cover.attached?%>
-                  <%= image_tag mission.cover, alt: 'cover', width: "100%", height: "100%"  %>
-                <%else%>
-                  <img src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22286%22%20height%3D%22180%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20286%20180%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_1764d760105%20text%20%7B%20fill%3Argba(255%2C255%2C255%2C.75)%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A14pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_1764d760105%22%3E%3Crect%20width%3D%22286%22%20height%3D%22180%22%20fill%3D%22%23777%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%2299.4140625%22%20y%3D%2296.24375%22%3EImage%20cap%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" alt="cover" height="240">
-                <%end%>
-                <%= link_to "", organisation_mission_path(mission.organisation.id, mission.id), class: "tile-link"%>
+                  <%if mission.cover.attached?%>
+                    <%= image_tag mission.cover, alt: 'cover', width: "100%", height: "100%"  %>
+                  <%else%>
+                    <img src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22286%22%20height%3D%22180%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20286%20180%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_1764d760105%20text%20%7B%20fill%3Argba(255%2C255%2C255%2C.75)%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A14pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_1764d760105%22%3E%3Crect%20width%3D%22286%22%20height%3D%22180%22%20fill%3D%22%23777%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%2299.4140625%22%20y%3D%2296.24375%22%3EImage%20cap%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" alt="cover" height="240">
+                  <%end%>
+                  <%= link_to "", organisation_mission_path(mission.organisation.id, mission.id), class: "tile-link"%>
                   <div class="card-img-overlay-bottom z-index-20">
                     <h4 class="text-white text-shadow"><%=mission.title%></h4>
                   </div>
                   <div class="card-img-overlay-top d-flex justify-content-between align-items-center">
                     <div class="badge badge-transparent badge-pill px-3 py-2 mt-2">
                       <%=mission.organisation.name%>
-                      </div>
+                    </div>
                   </div>
                 </div>
                 <div class="card-body">
-                  <i class="fas fa-search-location pr-2" style="color:#808080"></i><small style="color:#808080" class="pl-1"> <%if mission.address.present?%>
-                    <%=mission.address.city%>,  <%=mission.address.zipcode%>
-                    <%end%></small><br>
-                  <i class="fas fa-users pr-2" style="color:#808080"></i><small style="color:#808080"> Besoin de <%=mission.volunteers_needed%> volontaires</small><br>
-                  <i class="fas fa-calendar-day pr-2" style="color:#808080"></i><small style="color:#808080" class="pl-1"> Date: <%=mission.start_date.time.strftime("%-d/%-m/%y à %H:%M")%></small><br></p>
-                  <%= link_to "Voir la mission", organisation_mission_path(mission.organisation.id, mission.id), class: "btn btn-primary mb-2"%><br>
-                  <hr>
-                    <small style="color:#808080"> <%mission.tags.each do |tag|%>
-                    <li class="list-inline-item mr-3"><i class="fas fa-tags"></i> <%=tag.name%></li>
-                    <%end%></small>
+                  <i class="fas fa-search-location pr-2" style="color:#808080"></i>
+                    <small style="color:#808080" class="pl-1">
+                      <%if mission.address.present?%>
+                        <%=mission.address.city%>,  <%=mission.address.zipcode%>
+                      <%end%>
+                    </small><br>
+                    <i class="fas fa-users pr-2" style="color:#808080"></i><small style="color:#808080"> Besoin de <%=mission.volunteers_needed%> volontaires</small><br>
+                    <i class="fas fa-calendar-day pr-2" style="color:#808080"></i><small style="color:#808080" class="pl-1"> Date: <%=mission.start_date.time.strftime("%-d/%-m/%y à %H:%M")%></small><br></p>
+                    <%= link_to "Voir la mission", organisation_mission_path(mission.organisation.id, mission.id), class: "btn btn-primary mb-2"%><br>
+                    <hr>
+                    <small style="color:#808080">
+                      <%mission.tags.each do |tag|%>
+                        <li class="list-inline-item mr-3"><i class="fas fa-tags"></i> <%=tag.name%></li>
+                      <%end%>
+                    </small>
                 </div>
               </div>
             </div>
           <%end%>
         <%end%>
       </div>
-      </div>
     </div>
+  </div>
+</section>
