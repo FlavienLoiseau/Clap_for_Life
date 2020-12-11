@@ -439,20 +439,6 @@ mission = Mission.create(
   contact_last_name: "Martin",
   contact_phone: "0739834204",
   description: "Tous les jeudis soirs, nous organisons avec des bénévoles ponctuels une maraude de quartier dans le 11e arrondissement de Paris. Vous serez toujours accompagné d'un bénévole permanent afin de vous enseigner les bonnes pratiques logistiques aussi vous aider dans vos paroles et gestes auprès des sans-abri. Nous nous retrouvons en général pour deux heures à partir de 19h.",
-  start_date: DateTime.parse("23/12/2021 19:00"),
-  end_date: DateTime.parse("23/12/2021 21:00"),
-  volunteers_needed: 6,
-  tag_ids: [23, 22],
-)
-mission.cover.attach(io: File.open('./app/assets/images/cover12.jpeg'), filename: 'cover12.jpeg')
-
-mission = Mission.create(
-  organisation_id: 12,
-  title: "Maraudes",
-  contact_first_name: "Jean-Claude",
-  contact_last_name: "Martin",
-  contact_phone: "0739834204",
-  description: "Tous les jeudis soirs, nous organisons avec des bénévoles ponctuels une maraude de quartier dans le 11e arrondissement de Paris. Vous serez toujours accompagné d'un bénévole permanent afin de vous enseigner les bonnes pratiques logistiques aussi vous aider dans vos paroles et gestes auprès des sans-abri. Nous nous retrouvons en général pour deux heures à partir de 19h.",
   start_date: DateTime.parse("30/12/2020 19:00"),
   end_date: DateTime.parse("30/12/2020 21:00"),
   volunteers_needed: 6,
