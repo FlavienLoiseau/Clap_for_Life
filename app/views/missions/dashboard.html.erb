@@ -30,7 +30,7 @@
                               </div>
                             </div>
                           </div>
-                          <div class="col-xl-5 col-lg-10 col-md-12 mb-3 mb-md-0 mt-5">
+                          <div class="col-xl-5 col-lg-10 col-md-12 mb-3 mb-md-0 mt-4">
                             <p style="font-size:0.9rem; line-height: 0.8;"> Date: <%=mission.start_date.time.strftime("%-d/%-m/%y à %H:%M")%></p>
                             <p style="font-size:0.9rem; line-height: 0.8;">Lieu: <%=mission.address.city if mission.address%>,  <%=mission.address.zipcode if mission.address%></p>
                             <p style="font-size:0.9rem; line-height: 0.8;">Besoin de <%=mission.volunteers_needed%> volontaires</p>

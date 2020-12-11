@@ -1,16 +1,25 @@
 class Organisation < ApplicationRecord
+  validates :name,
+    presence: true,
+    length: { in: 10..50 }
+  validates :registration_number,
+    presence: true,
+    length: { maximum: 14 }
+  validates :registration_date, presence: true
+  validates :description,
+    presence: true,
+    length: { minimum:500, maximum: 10000 }
+
+
   belongs_to :user
   belongs_to :activity
 
   has_one :address, as: :addressable, dependent: :destroy
+  has_one_attached :logo, dependent: :destroy
 
   has_many :taggings, as: :taggable
   has_many :tags, through: :taggings
   has_many :missions, dependent: :destroy
-
-  has_one_attached :logo
-  has_one_attached :cover
-  has_many_attached :images
 
   accepts_nested_attributes_for :address, allow_destroy: true
 
@@ -37,7 +46,7 @@ class Organisation < ApplicationRecord
     else
       Organisation.all
     end
-    
+
   end
 
 end

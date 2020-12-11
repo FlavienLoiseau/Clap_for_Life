@@ -2,7 +2,7 @@
   <div class="container py-7 text-white overlay-content text-center">
     <div class="row py-2">
       <div class="col-xl-10 mx-auto">
-        <h1 class="display-3 font-weight-bold text-shadow">Devenez Bénévole</h1>
+        <h1 class="display-3 font-weight-bold text-shadow">Devenez bénévole</h1>
         <p class="text-lg text-shadow">ou proposez des missions associatives sur notre plateforme</p><br>
       </div>
     </div>
@@ -12,13 +12,13 @@
 <div class="container position-relative mt-n6 z-index-20">
   <ul class="nav nav-tabs search-bar-nav-tabs" role="tablist">
     <li class="nav-item mr-2"><a class="nav-link active" href="#mission" data-toggle="tab" role="tab">Rechercher une mission</a></li>
-    <li class="nav-item mr-2"><a class="nav-link " href="#orga" data-toggle="tab" role="tab">Rechercher une association</a></li>
+    <li class="nav-item mr-2"><a class="nav-link" href="#orga" data-toggle="tab" role="tab">Rechercher une association</a></li>
   </ul>
   <div class="search-bar search-bar-with-tabs p-3 p-lg-4">
-    <div class="tab-content">
-      <div class="tab-pane fade " id="orga" role="tabpanel">
+    <div class="tab-content d-flex">
+      <div class="tab-pane fade" id="orga" role="tabpanel">
         <%= form_tag(organisations_path, method: :get) do%>
-          <div class ="row">
+          <div class ="row justify-content-between">
             <%= select_tag :search, options_from_collection_for_select(Activity.all, :title, :title), class: "form-control border-0 shadow-0 col-5 ml-1", include_blank: "Thème" %>
             <%=text_field_tag(:location, params[:location], class: "form-control col-3 ml-1", placeholder: "Ville")%>
             <%= submit_tag "Rechercher", class: "btn btn-primary h-100 col-3 ml-1" %>
@@ -28,7 +28,7 @@
       <div class="tab-pane fade show active" id="mission" role="tabpanel">
         <%= form_tag(missions_path, method: :get) do%>
           <div class="tab-pane fade show active">
-            <div class ="row">
+            <div class ="row justify-content-between">
               <%=select_tag :search, options_from_collection_for_select(Tag.all, :name, :name), class: "form-control border-0 shadow-0 col-3", include_blank: "Tag" %>
               <%=text_field_tag(:location, params[:location], class: "form-control pr-4 col-3 ml-1", placeholder: "Ville")%>
               <%=date_field_tag(:start_date, params[:start_date], class: "form-control col-2 ml-1 ") %>
@@ -183,7 +183,7 @@
       <div class="card h-100 border-0 shadow">
         <div class="card-img-top overflow-hidden dark-overlay bg-cover" style="min-height: 200px;">
           <%if mission.cover.attached?%>
-          <%= image_tag mission.cover, alt: 'cover', height: "200" %>
+          <%= image_tag mission.cover, alt: 'cover', width: "100%" %>
           <%else%>
           <img src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22286%22%20height%3D%22180%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20286%20180%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_1764d760105%20text%20%7B%20fill%3Argba(255%2C255%2C255%2C.75)%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A14pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_1764d760105%22%3E%3Crect%20width%3D%22286%22%20height%3D%22180%22%20fill%3D%22%23777%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%2299.4140625%22%20y%3D%2296.24375%22%3EImage%20cap%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" alt="cover" height="240">
           <%end%>
