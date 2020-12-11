@@ -52,10 +52,12 @@
               <div class="media-body ml-4">
                 <h6 class="mt-2 mb-1"><%=participation.user.username%></h6>
                 <em>Trophées de l'utilisateur</em><br>
-                <%unless participation.user.badges.blank?%>
+                <%if participation.user.badges.present?%>
                 <%participation.user.badges.each do |badge|%>
                   <img class="avatar avatar-16 img-circle" src="<%=badge.custom_fields[:image] unless badge.custom_fields.blank?%>">
                 <%end%>
+                 <%else%>
+                <p><small> Cet utilisateur n'a pas encore débloqué de trophées </small></p>
               <%end%>
               </div>
             </div>
