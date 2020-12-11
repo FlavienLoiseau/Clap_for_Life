@@ -27,7 +27,7 @@ class Organisation < ApplicationRecord
 
     if search.present? && location.present?
       activity = Activity.find_by(title: search)
-      address = Address.find_by(city: location.strip)
+      address = Address.find_by(city: location.strip.capitalize)
       if address.present?
         Organisation.all.select{|o| o if o.activity.title == activity.title && o.address.city.downcase == address.city.downcase}
       else
@@ -37,7 +37,7 @@ class Organisation < ApplicationRecord
       activity = Activity.find_by(title: search)
       Organisation.all.select{|o| o if o.activity.title == activity.title}
     elsif search.blank? && location.present?
-      address = Address.find_by(city: location.strip)
+      address = Address.find_by(city: location.strip.capitalize)
       if address.present?
         Organisation.all.select{|o| o if o.address.city.downcase == address.city.downcase}
       else
