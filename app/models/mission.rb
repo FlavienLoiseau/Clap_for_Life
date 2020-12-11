@@ -1,20 +1,20 @@
 class Mission < ApplicationRecord
   validates :title,
     presence: true,
-    length: { in: 10..50 }
+    length: { in: 1..200 }
   validates :contact_first_name,
     presence: true,
-    length: { maximum: 30 }
+    length: { maximum: 50 }
   validates :contact_last_name,
     presence: true,
-    length: { maximum: 30 }
+    length: { maximum: 50 }
   validates :contact_phone,
     presence: true,
     numericality: true,
-    length: { minimum: 10, maximum: 15 }
+    length: { minimum: 8, maximum: 15 }
   validates :description,
     presence: true,
-    length: { minimum:500, maximum: 10000 }
+    length: { minimum:100, maximum: 10000 }
   validates :start_date, presence: true
   validates :end_date, presence: true
   validate :date_validation

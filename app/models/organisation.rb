@@ -1,14 +1,14 @@
 class Organisation < ApplicationRecord
   validates :name,
     presence: true,
-    length: { in: 10..50 }
+    length: { in: 3..50 }
   validates :registration_number,
     presence: true,
     length: { maximum: 14 }
   validates :registration_date, presence: true
   validates :description,
     presence: true,
-    length: { minimum:500, maximum: 10000 }
+    length: { minimum:50, maximum: 10000 }
 
 
   belongs_to :user
