@@ -2,7 +2,7 @@ class Tag < ApplicationRecord
   validates :name,
     presence: true,
     uniqueness: true,
-    length: { maximum: 50 }
+    length: { maximum: 70 }
 
   has_many :taggings
   has_many :organisations, through: :taggings, source: :taggable,

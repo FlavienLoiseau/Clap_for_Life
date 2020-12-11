@@ -9,7 +9,7 @@ class Activity < ApplicationRecord
     length: { minimum: 5, maximum: 30 }
   validates :description,
     presence: true,
-    length: { minimum: 500, maximum: 10000 }
+    length: { maximum: 10000 }
 
   has_many :organisations
 end
