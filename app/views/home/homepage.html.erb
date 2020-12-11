@@ -8,7 +8,6 @@
     </div>
   </div>
 </section>
-
 <div class="container position-relative mt-n6 z-index-20">
   <ul class="nav nav-tabs search-bar-nav-tabs" role="tablist">
     <li class="nav-item mr-2"><a class="nav-link active" href="#mission" data-toggle="tab" role="tab">Rechercher une mission</a></li>
@@ -40,47 +39,46 @@
     </div>
   </div>
 </div>
-
 <br><br>
-<% unless user_signed_in? %>
 <section class="py-6 bg-gray-100" style="position: relative ; top: -100px ;">
-  <div class="container">
-    <div class="text-center pb-lg-4">
-      <h3 class="mb-3 mt-5">Le concept de Clap for Life?</h3>
-      <p class="subtitle text-secondary mb-5">Faciliter l'accès au bénévolat ponctuel pour plus d'implication sociale des citoyens</p>
+  <% unless user_signed_in? %>
+    <div class="container">
+      <div class="text-center pb-lg-4">
+        <h3 class="mb-3 mt-5">Le concept de Clap for Life?</h3>
+        <p class="subtitle text-secondary mb-5">Faciliter l'accès au bénévolat ponctuel pour plus d'implication sociale des citoyens</p>
+      </div>
+      <div class="row">
+        <div class="col-lg-4 mb-3 mb-lg-0 text-center">
+          <div class="px-0 px-lg-3">
+            <div class="icon-rounded bg-primary-light mb-3 shadow">
+              <i class="fas fa-hand-holding-heart" style="color:#d24d57; font-size:200%"></i>
+            </div>
+            <h3 class="h5">Pour toi, bénévole</h3>
+            <p class="text-muted">Trouve une association ou une mission dont le combat t'inspire en fonction de la ville où tu te situes et tes disponibilités</p>
+            <a class="nav-link" <%= link_to "Crées-toi un compte utilisateur !", new_user_registration_path %></a>
+          </div>
+        </div>
+        <div class="col-lg-4 mb-3 mb-lg-0 text-center">
+          <div class="px-0 px-lg-3">
+            <div class="icon-rounded bg-primary-light mb-3 shadow">
+              <i class="far fa-handshake" style="color:#d24d57; font-size:200%"></i>
+            </div>
+            <h3 class="h5">Pour toi, association</h3>
+            <p class="text-muted">Trouve des bénévoles ponctuels plus facilement, plus rapidement, en quelques clics. Et tu gagnes en visibilité !</p>
+            <a class="nav-link" <%= link_to "Crées-toi un compte association !", new_user_registration_path %></a>
+          </div>
+        </div>
+        <div class="col-lg-4 mb-3 mb-lg-0 text-center">
+          <div class="px-0 px-lg-3">
+            <div class="icon-rounded bg-primary-light mb-3 shadow">
+              <i class="fas fa-walking" style="color:#d24d57; font-size:200%"></i>
+            </div>
+            <h3 class="h5">Pour toi, curieux</h3>
+            <p class="text-muted">Vas faire un tour du côté des associations et des missions et sois inspiré par les femmes et les hommes qui s'engagent pour une société plus juste.</p>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="row">
-      <div class="col-lg-4 mb-3 mb-lg-0 text-center">
-        <div class="px-0 px-lg-3">
-          <div class="icon-rounded bg-primary-light mb-3 shadow">
-            <i class="fas fa-hand-holding-heart" style="color:#d24d57; font-size:200%"></i>
-          </div>
-          <h3 class="h5">Pour toi, bénévole</h3>
-          <p class="text-muted">Trouve une association ou une mission dont le combat t'inspire en fonction de la ville où tu te situes et tes disponibilités</p>
-          <a class="nav-link" <%= link_to "Crées-toi un compte utilisateur !", new_user_registration_path %></a>
-        </div>
-      </div>
-      <div class="col-lg-4 mb-3 mb-lg-0 text-center">
-        <div class="px-0 px-lg-3">
-          <div class="icon-rounded bg-primary-light mb-3 shadow">
-            <i class="far fa-handshake" style="color:#d24d57; font-size:200%"></i>
-          </div>
-          <h3 class="h5">Pour toi, association</h3>
-          <p class="text-muted">Trouve des bénévoles ponctuels plus facilement, plus rapidement, en quelques clics. Et tu gagnes en visibilité !</p>
-          <a class="nav-link" <%= link_to "Crées-toi un compte association !", new_user_registration_path %></a>
-        </div>
-      </div>
-      <div class="col-lg-4 mb-3 mb-lg-0 text-center">
-        <div class="px-0 px-lg-3">
-          <div class="icon-rounded bg-primary-light mb-3 shadow">
-            <i class="fas fa-walking" style="color:#d24d57; font-size:200%"></i>
-          </div>
-          <h3 class="h5">Pour toi, curieux</h3>
-          <p class="text-muted">Vas faire un tour du côté des associations et des missions et sois inspiré par les femmes et les hommes qui s'engagent pour une société plus juste.</p>
-        </div>
-      </div>
-    </div>
-  </div>
   <% end %>
 </section>
 <section>
@@ -96,123 +94,127 @@
       </div>
     </div>
     <div class="row d-flex container mt-5">
-        <div class="col-lg-4 col-md-6 col-sm-10 col-xs-10 my-3 align-items-center organisation-example d-flex hover-animate"><a class="tile-link" href="/organisations?search=Droits+de+l%27Homme&location=&commit=Rechercher"> </a>
-          <%= image_tag("https://images.unsplash.com/photo-1593115057322-e94b77572f20?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1051&q=80", :alt => "human_rights", class: "organisation-example-photo shadow-sm") %>
-          <div class="organisation-example-text">
-            <h6 class="text-shadow mb-0 pt-1">Droits de l'homme</h6>
-            <small>Défense des droits de tous les citoyens</small><br>
-            <small style="color:gray; font-style:italic;"> <%=Organisation.where(activity_id: 1).count%> associations</small>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-6 col-sm-10 col-xs-10 my-3 align-items-center organisation-example d-flex hover-animate"><a class="tile-link" href="/organisations?search=Education&location=&commit=Rechercher"> </a>
-          <%= image_tag("https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=666&q=80", :alt => "education", class: "organisation-example-photo shadow-sm") %>
-          <div class="organisation-example-text">
-            <h6 class="text-shadow mb-0 pt-1">Education</h6>
-            <small>Promotion de l'égalité des chances</small><br>
-            <small style="color:gray; font-style:italic;"> <%=Organisation.where(activity_id: 2).count%> associations</small>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-6 col-sm-10 col-xs-10 my-3 align-items-center organisation-example d-flex hover-animate"><a class="tile-link" href="/organisations?search=Santé&location=&commit=Rechercher"> </a>
-          <%= image_tag("https://images.unsplash.com/photo-1584982751601-97dcc096659c?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1052&q=80", :alt => "health", class: "organisation-example-photo shadow-sm") %>
-          <div class="organisation-example-text">
-            <h6 class="text-shadow mb-0 pt-1">Santé</h6>
-            <small>Prévention et protection sanitaire</small><br>
-            <small style="color:gray; font-style:italic;"> <%=Organisation.where(activity_id: 3).count%> associations</small>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-6 col-sm-10 col-xs-10 my-3 align-items-center organisation-example d-flex hover-animate"><a class="tile-link" href="/organisations?search=Interventions+sociales&location=&commit=Rechercher"> </a>
-          <%= image_tag("https://images.unsplash.com/photo-1591045211820-2fe94117fe18?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1072&q=80", :alt => "intervention", class: "organisation-example-photo shadow-sm") %>
-          <div class="organisation-example-text">
-            <h6 class="text-shadow mb-0 pt-1">Interventions sociales</h6>
-            <small>Lutte contre les violences</small><br>
-            <small style="color:gray; font-style:italic;"> <%=Organisation.where(activity_id: 5).count%> associations</small>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-6 col-sm-10 col-xs-10 my-3 align-items-center organisation-example d-flex hover-animate"><a class="tile-link" href="/organisations?search=Humanitaire+et+précarité&location=&commit=Rechercher"> </a>
-          <%= image_tag("https://images.unsplash.com/photo-1519430044529-9a9a57177865?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1061&q=80", :alt => "charity", class: "organisation-example-photo shadow-sm") %>
-          <div class="organisation-example-text">
-            <h6 class="text-shadow mb-0 pt-1">Humanitaire, précarité</h6>
-            <small>Charité envers les ceux dans le besoin</small><br>
-            <small style="color:gray; font-style:italic;"> <%=Organisation.where(activity_id: 6).count%> associations</small>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-6 col-sm-10 col-xs-10 my-3 align-items-center organisation-example d-flex hover-animate"><a class="tile-link" href="/organisations?search=Services+aux+personnes+âgées&location=&commit=Rechercher"> </a>
-          <%= image_tag("https://images.pexels.com/photos/339620/pexels-photo-339620.jpeg?auto=compress&cs=tinysrgb&h=650&w=940", :alt => "elderly", class: "organisation-example-photo shadow-sm") %>
-          <div class="organisation-example-text">
-            <h6 class="text-shadow mb-0 pt-1">Services aux personnes âgées</h6>
-            <small>Accompagnement des ainés</small><br>
-            <small style="color:gray; font-style:italic;"> <%=Organisation.where(activity_id: 7).count%> associations</small>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-6 col-sm-10 col-xs-10 my-3 align-items-center organisation-example d-flex hover-animate"><a class="tile-link" href="/organisations?search=Médico-social&location=&commit=Rechercher"> </a>
-          <%= image_tag("https://images.pexels.com/photos/2026764/pexels-photo-2026764.jpeg?auto=compress&cs=tinysrgb&h=650&w=940", :alt => "medico-soc", class: "organisation-example-photo shadow-sm") %>
-          <div class="organisation-example-text">
-            <h6 class="text-shadow mb-0 pt-1">Médico-social</h6>
-            <small>Soutien aux personnes vulnérables</small><br>
-            <small style="color:gray; font-style:italic;"> <%=Organisation.where(activity_id: 4).count%> associations</small>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-6 col-sm-10 col-xs-10 my-3 align-items-center organisation-example d-flex hover-animate"><a class="tile-link" href="/organisations?search=Environnement&location=&commit=Rechercher"> </a>
-          <%= image_tag("https://images.pexels.com/photos/9198/nature-sky-twilight-grass-9198.jpg?auto=compress&cs=tinysrgb&h=650&w=940", :alt => "environment", class: "organisation-example-photo shadow-sm") %>
-          <div class="organisation-example-text">
-            <h6 class="text-shadow mb-0 pt-1">Environnement</h6>
-            <small>Protection de l'eco-système</small><br>
-            <small style="color:gray; font-style:italic;"> <%=Organisation.where(activity_id: 8).count%> associations</small>
-          </div>
+      <div class="col-lg-4 col-md-6 col-sm-10 col-xs-10 my-3 align-items-center organisation-example d-flex hover-animate"><a class="tile-link" href="/organisations?search=Droits+de+l%27Homme&location=&commit=Rechercher"> </a>
+        <%= image_tag("https://images.unsplash.com/photo-1593115057322-e94b77572f20?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1051&q=80", :alt => "human_rights", class: "organisation-example-photo shadow-sm") %>
+        <div class="organisation-example-text">
+          <h6 class="text-shadow mb-0 pt-1">Droits de l'homme</h6>
+          <small>Défense des droits de tous les citoyens</small><br>
+          <small style="color:gray; font-style:italic;"> <%=Organisation.where(activity_id: 1).count%> associations</small>
         </div>
       </div>
-    </div><br><br>
-
+      <div class="col-lg-4 col-md-6 col-sm-10 col-xs-10 my-3 align-items-center organisation-example d-flex hover-animate"><a class="tile-link" href="/organisations?search=Education&location=&commit=Rechercher"> </a>
+        <%= image_tag("https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=666&q=80", :alt => "education", class: "organisation-example-photo shadow-sm") %>
+        <div class="organisation-example-text">
+          <h6 class="text-shadow mb-0 pt-1">Education</h6>
+          <small>Promotion de l'égalité des chances</small><br>
+          <small style="color:gray; font-style:italic;"> <%=Organisation.where(activity_id: 2).count%> associations</small>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-10 col-xs-10 my-3 align-items-center organisation-example d-flex hover-animate"><a class="tile-link" href="/organisations?search=Santé&location=&commit=Rechercher"> </a>
+        <%= image_tag("https://images.unsplash.com/photo-1584982751601-97dcc096659c?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1052&q=80", :alt => "health", class: "organisation-example-photo shadow-sm") %>
+        <div class="organisation-example-text">
+          <h6 class="text-shadow mb-0 pt-1">Santé</h6>
+          <small>Prévention et protection sanitaire</small><br>
+          <small style="color:gray; font-style:italic;"> <%=Organisation.where(activity_id: 3).count%> associations</small>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-10 col-xs-10 my-3 align-items-center organisation-example d-flex hover-animate"><a class="tile-link" href="/organisations?search=Interventions+sociales&location=&commit=Rechercher"> </a>
+        <%= image_tag("https://images.unsplash.com/photo-1591045211820-2fe94117fe18?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1072&q=80", :alt => "intervention", class: "organisation-example-photo shadow-sm") %>
+        <div class="organisation-example-text">
+          <h6 class="text-shadow mb-0 pt-1">Interventions sociales</h6>
+          <small>Lutte contre les violences</small><br>
+          <small style="color:gray; font-style:italic;"> <%=Organisation.where(activity_id: 5).count%> associations</small>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-10 col-xs-10 my-3 align-items-center organisation-example d-flex hover-animate"><a class="tile-link" href="/organisations?search=Humanitaire+et+précarité&location=&commit=Rechercher"> </a>
+        <%= image_tag("https://images.unsplash.com/photo-1519430044529-9a9a57177865?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1061&q=80", :alt => "charity", class: "organisation-example-photo shadow-sm") %>
+        <div class="organisation-example-text">
+          <h6 class="text-shadow mb-0 pt-1">Humanitaire, précarité</h6>
+          <small>Charité envers les ceux dans le besoin</small><br>
+          <small style="color:gray; font-style:italic;"> <%=Organisation.where(activity_id: 6).count%> associations</small>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-10 col-xs-10 my-3 align-items-center organisation-example d-flex hover-animate"><a class="tile-link" href="/organisations?search=Services+aux+personnes+âgées&location=&commit=Rechercher"> </a>
+        <%= image_tag("https://images.pexels.com/photos/339620/pexels-photo-339620.jpeg?auto=compress&cs=tinysrgb&h=650&w=940", :alt => "elderly", class: "organisation-example-photo shadow-sm") %>
+        <div class="organisation-example-text">
+          <h6 class="text-shadow mb-0 pt-1">Services aux personnes âgées</h6>
+          <small>Accompagnement des ainés</small><br>
+          <small style="color:gray; font-style:italic;"> <%=Organisation.where(activity_id: 7).count%> associations</small>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-10 col-xs-10 my-3 align-items-center organisation-example d-flex hover-animate"><a class="tile-link" href="/organisations?search=Médico-social&location=&commit=Rechercher"> </a>
+        <%= image_tag("https://images.pexels.com/photos/2026764/pexels-photo-2026764.jpeg?auto=compress&cs=tinysrgb&h=650&w=940", :alt => "medico-soc", class: "organisation-example-photo shadow-sm") %>
+        <div class="organisation-example-text">
+          <h6 class="text-shadow mb-0 pt-1">Médico-social</h6>
+          <small>Soutien aux personnes vulnérables</small><br>
+          <small style="color:gray; font-style:italic;"> <%=Organisation.where(activity_id: 4).count%> associations</small>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-10 col-xs-10 my-3 align-items-center organisation-example d-flex hover-animate"><a class="tile-link" href="/organisations?search=Environnement&location=&commit=Rechercher"> </a>
+        <%= image_tag("https://images.pexels.com/photos/9198/nature-sky-twilight-grass-9198.jpg?auto=compress&cs=tinysrgb&h=650&w=940", :alt => "environment", class: "organisation-example-photo shadow-sm") %>
+        <div class="organisation-example-text">
+          <h6 class="text-shadow mb-0 pt-1">Environnement</h6>
+          <small>Protection de l'eco-système</small><br>
+          <small style="color:gray; font-style:italic;"> <%=Organisation.where(activity_id: 8).count%> associations</small>
+        </div>
+      </div>
+    </div>
+  </div><br><br>
 </section>
 <hr>
-<div class="container py-5">
-  <div class="row mb-5">
-    <div class="col-md-8">
-      <h2>Ces missions n'attendent que vous !</h2>
+<section>
+  <div class="container py-5">
+    <div class="row mb-5">
+      <div class="col-md-8">
+        <h2>Ces missions n'attendent que vous !</h2>
+      </div>
+      <div class="col-md-4 d-md-flex align-items-center justify-content-end ">
+        <%= link_to missions_path do %>
+          <div>Voir toutes les missions<i class="fas fa-angle-double-right ml-2 "></i></div>
+        <%end%>
+      </div>
     </div>
-    <div class="col-md-4 d-md-flex align-items-center justify-content-end ">
-      <%= link_to missions_path do %>
-      <div>Voir toutes les missions<i class="fas fa-angle-double-right ml-2 "></i></div>
-      <%end%>
-    </div>
-  </div>
-  <div class="row">
-    <% @missions.each do |mission| %>
-    <% unless mission.start_date < DateTime.now%>
-    <div class="col-lg-4 col-md-6 col-sm-10 col-xs-10 mb-5 hover-animate" data-marker-id="59c0c8e33b1527bfe2abaf92">
-      <div class="card h-100 border-0 shadow">
-        <div class="card-img-top overflow-hidden dark-overlay bg-cover" style="height: 220px;">
-          <%if mission.cover.attached?%>
-          <%= image_tag mission.cover, alt: 'cover', width: "100%", height: "100%" %>
-          <%else%>
-          <img src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22286%22%20height%3D%22180%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20286%20180%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_1764d760105%20text%20%7B%20fill%3Argba(255%2C255%2C255%2C.75)%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A14pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_1764d760105%22%3E%3Crect%20width%3D%22286%22%20height%3D%22180%22%20fill%3D%22%23777%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%2299.4140625%22%20y%3D%2296.24375%22%3EImage%20cap%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" alt="cover" height="240">
-          <%end%>
-          <%= link_to "", organisation_mission_path(mission.organisation.id, mission.id), class: "tile-link"%>
-          <div class="card-img-overlay-bottom z-index-20">
-            <h4 class="text-white text-shadow"><%=mission.title%></h4>
-          </div>
-          <div class="card-img-overlay-top d-flex justify-content-between align-items-center">
-            <div class="badge badge-transparent badge-pill px-3 py-2 mt-2">
-              <%=mission.organisation.name%>
+    <div class="row">
+      <% @missions.each do |mission| %>
+        <% unless mission.start_date < DateTime.now%>
+        <div class="col-lg-4 col-md-6 col-sm-10 col-xs-10 mb-5 hover-animate" data-marker-id="59c0c8e33b1527bfe2abaf92">
+          <div class="card h-100 border-0 shadow">
+            <div class="card-img-top overflow-hidden dark-overlay bg-cover" style="height: 220px;">
+              <%if mission.cover.attached?%>
+                <%= image_tag mission.cover, alt: 'cover', width: "100%", height: "100%" %>
+              <%else%>
+                <img src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22286%22%20height%3D%22180%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20286%20180%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_1764d760105%20text%20%7B%20fill%3Argba(255%2C255%2C255%2C.75)%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A14pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_1764d760105%22%3E%3Crect%20width%3D%22286%22%20height%3D%22180%22%20fill%3D%22%23777%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%2299.4140625%22%20y%3D%2296.24375%22%3EImage%20cap%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" alt="cover" height="240">
+              <%end%>
+              <%= link_to "", organisation_mission_path(mission.organisation.id, mission.id), class: "tile-link"%>
+              <div class="card-img-overlay-bottom z-index-20">
+                <h4 class="text-white text-shadow"><%=mission.title%></h4>
+              </div>
+              <div class="card-img-overlay-top d-flex justify-content-between align-items-center">
+                <div class="badge badge-transparent badge-pill px-3 py-2 mt-2">
+                  <%=mission.organisation.name%>
+                </div>
+              </div>
+            </div>
+            <div class="card-body">
+              <i class="fas fa-search-location pr-2" style="color:#808080"></i>
+              <small style="color:#808080" class="pl-1">
+                <%if mission.address.present?%>
+                  <%=mission.address.city%>,  <%=mission.address.zipcode%>
+                <%end%>
+              </small><br>
+              <i class="fas fa-users pr-2" style="color:#808080"></i><small style="color:#808080"> Besoin de <%=mission.volunteers_needed%> volontaires</small><br>
+              <i class="fas fa-calendar-day pr-2" style="color:#808080"></i><small style="color:#808080" class="pl-1"> Date: <%=mission.start_date.time.strftime("%-d/%-m/%y à %H:%M")%></small><br></p>
+              <%= link_to "Voir la mission", organisation_mission_path(mission.organisation.id, mission.id), class: "btn btn-primary mb-2"%><br>
+              <hr>
+              <small style="color:#808080">
+                <%mission.tags.each do |tag|%>
+                  <li class="list-inline-item mr-3"><i class="fas fa-tags"></i> <%=tag.name%></li>
+                <%end%>
+              </small>
             </div>
           </div>
         </div>
-        <div class="card-body">
-          <i class="fas fa-search-location pr-2" style="color:#808080"></i><small style="color:#808080" class="pl-1"> <%if mission.address.present?%>
-            <%=mission.address.city%>,  <%=mission.address.zipcode%>
-            <%end%></small><br>
-            <i class="fas fa-users pr-2" style="color:#808080"></i><small style="color:#808080"> Besoin de <%=mission.volunteers_needed%> volontaires</small><br>
-            <i class="fas fa-calendar-day pr-2" style="color:#808080"></i><small style="color:#808080" class="pl-1"> Date: <%=mission.start_date.time.strftime("%-d/%-m/%y à %H:%M")%></small><br></p>
-            <%= link_to "Voir la mission", organisation_mission_path(mission.organisation.id, mission.id), class: "btn btn-primary mb-2"%><br>
-            <hr>
-            <small style="color:#808080"> <%mission.tags.each do |tag|%>
-              <li class="list-inline-item mr-3"><i class="fas fa-tags"></i> <%=tag.name%></li>
-              <%end%>
-            </small>
-          </div>
-        </div>
-      </div>
-      <%end%>
+        <%end%>
       <%end%>
     </div>
   </div>

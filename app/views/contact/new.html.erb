@@ -12,11 +12,11 @@
         <%= simple_form_for @contact,
         :url => url_for(action: 'create'),
         method: :post do |f|  %>
-        <%= f.input :first_name, class:"form-control m-3" %>
-        <%= f.input :last_name, class:"form-control m-3" %>
-        <%= f.input :email, class:"form-control m-3" %>
-        <%= f.input :email_content, class:"form-control m-3" %>
-        <%= f.button :submit, 'Envoyer', class:'btn btn-success' %>
+          <%= f.input :first_name, class:"form-control m-3" %>
+          <%= f.input :last_name, class:"form-control m-3" %>
+          <%= f.input :email, class:"form-control m-3" %>
+          <%= f.input :email_content, class:"form-control m-3" %>
+          <%= f.button :submit, 'Envoyer', class:'btn btn-success' %>
         <% end %>
       </div>
       <div class="col-md-5">

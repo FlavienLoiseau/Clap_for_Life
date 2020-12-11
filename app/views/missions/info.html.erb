@@ -1,184 +1,136 @@
-<!-- ========== MAIN ========== -->
 <main id="content" role="main" class="bg-light">
-
   <%= render 'users/cover'  %>
-
   <div class="container space-1 space-top-lg-0 mt-lg-n10" style="position: relative ; top: -80px ;">
     <div class="row">
       <%= render 'users/left_column'  %>
-
       <div class="col-lg-8">
-        <!-- Card -->
         <div class="card mb-3 mb-lg-5">
           <div class="card-header">
             <h5 class="card-title mt-3">Informations sur l'association</h5>
           </div>
-
-          <!-- Body -->
           <div class="card-body">
-            <!-- Form Group -->
             <div class=" row form-group">
               <label for="firstNameLabel" class="col-sm-4 col-form-label" style="color:gray;">Image mission </label>
-                <div class="col-sm-8 pt-2">
-                  <%if @mission.cover.present?%>
-                     <%= image_tag @mission.cover, alt: 'cover', class: "image-dashboard-mission shadow-sm" %>
-                  <%else%>
-                    <img src="https://media.discordapp.net/attachments/757539327998951525/785913233511809054/pexels-photo-1546105.jpeg?width=995&height=663" alt="cover" height="240">
-                   <%end%>
+              <div class="col-sm-8 pt-2">
+                <%if @mission.cover.present?%>
+                  <%= image_tag @mission.cover, alt: 'cover', class: "image-dashboard-mission shadow-sm" %>
+                <%else%>
+                  <img src="https://media.discordapp.net/attachments/757539327998951525/785913233511809054/pexels-photo-1546105.jpeg?width=995&height=663" alt="cover" height="240">
+                <%end%>
               </div>
             </div>
-            <!-- End Form Group -->
-
-              <!-- Form Group -->
-              <div class=" row form-group">
-                <label for="firstNameLabel" class="col-sm-4 col-form-label " style="color:gray;">NOM DE LA MISSION </label>
-                  <div class="col-sm-8 pt-2">
-                    <p><%= @mission.title %></p>
-                </div>
+            <div class=" row form-group">
+              <label for="firstNameLabel" class="col-sm-4 col-form-label " style="color:gray;">NOM DE LA MISSION </label>
+              <div class="col-sm-8 pt-2">
+                  <p><%= @mission.title %></p>
               </div>
-              <!-- End Form Group -->
-              <hr>
-              <!-- Form Group -->
-              <div class="row form-group">
-
-                <label for="firstNameLabel" class="col-sm-4 col-form-label input-label" style="color:gray;">Prénom contact</label>
-                  <div class="col-sm-8 pt-2">
-                    <p><%= @mission.contact_first_name %></p>
-                </div>
+            </div>
+            <hr>
+            <div class="row form-group">
+              <label for="firstNameLabel" class="col-sm-4 col-form-label input-label" style="color:gray;">Prénom contact</label>
+              <div class="col-sm-8 pt-2">
+                <p><%= @mission.contact_first_name %></p>
               </div>
-              <!-- End Form Group -->
-              <hr>
-              <!-- Form Group -->
-              <div class="row form-group">
-                <label for="emailLabel" class="col-sm-4 col-form-label input-label" style="color:gray;">Nom contact</label>
-                <div class="col-sm-8 pt-2">
-                  <p><%= @mission.contact_last_name %></p>
-                </div>
+            </div>
+            <hr>
+            <div class="row form-group">
+              <label for="emailLabel" class="col-sm-4 col-form-label input-label" style="color:gray;">Nom contact</label>
+              <div class="col-sm-8 pt-2">
+                <p><%= @mission.contact_last_name %></p>
               </div>
-              <!-- End Form Group -->
-              <hr>
-              <!-- Form Group -->
-              <div class="js-add-field row form-group">
-                <label for="phoneLabel" class="col-sm-4 col-form-label input-label" style="color:gray;">Tel contact</label>
-                <div class="col-sm-8 pt-2">
-                    <p><%= @mission.contact_phone %></p>
-                </div>
+            </div>
+            <hr>
+            <div class="js-add-field row form-group">
+              <label for="phoneLabel" class="col-sm-4 col-form-label input-label" style="color:gray;">Tel contact</label>
+              <div class="col-sm-8 pt-2">
+                  <p><%= @mission.contact_phone %></p>
               </div>
-              <!-- End Form Group -->
-              <hr>
-              <!-- Form Group -->
-              <div class="row form-group">
-                <label for="birthDateLabel" class="col-sm-4 col-form-label input-label" style="color:gray;">Description mission</label>
-                <div class="col-sm-8 pt-2">
-                  <p><%= @mission.description %></p>
-                </div>
+            </div>
+            <hr>
+            <div class="row form-group">
+              <label for="birthDateLabel" class="col-sm-4 col-form-label input-label" style="color:gray;">Description mission</label>
+              <div class="col-sm-8 pt-2">
+                <p><%= @mission.description %></p>
               </div>
-              <!-- End Form Group -->
-              <hr>
-              <!-- Form Group -->
-              <div class="js-add-field row form-group">
-                <label for="phoneLabel" class="col-sm-4 col-form-label input-label" style="color:gray;">Date de début</label>
-                <div class="col-sm-8 pt-2">
-                    <p><%= @mission.start_date %></p>
-                </div>
+            </div>
+            <hr>
+            <div class="js-add-field row form-group">
+              <label for="phoneLabel" class="col-sm-4 col-form-label input-label" style="color:gray;">Date de début</label>
+              <div class="col-sm-8 pt-2">
+                  <p><%= @mission.start_date %></p>
               </div>
-              <div class="js-add-field row form-group">
-                <label for="phoneLabel" class="col-sm-4 col-form-label input-label" style="color:gray;">Date de fin</label>
-                <div class="col-sm-8 pt-2">
-                    <p><%= @mission.end_date %></p>
-                </div>
+            </div>
+            <div class="js-add-field row form-group">
+              <label for="phoneLabel" class="col-sm-4 col-form-label input-label" style="color:gray;">Date de fin</label>
+              <div class="col-sm-8 pt-2">
+                  <p><%= @mission.end_date %></p>
               </div>
-              <div class="js-add-field row form-group">
-                <label for="phoneLabel" class="col-sm-4 col-form-label input-label" style="color:gray;">Besoin volontaires</label>
-                <div class="col-sm-8 pt-2">
-                    <p><%= @mission.volunteers_needed %></p>
-                </div>
+            </div>
+            <div class="js-add-field row form-group">
+              <label for="phoneLabel" class="col-sm-4 col-form-label input-label" style="color:gray;">Besoin volontaires</label>
+              <div class="col-sm-8 pt-2">
+                  <p><%= @mission.volunteers_needed %></p>
               </div>
-              <div class="js-add-field row form-group">
-                <label for="phoneLabel" class="col-sm-4 col-form-label input-label" style="color:gray;">Nombre d'inscrits</label>
-                <div class="col-sm-8 pt-2">
-                    <p><%= @mission.participations.count %></p>
-                </div>
+            </div>
+            <div class="js-add-field row form-group">
+              <label for="phoneLabel" class="col-sm-4 col-form-label input-label" style="color:gray;">Nombre d'inscrits</label>
+              <div class="col-sm-8 pt-2">
+                  <p><%= @mission.participations.count %></p>
               </div>
-              <!-- End Form Group -->
+            </div>
           </div>
-          <!-- End Body -->
-          <!-- Footer -->
           <div class="card-footer d-flex justify-content-end">
             <%= link_to "Editer la mission", edit_organisation_mission_path(@mission.organisation.id, @mission.id), class: "btn btn-success"%>
           </div>
-          <!-- End Footer -->
         </div>
-
-          <!-- Card -->
-          <div class="card mb-3 mb-lg-5">
-            <div class="card-header">
-              <h5 class="card-title mt-3">Adresse </h5>
-            </div>
-          <!-- Body -->
-          <div class="card-body">
-              <!-- Form Group -->
-              <div class="row">
-                <label for="locationLabel" class="col-sm-4 col-form-label input-label" style="color:gray;">NUMERO DE RUE</label>
-                <div class="col-sm-8 pt-2">
-                    <p><%= @mission.address.number %></p>
-                </div>
-              </div>
-              <!-- End Form Group -->
-              <hr>
-              <!-- Form Group -->
-              <div class="row">
-                <label for="addressLine1Label" class="col-sm-4 col-form-label input-label" style="color:gray;">RUE</label>
-                <div class="col-sm-8 pt-2">
-                <p><%= @mission.address.street %></p>
-                </div>
-              </div>
-              <!-- End Form Group -->
-              <hr>
-              <!-- Form Group -->
-              <div class="row">
-                <label for="cityLabel" class="col-sm-4 col-form-label input-label" style="color:gray;">VILLE</label>
-                <div class="col-sm-8 pt-2">
-                  <p><%= @mission.address.city %></p>
-                </div>
-              </div>
-              <!-- End Form Group -->
-              <hr>
-              <!-- Form Group -->
-              <div class="row">
-                <label for="zipCodeLabel" class="col-sm-4 col-form-label input-label" style="color:gray;">CODE POSTAL </label>
-                <div class="col-sm-8 pt-2">
-                  <p><%= @mission.address.zipcode %></p>
-                </div>
-              </div>
-              <!-- End Form Group -->
-              <hr>
-              <!-- Form Group -->
-              <div class="row">
-                <label for="zipCodeLabel" class="col-sm-4 col-form-label input-label" style="color:gray;">PAYS</label>
-                <div class="col-sm-8 pt-2">
-                  <p><%= @mission.address.country %></p>
-                </div>
-              </div>
-              <!-- End Form Group -->
-          <!-- End Body -->
+        <div class="card mb-3 mb-lg-5">
+          <div class="card-header">
+            <h5 class="card-title mt-3">Adresse </h5>
           </div>
-          <!-- Footer -->
+          <div class="card-body">
+            <div class="row">
+              <label for="locationLabel" class="col-sm-4 col-form-label input-label" style="color:gray;">NUMERO DE RUE</label>
+              <div class="col-sm-8 pt-2">
+                  <p><%= @mission.address.number %></p>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <label for="addressLine1Label" class="col-sm-4 col-form-label input-label" style="color:gray;">RUE</label>
+              <div class="col-sm-8 pt-2">
+                <p><%= @mission.address.street %></p>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <label for="cityLabel" class="col-sm-4 col-form-label input-label" style="color:gray;">VILLE</label>
+              <div class="col-sm-8 pt-2">
+                <p><%= @mission.address.city %></p>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <label for="zipCodeLabel" class="col-sm-4 col-form-label input-label" style="color:gray;">CODE POSTAL </label>
+              <div class="col-sm-8 pt-2">
+                <p><%= @mission.address.zipcode %></p>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <label for="zipCodeLabel" class="col-sm-4 col-form-label input-label" style="color:gray;">PAYS</label>
+              <div class="col-sm-8 pt-2">
+                <p><%= @mission.address.country %></p>
+              </div>
+            </div>
+          </div>
           <div class="card-footer d-flex justify-content-end">
             <%= link_to "Editer la mission", edit_organisation_mission_path(@mission.organisation.id, @mission.id), class: "btn btn-success"%>
-          </div>
-          <br>
+          </div><br>
           <div class="card-footer d-flex justify-content-end">
             <%= link_to "Supprimer la mission", organisation_mission_path(@mission.organisation.id, @mission.id), method: :delete, class: "btn btn-danger mb-2" ,data: {confirm: "Etes vous sur?"} %>
           </div>
-
-          <!-- End Footer -->
         </div>
-        <!-- End Card -->
       </div>
     </div>
-    <!-- End Row -->
   </div>
-  <!-- End Content Section -->
 </main>
-<!-- ========== END MAIN ========== -->

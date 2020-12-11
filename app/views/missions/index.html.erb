@@ -7,7 +7,7 @@
           <label class="form-label" for="form_search">Ville</label>
           <div class="input-label-absolute input-label-absolute-right">
             <div class="label-absolute"><i class="fa fa-search"></i></div>
-              <%=text_field_tag(:location, params[:location], class: "form-control pr-4", placeholder: "Ville")%>
+            <%=text_field_tag(:location, params[:location], class: "form-control pr-4", placeholder: "Ville")%>
           </div>
         </div>
         <div class="mb-4">
@@ -16,7 +16,7 @@
         </div>
         <div class="mb-4">
           <label class="form-label" for="form_search">Disponible à partir du</label>
-              <%=date_field_tag(:start_date, params[:start_date], class: "form-control") %>
+          <%=date_field_tag(:start_date, params[:start_date], class: "form-control") %>
         </div>
         <div class="pb-4">
           <div class="mb-4">
@@ -33,40 +33,43 @@
       </div>
       <div class="row">
         <% @missions.each do |mission| %>
-        <% unless mission.start_date < DateTime.now%>
-          <div class="col-lg-4 col-md-6 col-sm-10 col-xs-10 mb-5 hover-animate" data-marker-id="59c0c8e33b1527bfe2abaf92">
-            <div class="card h-100 border-0 shadow">
-              <div class="card-img-top overflow-hidden dark-overlay bg-cover" style="height: 220px;">
-                <%if mission.cover.attached?%>
-                  <%= image_tag mission.cover, alt: 'cover', width: "100%", height: "100%" %>
-                <%else%>
-                  <img src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22286%22%20height%3D%22180%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20286%20180%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_1764d760105%20text%20%7B%20fill%3Argba(255%2C255%2C255%2C.75)%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A14pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_1764d760105%22%3E%3Crect%20width%3D%22286%22%20height%3D%22180%22%20fill%3D%22%23777%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%2299.4140625%22%20y%3D%2296.24375%22%3EImage%20cap%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" alt="cover" height="240">
-                <%end%>
-                <%= link_to "", organisation_mission_path(mission.organisation.id, mission.id), class: "tile-link"%>
-                <div class="card-img-overlay-bottom z-index-20">
-                  <h4 class="text-white text-shadow"><%=mission.title%></h4>
-                </div>
-                <div class="card-img-overlay-top d-flex justify-content-between align-items-center">
-                  <div class="badge badge-transparent badge-pill px-3 py-2 mt-2">
-                    <%=mission.organisation.name%>
+          <% unless mission.start_date < DateTime.now%>
+            <div class="col-lg-4 col-md-6 col-sm-10 col-xs-10 mb-5 hover-animate" data-marker-id="59c0c8e33b1527bfe2abaf92">
+              <div class="card h-100 border-0 shadow">
+                <div class="card-img-top overflow-hidden dark-overlay bg-cover" style="height: 220px;">
+                  <%if mission.cover.attached?%>
+                    <%= image_tag mission.cover, alt: 'cover', width: "100%", height: "100%" %>
+                  <%else%>
+                    <img src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22286%22%20height%3D%22180%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20286%20180%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_1764d760105%20text%20%7B%20fill%3Argba(255%2C255%2C255%2C.75)%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A14pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_1764d760105%22%3E%3Crect%20width%3D%22286%22%20height%3D%22180%22%20fill%3D%22%23777%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%2299.4140625%22%20y%3D%2296.24375%22%3EImage%20cap%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" alt="cover" height="240">
+                  <%end%>
+                  <%= link_to "", organisation_mission_path(mission.organisation.id, mission.id), class: "tile-link"%>
+                  <div class="card-img-overlay-bottom z-index-20">
+                    <h4 class="text-white text-shadow"><%=mission.title%></h4>
+                  </div>
+                  <div class="card-img-overlay-top d-flex justify-content-between align-items-center">
+                    <div class="badge badge-transparent badge-pill px-3 py-2 mt-2">
+                      <%=mission.organisation.name%>
                     </div>
+                  </div>
                 </div>
-              </div>
-              <div class="card-body">
-                <i class="fas fa-search-location pr-2" style="color:#808080"></i><small style="color:#808080" class="pl-1"> <%if mission.address.present?%>
-                  <%=mission.address.city%>,  <%=mission.address.zipcode%>
-                  <%end%></small><br>
-                <i class="fas fa-users pr-2" style="color:#808080"></i><small style="color:#808080"> Besoin de <%=mission.volunteers_needed%> volontaires</small><br>
-                <i class="fas fa-calendar-day pr-2" style="color:#808080"></i><small style="color:#808080" class="pl-1"> Date: <%=mission.start_date.time.strftime("%-d/%-m/%y à %H:%M")%></small><br></p>
-                <%= link_to "Voir la mission", organisation_mission_path(mission.organisation.id, mission.id), class: "btn btn-primary mb-2"%><br>
-                <hr>
-                  <small style="color:#808080"> <%mission.tags.each do |tag|%>
-                  <li class="list-inline-item mr-3"><i class="fas fa-tags"></i> <%=tag.name%></li>
-                  <%end%></small>
+                <div class="card-body">
+                  <i class="fas fa-search-location pr-2" style="color:#808080"></i><small style="color:#808080" class="pl-1">
+                    <%if mission.address.present?%>
+                      <%=mission.address.city%>,  <%=mission.address.zipcode%>
+                    <%end%></small><br>
+                  <i class="fas fa-users pr-2" style="color:#808080"></i><small style="color:#808080"> Besoin de <%=mission.volunteers_needed%> volontaires</small><br>
+                  <i class="fas fa-calendar-day pr-2" style="color:#808080"></i><small style="color:#808080" class="pl-1"> Date: <%=mission.start_date.time.strftime("%-d/%-m/%y à %H:%M")%></small><br></p>
+                  <%= link_to "Voir la mission", organisation_mission_path(mission.organisation.id, mission.id), class: "btn btn-primary mb-2"%><br>
+                  <hr>
+                  <small style="color:#808080">
+                    <%mission.tags.each do |tag|%>
+                      <li class="list-inline-item mr-3"><i class="fas fa-tags"></i> <%=tag.name%></li>
+                    <%end%>
+                  </small>
+                </div>
               </div>
             </div>
-          </div>
-        <%end%>
+          <%end%>
         <%end%>
       </div>
     </div>
