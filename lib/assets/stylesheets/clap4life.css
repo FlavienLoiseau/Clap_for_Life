@@ -4381,7 +4381,21 @@ input[type="button"].btn-block {
   align-items: center;
   -ms-flex-pack: justify;
   justify-content: space-between;
-  padding: 0.8rem 0.8rem;
+  padding: 0.2rem 0.2rem;
+}
+
+.navbar-logo
+{
+  margin-top: -2%;
+}
+@media screen and (max-width: 1050px) {
+  .navbar-logo {
+    margin-left: 10px;
+  }
+} 
+.navbar-items
+{
+  margin-top: 20px;
 }
 
 .navbar .container,
